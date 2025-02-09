@@ -20,7 +20,8 @@ website:
       - href: show_cours_1.qmd
       - text: Exercices
       - href: exercice_semaine_1.qmd
-
+execute:
+  freeze: auto
 format:
   html:
     theme:

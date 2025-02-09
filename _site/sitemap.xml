@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>intro-statistique.netlify.app/show_cours_1.html</loc>
-    <lastmod>2025-02-09T01:11:34.736Z</lastmod>
+    <loc>intro-statistique.netlify.app/webexercises.html</loc>
+    <lastmod>2025-02-08T21:43:44.360Z</lastmod>
   </url>
   <url>
     <loc>intro-statistique.netlify.app/index.html</loc>
     <lastmod>2025-02-09T00:58:37.550Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/quarto_quiz.html</loc>
+    <lastmod>2025-02-08T21:13:30.422Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/show_quarto_quiz_1.html</loc>
+    <lastmod>2025-02-08T19:53:39.258Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/Untitled.html</loc>
+    <lastmod>2025-02-08T19:25:19.712Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/about.html</loc>
+    <lastmod>2025-02-08T18:49:19.053Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/show_cours_1.html</loc>
+    <lastmod>2025-02-09T01:11:34.736Z</lastmod>
   </url>
   <url>
     <loc>intro-statistique.netlify.app/exercice_semaine_1.html</loc>
