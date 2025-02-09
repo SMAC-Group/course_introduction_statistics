@@ -4,4 +4,5 @@
 
 
 [[plugins]]
+package = "@netlify/plugin-r"
 package = "@quarto/netlify-plugin-quarto"
