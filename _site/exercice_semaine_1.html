@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7f1aa4f89d3b9d7fdfff04ecf531b270.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c028d8dd6ff610142529bb95e16d7db6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="include/webex.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -94,16 +94,21 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Accueil</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Cours 1</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Cours</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-cours-1">    
-        <li class="dropdown-header">Cours</li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="./show_cours_1.html">
- <span class="dropdown-text">Cours</span></a>
+    <a class="dropdown-item" href="./cours_semaine_1.html">
+ <span class="dropdown-text">Cours Semaine 1</span></a>
   </li>  
-        <li class="dropdown-header">Exercices</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercices" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exercices</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercices">    
         <li>
     <a class="dropdown-item" href="./exercice_semaine_1.html">
  <span class="dropdown-text">Exercice Semaine 1</span></a>
@@ -112,10 +117,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Github</span>
-    </span>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SMAC-Group/course_introduction_statistics"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -128,15 +133,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -159,48 +156,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>
-This is a test: \( \beta \)
-</p>
-<p>\( \beta \)</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
-<div class="webex-check">
-<p>What is a p-value?</p>
-<div id="radio_WNICUYRWON" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WNICUYRWON" value=""> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_WNICUYRWON" value="answer"> <span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_WNICUYRWON" value=""> <span>the probability of making an error in your conclusion</span></label><label><input type="radio" autocomplete="off" name="radio_WNICUYRWON" value=""> <span>the value of \( \beta \) is a parameter in the model</span></label>
-</div>
-</div>
-<!-- Button for Explanation -->
-<button onclick="toggleAlert('The p-value is the probability of observing the data or something more extreme, given that the null hypothesis is true. For example, \\( \\beta \\) is a random variable.', 'explanation')">
-Explanation
-</button>
-<!-- Button for Hint -->
-<button onclick="toggleAlert('Consider how changes in the test statistic relate to the p-value, which depends on the sample data.', 'hint')">
-Hint
-</button>
-<!-- Alert Box -->
-<div id="myAlert" class="alert alert-info" style="display: none;">
-<p><strong id="alertType"></strong>: <span id="alertMessage"></span></p>
-</div>
 <!-- JavaScript -->
 <script type="text/javascript">
-function toggleAlert(message, type) {
-  var alertBox = document.getElementById("myAlert");
-  var alertMessage = document.getElementById("alertMessage");
-  var alertType = document.getElementById("alertType");
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
 
-  // Check if the alert box is currently visible
   if (alertBox.style.display === "block") {
-    // Hide the alert box if it's already visible
-    alertBox.style.display = "none";
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
   } else {
-    // Otherwise, show the alert box and set the message and type
     alertMessage.innerHTML = message;
-    alertType.innerHTML = (type === 'hint') ? 'Hint' : 'Explanation'; // Change title based on type
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFFF7F' : '#C0EDC2';  // Yellow for hint, green for explanation
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFE066' : '#81C784';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -209,29 +180,124 @@ function toggleAlert(message, type) {
 </script>
 <!-- CSS for Styling -->
 <style>
-/* Custom styles for the alert box */
-.alert {
-  padding: 15px;
-  color: black;
-  margin-bottom: 15px;
-  border-radius: 20px;
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
   font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
 }
-</style>
-<!-- CSS for Styling -->
-<style>
+
+/* Green button for Explanation */
+.explanation {
+  background: #4CAF50; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.05);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFC107; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.05);
+}
+
 /* Custom styles for the alert box */
 .alert {
   padding: 15px;
-  background-color: #C0EDC2; 
   color: black;
-  margin-bottom: 15px;
-  border-radius: 20px;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
 }
 </style>
 <!-- MathJax for Rendering Math -->
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
 </script>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p>Dans une urne contenant \(3\) boules rouges et \(2\) boules bleues, on tire deux boules <strong>avec</strong> remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?</p>
+<div id="radio_ZYLXWZHVBR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZYLXWZHVBR" value=""> <span>\(\frac{1}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_ZYLXWZHVBR" value=""> <span>\(\frac{3}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_ZYLXWZHVBR" value=""> <span>\(\frac{2}{5}\)</span></label><label><input type="radio" autocomplete="off" name="radio_ZYLXWZHVBR" value="answer"> <span>\( \frac{52}{100}\)</span></label>
+</div>
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les tirages sont indépendants.', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
+<div style="margin-top: 4px;">
+
+</div>
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, ' On peut calculer : \\(P(RR) = \\frac{3}{5}\\times\\frac{3}{5} \\) pour deux rouges \\(P(BB) = \\frac{2}{5} \\times \\frac{2}{5} \\) pour deux bleues. Ainsi on obtient: \\(P(\\text{deux boules de la même couleur}) = \\frac{9}{25} + \\frac{4}{25} = \\frac{52}{100}\\)', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p>Dans une urne contenant \(3\) boules rouges et \(2\) boules bleues, on tire deux boules <strong>sans</strong> remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?</p>
+<div id="radio_XQRBVRTLRY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XQRBVRTLRY" value=""> <span>\(\frac{1}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_XQRBVRTLRY" value=""> <span>\(\frac{3}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_XQRBVRTLRY" value="answer"> <span>\(\frac{2}{5}\)</span></label><label><input type="radio" autocomplete="off" name="radio_XQRBVRTLRY" value=""> <span>\( \frac{1}{2}\)</span></label>
+</div>
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les tirages ne sont pas indépendants.', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
+<div style="margin-top: 4px;">
+
+</div>
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, ' On peut calculer : \\(P(RR) = \\frac{3}{5} \\times \\frac{2}{4} \\) pour deux rouges \\(P(BB) = \\frac{2}{5} \\times \\frac{1}{4}\\) pour deux bleues. Ainsi on obtient: \\(P(\\text{deux boules de la même couleur}) = \\frac{3}{10} + \\frac{1}{10} = \\frac{4}{10} = \\frac{2}{5} \\)', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<p>Si \( P(A) = \frac{3}{10}\) et \(P(B|A) = \frac{4}{10}\), quelle est la probabilité \( P(A \text{ et } B) ? \)</p>
+<div id="radio_QHHPXVMTYV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QHHPXVMTYV" value=""> <span>\(\frac{7}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_QHHPXVMTYV" value=""> <span>\(\frac{12}{100}\)</span></label><label><input type="radio" autocomplete="off" name="radio_QHHPXVMTYV" value="answer"> <span>\(\frac{3}{10}\)</span></label><label><input type="radio" autocomplete="off" name="radio_QHHPXVMTYV" value=""> <span>\( \frac{4}{10}\)</span></label>
+</div>
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les événements ne sont pas mutuellement exclusifs.', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
+<div style="margin-top: 4px;">
+
+</div>
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'En utilisant la règle de multiplication des probabilités : \\( P(A \\text{ et } B) = P(A) \\times P(B|A) =\\frac{3}{10} \\times \\frac{4}{10} = \\frac{12}{100} \\)', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+<p><strong class="alertType"></strong>: <span class="alertMessage"></span></p>
+</div>
 
 
 </section>

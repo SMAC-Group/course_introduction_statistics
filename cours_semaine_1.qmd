@@ -1,5 +1,5 @@
 ---
-title: "Cours"
+title: "Cours Semaine 1"
 format: html
 ---
 

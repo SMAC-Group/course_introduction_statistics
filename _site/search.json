@@ -11,7 +11,7 @@
     "href": "webexercises.html#example-questions",
     "title": "Webexercises",
     "section": "Example Questions",
-    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 64 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n if you repeated the process many times, 95% of intervals calculated in this way contain the true mean 95% of the data fall within this range there is a 95% probability that the true mean lies within this range"
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 64 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
   },
   {
     "objectID": "webexercises.html#checked-sections",
@@ -149,7 +149,7 @@
   {
     "objectID": "show_cours_1.html",
     "href": "show_cours_1.html",
-    "title": "Cours",
+    "title": "Cours Semaine 1",
     "section": "",
     "text": "It appears you don’t have a PDF plugin. You can download the PDF."
   },
@@ -158,13 +158,83 @@
     "href": "exercice_semaine_1.html",
     "title": "Exercice Semaine 1",
     "section": "",
-    "text": "This is a test: \\( \\beta \\)\n\\( \\beta \\)"
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
     "objectID": "exercice_semaine_1.html#question-1",
     "href": "exercice_semaine_1.html#question-1",
     "title": "Exercice Semaine 1",
-    "section": "Question 1",
-    "text": "Question 1\n\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion the value of \\( \\beta \\) is a parameter in the model\n\n\n\n\nExplanation\n\n\n\nHint\n\n\n\n:"
+    "section": "",
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercice_semaine_1.html#question-2",
+    "href": "exercice_semaine_1.html#question-2",
+    "title": "Exercice Semaine 1",
+    "section": "Question 2",
+    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercice_semaine_1.html#question-2-1",
+    "href": "exercice_semaine_1.html#question-2-1",
+    "title": "Exercice Semaine 1",
+    "section": "Question 2",
+    "text": "Question 2\nSi \\( P(A) = 0.3\\) et \\(P(B|A) = 0.4\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercice_semaine_1.html#question-3",
+    "href": "exercice_semaine_1.html#question-3",
+    "title": "Exercice Semaine 1",
+    "section": "Question 3",
+    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "cours_semaine_1.html",
+    "href": "cours_semaine_1.html",
+    "title": "Cours Semaine 1",
+    "section": "",
+    "text": "It appears you don’t have a PDF plugin. You can download the PDF."
+  },
+  {
+    "objectID": "exercices_semaine_1.html",
+    "href": "exercices_semaine_1.html",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-1",
+    "href": "exercices_semaine_1.html#question-1",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-2",
+    "href": "exercices_semaine_1.html#question-2",
+    "title": "Exercices Semaine 1",
+    "section": "Question 2",
+    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-3",
+    "href": "exercices_semaine_1.html#question-3",
+    "title": "Exercices Semaine 1",
+    "section": "Question 3",
+    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-4",
+    "href": "exercices_semaine_1.html#question-4",
+    "title": "Exercices Semaine 1",
+    "section": "Question 4",
+    "text": "Question 4\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{3}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-5",
+    "href": "exercices_semaine_1.html#question-5",
+    "title": "Exercices Semaine 1",
+    "section": "Question 5",
+    "text": "Question 5\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\) \\(\\frac{3}{8}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   }
 ]

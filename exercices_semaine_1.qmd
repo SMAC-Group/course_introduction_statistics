@@ -1,0 +1,323 @@
+---
+title: "Exercices Semaine 1"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+
+editor: visual
+---
+
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+
+
+
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+
+
+
+<!-- JavaScript -->
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+
+<!-- CSS for Styling -->
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+
+<!-- MathJax for Rendering Math -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+
+## Question 1
+
+Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules **avec** remise. Quelle est la probabilité d'obtenir deux boules de la même couleur?
+
+
+```{r}
+opts <- c(
+   "\\(\\frac{1}{10}\\)",
+    "\\(\\frac{3}{10}\\)",
+   "\\(\\frac{2}{5}\\)",
+     answer =     "\\( \\frac{52}{100}\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les tirages sont indépendants.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, ' On peut calculer : \\(P(RR) = \\frac{3}{5}\\times\\frac{3}{5} \\) pour deux rouges \\(P(BB) = \\frac{2}{5} \\times \\frac{2}{5} \\) pour deux bleues. Ainsi on obtient: \\(P(\\text{deux boules de la même couleur}) = \\frac{9}{25} + \\frac{4}{25} = \\frac{52}{100}\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+
+## Question 2
+
+
+Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules **sans** remise. Quelle est la probabilité d'obtenir deux boules de la même couleur?
+
+
+```{r}
+opts <- c(
+   "\\(\\frac{1}{10}\\)",
+    "\\(\\frac{3}{10}\\)",
+   answer =     "\\(\\frac{2}{5}\\)",
+     "\\( \\frac{1}{2}\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les tirages ne sont pas indépendants.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, ' On peut calculer : \\(P(RR) = \\frac{3}{5} \\times \\frac{2}{4} \\) pour deux rouges \\(P(BB) = \\frac{2}{5} \\times \\frac{1}{4}\\) pour deux bleues. Ainsi on obtient: \\(P(\\text{deux boules de la même couleur}) = \\frac{3}{10} + \\frac{1}{10} = \\frac{4}{10} = \\frac{2}{5} \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 3
+
+Si \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)
+
+```{r}
+opts <- c(
+   "\\(\\frac{7}{10}\\)",
+      answer =   "\\(\\frac{12}{100}\\)",
+   "\\(\\frac{3}{10}\\)",
+     "\\( \\frac{4}{10}\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Les événements ne sont pas mutuellement exclusifs.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'En utilisant la règle de multiplication des probabilités : \\( P(A \\text{ et } B) = P(A) \\times P(B|A) =\\frac{3}{10} \\times \\frac{4}{10} = \\frac{12}{100} \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 5
+
+Dans une famille ayant trois enfants, quelle est la probabilité d'avoir exactement deux filles ?
+
+
+```{r}
+opts <- c(
+   "\\(\\frac{1}{8}\\)",
+
+ "\\(\\frac{1}{2}\\)",
+     "\\( \\frac{5}{8}\\)",
+      answer =      "\\(\\frac{3}{8}\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Listez toutes les configurations possibles.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Sur les \\(8\\) configurations possibles, \\( \\{FFF, FFG, FGF, GFF, GGF, GFG, FGG, GGG\\} \\), il y a exactement \\(3\\) facons d\'obtenir \\(2\\) filles. D\'où la probabilité de \\(\\frac{3}{8}\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+

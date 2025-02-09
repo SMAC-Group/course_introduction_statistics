@@ -7,7 +7,7 @@ toc: false
 
 
 
-<div style="text-align: center;"><img src="img/logo_intro_stat.png" width="200px" alt="Logo"></div>
+<div style="text-align: center;"><img src="img/logo_intro_stat.png" width="250px" alt="Logo"></div>
 
 <br>
 

@@ -9,23 +9,23 @@ website:
   repo-branch: main
   navbar:
     right:
-    - text: "Github"
-    href: "https://github.com/SMAC-Group/course_introduction_statistics"  
+    - icon: github
+      href: "https://github.com/SMAC-Group/course_introduction_statistics"  
     left:
     - href: index.qmd
       text: Accueil
-    - text: Cours 1
+    - text: Cours
       menu:
-      - text: Cours
-      - href: show_cours_1.qmd
-      - text: Exercices
-      - href: exercice_semaine_1.qmd
+      - href: cours_semaine_1.qmd
+    - text: Exercices
+      menu:
+      - href: exercices_semaine_1.qmd
 execute:
   freeze: auto
 format:
   html:
     theme:
-    - cosmo
+    - readable
     - brand
     css:
     - styles.css
