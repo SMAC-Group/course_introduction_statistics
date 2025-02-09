@@ -1,5 +1,5 @@
 ---
-title: "Introduction à la Statistique"
+title: ""
 css: styles.css
 toc: false
 
@@ -7,7 +7,7 @@ toc: false
 
 
 
-<div style="text-align: center;"><img src="img/logo.jpg" width="200px" alt="Logo"></div>
+<div style="text-align: center;"><img src="img/logo_intro_stat.png" width="200px" alt="Logo"></div>
 
 <br>
 
@@ -18,7 +18,7 @@ Enfin, le troisième axe traite de la statistique inférentielle. Nous utilisons
 
 Le contenu présenté sur ce site a été principalement développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol.
 
- <div style="text-align: center;"><img src="img/team.jpg" width="250px" alt="Team"></div>
+ <div style="text-align: center;"><img src="img/team2.png" width="250px" alt="Team"></div>
 
 ---
 
