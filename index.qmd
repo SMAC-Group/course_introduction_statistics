@@ -1,0 +1,29 @@
+---
+title: "Introduction à la Statistique"
+css: styles.css
+toc: false
+
+---
+
+
+
+<div style="text-align: center;"><img src="img/logo.jpg" width="200px" alt="Logo"></div>
+
+<br>
+
+Ce cours introduit les notions fondamentales de la statistique à travers trois axes principaux.
+Le premier axe porte sur les probabilités. Nous explorons les règles élémentaires permettant de quantifier l’incertitude et d’associer une probabilité à divers événements.
+Le deuxième axe est consacré aux statistiques descriptives. L'objectif est ici de résumer et de visualiser un échantillon de données afin d’en faciliter l’interprétation.
+Enfin, le troisième axe traite de la statistique inférentielle. Nous utilisons des modèles statistiques pour formuler des hypothèses et prendre des décisions à partir d’un échantillon de données.
+
+Le contenu présenté sur ce site a été principalement développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol.
+
+ <div style="text-align: center;"><img src="img/team.jpg" width="250px" alt="Team"></div>
+
+---
+
+
+<div style="text-align: center;"><img src="img/licence.png" width="100px" alt="Copyright License"></div>
+
+
+---

@@ -1,0 +1,1 @@
+Sitemap: intro-statistique.netlify.app/sitemap.xml

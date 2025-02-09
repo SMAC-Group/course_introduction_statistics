@@ -1,0 +1,111 @@
+---
+title: "Exercices Semaine 1"
+format:
+  revealjs:
+    quiz: 
+      checkKey: 'c'
+      resetKey: 'q'
+      shuffleKey: 't'
+      allowNumberKeys: true
+      disableOnCheck: false
+      disableReset: false
+      shuffleOptions: true
+      includeScore: false
+revealjs-plugins:
+  - quiz
+---
+
+## What is the capital of France? {.quiz-question}
+
+- London
+- [Paris]{.correct}
+- Berlin
+- Madrid
+
+::: footer
+Click on one of the options then click the check button. If you got it wrong click reset and try again.
+:::
+
+## What is the capital of the USA? {.quiz-question}
+
+- Paris
+- Berlin
+- Madrid
+- [Washington, D.C.]{.correct}
+
+::: footer
+Alternatively, you can select each option using your number keypad. For example, click "2" to select the second option. 
+:::
+
+## What is the capital of Spain? {.quiz-question}
+
+- Paris
+- Berlin
+- [Madrid]{.correct}
+
+::: footer
+You can use the "c" key to check your answer, the "q" key to reset the question, and the "t" key to shuffle the question slides.
+:::
+
+## What is the capital of Germany? {.quiz-question}
+
+- Paris
+- [Berlin]{.correct}
+- Madrid
+- London
+
+::: footer
+Keyboard shortcuts can be changed in the YAML header of your Quarto file. See [README.md](README.md) for more info.
+:::
+
+## Python lists {.quiz-question}
+
+What is the value of x[2]?
+<!-- ```{python}
+#| eval: FALSE
+#| echo: TRUE
+x = [2, 3, 4]
+x[2] = 4
+print(x[2])
+``` -->
+
+- 2
+- 3
+- [4]{.correct}
+
+::: footer
+You can also include code or other content prior to the question.
+:::
+
+## {.quiz-question}
+**What is the name of Ross and Carol's son in the TV show *"Friends"?***
+
+- [Jack]{data-explanation="Jack is the name of Monica and Ross's father."}
+- [Joey]{data-explanation="😲 Joey is one of the main characters, played by Matt LeBlanc."}
+- [Ben]{.correct data-explanation="💯 Correct! Ben is the name of Ross and Carol's son."}
+- [Chandler]{data-explanation="😂 Chandler is another main character, played by Matthew Perry."}
+
+
+::: footer 
+You can specify an explanation for each option using the `data-explanation` attribute.
+:::
+
+## What is the formula for the area of a circle? {.quiz-question}
+
+- [$πr^2$]{.correct}
+- [$2πr$]{data-explanation="🫠 This is the formula for the circumference of a circle."}
+- [$4πr^2$]{data-explanation="This is the formula for the surface area of a sphere."}
+- [$\frac{4}{3}r^3$]{data-explanation="This is the formula for the volume of a sphere."}
+
+::: footer
+You can also include math expressions [using LaTeX](https://quarto.org/docs/visual-editor/technical.html#latex-and-html) in the options.
+:::
+
+## Which one is Chandler? {.quiz-question}
+
+- [![](https://upload.wikimedia.org/wikipedia/en/d/da/Matt_LeBlanc_as_Joey_Tribbiani.jpg){height=90px}]{data-explanation="😬 This is Joey."}
+- [![](https://upload.wikimedia.org/wikipedia/en/6/66/Matthew_Perry_as_Chandler_Bing.png){width=90px}]{.correct data-explanation="✅ Nicely done! This is Chandler."}
+
+::: footer
+Or you can try to embed images in the options.
+:::

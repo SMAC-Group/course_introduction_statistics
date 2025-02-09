@@ -1,0 +1,33 @@
+project:
+  type: website
+website:
+  page-navigation: true
+  title: "Introduction à la Statistique"
+  description: "Site web du cours Introduction à la Statistique"
+  site-url: "intro-statistique.netlify.app"
+  repo-url: "https://github.com/SMAC-Group/course_introduction_statistics"
+  repo-branch: main
+  navbar:
+    right:
+    - text: "Github"
+    href: "https://github.com/SMAC-Group/course_introduction_statistics"  
+    left:
+    - href: index.qmd
+      text: Accueil
+    - text: Cours 1
+      menu:
+      - text: Cours
+      - href: show_cours_1.qmd
+      - text: Exercices
+      - href: exercice_semaine_1.qmd
+
+format:
+  html:
+    theme:
+    - cosmo
+    - brand
+    css:
+    - styles.css
+    - include/webex.css
+    toc: true
+    include-after-body: include/webex.js

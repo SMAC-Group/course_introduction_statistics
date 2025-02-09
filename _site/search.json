@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction à la Statistique",
+    "section": "",
+    "text": "Ce cours introduit les notions fondamentales de la statistique à travers trois axes principaux. Le premier axe porte sur les probabilités. Nous explorons les règles élémentaires permettant de quantifier l’incertitude et d’associer une probabilité à divers événements. Le deuxième axe est consacré aux statistiques descriptives. L’objectif est ici de résumer et de visualiser un échantillon de données afin d’en faciliter l’interprétation. Enfin, le troisième axe traite de la statistique inférentielle. Nous utilisons des modèles statistiques pour formuler des hypothèses et prendre des décisions à partir d’un échantillon de données.\nLe contenu présenté sur ce site a été principalement développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol."
+  },
+  {
+    "objectID": "mcq_1.html",
+    "href": "mcq_1.html",
+    "title": "MCQ Page",
+    "section": "",
+    "text": "( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not constant.\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n( x )\n\n❌ Incorrect. Use the power rule: ( x^n = n x^{n-1} )."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "show_cours_1.html",
+    "href": "show_cours_1.html",
+    "title": "Cours",
+    "section": "",
+    "text": "It appears you don’t have a PDF plugin. You can download the PDF."
+  },
+  {
+    "objectID": "show_cours_1.html#pdf-display",
+    "href": "show_cours_1.html#pdf-display",
+    "title": "Cours",
+    "section": "",
+    "text": "It appears you don’t have a PDF plugin. You can download the PDF."
+  },
+  {
+    "objectID": "mcq_1.html#multiple-choice-question",
+    "href": "mcq_1.html#multiple-choice-question",
+    "title": "MCQ Page",
+    "section": "",
+    "text": "( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not constant.\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n( x )\n\n❌ Incorrect. Use the power rule: ( x^n = n x^{n-1} )."
+  },
+  {
+    "objectID": "Untitled/Untitled.html",
+    "href": "Untitled/Untitled.html",
+    "title": "Webexercises",
+    "section": "",
+    "text": "This is a Web Exercise template created by the #PsyTeachR team at the University of Glasgow, based on ideas from Software Carpentry. This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.\nThe {webexercises} package provides a number of functions that you use in inline R code or through code chunk options to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Render this file to HTML to see how it works.\nNOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser."
+  },
+  {
+    "objectID": "Untitled/Untitled.html#example-questions",
+    "href": "Untitled/Untitled.html#example-questions",
+    "title": "Webexercises",
+    "section": "Example Questions",
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 64 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
+  },
+  {
+    "objectID": "Untitled/Untitled.html#checked-sections",
+    "href": "Untitled/Untitled.html#checked-sections",
+    "title": "Webexercises",
+    "section": "Checked sections",
+    "text": "Checked sections\nCreate sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+  },
+  {
+    "objectID": "Untitled/Untitled.html#hidden-solutions-and-hints",
+    "href": "Untitled/Untitled.html#hidden-solutions-and-hints",
+    "title": "Webexercises",
+    "section": "Hidden solutions and hints",
+    "text": "Hidden solutions and hints\nYou can fence off a solution area that will be hidden behind a button using hide() before the solution and unhide() after, each as inline R code. Pass the text you want to appear on the button to the hide() function.\nIf the solution is a code chunk, instead of using hide() and unhide(), simply set the webex.hide chunk option to TRUE, or set it to the string you wish to display on the button.\nRecreate the scatterplot below, using the built-in cars dataset.\n\n\n\n\n\n\n\n\n\n\n\nI need a hint\n\nSee the documentation for plot() (?plot)\n\n\n\n\n\nClick here to see the solution\n\nplot(cars$speed, cars$dist)"
+  },
+  {
+    "objectID": "Untitled/Untitled.html#multiple-choice-question-with-hints",
+    "href": "Untitled/Untitled.html#multiple-choice-question-with-hints",
+    "title": "Webexercises",
+    "section": "Multiple Choice Question with Hints",
+    "text": "Multiple Choice Question with Hints\n\nWhat is the derivative of ( f(x) = x^2 )?\n\n( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not a constant.\n\n💡 Hint: The power rule states ( x^n = n x^{n-1} ).\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n🎯 Why? The power rule gives ( x^2 = 2x ).\n\n( x )\n\n❌ Incorrect. You are missing a factor.\n\n💡 Hint: When differentiating ( x^2 ), reduce the exponent by 1 and multiply by the original exponent."
+  },
+  {
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-france",
+    "href": "quarto_quiz.html#what-is-the-capital-of-france",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of France?",
+    "text": "What is the capital of France?\n\nLondon\nParis\nBerlin\nMadrid\n\n\nClick on one of the options then click the check button. If you got it wrong click reset and try again."
+  },
+  {
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-the-usa",
+    "href": "quarto_quiz.html#what-is-the-capital-of-the-usa",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of the USA?",
+    "text": "What is the capital of the USA?\n\nParis\nBerlin\nMadrid\nWashington, D.C.\n\n\nAlternatively, you can select each option using your number keypad. For example, click “2” to select the second option."
+  },
+  {
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-spain",
+    "href": "quarto_quiz.html#what-is-the-capital-of-spain",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of Spain?",
+    "text": "What is the capital of Spain?\n\nParis\nBerlin\nMadrid\n\n\nYou can use the “c” key to check your answer, the “q” key to reset the question, and the “t” key to shuffle the question slides."
+  },
+  {
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-germany",
+    "href": "quarto_quiz.html#what-is-the-capital-of-germany",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of Germany?",
+    "text": "What is the capital of Germany?\n\nParis\nBerlin\nMadrid\nLondon\n\n\nKeyboard shortcuts can be changed in the YAML header of your Quarto file. See README.md for more info."
+  },
+  {
+    "objectID": "quarto_quiz.html#python-lists",
+    "href": "quarto_quiz.html#python-lists",
+    "title": "Exercices Semaine 1",
+    "section": "Python lists",
+    "text": "Python lists\nWhat is the value of x[2]? \n\n2\n3\n4\n\n\nYou can also include code or other content prior to the question."
+  },
+  {
+    "objectID": "quarto_quiz.html#section",
+    "href": "quarto_quiz.html#section",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "What is the name of Ross and Carol’s son in the TV show “Friends”?\n\nJack\nJoey\nBen\nChandler\n\n\nYou can specify an explanation for each option using the data-explanation attribute."
+  },
+  {
+    "objectID": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
+    "href": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
+    "title": "Exercices Semaine 1",
+    "section": "What is the formula for the area of a circle?",
+    "text": "What is the formula for the area of a circle?\n\n\\(πr^2\\)\n\\(2πr\\)\n\\(4πr^2\\)\n\\(\\frac{4}{3}r^3\\)\n\n\nYou can also include math expressions using LaTeX in the options."
+  },
+  {
+    "objectID": "quarto_quiz.html#which-one-is-chandler",
+    "href": "quarto_quiz.html#which-one-is-chandler",
+    "title": "Exercices Semaine 1",
+    "section": "Which one is Chandler?",
+    "text": "Which one is Chandler?\n\n\n\n\n\nOr you can try to embed images in the options."
+  },
+  {
+    "objectID": "show_quarto_quiz_1.html",
+    "href": "show_quarto_quiz_1.html",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "🔎 View Fullscreen"
+  },
+  {
+    "objectID": "show_quarto_quiz_1.html#quiz-presentation",
+    "href": "show_quarto_quiz_1.html#quiz-presentation",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "🔎 View Fullscreen"
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "Webexercises",
+    "section": "",
+    "text": "This is a Web Exercise template created by the #PsyTeachR team at the University of Glasgow, based on ideas from Software Carpentry. This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.\nThe {webexercises} package provides a number of functions that you use in inline R code or through code chunk options to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Render this file to HTML to see how it works.\nNOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser."
+  },
+  {
+    "objectID": "Untitled.html#example-questions",
+    "href": "Untitled.html#example-questions",
+    "title": "Webexercises",
+    "section": "Example Questions",
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 64 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n 95% of the data fall within this range there is a 95% probability that the true mean lies within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
+  },
+  {
+    "objectID": "Untitled.html#checked-sections",
+    "href": "Untitled.html#checked-sections",
+    "title": "Webexercises",
+    "section": "Checked sections",
+    "text": "Checked sections\nCreate sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+  },
+  {
+    "objectID": "Untitled.html#hidden-solutions-and-hints",
+    "href": "Untitled.html#hidden-solutions-and-hints",
+    "title": "Webexercises",
+    "section": "Hidden solutions and hints",
+    "text": "Hidden solutions and hints\nYou can fence off a solution area that will be hidden behind a button using hide() before the solution and unhide() after, each as inline R code. Pass the text you want to appear on the button to the hide() function.\nIf the solution is a code chunk, instead of using hide() and unhide(), simply set the webex.hide chunk option to TRUE, or set it to the string you wish to display on the button.\nRecreate the scatterplot below, using the built-in cars dataset.\n\n\n\n\n\n\n\n\n\n\n\nI need a hint\n\nSee the documentation for plot() (?plot)\n\n\n\n\n\nClick here to see the solution\n\nplot(cars$speed, cars$dist)"
+  },
+  {
+    "objectID": "Untitled.html#multiple-choice-question-with-hints",
+    "href": "Untitled.html#multiple-choice-question-with-hints",
+    "title": "Webexercises",
+    "section": "Multiple Choice Question with Hints",
+    "text": "Multiple Choice Question with Hints\n\nWhat is the derivative of ( f(x) = x^2 )?\n\n( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not a constant.\n\n💡 Hint: The power rule states ( x^n = n x^{n-1} ).\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n🎯 Why? The power rule gives ( x^2 = 2x ).\n\n( x )\n\n❌ Incorrect. You are missing a factor.\n\n💡 Hint: When differentiating ( x^2 ), reduce the exponent by 1 and multiply by the original exponent."
+  },
+  {
+    "objectID": "webexercises.html",
+    "href": "webexercises.html",
+    "title": "Webexercises",
+    "section": "",
+    "text": "This is a Web Exercise template created by the psychology teaching team at the University of Glasgow, based on ideas from Software Carpentry. This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.\nThe {webexercises} package provides a number of functions that you use in inline R code or through code chunk options to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Render this file to HTML to see how it works.\nNOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser."
+  },
+  {
+    "objectID": "webexercises.html#example-questions",
+    "href": "webexercises.html#example-questions",
+    "title": "Webexercises",
+    "section": "Example Questions",
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 4 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean there is a 95% probability that the true mean lies within this range"
+  },
+  {
+    "objectID": "webexercises.html#checked-sections",
+    "href": "webexercises.html#checked-sections",
+    "title": "Webexercises",
+    "section": "Checked sections",
+    "text": "Checked sections\nCreate sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+  },
+  {
+    "objectID": "webexercises.html#hidden-solutions-and-hints",
+    "href": "webexercises.html#hidden-solutions-and-hints",
+    "title": "Webexercises",
+    "section": "Hidden solutions and hints",
+    "text": "Hidden solutions and hints\nYou can fence off a solution area that will be hidden behind a button using hide() before the solution and unhide() after, each as inline R code. Pass the text you want to appear on the button to the hide() function.\nIf the solution is a code chunk, instead of using hide() and unhide(), simply set the webex.hide chunk option to TRUE, or set it to the string you wish to display on the button.\nRecreate the scatterplot below, using the built-in cars dataset.\n\n\n\n\n\n\n\n\n\n\n\nI need a hint\n\nSee the documentation for plot() (?plot)\n\n\n\n\n\nClick here to see the solution\n\nplot(cars$speed, cars$dist)"
+  },
+  {
+    "objectID": "exercice_semaine_1.html",
+    "href": "exercice_semaine_1.html",
+    "title": "Exercice Semaine 1",
+    "section": "",
+    "text": "This is a test: \\( \\beta \\)\n\\( \\beta \\)"
+  },
+  {
+    "objectID": "exercice_semaine_1.html#checked-sections",
+    "href": "exercice_semaine_1.html#checked-sections",
+    "title": "Exercice Semaine 1",
+    "section": "",
+    "text": "Create sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\n\nIndice\n\nSee the documentation for plot() (?plot)\n\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+  },
+  {
+    "objectID": "exercice_semaine_1.html#question-1",
+    "href": "exercice_semaine_1.html#question-1",
+    "title": "Exercice Semaine 1",
+    "section": "Question 1",
+    "text": "Question 1\n\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion the value of \\( \\beta \\) is a parameter in the model\n\n\n\n\nExplanation\n\n\n\nHint\n\n\n\n:"
+  }
+]

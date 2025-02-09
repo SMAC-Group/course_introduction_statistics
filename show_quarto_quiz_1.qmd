@@ -1,0 +1,14 @@
+---
+title: "Exercices Semaine 1"
+format: html
+editor: visual
+---
+
+
+## Quiz Presentation
+
+<iframe src="quarto_quiz.html" width="100%" height="600px" style="border: none;"></iframe>
+
+<p style="text-align: center;">
+  <a href="quarto_quiz.html" target="_blank" class="button">🔎 View Fullscreen</a>
+</p>
