@@ -14,9 +14,6 @@ website:
     left:
     - href: index.qmd
       text: Accueil
-    - text: Cours
-      menu:
-      - href: cours_semaine_1.qmd
     - text: Exercices
       menu:
       - href: exercices_semaine_1.qmd
