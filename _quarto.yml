@@ -17,6 +17,7 @@ website:
     - text: Exercices
       menu:
       - href: exercices_semaine_1.qmd
+      - href: exercices_semaine_2.qmd
 execute:
   freeze: auto
 format:

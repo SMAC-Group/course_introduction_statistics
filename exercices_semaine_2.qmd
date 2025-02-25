@@ -1,0 +1,757 @@
+---
+title: "Exercices Semaine 2"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+
+editor: visual
+---
+
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+
+
+
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+
+
+
+<!-- JavaScript -->
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+
+<!-- CSS for Styling -->
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+
+<!-- MathJax for Rendering Math -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+
+
+## Question 1
+Quelle est la règle du complément en probabilité ?
+
+
+```{r}
+opts <- c(
+   "\\( P(A) = P(A^c) \\)",
+   answer ="  \\( P(A) = 1 - P(A^c) \\)",
+   "\\( P(A^c) = P(A) \\)",
+   "\\( P(A^c) = P(A) + P(B) \\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la probabilité totale de \\(1\\).', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La règle du complément stipule que la probabilité de l\'événement complémentaire \\(A^C\\) est \\(1-P(A)\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+## Question 2
+
+Si deux événements \\( A \\) et \\( B \\) sont mutuellement exclusifs, alors:
+
+```{r}
+opts <- c(
+   "\\(P(A) + P(B) - P(A \\cap  B) > 1\\)",
+    answer =  "\\(P(A|B) = 0\\)",
+   "\\(P(B|A) = P(B)\\)",
+ "\\(P(A \\cap B) > 0\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Deux événements sont mutuellement exclusifs s\'ils ne peuvent pas se produire en même temps. Cela signifie que leur intersection est vide.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité conditionnelle \\(P(A∣B)\\) est la probabilité que \\(A\\) se produise sachant que \\(B\\) s\'est produit. Puisque \\(A\\)  et \\(B\\) ne peuvent pas se produire ensemble, \\(P(A∣B)=P(A∣B)=0\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+## Question 3
+Un joueur lance deux dés. Quelle est la probabilité d’obtenir au moins un \\(6\\) sachant que la somme est \\(8\\) ?
+
+
+```{r}
+opts <- c(
+   "\\( \\frac{1}{3} \\)",
+   answer ="  \\( \\frac{1}{2} \\)",
+   "\\( \\frac{2}{3} \\)",
+   "\\( \\frac{1}{4}\\)"
+)
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Quelles sont les paires dont la somme est \\(8\\)?', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les paires de dés donnant une somme de \\(8\\) sont \\((2,6), (6,2), (3,5), (5,3), (4,4) \\). Parmi elles, \\(2\\) ont un \\(6\\), soit \\(\\frac{2}{4} = \\frac{1}{2}\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+## Question 4
+
+On considère un univers où \\(100\\) personnes ont été interrogées sur leur consommation de café et de thé. \\(60\\) boivent du café, \\(40\\) boivent du thé et \\(20\\) boivent les deux. Quelle est la probabilité qu’une personne choisie au hasard boive du café ou du thé ?
+
+```{r}
+opts <- c(
+   "\\( \\frac{70}{100} \\)",
+   answer =  "\\( \\frac{80}{100} \\)",
+   "\\( \\frac{60}{100} \\)",
+   "\\( \\frac{90}{100} \\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la règle de l\'union des probabilités.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Utilisation de la règle de l’union des probabilités : \\( P(C \\cup T) = P(C) + P(T) - P(C \\cap T) \\), soit \\( \\frac{60}{100} + \\frac{40}{100} - \\frac{20}{100} = \\frac{80}{100}\\)', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+## Question 5
+
+Considérez la série suivante: 
+
+\\(S_n = \\sum_{k=1}^{n} \\frac{ (-1)^k }{ k^2 }\\)
+
+Quelle est la valeur de \\(S_5\\)?
+
+
+
+```{r}
+opts <- c(
+   "\\( - \\frac{3000}{3650} \\)",
+   "\\( \\frac{25}{450} \\)",
+   "\\( - \\frac{125}{865} \\)",
+    answer = "\\( - \\frac{3019}{3600} \\)"
+)
+```
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Écrivez chacun des termes.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, '\\(S_5 = -\\frac{1}{1^2} + \\frac{1}{2^2} - \\frac{1}{ 3^2 } + \\frac{1}{4^2} - \\frac{1}{25} = -\\frac{3019}{3600} \\)', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+---
+
+
+**Jeu avec probabilités**
+
+Un jeu de société propose une épreuve où un joueur doit tirer **au hasard** une boule d’un sac. 
+
+Le sac contient **5 types de boules**, chacune ayant une valeur de points différente et une probabilité spécifique d’être tirée :
+
+| Type de boule | Valeur (points) | Probabilité |
+|--------------|-----------------|-------------|
+| \\(A\\) | \\(2\\) points | \\(0.1\\) |
+| \\(B\\) | \\(4\\) points | \\(0.2\\) |
+| \\(C\\) | \\(6\\) points | \\(0.3\\) |
+| \\(D\\) | \\(8\\) points | \\(0.25\\) |
+| \\(E\\) | \\(10\\) points | \\(0.15\\) |
+
+
+## Question 6
+
+Quelle est l’espérance du nombre de points obtenus en tirant une boule au hasard ?
+
+```{r}
+opts <- c(
+   "\\(5.3\\)",
+   "\\(6.2\\)",
+   "\\(6.5\\)",
+   answer = "\\(6.3\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’espérance : \\(E(X) = \\sum_{\\text{tout }k} k P(X=k)\\) où \\(k\\) correspond à un type de boule.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L’espérance se calcule par : \\(E(X) = (2 \\times 0.1) + (4 \\times 0.2) + (6 \\times 0.3) + (8 \\times 0.25) + (10 \\times 0.15) = 6.3\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 7
+
+Quelle est la probabilité d'obtenir une boule valant \\(6\\) points ou plus ?
+
+```{r}
+opts <- c(
+   "\\(0.3\\)",
+   "\\(0.6\\)",
+   answer = "\\(0.7\\)",
+   "\\(1.0\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule fondamentale de la probabilité.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On cherche \\(P(X\\geq6)=P(6)+P(8)+P(10)=0.3 + 0.25 + 0.15 = 0.7\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+---
+
+**Probabilités et organisations internationales**
+
+Une étude a été réalisée sur la participation des pays membres à différentes organisations internationales. On considère qu’un pays peut appartenir à plusieurs organisations à la fois. Un échantillon de \\(200\\) pays a donné les résultats suivants (données fictives) :
+
+- **\\(120\\) pays** sont membres de l’**ONU**.
+- **\\(90\\) pays** sont membres de l’**OMC**.
+- **\\(60\\) pays** sont membres de l’**Union Africaine**.
+- **\\(50\\) pays** sont membres à la fois de l’ONU et de l’OMC.
+- **\\(30\\) pays** sont membres à la fois de l’ONU et de l’Union Africaine.
+- **\\(20\\) pays** sont membres à la fois de l’OMC et de l’Union Africaine.
+- **\\(10\\) pays** sont membres des trois organisations.
+
+## Question 8 
+
+Quelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU ou de l’OMC ?
+
+```{r}
+opts <- c(
+   "\\(0.75\\)",
+   "\\(0.85\\)",
+   "\\(1.10\\)",
+   answer = "\\(0.80\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’union des probabilités.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité qu’un pays soit membre de l’ONU ou de l’OMC est donnée par : \\( P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\). En remplaçant : \\( \\frac{120}{200} + \\frac{90}{200} - \\frac{50}{200} = 0.80 \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 9
+
+Quelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU mais pas de l’OMC ni de l’Union Africaine ?
+
+```{r}
+opts <- c(
+   "\\(0.20\\)",
+   answer = "\\(0.25\\)",
+   "\\(0.30\\)",
+   "\\(0.60\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’union des probabilités.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les pays uniquement membres de l’ONU sont : \\( 120 - (50 + 30 - 10) = 50 \\), soit une probabilité de \\( \\frac{50}{200} = 0.25 \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 10
+
+Quelle est la probabilité qu’un pays choisi au hasard soit membre d’au moins deux organisations ?
+
+```{r}
+opts <- c(
+   "\\(0.45\\)",
+   "\\(0.55\\)",
+   "\\(0.50\\)",
+   answer = "\\(0.40\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Additionnez les pays qui sont dans plusieurs organisations. Évitez de compter plusieurs fois le même pays.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les pays qui sont membres d’au moins deux organisations sont ceux qui sont dans les intersections : \\( 50 + 30 + 20 - 2 \\times 10 = 80 \\), soit une probabilité de \\(\\frac{80}{200} = 0.40 \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+
+
+
+
+
+## Question 11
+
+Un pays est sélectionné au hasard. Sachant qu’il est membre de l’ONU, quelle est la probabilité qu’il soit également membre de l’Union Africaine ?
+
+```{r}
+opts <- c(
+   "\\(0.50\\)",
+   "\\(0.33\\)",
+   answer = "\\(0.25\\)",
+   "\\(0.55\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la définition de la probabilité conditionnelle : \\( P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\).', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité conditionnelle est donnée par : \\( P(UA | ONU) = \\frac{P(UA \\cap ONU)}{P(ONU)} = \\frac{30}{120} = 0.25 \\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+## Question 12
+
+L’appartenance à l’ONU et à l’Union Africaine sont-elles des événements indépendants ?
+
+
+
+```{r}
+opts <- c(
+   "Oui, car \\( P(A \\cap B) = P(A) P(B) \\)",
+   answer = "Non, car \\( P(A \\cap B) \\neq P(A) P(B) \\)",
+   "Oui, car les effectifs sont proportionnels",
+   "Non, car un pays ne peut appartenir qu'à une seule organisation"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez \\( P(A \\cap B) \\) avec \\( P(A) P(B) \\) pour vérifier l\’indépendance.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les événements sont indépendants si \\( P(A \\cap B) = P(A) P(B) \\). Ici, \\( P(ONU) = \\frac{120}{200} \\), \\( P(UA) = \\frac{60}{200} \\) et \\( P(ONU \\cap UA) =  \\frac{30}{200} = 0.15 \\). Or, \\( P(ONU) P(UA) = \\frac{120}{200} \\times \\frac{60}{200} = 0.18 \\neq 0.15 \\), donc les événements ne sont pas indépendants.', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+
+
+
+
+
+
+---
+
+
+**Participation aux votations fédérales**
+
+## Question 13
+
+Lors des votations fédérales, la participation électorale varie d'un canton à l'autre. Supposons que la probabilité qu'une personne du canton de Genève participe à une votation soit de \\(55\\%\\), tandis que dans le canton de Zurich, cette probabilité est de \\(50\\%\\) (données fictives). On sélectionne une personne au hasard dans chacun de ces deux cantons. En supposant que les décisions de participation des personnes des deux cantons sont indépendantes, quelle est la probabilité que les deux personnes participent à la votation ?
+
+```{r}
+opts <- c(
+   answer = "\\(0.275\\)",
+   "\\(0.90\\)",
+   "\\(0.50\\)",
+   "\\(1.10\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<!-- Button for Hint -->
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la règle de multiplication pour des événements indépendants.', 'hint')">
+  ❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+
+<!-- Button for Explanation -->
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour des événements indépendants, la probabilité que les deux personnes électrices participent est le produit des probabilités individuelles : \\(0.55 \\times 0.50 = 0.275\\).', 'explanation')">
+  💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
