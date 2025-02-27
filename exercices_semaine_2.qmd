@@ -246,7 +246,7 @@ Un joueur lance deux dés. Quelle est la probabilité d’obtenir au moins un \\
 ```{r}
 opts <- c(
    "\\( \\frac{1}{3} \\)",
-   answer ="  \\( \\frac{1}{2} \\)",
+   answer ="  \\( \\frac{2}{5} \\)",
    "\\( \\frac{2}{3} \\)",
    "\\( \\frac{1}{4}\\)"
 )
@@ -279,7 +279,7 @@ cat(longmcq2(opts))
 
 
 <!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les paires de dés donnant une somme de \\(8\\) sont \\((2,6), (6,2), (3,5), (5,3), (4,4) \\). Parmi elles, \\(2\\) ont un \\(6\\), soit \\(\\frac{2}{4} = \\frac{1}{2}\\).', 'explanation')">
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les paires de dés donnant une somme de \\(8\\) sont \\((2,6), (6,2), (3,5), (5,3), (4,4) \\). Parmi elles, \\(2\\) ont un \\(6\\), soit \\(\\frac{2}{5}\\).', 'explanation')">
   💡 Explication
 </button>
 <div class="alert alert-info" style="display: none;">
