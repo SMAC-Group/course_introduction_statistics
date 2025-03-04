@@ -35,144 +35,74 @@
     "text": "Ce cours introduit les notions fondamentales de la statistique à travers trois axes principaux. Le premier axe porte sur les probabilités. Nous explorons les règles élémentaires permettant de quantifier l’incertitude et d’associer une probabilité à divers événements. Le deuxième axe est consacré aux statistiques descriptives. L’objectif est ici de résumer et de visualiser un échantillon de données afin d’en faciliter l’interprétation. Enfin, le troisième axe traite de la statistique inférentielle. Nous utilisons des modèles statistiques pour formuler des hypothèses et prendre des décisions à partir d’un échantillon de données.\nLe contenu présenté sur ce site a été principalement développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-france",
+    "href": "quarto_quiz.html#what-is-the-capital-of-france",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of France?",
+    "text": "What is the capital of France?\n\nLondon\nParis\nBerlin\nMadrid\n\n\nClick on one of the options then click the check button. If you got it wrong click reset and try again."
   },
   {
-    "objectID": "Untitled.html",
-    "href": "Untitled.html",
-    "title": "Webexercises",
-    "section": "",
-    "text": "This is a Web Exercise template created by the #PsyTeachR team at the University of Glasgow, based on ideas from Software Carpentry. This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.\nThe {webexercises} package provides a number of functions that you use in inline R code or through code chunk options to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Render this file to HTML to see how it works.\nNOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser."
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-the-usa",
+    "href": "quarto_quiz.html#what-is-the-capital-of-the-usa",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of the USA?",
+    "text": "What is the capital of the USA?\n\nParis\nBerlin\nMadrid\nWashington, D.C.\n\n\nAlternatively, you can select each option using your number keypad. For example, click “2” to select the second option."
   },
   {
-    "objectID": "Untitled.html#example-questions",
-    "href": "Untitled.html#example-questions",
-    "title": "Webexercises",
-    "section": "Example Questions",
-    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 49 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-spain",
+    "href": "quarto_quiz.html#what-is-the-capital-of-spain",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of Spain?",
+    "text": "What is the capital of Spain?\n\nParis\nBerlin\nMadrid\n\n\nYou can use the “c” key to check your answer, the “q” key to reset the question, and the “t” key to shuffle the question slides."
   },
   {
-    "objectID": "Untitled.html#checked-sections",
-    "href": "Untitled.html#checked-sections",
-    "title": "Webexercises",
-    "section": "Checked sections",
-    "text": "Checked sections\nCreate sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+    "objectID": "quarto_quiz.html#what-is-the-capital-of-germany",
+    "href": "quarto_quiz.html#what-is-the-capital-of-germany",
+    "title": "Exercices Semaine 1",
+    "section": "What is the capital of Germany?",
+    "text": "What is the capital of Germany?\n\nParis\nBerlin\nMadrid\nLondon\n\n\nKeyboard shortcuts can be changed in the YAML header of your Quarto file. See README.md for more info."
   },
   {
-    "objectID": "Untitled.html#hidden-solutions-and-hints",
-    "href": "Untitled.html#hidden-solutions-and-hints",
-    "title": "Webexercises",
-    "section": "Hidden solutions and hints",
-    "text": "Hidden solutions and hints\nYou can fence off a solution area that will be hidden behind a button using hide() before the solution and unhide() after, each as inline R code. Pass the text you want to appear on the button to the hide() function.\nIf the solution is a code chunk, instead of using hide() and unhide(), simply set the webex.hide chunk option to TRUE, or set it to the string you wish to display on the button.\nRecreate the scatterplot below, using the built-in cars dataset.\n\n\n\n\n\n\n\n\n\n\n\nI need a hint\n\nSee the documentation for plot() (?plot)\n\n\n\n\n\nClick here to see the solution\n\nplot(cars$speed, cars$dist)"
+    "objectID": "quarto_quiz.html#python-lists",
+    "href": "quarto_quiz.html#python-lists",
+    "title": "Exercices Semaine 1",
+    "section": "Python lists",
+    "text": "Python lists\nWhat is the value of x[2]? \n\n2\n3\n4\n\n\nYou can also include code or other content prior to the question."
   },
   {
-    "objectID": "Untitled.html#multiple-choice-question-with-hints",
-    "href": "Untitled.html#multiple-choice-question-with-hints",
-    "title": "Webexercises",
-    "section": "Multiple Choice Question with Hints",
-    "text": "Multiple Choice Question with Hints\n\nWhat is the derivative of ( f(x) = x^2 )?\n\n( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not a constant.\n\n💡 Hint: The power rule states ( x^n = n x^{n-1} ).\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n🎯 Why? The power rule gives ( x^2 = 2x ).\n\n( x )\n\n❌ Incorrect. You are missing a factor.\n\n💡 Hint: When differentiating ( x^2 ), reduce the exponent by 1 and multiply by the original exponent."
-  },
-  {
-    "objectID": "exercices_semaine_1.html",
-    "href": "exercices_semaine_1.html",
+    "objectID": "quarto_quiz.html#section",
+    "href": "quarto_quiz.html#section",
     "title": "Exercices Semaine 1",
     "section": "",
-    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+    "text": "What is the name of Ross and Carol’s son in the TV show “Friends”?\n\nJack\nJoey\nBen\nChandler\n\n\nYou can specify an explanation for each option using the data-explanation attribute."
   },
   {
-    "objectID": "exercices_semaine_1.html#question-1",
-    "href": "exercices_semaine_1.html#question-1",
+    "objectID": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
+    "href": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
+    "title": "Exercices Semaine 1",
+    "section": "What is the formula for the area of a circle?",
+    "text": "What is the formula for the area of a circle?\n\n\\(πr^2\\)\n\\(2πr\\)\n\\(4πr^2\\)\n\\(\\frac{4}{3}r^3\\)\n\n\nYou can also include math expressions using LaTeX in the options."
+  },
+  {
+    "objectID": "quarto_quiz.html#which-one-is-chandler",
+    "href": "quarto_quiz.html#which-one-is-chandler",
+    "title": "Exercices Semaine 1",
+    "section": "Which one is Chandler?",
+    "text": "Which one is Chandler?\n\n\n\n\n\nOr you can try to embed images in the options."
+  },
+  {
+    "objectID": "show_quarto_quiz_1.html",
+    "href": "show_quarto_quiz_1.html",
     "title": "Exercices Semaine 1",
     "section": "",
-    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+    "text": "🔎 View Fullscreen"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-2",
-    "href": "exercices_semaine_1.html#question-2",
+    "objectID": "show_quarto_quiz_1.html#quiz-presentation",
+    "href": "show_quarto_quiz_1.html#quiz-presentation",
     "title": "Exercices Semaine 1",
-    "section": "Question 2",
-    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-3",
-    "href": "exercices_semaine_1.html#question-3",
-    "title": "Exercices Semaine 1",
-    "section": "Question 3",
-    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-4",
-    "href": "exercices_semaine_1.html#question-4",
-    "title": "Exercices Semaine 1",
-    "section": "Question 4",
-    "text": "Question 4\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\) \\(\\frac{3}{8}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-5",
-    "href": "exercices_semaine_1.html#question-5",
-    "title": "Exercices Semaine 1",
-    "section": "Question 5",
-    "text": "Question 5\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Quelle est la probabilité que ce soit un roi?\n\n \\(\\frac{4}{52}\\) \\(\\frac{2}{52}\\) \\( \\frac{1}{52}\\) \\(\\frac{8}{52}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-6",
-    "href": "exercices_semaine_1.html#question-6",
-    "title": "Exercices Semaine 1",
-    "section": "Question 6",
-    "text": "Question 6\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Sachant que c’est un roi, quelle est la probabilité que ce soit une carte rouge ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{2}{3}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-7",
-    "href": "exercices_semaine_1.html#question-7",
-    "title": "Exercices Semaine 1",
-    "section": "Question 7",
-    "text": "Question 7\nDans une famille avec deux enfants, sachant que l’aîné est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-8",
-    "href": "exercices_semaine_1.html#question-8",
-    "title": "Exercices Semaine 1",
-    "section": "Question 8",
-    "text": "Question 8\nDans une famille avec deux enfants, sachant qu’au moins l’un des deux est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n: \n\n\n\n\nLe dilemme de Monty Hall\nUn jeu télévisé propose aux candidats de choisir une porte parmi trois. Derrière l’une d’elles se trouve une voiture (le gain), et derrière les deux autres, des chèvres (perte).\nLe candidat choisit une porte au hasard. L’animateur (qui sait où est la voiture) ouvre ensuite une des deux autres portes pour révéler une chèvre. Le candidat a alors la possibilité de changer de porte ou de conserver son choix initial."
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-9",
-    "href": "exercices_semaine_1.html#question-9",
-    "title": "Exercices Semaine 1",
-    "section": "Question 9",
-    "text": "Question 9\nAvant que l’animateur ouvre une porte, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{2}{3}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-10",
-    "href": "exercices_semaine_1.html#question-10",
-    "title": "Exercices Semaine 1",
-    "section": "Question 10",
-    "text": "Question 10\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{2}\\) \\(\\frac{1}{3}\\) \\( \\frac{2}{3}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-11",
-    "href": "exercices_semaine_1.html#question-11",
-    "title": "Exercices Semaine 1",
-    "section": "Question 11",
-    "text": "Question 11\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière l’autre porte encore fermée ?\n\n \\(\\frac{2}{3}\\) \\(\\frac{1}{3}\\) \\( \\frac{1}{4}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n: \n\n\n\n\nProbabilité dans le jeu du Yahtzee\nLe jeu de Yahtzee utilise \\(5\\) dés à six faces. Après chaque lancer, le joueur choisit de conserver certains dés et de relancer les autres pour maximiser le score selon les catégories (par exemple, les suites, les brelans, le Yahtzee, etc.).\nLe joueur lance \\(5\\) dés. Après le premier lancer, les résultats sont les suivants : \\((2, 4, 4, 3, 5)\\). Le joueur décide de conserver les deux dés “\\(4\\)” et de relancer les trois autres dés \\((2, 3, \\text{ et } 5)\\)."
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-12",
-    "href": "exercices_semaine_1.html#question-12",
-    "title": "Exercices Semaine 1",
-    "section": "Question 12",
-    "text": "Question 12\nQuelle est la probabilité d’obtenir au moins un autre “\\(4\\)” lors du second lancer ? (Le joueur relance \\(3\\) dés.)\n\n \\(\\frac{1}{6}\\) \\(\\frac{1}{2}\\) \\( \\frac{91}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{56}{216}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-13",
-    "href": "exercices_semaine_1.html#question-13",
-    "title": "Exercices Semaine 1",
-    "section": "Question 13",
-    "text": "Question 13\nQuelle est la probabilité d’obtenir un “Yahtzee” (cinq dés identiques) lors d’un premier lancer ?\n\n \\(\\frac{1}{36}\\) \\(\\frac{1}{1296}\\) \\( \\frac{1}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{6}{1296}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+    "section": "",
+    "text": "🔎 View Fullscreen"
   },
   {
     "objectID": "exercices_semaine_2.html",
@@ -273,74 +203,256 @@
     "text": "Question 13\nLors des votations fédérales, la participation électorale varie d’un canton à l’autre. Supposons que la probabilité qu’une personne du canton de Genève participe à une votation soit de \\(55\\%\\), tandis que dans le canton de Zurich, cette probabilité est de \\(50\\%\\) (données fictives). On sélectionne une personne au hasard dans chacun de ces deux cantons. En supposant que les décisions de participation des personnes des deux cantons sont indépendantes, quelle est la probabilité que les deux personnes participent à la votation ?\n\n \\(0.275\\) \\(0.90\\) \\(0.50\\) \\(1.10\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "show_quarto_quiz_1.html",
-    "href": "show_quarto_quiz_1.html",
+    "objectID": "exercices_semaine_1.html",
+    "href": "exercices_semaine_1.html",
     "title": "Exercices Semaine 1",
     "section": "",
-    "text": "🔎 View Fullscreen"
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "show_quarto_quiz_1.html#quiz-presentation",
-    "href": "show_quarto_quiz_1.html#quiz-presentation",
+    "objectID": "exercices_semaine_1.html#question-1",
+    "href": "exercices_semaine_1.html#question-1",
     "title": "Exercices Semaine 1",
     "section": "",
-    "text": "🔎 View Fullscreen"
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#what-is-the-capital-of-france",
-    "href": "quarto_quiz.html#what-is-the-capital-of-france",
+    "objectID": "exercices_semaine_1.html#question-2",
+    "href": "exercices_semaine_1.html#question-2",
     "title": "Exercices Semaine 1",
-    "section": "What is the capital of France?",
-    "text": "What is the capital of France?\n\nLondon\nParis\nBerlin\nMadrid\n\n\nClick on one of the options then click the check button. If you got it wrong click reset and try again."
+    "section": "Question 2",
+    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#what-is-the-capital-of-the-usa",
-    "href": "quarto_quiz.html#what-is-the-capital-of-the-usa",
+    "objectID": "exercices_semaine_1.html#question-3",
+    "href": "exercices_semaine_1.html#question-3",
     "title": "Exercices Semaine 1",
-    "section": "What is the capital of the USA?",
-    "text": "What is the capital of the USA?\n\nParis\nBerlin\nMadrid\nWashington, D.C.\n\n\nAlternatively, you can select each option using your number keypad. For example, click “2” to select the second option."
+    "section": "Question 3",
+    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#what-is-the-capital-of-spain",
-    "href": "quarto_quiz.html#what-is-the-capital-of-spain",
+    "objectID": "exercices_semaine_1.html#question-4",
+    "href": "exercices_semaine_1.html#question-4",
     "title": "Exercices Semaine 1",
-    "section": "What is the capital of Spain?",
-    "text": "What is the capital of Spain?\n\nParis\nBerlin\nMadrid\n\n\nYou can use the “c” key to check your answer, the “q” key to reset the question, and the “t” key to shuffle the question slides."
+    "section": "Question 4",
+    "text": "Question 4\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\) \\(\\frac{3}{8}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#what-is-the-capital-of-germany",
-    "href": "quarto_quiz.html#what-is-the-capital-of-germany",
+    "objectID": "exercices_semaine_1.html#question-5",
+    "href": "exercices_semaine_1.html#question-5",
     "title": "Exercices Semaine 1",
-    "section": "What is the capital of Germany?",
-    "text": "What is the capital of Germany?\n\nParis\nBerlin\nMadrid\nLondon\n\n\nKeyboard shortcuts can be changed in the YAML header of your Quarto file. See README.md for more info."
+    "section": "Question 5",
+    "text": "Question 5\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Quelle est la probabilité que ce soit un roi?\n\n \\(\\frac{4}{52}\\) \\(\\frac{2}{52}\\) \\( \\frac{1}{52}\\) \\(\\frac{8}{52}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#python-lists",
-    "href": "quarto_quiz.html#python-lists",
+    "objectID": "exercices_semaine_1.html#question-6",
+    "href": "exercices_semaine_1.html#question-6",
     "title": "Exercices Semaine 1",
-    "section": "Python lists",
-    "text": "Python lists\nWhat is the value of x[2]? \n\n2\n3\n4\n\n\nYou can also include code or other content prior to the question."
+    "section": "Question 6",
+    "text": "Question 6\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Sachant que c’est un roi, quelle est la probabilité que ce soit une carte rouge ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{2}{3}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
-    "objectID": "quarto_quiz.html#section",
-    "href": "quarto_quiz.html#section",
+    "objectID": "exercices_semaine_1.html#question-7",
+    "href": "exercices_semaine_1.html#question-7",
     "title": "Exercices Semaine 1",
+    "section": "Question 7",
+    "text": "Question 7\nDans une famille avec deux enfants, sachant que l’aîné est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-8",
+    "href": "exercices_semaine_1.html#question-8",
+    "title": "Exercices Semaine 1",
+    "section": "Question 8",
+    "text": "Question 8\nDans une famille avec deux enfants, sachant qu’au moins l’un des deux est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n: \n\n\n\n\nLe dilemme de Monty Hall\nUn jeu télévisé propose aux candidats de choisir une porte parmi trois. Derrière l’une d’elles se trouve une voiture (le gain), et derrière les deux autres, des chèvres (perte).\nLe candidat choisit une porte au hasard. L’animateur (qui sait où est la voiture) ouvre ensuite une des deux autres portes pour révéler une chèvre. Le candidat a alors la possibilité de changer de porte ou de conserver son choix initial."
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-9",
+    "href": "exercices_semaine_1.html#question-9",
+    "title": "Exercices Semaine 1",
+    "section": "Question 9",
+    "text": "Question 9\nAvant que l’animateur ouvre une porte, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{2}{3}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-10",
+    "href": "exercices_semaine_1.html#question-10",
+    "title": "Exercices Semaine 1",
+    "section": "Question 10",
+    "text": "Question 10\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{2}\\) \\(\\frac{1}{3}\\) \\( \\frac{2}{3}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-11",
+    "href": "exercices_semaine_1.html#question-11",
+    "title": "Exercices Semaine 1",
+    "section": "Question 11",
+    "text": "Question 11\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière l’autre porte encore fermée ?\n\n \\(\\frac{2}{3}\\) \\(\\frac{1}{3}\\) \\( \\frac{1}{4}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n: \n\n\n\n\nProbabilité dans le jeu du Yahtzee\nLe jeu de Yahtzee utilise \\(5\\) dés à six faces. Après chaque lancer, le joueur choisit de conserver certains dés et de relancer les autres pour maximiser le score selon les catégories (par exemple, les suites, les brelans, le Yahtzee, etc.).\nLe joueur lance \\(5\\) dés. Après le premier lancer, les résultats sont les suivants : \\((2, 4, 4, 3, 5)\\). Le joueur décide de conserver les deux dés “\\(4\\)” et de relancer les trois autres dés \\((2, 3, \\text{ et } 5)\\)."
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-12",
+    "href": "exercices_semaine_1.html#question-12",
+    "title": "Exercices Semaine 1",
+    "section": "Question 12",
+    "text": "Question 12\nQuelle est la probabilité d’obtenir au moins un autre “\\(4\\)” lors du second lancer ? (Le joueur relance \\(3\\) dés.)\n\n \\(\\frac{1}{6}\\) \\(\\frac{1}{2}\\) \\( \\frac{91}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{56}{216}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-13",
+    "href": "exercices_semaine_1.html#question-13",
+    "title": "Exercices Semaine 1",
+    "section": "Question 13",
+    "text": "Question 13\nQuelle est la probabilité d’obtenir un “Yahtzee” (cinq dés identiques) lors d’un premier lancer ?\n\n \\(\\frac{1}{36}\\) \\(\\frac{1}{1296}\\) \\( \\frac{1}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{6}{1296}\\)\n\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "Untitled.html",
+    "href": "Untitled.html",
+    "title": "Webexercises",
     "section": "",
-    "text": "What is the name of Ross and Carol’s son in the TV show “Friends”?\n\nJack\nJoey\nBen\nChandler\n\n\nYou can specify an explanation for each option using the data-explanation attribute."
+    "text": "This is a Web Exercise template created by the #PsyTeachR team at the University of Glasgow, based on ideas from Software Carpentry. This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.\nThe {webexercises} package provides a number of functions that you use in inline R code or through code chunk options to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Render this file to HTML to see how it works.\nNOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser."
   },
   {
-    "objectID": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
-    "href": "quarto_quiz.html#what-is-the-formula-for-the-area-of-a-circle",
-    "title": "Exercices Semaine 1",
-    "section": "What is the formula for the area of a circle?",
-    "text": "What is the formula for the area of a circle?\n\n\\(πr^2\\)\n\\(2πr\\)\n\\(4πr^2\\)\n\\(\\frac{4}{3}r^3\\)\n\n\nYou can also include math expressions using LaTeX in the options."
+    "objectID": "Untitled.html#example-questions",
+    "href": "Untitled.html#example-questions",
+    "title": "Webexercises",
+    "section": "Example Questions",
+    "text": "Example Questions\n\nFill-In-The-Blanks (fitb())\nCreate fill-in-the-blank questions using fitb(), providing the answer as the first argument.\n\n2 + 2 is \n\nYou can also create these questions dynamically, using variables from your R session.\n\nThe square root of 49 is: \n\nThe blanks are case-sensitive; if you don’t care about case, use the argument ignore_case = TRUE.\n\nWhat is the letter after D? \n\nIf you want to ignore differences in whitespace use, use the argument ignore_ws = TRUE (which is the default) and include spaces in your answer anywhere they could be acceptable.\n\nHow do you load the tidyverse package? \n\nYou can set more than one possible correct answer by setting the answers as a vector.\n\nType a vowel: \n\nYou can use regular expressions to test answers against more complex rules.\n\nType any 3 letters: \n\n\n\nMultiple Choice (mcq())\n\n“Never gonna give you up, never gonna: let you goturn you downrun awaylet you down”\n“I bless the rainsguess it rainssense the rain down in Africa” -Toto\n\n\n\nTrue or False (torf())\n\nTrue or False? You can permute values in a vector using sample(). TRUEFALSE\n\n\n\nLonger MCQs (longmcq())\nWhen your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use longmcq() to deal with this. Since the answers are long, It’s probably best to set up the options inside an R chunk with echo=FALSE.\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion\n\nWhat is true about a 95% confidence interval of the mean?\n\n there is a 95% probability that the true mean lies within this range 95% of the data fall within this range if you repeated the process many times, 95% of intervals calculated in this way contain the true mean"
   },
   {
-    "objectID": "quarto_quiz.html#which-one-is-chandler",
-    "href": "quarto_quiz.html#which-one-is-chandler",
-    "title": "Exercices Semaine 1",
-    "section": "Which one is Chandler?",
-    "text": "Which one is Chandler?\n\n\n\n\n\nOr you can try to embed images in the options."
+    "objectID": "Untitled.html#checked-sections",
+    "href": "Untitled.html#checked-sections",
+    "title": "Webexercises",
+    "section": "Checked sections",
+    "text": "Checked sections\nCreate sections with the class webex-check to add a button that hides feedback until it is pressed. Add the class webex-box to draw a box around the section (or use your own styles).\n\nI am going to learn a lot: TRUEFALSE\nWhat is a p-value?\n\n the probability that the null hypothesis is true the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true the probability of making an error in your conclusion"
+  },
+  {
+    "objectID": "Untitled.html#hidden-solutions-and-hints",
+    "href": "Untitled.html#hidden-solutions-and-hints",
+    "title": "Webexercises",
+    "section": "Hidden solutions and hints",
+    "text": "Hidden solutions and hints\nYou can fence off a solution area that will be hidden behind a button using hide() before the solution and unhide() after, each as inline R code. Pass the text you want to appear on the button to the hide() function.\nIf the solution is a code chunk, instead of using hide() and unhide(), simply set the webex.hide chunk option to TRUE, or set it to the string you wish to display on the button.\nRecreate the scatterplot below, using the built-in cars dataset.\n\n\n\n\n\n\n\n\n\n\n\nI need a hint\n\nSee the documentation for plot() (?plot)\n\n\n\n\n\nClick here to see the solution\n\nplot(cars$speed, cars$dist)"
+  },
+  {
+    "objectID": "Untitled.html#multiple-choice-question-with-hints",
+    "href": "Untitled.html#multiple-choice-question-with-hints",
+    "title": "Webexercises",
+    "section": "Multiple Choice Question with Hints",
+    "text": "Multiple Choice Question with Hints\n\nWhat is the derivative of ( f(x) = x^2 )?\n\n( 1 )\n\n❌ Incorrect. The derivative of ( x^2 ) is not a constant.\n\n💡 Hint: The power rule states ( x^n = n x^{n-1} ).\n\n( 2x )\n\n✅ Correct! The derivative of ( x^2 ) is ( 2x ).\n\n🎯 Why? The power rule gives ( x^2 = 2x ).\n\n( x )\n\n❌ Incorrect. You are missing a factor.\n\n💡 Hint: When differentiating ( x^2 ), reduce the exponent by 1 and multiply by the original exponent."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "exercices_semaine_3.html",
+    "href": "exercices_semaine_3.html",
+    "title": "Exercices Semaine 3",
+    "section": "",
+    "text": "Quelle est la définition vue en cours de l’espérance mathématique d’une variable aléatoire \\(X\\) ?\n\n La valeur maximale que peut prendre \\(X\\). La somme des valeurs possibles de \\(X\\). Une mesure de dispersion. Une moyenne pondérée des valeurs de \\(X\\) par leurs probabilités.\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-1",
+    "href": "exercices_semaine_3.html#question-1",
+    "title": "Exercices Semaine 3",
+    "section": "",
+    "text": "Quelle est la définition vue en cours de l’espérance mathématique d’une variable aléatoire \\(X\\) ?\n\n La valeur maximale que peut prendre \\(X\\). La somme des valeurs possibles de \\(X\\). Une mesure de dispersion. Une moyenne pondérée des valeurs de \\(X\\) par leurs probabilités.\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-2",
+    "href": "exercices_semaine_3.html#question-2",
+    "title": "Exercices Semaine 3",
+    "section": "Question 2",
+    "text": "Question 2\nOn considère une variable aléatoire \\(X\\) prenant les valeurs suivantes :\n\\[ X = \\begin{cases} 1 & \\text{avec probabilité } 0.2 \\\\ 3 & \\text{avec probabilité } 0.5 \\\\ 6 & \\text{avec probabilité } 0.3 \\end{cases} \\]\nQuelle est la variance de \\(X\\) ?\n\n \\(2.56\\) \\(3.48\\) \\(3.25\\) \\(4.12\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-3",
+    "href": "exercices_semaine_3.html#question-3",
+    "title": "Exercices Semaine 3",
+    "section": "Question 3",
+    "text": "Question 3\nUn pari est-il équitable si vous payez \\(50\\) CHF pour jouer et pouvez gagner \\(120\\) CHF avec une probabilité de \\(0.3\\) ou perdre votre mise dans le cas contraire ?\n\n Oui, car le gain potentiel est supérieur à la mise. Non, car l’espérance est négative. Oui, car la probabilité de gagner est non nulle. Impossible à déterminer.\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-4",
+    "href": "exercices_semaine_3.html#question-4",
+    "title": "Exercices Semaine 3",
+    "section": "Question 4",
+    "text": "Question 4\nÀ quoi correspond le symbole \\( C_7^6 \\) ?\n\n Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), sans ordre. Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), sans ordre. Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), en tenant compte de l’ordre. Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), en tenant compte de l’ordre.\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-5",
+    "href": "exercices_semaine_3.html#question-5",
+    "title": "Exercices Semaine 3",
+    "section": "Question 5",
+    "text": "Question 5\nQuelle est la bonne expression pour \\( C_7^6 \\) ?\n\n \\( \\frac{7!}{6!(7-6)!} \\) \\( \\frac{6!}{7!(6-7)!} \\) \\( \\frac{6!}{7!(7-6)!} \\) \\( \\frac{7!}{7!(6-7)!} \\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-6",
+    "href": "exercices_semaine_3.html#question-6",
+    "title": "Exercices Semaine 3",
+    "section": "Question 6",
+    "text": "Question 6\nCombien de façons différentes un comité de \\(5\\) membres peut-il être choisi parmi \\(12\\) candidats ?\n\n \\(792\\) \\(120\\) \\(252\\) \\(924\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-7",
+    "href": "exercices_semaine_3.html#question-7",
+    "title": "Exercices Semaine 3",
+    "section": "Question 7",
+    "text": "Question 7\nUn comité de \\(10\\) ONG vote une décision où chaque organisation a \\(40\\%\\) de chances de voter « pour », de façon indépendante. Quelle est la probabilité que \\(4\\) ONG votent en faveur ?\n\n \\(0.20\\) \\(0.25\\) \\(0.30\\) \\(0.35\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-8",
+    "href": "exercices_semaine_3.html#question-8",
+    "title": "Exercices Semaine 3",
+    "section": "Question 8",
+    "text": "Question 8\nDans une organisation internationale, \\(20\\%\\) des propositions de réforme sont acceptées après un premier examen. Quelle est la probabilité que parmi \\(8\\) propositions, au moins \\(2\\) soient acceptées ?\n\n \\(0.567\\) \\(0.497\\) \\(0.852\\) \\(0.912\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-9",
+    "href": "exercices_semaine_3.html#question-9",
+    "title": "Exercices Semaine 3",
+    "section": "Question 9",
+    "text": "Question 9\nUn organisme international organise une élection avec \\(3\\) candidats. Chaque votant choisit indépendamment un candidat avec une probabilité de \\(0.4\\) pour le premier candidat, \\(0.25\\) pour le deuxième et \\(0.35\\) pour le troisème candidat. Quelle est la probabilité que le premier candidat obtienne exactement \\(5\\) votes sur \\(10\\) ?\n\n \\(0.15\\) \\(0.25\\) \\(0.20\\) \\(0.30\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-10",
+    "href": "exercices_semaine_3.html#question-10",
+    "title": "Exercices Semaine 3",
+    "section": "Question 10",
+    "text": "Question 10\nSoit \\(X\\) une variable aléatoire avec \\(\\mathbb{E}(X) = 2\\), que vaut \\(\\mathbb{E}(2X+1)\\)?\n\n \\(2\\) \\(5\\) \\(4\\) \\(3\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-11",
+    "href": "exercices_semaine_3.html#question-11",
+    "title": "Exercices Semaine 3",
+    "section": "Question 11",
+    "text": "Question 11\nSoit \\(X\\) une variable aléatoire. Si \\(\\mathbb{E}(X)=0\\) et \\(\\text{Var}(X)=1\\), quelle est l’espérance et la variance de \\(3X+1\\) ?\n\n \\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 1\\) \\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 9\\) \\(\\mathbb{E}(3X + 1) = 0\\) et \\(\\text{Var}(3X + 1) = 9\\) \\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 3\\) \\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 3\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-12",
+    "href": "exercices_semaine_3.html#question-12",
+    "title": "Exercices Semaine 3",
+    "section": "Question 12",
+    "text": "Question 12\nMme Smith a \\(3 \\) jupes, \\(5\\) chemisiers et \\(2\\) vestes. Combien de tenues différentes peut-elle porter ?\n\n \\(30\\) \\(5\\) \\(10\\) \\(15\\) \\(25\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n 💡 Explication \n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-13",
+    "href": "exercices_semaine_3.html#question-13",
+    "title": "Exercices Semaine 3",
+    "section": "Question 13",
+    "text": "Question 13\nUn professeur donne un QCM de \\(10\\) questions à ses étudiants. La probabilité qu’un étudiant réponde correctement à une question est de \\(0.7\\). Quelle est la probabilité qu’un étudiant réponde correctement à exactement \\(8\\) questions?\n\n \\(0.8506917\\) \\(0.2334744\\) \\(0.5289564\\) \\(0.3589652\\) \\(0.1248964\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-14",
+    "href": "exercices_semaine_3.html#question-14",
+    "title": "Exercices Semaine 3",
+    "section": "Question 14",
+    "text": "Question 14\nUn professeur donne un QCM de \\(10\\) questions à ses étudiants. La probabilité qu’un étudiant réponde correctement à une question est de \\(0.7\\). Quelle est la probabilité qu’un étudiant réponde correctement à entre \\(6\\) et \\(8\\) questions inclusivement ?\n\n \\(0.7004233\\) \\(0.3492134\\) \\(0.6516539\\) \\(0.4740934\\) \\(0.1797624\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_3.html#question-15-exercice-facultatif",
+    "href": "exercices_semaine_3.html#question-15-exercice-facultatif",
+    "title": "Exercices Semaine 3",
+    "section": "Question 15 (Exercice facultatif 😱)",
+    "text": "Question 15 (Exercice facultatif 😱)\nMontrez que pour une variable aléatoire \\(X\\), \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\} = \\mathbb{E}(X^2) - \\{\\mathbb{E}(X)\\}^2 \\).\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
   },
   {
     "objectID": "cours_semaine_1.html",
