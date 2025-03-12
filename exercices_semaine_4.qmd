@@ -341,7 +341,7 @@ cat(longmcq2(opts))
 
 <div style="margin-top: 4px;"></div>
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), la probabilité que \\(X\\) soit supérieur entre \\(90\\) secondes et \\(60\\) secondes est de \\( 90  \\times \\frac{1}{120 - 0}  - 60  \\times \\frac{1}{120 - 0} =  30  \\times \\frac{1}{120 - 0} = \\frac{1}{4} \\).', 'explanation')">
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), la probabilité que \\(X\\) soit entre \\(90\\) secondes et \\(60\\) secondes est de \\( 90  \\times \\frac{1}{120 - 0}  - 60  \\times \\frac{1}{120 - 0} =  30  \\times \\frac{1}{120 - 0} = \\frac{1}{4} \\).', 'explanation')">
 💡 Explication
 </button>
 <div class="alert alert-info" style="display: none;">
