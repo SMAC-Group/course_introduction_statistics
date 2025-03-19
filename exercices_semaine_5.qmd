@@ -156,11 +156,7 @@ function toggleAlert(event, message, type) {
 ```
 
 
-
-
-
-
-## Question 10
+## Question 1
 
 Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi(0)\\)?
 
@@ -187,7 +183,7 @@ cat(longmcq2(opts))
 
 <div style="margin-top: 4px;"></div>
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), \\(\\Phi(0) = 0.5\\). \\(0\\) correspond à la moyenne et à la médiane de la distribution et ainsi, la probabilité qu\'une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à \\(0\\) est de \\(0.5\\).', 'explanation')">
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), \\(\\Phi(0) = 0.5\\). La moyenne et à la médiane de la distribution correspondent à \\(0\\) et ainsi, la probabilité qu\'une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à \\(0\\) est de \\(0.5\\).', 'explanation')">
 💡 Explication
 </button>
 <div class="alert alert-info" style="display: none;">
@@ -203,7 +199,7 @@ cat(longmcq2(opts))
 
 
 
-## Question 11
+## Question 2
 
 Soit  \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X>0)\\)?
 
@@ -242,7 +238,87 @@ cat(longmcq2(opts))
 
 
 
-## Question 12
+## Question 3
+
+Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.50)\\)?
+
+
+
+```{r}
+opts <- c(
+   answer = "\\(0\\)",
+     "\\(0.50\\)",
+   "\\(1\\)",
+  
+   "\\(-1\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.5\\)', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, '\\( \\Phi^{-1}(0.50)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.50\\). Ainsi, \\( \\Phi^{-1}(0.50) = 0\\)', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+
+
+
+## Question 4
+
+Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.90)\\)? Les valeurs sont arrondies au dixième le plus proche.
+
+
+
+```{r}
+opts <- c(
+   "\\(1\\)",
+     "\\(-0.50\\)",
+   "\\(-1.28\\)",
+  
+   answer = "\\(1.28\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.9\\)', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+<div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, '\\( \\Phi^{-1}(0.90)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.90\\). Ainsi, \\( \\Phi^{-1}(0.90) \\approx 1.28\\)', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 5
 
 Soit  \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X>1)\\)? Les probabilités sont arrondies au dixième le plus proche.
 
@@ -282,15 +358,13 @@ cat(longmcq2(opts))
 
 
 
-
-
 ---
 
 **Analyse des écarts dans la production d’une usine**
 
 Une usine de fabrication produit des pièces mécaniques dont la dimension doit être exactement de \\(0\\) mm par rapport à une référence. Cependant, des variations autour de cette valeur existent en raison du processus de fabrication. L’écart par rapport à la référence suit une loi normale standard \\(\\mathcal{N}(0,1)\\) (espérance de \\(0\\) et écart-type de \\(1\\)), où les valeurs négatives indiquent des pièces plus petites que prévu, et les valeurs positives indiquent des pièces plus grandes.
 
-## Question 13
+## Question 6
 
 Une pièce est considérée comme trop grande si son écart dépasse \\(1.4\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop grande ?
 
@@ -315,7 +389,7 @@ cat(longmcq2(opts))
 
 
 
-## Question 14
+## Question 7
 
 Une pièce est considérée comme trop petite si son écart est inférieur à -\\(1.1\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop petite ?
 
@@ -339,14 +413,14 @@ cat(longmcq2(opts))
 
 
 
-## Question 15
+## Question 8
 
 Les pièces sont considérées comme conformes si leur écart est compris entre \\(-0.9\\) mm et \\(1.2\\) mm. Quelle est la probabilité qu’une pièce soit conforme ?
 
 ```{r}
 opts <- c(
    "\\(0.5000\\)",
-   answer = "\\(0.7124\\)",
+   answer = "\\(0.7008\\)",
    "\\(0.2876\\)",
    "\\(0.8413\\)"
 )
@@ -359,4 +433,97 @@ cat(longmcq2(opts))
 
 <button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la table de la distribution cumulative de la loi normale standard et soustrayez deux probabilités.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On utilise \\(P(a < Z < b) = \\Phi(b) - \\Phi(a)\\) avec \\(a = -0.9\\) et \\(b = 1.2\\). On trouve \\(P(-0.9 < Z < 1.2) = 0.8849 - 0.1726 = 0.7124\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On utilise \\(P(a < Z < b) = \\Phi(b) - \\Phi(a)\\) avec \\(a = -0.9\\) et \\(b = 1.2\\). On trouve \\(P(-0.9 < Z < 1.2) = 0.8849 - 0.1841 = 0.7008\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 9
+
+Dans un pays, la durée moyenne d’un mandat politique est de \\(5.2\\) années avec une variance de \\(1.21\\) années carrées et suit une distribution normale. Quelle est la probabilité qu’un mandat dure moins de \\(4\\) années ?
+
+```{r}
+opts <- c(
+   "\\(0.2319\\)",
+   "\\(0.3085\\)",
+   answer = "\\(0.1379\\)",
+   "\\(0.8413\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Standardisez en calculant \\(Z = (X - \\mu) / \\sigma\\), puis utilisez la table de la distribution normale.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On calcule \\(Z = (4 - 5.2) / \\sqrt{1.21} = -1.09\\). En utilisant la table, \\(P(Z < -1.09) = 0.1379\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 10
+
+Le taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de \\(2.5\%\\) et un écart-type de \\(1.2\%\\). Quelle est la probabilité que la croissance soit comprise entre \\(1\%\\) et \\(4\%\\) ?
+
+```{r}
+opts <- c(
+   answer = "\\(0.7888\\)",
+   "\\(0.5000\\)",
+   "\\(0.2319\\)",
+   "\\(0.8413\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Standardisez les deux valeurs, puis utilisez la table et appliquez \\( P(a < Z < b) = \\Phi(b) - \\Phi(a) \\).', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On calcule \\(Z_1 = (1 - 2.5) / 1.2 = -1.25\\) et \\(Z_2 = (4 - 2.5) / 1.2 = 1.25\\). Avec la table, \\(P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 11
+
+Le score d’un test d’admission suit une loi normale de moyenne \\(70\\) points et d’écart-type \\(10\\) points. L’admission est garantie pour les étudiants dépassant le \\(80\\)e percentile. Quel est le score minimum requis pour être admis ?
+
+```{r}
+opts <- c(
+   "\\(73.8\\)",
+   answer = "\\(78.4\\)",
+   "\\(85.2\\)",
+   "\\(90.0\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = 0.80\\), puis déstandardisez.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Le 80e percentile correspond à \\(P(Z\\leq z_{80}) = 0.80\\), ce qui donne \\(z_{80} \\approx 0.84\\). On déstandardise avec \\(X = \\mu + \\sigma z_{80} = 70 + 10 \\times 0.84 = 78.4\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 12
+
+Un institut international analyse l'Indice de Développement Humain (IDH) des pays. On suppose que l'IDH suit approximativement une loi normale de moyenne \\(0.75\\) et d'écart-type \\(0.10\\). Un pays est considéré comme "très développé" s’il se situe dans le top \\(10\%\\) des IDH. Quel est ce seuil ?
+
+```{r}
+opts <- c(
+   "\\(0.355\\)",
+   "\\(1.154\\)",
+   answer = "\\(0.878\\)",
+   "\\(0.622\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = \\alpha\\) (quelle valeur pour \\(\\alpha\\) ?), puis déstandardisez.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Le 90e percentile correspond à \\(P(Z\\leq z_{90}) = 0.90\\), ce qui donne \\(z_{90} \\approx 1.28\\). On déstandardise avec \\(X = \\mu + \\sigma z_{90} = 0.75 + 0.10 \\times 1.28 = 0.878\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
