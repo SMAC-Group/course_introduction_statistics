@@ -461,7 +461,7 @@ cat(longmcq2(opts))
 
 ## Question 10
 
-Le taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de \\(2.5\%\\) et un écart-type de \\(1.2\%\\). Quelle est la probabilité que la croissance soit comprise entre \\(1\%\\) et \\(4\%\\) ?
+Le taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de \\(2.5\\%\\) et un écart-type de \\(1.2\\%\\). Quelle est la probabilité que la croissance soit comprise entre \\(1\\%\\) et \\(4\\%\\) ?
 
 ```{r}
 opts <- c(
@@ -505,7 +505,7 @@ cat(longmcq2(opts))
 
 ## Question 12
 
-Un institut international analyse l'Indice de Développement Humain (IDH) des pays. On suppose que l'IDH suit approximativement une loi normale de moyenne \\(0.75\\) et d'écart-type \\(0.10\\). Un pays est considéré comme "très développé" s’il se situe dans le top \\(10\%\\) des IDH. Quel est ce seuil ?
+Un institut international analyse l'Indice de Développement Humain (IDH) des pays. On suppose que l'IDH suit approximativement une loi normale de moyenne \\(0.75\\) et d'écart-type \\(0.10\\). Un pays est considéré comme "très développé" s’il se situe dans le top \\(10\\%\\) des IDH. Quel est ce seuil ?
 
 ```{r}
 opts <- c(
