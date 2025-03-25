@@ -21,6 +21,7 @@ website:
       - href: exercices_semaine_3.qmd
       - href: exercices_semaine_4.qmd
       - href: exercices_semaine_5.qmd
+      - href: exercices_semaine_6.qmd
 execute:
   freeze: auto
 format:
