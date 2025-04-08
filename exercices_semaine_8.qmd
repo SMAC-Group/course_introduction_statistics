@@ -1,0 +1,500 @@
+---
+title: "Exercices Semaine 8"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+editor: source
+---
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+<!-- JavaScript -->
+
+```{=html}
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+```
+
+<!-- CSS for Styling -->
+
+```{=html}
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+```
+
+<!-- MathJax for Rendering Math -->
+
+```{=html}
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+```
+
+
+
+
+## Question 1
+
+Les scores d'un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?
+
+```{r}
+opts <- c(
+ 	answer =   "\\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique",
+    "\\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre",
+"\\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre",
+"\\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre"
+
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Relisez la notion de statistique et de paramètres dans les slides de la semaine \\(8\\).', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, '\\(80\\) et \\(5\\) sont respectivement l\'espérance et l\'écart type de la distribution des scores et sont donc des paramètres. \\(75\\) est la moyenne empirique (aussi notée \\(\\bar{X}\\)) de l\'échantillon et est ainsi une statistique', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 2
+
+Si la taille de l'échantillon \\(n\\) augmente, quelle affirmation est correcte à propos de \\(\\bar{X}\\), l'estimateur de l'espérance \\(\\mu\\)?
+
+
+```{r}
+opts <- c(
+ "L'estimateur \\(\\bar{X}\\) devient plus variable",
+       	answer =     "L'estimateur \\(\\bar{X}\\)  devient moins variable",
+           "L'estimateur \\(\\bar{X}\\) devient plus grand",
+           "L'estimateur \\(\\bar{X}\\) devient plus petit",
+ "La variance de l'estimateur \\(\\bar{X}\\) n'est pas affectée"
+
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Quelle est la variance de \\(\\bar{X}\\)?', 'hint')">
+❓ Indice
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Si la taille de l\'échantillon \\(n\\) augmente, la variance de l\'estimateur \\(\\bar{X}\\), donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\), diminue. Cela signifie que \\(\\bar{X}\\) devient plus précis (moins variable) car les valeurs de \\(\\bar{X}\\) sont plus concentrées autour de la vraie valeur de l\'espérance \\(\\mu\\).', 'explanation')">
+💡 Explication
+</button>
+<div class="alert alert-info" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+
+
+## Question 3
+
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). On considère un échantillon de taille \\(n = 100\\). Quelle est la variance de \\(\\bar{X}\\), la moyenne de l'échantillon ?
+
+```{r}
+opts <- c(
+  "\\(0.75\\)",
+
+  "\\(2.5\\)",
+  "\\(25\\)",
+    answer = "\\(0.25\\)",
+  "\\(100\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Quelle est la formule de la variance de \\(\\bar{X}\\)?', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La variance de \\(\\bar{X}\\) est donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\). Dans ce cas, \\(\\sigma^2 = 25\\) et \\(n = 100\\), donc \\(\\text{Var}(\\bar{X}) = \\frac{25}{100} = 0.25\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> 
+
+
+
+
+
+
+
+## Question 4
+
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). Maintenant, on considère un échantillon de taille \\(n = 100\\). Quelle est la probabilité que la moyenne de l'échantillon \\(\\bar{X}\\) soit supérieure à 51 ?
+
+```{r}
+opts <- c(
+  "\\(0.1587\\)",
+  answer = "\\(0.0228\\)",
+  "\\(0.3085\\)",
+  "\\(0.5\\)",
+  "\\(0.8413\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 50\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{25}{100} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit supérieure à 51 est donnée par \\(P(\\bar{X} > 51) = P\\left(Z > \\frac{51 - 50}{0.5}\\right) = P(Z > 2) = 1- \\Phi(2) \\approx 0.0228\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+
+## Question 5
+
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 100\\) et une variance \\(\\sigma^2 = 16\\). Maintenant, on considère un échantillon de taille \\(n = 64\\). Quelle est la probabilité que la moyenne de l'échantillon \\(\\bar{X}\\) soit inférieure à 99 ?
+
+```{r}
+opts <- c(
+  "\\(0.0478\\)",
+  "\\(0.1587\\)",
+  "\\(0.3085\\)",
+  "\\(0.5\\)",
+    answer = "\\(0.0228\\)",
+  "\\(0.1237\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 100\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{16}{64} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit inférieure à \\(99\\) est donnée par \\(P(\\bar{X} < 99) = P\\left(Z < \\frac{99 - 100}{0.5}\\right) = P(Z < -2) = 0.0228\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 6
+
+On considère l'échantillon suivant: \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\). Calculez la moyenne \\(\\bar{X}\\) et l'écart type \\(s\\) de cet ensemble de données.
+
+```{r}
+opts <- c(
+   answer =  "\\(\\bar{X} = 4.825, s \\approx 2.66 \\)",
+    "\\(\\bar{X} = 2.825, s \\approx 4.66 \\)",
+    "\\(\\bar{X} = 10.925, s \\approx 3.56 \\)",
+   "\\(\\bar{X} = 1.525, s \\approx 2.21 \\)"
+
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(\\bar{X}\\) et \\(s\\) à l\'aide de leur définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour calculer la moyenne \\(\\bar{X}\\), nous additionnons toutes les valeurs de l\'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\) et les divisons par le nombre total de valeurs, soit \\(6\\), ce qui donne \\(\\bar{X} = \\frac{28.95}{6} = 4.825\\). Pour l\'écart type \\(s\\), nous calculons d\'abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit \\((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + \\ldots + (8.35 - 4.825)^2 = 35.25875\\), puis nous divisons cette somme par \\(n-1 = 5\\) et prenons la racine carrée du résultat, ce qui donne \\(s = \\sqrt{\\frac{35.25875}{5}} = 2.655513 \\approx 2.656\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 7
+
+En utilisant la moyenne \\(\\bar{X}\\) et l'écart type \\(s\\) que vous avez calculés dans l'exercice précédent, déterminez l'erreur standard de la moyenne \\(\\frac{s}{\\sqrt{n}}\\) pour l'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\).
+
+```{r}
+opts <- c(
+  "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 0.0478\\)",
+   answer = "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 1.084109\\)",
+ "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 2.05219\\)",
+ "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 3.12643\\)"
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(e.s.(\\bar{X})\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, '\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = \\frac{2.655513}{\\sqrt{6}} =  1.084109\\)', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+---
+
+**Tir à 3 points de Stephen Curry**
+
+On a les données suivantes sur les réussites au tir à trois points de Stephen Curry (données réelles avril 2025) :
+
+| Date             | Adversaire             | Tentatives à 3 points  | Réussites à 3 points |
+|------------------|------------------------|------------------------|-----------------------|
+| 1er avril 2025   | Memphis Grizzlies    | 20                     | 12                    |
+| 3 avril 2025     | Los Angeles Lakers   | 11                     | 4                     |
+| 4 avril 2025     | Denver Nuggets      | 15                     | 7                     |
+| 6 avril 2025     | Houston Rockets     | 8                      | 1                     |
+
+
+## Question 8
+
+Basé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?
+
+```{r}
+opts <- c(
+  "\\(0.3790\\)",
+   answer = "\\(0.4444\\)",
+ "\\(0.3890\\)",
+ "\\(24\\)"
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(\\hat{p}\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(X=24\\) paniers à trois points réussis pour \\(n=54\\) tentatives, soit une propotion de \\(\\hat{p}=X/n\\approx0.4444\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 9
+
+Basé sur ces données, quelle est l\'erreur standard de la proportion de réussites à 3 points de Stephen Curry ?
+
+```{r}
+opts <- c(
+  "\\(0.0046\\)",
+   "\\(0.4969\\)",
+ answer = "\\(0.0676\\)",
+ "\\(0.0663\\)"
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(e.s.(\\hat{p})\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(\\hat{p}=0.4444\\) (Question 8) et \\(n=54\\), donc \\(e.s.(\\hat{p})=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx0.0676\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 10
+
+Quelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?
+
+```{r}
+opts <- c(
+  "Le TCL s’applique car les pourcentages proviennent d’un joueur professionnel, donc ils suivent une loi normale.",
+   "Le TCL ne peut pas s’appliquer ici car les tirs à 3 points ne suivent pas une loi normale.",
+  "Le TCL s’applique dès qu’on connaît la moyenne et la variance des taux de réussite, quelle que soit la taille de l’échantillon.",
+ answer = "Le TCL s’applique car l'échantillon est suffisamment grand pour justifier l’approximation normale.",
+ "Le TCL permet de conclure que la proportion est égale à la probabilité de réussite à 3 points."
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir les conditions d\'application du TCL dans les slides.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(n=54\\). Bien que \\(p\\) (le paramètre) ne soit pas connu,on a \\(n\\hat{p}=24>10\\) et \\(n(1-\\hat{p}=30>10\\) qui sont les deux indications que la taille d\'échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 11
+
+Supposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de \\(p=0.397\\). En supposant que le TCL s'applique, quelle est la distribution approximative de \\(\\hat{p}\\) ? 
+
+```{r}
+opts <- c(
+  "\\(\\hat{p}\\sim\\mathcal{N}(0.4444, 0.0676^2)\\)",
+  "\\(\\hat{p}\\sim\\text{Bin}(54, 0.397)\\)",
+  "\\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.397^2)\\)",
+  "\\(\\hat{p}\\sim\\mathcal{U}(0, 1)\\)",
+  answer = "\\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\)"
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir l\'approximation donnée par le TCL dans les slides.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Par hypothèse on a \\(p=0.397\\). Ici on \\(n=54\\). Donc on déduit que \\(\\sqrt{p(1-p)/n}\\approx0.0666\\). On conclut que \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\) grâce au TCL.', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
