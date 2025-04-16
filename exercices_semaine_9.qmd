@@ -1,0 +1,479 @@
+---
+title: "Exercices Semaine 9"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+editor: source
+---
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+<!-- JavaScript -->
+
+```{=html}
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+```
+
+<!-- CSS for Styling -->
+
+```{=html}
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+```
+
+<!-- MathJax for Rendering Math -->
+
+```{=html}
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+```
+
+
+
+
+## Question 1
+
+Dans une étude sur l'opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?
+
+```{r}
+opts <- c(
+  "\\(0.50\\)",
+   answer = "\\(0.60\\)",
+  "\\(0.70\\)",
+  "\\(0.80\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'estimateur d\'une proportion : \\(\\hat{p} = \\frac{m}{n}\\), où \\(m\\) est le nombre de personnes favorables et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> 
+
+
+
+<div style="margin-top: 4px;"></div> <button class="custom-button explanation" onclick="toggleAlert(event, 'L\'estimateur \\(\\hat{p}\\) est calculé comme suit : \\(\\hat{p} = \\frac{120}{200} = 0.60\\). Donc, la proportion estimée de personnes favorables au traité est \\(0.60\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> 
+
+
+
+
+## Question 2
+
+En considérant le même contexte que la question \\(1\\), quelle est l'erreur standard de la proportion estimée \\(\\hat{p}\\) ?
+
+
+
+
+```{r}
+opts <- c(
+    answer = "\\( \\text{e.s.}(\\hat{p}) \\approx  0.0346\\)",
+            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.0462\\)",
+            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.513\\)",
+            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.0264\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'erreur standard pour une proportion : \\(\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\), où \\(\\hat{p}\\) est la proportion estimée et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'erreur standard est calculée comme suit : \\(\\text{e.s.}(\\hat{p})  \\sqrt{\\frac{0.60 \\times 0.40}{200}} = 0.03464102 \\approx 0.0346\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+
+## Question 3
+
+
+En considérant le contexte de la question \\(1\\), vous souhaitez construire un intervalle de confiance pour \\(p\\) basé sur \\(\\hat{p}\\) à un niveau de confiance \\(\\alpha = 0.05\\). Quelle est la valeur du quantile que vous devez utiliser afin de construire cet intervalle de confiance?
+
+
+```{r}
+opts <- c(
+    "\\(1.28\\)",
+    "\\(1.645\\)",
+    answer = "\\(1.96\\)",
+    "\\(2.58\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pour un intervalle de confiance à \\(95\\%\\), on utilise le quantile de la distribution normale standard correspondant à \\(1 - \\frac{\\alpha}{2}\\).', 'hint')"> ❓ Indice </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, ' Ici, \\(\\alpha = 0.05\\), donc on cherche le quantile pour \\(1 - \\frac{0.05}{2} = 0.975\\). Le quantile pour un niveau de confiance de \\(95\\%\\) est ainsi \\(Z_{1-\\frac{\\alpha}{2}} = Z_{0.975} = 1.96\\).', 'explanation')"> 💡 Explication </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> 
+
+
+
+
+
+
+
+
+
+
+
+## Question 4
+
+
+En utilisant le contexte des questions précédentes, calculez l'intervalle de confiance à \\(95\\%\\) pour la proportion \\(p\\) de personnes favorables au traité, en utilisant la proportion estimée \\(\\hat{p}\\) et l'erreur standard \\(\\text{e.s.}(\\hat{p})\\).
+
+```{r}
+opts <- c(
+  "\\([0.543,  0.657]\\)",
+  answer = "\\([0.532,  0.668]\\)",
+  "\\([0.556,  0.644]\\)",
+  "\\([0.511,  0.689]\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'intervalle de confiance pour une proportion : \\(\\hat{p} \\pm Z_{1-\\frac{\\alpha}{2}} \\times \\text{e.s.}(\\hat{p})\\), où \\(Z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard correspondant au niveau de confiance souhaité.', 'hint')"> ❓ Indice </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'intervalle de confiance à \\(95\\%\\) est calculé comme suit : \\(\\hat{p} \\pm 1.96 \\times \\text{e.s.}(\\hat{p}) = 0.60 \\pm 1.96 \\times 0.0346\\). Cela donne \\([0.532 0.668]\\).', 'explanation')"> 💡 Explication </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+## Question 5
+
+Considérons maintenant un niveau de confiance de 99% (c'est-à-dire \\(\\alpha=0.01\\)) au lieu de \\(95\\%\\). Quel sera l'effet sur la longueur de l'intervalle de confiance pour la proportion \\(p\\) de personnes favorables au traité ? La longueur de l'intervalle de confiance est donnée par la différence entre la borne supérieure et la borne inférieure de l'intervalle.
+
+```{r}
+opts <- c(
+   answer =  "La longueur de l'intervalle de confiance augmentera",
+  "La longueur de l'intervalle de confiance diminuera",
+  "La longueur de l'intervalle de confiance restera la même"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoyez comment calculer l\'intervalle de confiance et l\'impact sur la valeur du quantile considéré dans le calcul de l\'intervalle de confiance lorsque \\(\\alpha\\) diminue.', 'hint')"> ❓ Indice </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Lorsque le niveau de confiance augmente, le quantile utilisé dans le calcul de l\'intervalle de confiance augmente également. Cela entraîne ainsi une augmentation de la longueur de l\'intervalle de confiance.', 'explanation')"> 💡 Explication </button>
+<div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 6
+
+Vous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de \\(50\\%\\). Quelle est la formulation correcte des hypothèses statistique pour ce test ?
+
+```{r}
+opts <- c(
+  "\\(H_0: p = 0.60\\), \\(H_1: p ≠ 0.60\\)",
+  answer = "\\(H_0: p = 0.50\\), \\(H_1: p ≠ 0.50\\)",
+  "\\(H_0: p = 0.50\\), \\(H_1: p > 0.60\\)",
+  "\\(H_0: p ≥ 0.50\\), \\(H_1: p < 0.50\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Rappelez-vous que l’hypothèse nulle \\(H_0\\) correspond à l’hypothèse de base, et l’hypothèse alternative \\(H_1\\) est celle que vous cherchez à tester.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Nous cherchons à tester si la proportion diffère de \\(50\\%\\), donc \\(H_0: p = 0.50\\) et \\(H_1: p ≠ 0.50\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 7
+
+En utilisant les hypothèses définies précédemment, calculez la statistique de test \\(z_{obs}\\). On rappelle que \\(\\hat{p} = 0.60\\), \\(n = 200\\), et \\(p_0 = 0.50\\).
+
+```{r}
+opts <- c(
+  answer = "\\(Z \\approx 2.89\\)",
+  "\\(Z \\approx 1.96\\)",
+  "\\(Z \\approx 1.28\\)",
+  "\\(Z \\approx 0.60\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule du test : \\(Z = \\dfrac{\\hat{p} - p_0}{\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}}\\)', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Avec \\(\\hat{p} = 0.60\\), \\(p_0 = 0.50\\), \\(n = 200\\), l’erreur standard est environ 0.0346. Donc \\(z_{obs} = \\frac{0.60 - 0.50}{0.0346} \\approx 2.89\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 8
+
+À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral) au niveau de signification \\(\\alpha = 0.05\\).
+
+```{r}
+opts <- c(
+  "\\(0.028\\)",
+  "\\(0.0196\\)",
+  answer = "\\(0.0039\\)",
+  "\\(0.001\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule : p-valeur = \\(2 \\times P(Z > |z_{obs}|)\\), avec \\(z_{obs} = 2.89\\), puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La p-valeur se calcule comme \\(2 \\times P(Z > 2.89) \\approx 2 \\times 0.00195 = 0.0039\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 9 
+
+Quelle est l’interprétation correcte d’une p-valeur de \\(0.0039\\) dans le contexte de ce test ?
+
+```{r}
+opts <- c(
+  answer = "Il y a une faible probabilité d’observer une telle valeur de \\(\\hat{p}=0.60\\) si la vraie proportion était \\(0.50\\).",
+  "La proportion estimée est trop éloignée de \\(50\\%\\), donc \\(H_0\\) est forcément fausse.",
+  "Cela signifie que \\(0.39\\%\\) des personnes interrogées sont favorables au traité.",
+  "La probabilité que \\(H_0\\) soit vraie est de 0.0039."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Une p-valeur de \\(0.0039\\) signifie que, si \\(H_0\\) était vraie, il serait très rare (\\(0.39\\%\\)) d’observer une telle distance entre \\(\\hat{p}\\) et \\(p_0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 10 
+
+À un niveau de signification \\(\\alpha = 0.05\\), que concluez-vous du test précédent ?
+
+```{r}
+opts <- c(
+  answer = "On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\).",
+  "On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\).",
+  "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves.",
+  "On ne peut pas conclure : l’échantillon est trop petit."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Puisque la p-valeur est plus petite que 0.05, on rejette \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 11 
+
+Considérons maintenant un test unilatéral avec les hypothèses suivantes: \\(H_0: p=0.5\\) et \\(H_1: p<0.5\\). 
+Quelle est la p-valeur associée? 
+
+```{r}
+opts <- c(
+   "\\(0.0001\\)",
+   answer = "\\(0.9981\\)",
+  "\\(0.499\\)",
+  "\\(0.028\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule : p-valeur = \\(P(Z < z_{obs})\\), avec \\(z_{obs}\\) calculée précédement, puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La statistique de test étant \\(z_{obs} = 2.89\\), la p-valeur se calcule comme \\(P(Z < 2.89) \\approx 0.9981\\). ', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 12
+
+Que peut-on conclure de ce dernier test au niveau de signification \\(\\alpha = 0.05\\)? 
+
+```{r}
+opts <- c(
+  "On rejette \\(H_0\\) : il y a suffisamment d'évidences pour conclure que la proportion réelle est différente de \\(50\\%\\).",
+  "On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\).",
+  answer = "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment d'évidences.",
+  "On ne peut pas conclure : l’échantillon est trop grand."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Puisque la p-valeur est plus grande que \\(0.05\\), on ne peut pas rejetter \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
