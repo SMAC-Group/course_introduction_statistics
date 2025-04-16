@@ -370,7 +370,7 @@ cat(longmcq2(opts))
 opts <- c(
   "\\(0.028\\)",
   "\\(0.0196\\)",
-  answer = "\\(0.0039\\)",
+  answer = "\\(0.0038\\)",
   "\\(0.001\\)"
 )
 
@@ -383,19 +383,19 @@ cat(longmcq2(opts))
 
 <button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule : p-valeur = \\(2 \\times P(Z > |z_{obs}|)\\), avec \\(z_{obs} = 2.89\\), puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La p-valeur se calcule comme \\(2 \\times P(Z > 2.89) \\approx 2 \\times 0.00195 = 0.0039\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La p-valeur se calcule comme \\(2 \\times P(Z > 2.89) \\approx 2 \\times 0.0019 = 0.0038\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
 
 
 ## Question 9 
 
-Quelle est l’interprétation correcte d’une p-valeur de \\(0.0039\\) dans le contexte de ce test ?
+Quelle est l’interprétation correcte d’une p-valeur de \\(0.0038\\) dans le contexte de ce test ?
 
 ```{r}
 opts <- c(
   answer = "Il y a une faible probabilité d’observer une telle valeur de \\(\\hat{p}=0.60\\) si la vraie proportion était \\(0.50\\).",
   "La proportion estimée est trop éloignée de \\(50\\%\\), donc \\(H_0\\) est forcément fausse.",
-  "Cela signifie que \\(0.39\\%\\) des personnes interrogées sont favorables au traité.",
-  "La probabilité que \\(H_0\\) soit vraie est de 0.0039."
+  "Cela signifie que \\(0.38\\%\\) des personnes interrogées sont favorables au traité.",
+  "La probabilité que \\(H_0\\) soit vraie est de 0.0038."
 )
 ```
 
@@ -406,7 +406,7 @@ cat(longmcq2(opts))
 
 <button class="custom-button hint" onclick="toggleAlert(event, 'La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Une p-valeur de \\(0.0039\\) signifie que, si \\(H_0\\) était vraie, il serait très rare (\\(0.39\\%\\)) d’observer une telle distance entre \\(\\hat{p}\\) et \\(p_0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Une p-valeur de \\(0.0038\\) signifie que, si \\(H_0\\) était vraie, il serait très rare (\\(0.38\\%\\)) d’observer une telle distance entre \\(\\hat{p}\\) et \\(p_0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
 
 
 ## Question 10 
