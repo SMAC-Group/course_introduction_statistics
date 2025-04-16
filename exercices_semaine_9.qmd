@@ -364,7 +364,7 @@ cat(longmcq2(opts))
 
 ## Question 8
 
-À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral) au niveau de signification \\(\\alpha = 0.05\\).
+À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).
 
 ```{r}
 opts <- c(
@@ -462,9 +462,9 @@ Que peut-on conclure de ce dernier test au niveau de signification \\(\\alpha = 
 
 ```{r}
 opts <- c(
-  "On rejette \\(H_0\\) : il y a suffisamment d'évidences pour conclure que la proportion réelle est différente de \\(50\\%\\).",
+  "On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\).",
   "On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\).",
-  answer = "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment d'évidences.",
+  answer = "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves.",
   "On ne peut pas conclure : l’échantillon est trop grand."
 )
 ```
