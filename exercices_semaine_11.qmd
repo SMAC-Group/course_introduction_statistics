@@ -1,0 +1,488 @@
+---
+title: "Exercices Semaine 11"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+editor: source
+---
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+<!-- JavaScript -->
+
+```{=html}
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+```
+
+<!-- CSS for Styling -->
+
+```{=html}
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+```
+
+<!-- MathJax for Rendering Math -->
+
+```{=html}
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+```
+
+
+
+
+Dans le cadre d'une étude sur les dépenses militaires par pays, on collecte le montant des dépenses militaires (en milliards de dollars) pour \\(14\\) pays et on obtient les données suivantes:
+
+\\(\\{50,65,45,70,55,60,48,72,52,68,58,62,47,75 \\}\\)
+
+
+## Question 1
+
+Calculer \\(\\bar{X}\\)
+
+```{r}
+opts <- c(
+  answer ="\\( \\bar{X} = 59.07143\\)",
+    "\\(\\bar{X} = 57.6451\\)",
+  "\\(\\bar{X} = 53.3476\\)",
+  "\\(\\bar{X} = 58.1253\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pour calculer la moyenne \\(\\bar{X}\\), additionnez toutes les valeurs et divisez par le nombre total de valeurs.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne \\(\\bar{X}\\) est calculée comme suit : \\(\\bar{X} = \\frac{50+65+45+70+55+60+48+72+52+68+58+62+47+75}{14} = 59.07143\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 2
+
+Basé sur une précédente étude, on sait que les dépenses militaires ont une variance de \\(100\\) milliards carrés et sont indépendantes. Vous souhaitez calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\). Quel est le quantile que vous devez utiliser ?
+
+
+
+
+```{r}
+opts <- c(
+  "\\(1.64\\)",
+   answer = "\\(1.96\\)",
+ "\\(1.28\\)",
+  "\\(1.04\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Puisque la variance de la population est connue et que les données sont indépendantes, nous utilisons le quantile de la distribution standard normale.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Le quantile de la loi normale standard correspondant à un niveau de confiance est donné par \\(z_{1-\\frac{\\alpha}{2}} = z_{0.975} \\approx 1.959964 \\approx 1.96\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 3
+
+Calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\) et en considérant la variance des dépenses militaires donnée dans la question \\(2\\).
+
+
+```{r}
+opts <- c(
+  "\\([55.64634, 62.49652]\\)",
+  "\\([56.82210, 61.32076]\\)",
+  answer = "\\([53.83311, 64.30975]\\)",
+  "\\([57.89653, 60.24633]\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm z_{1-\\frac{\\alpha}{2}} \\cdot \\frac{\\sigma}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard, \\(\\sigma\\) est l\'écart-type de la population, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, z = 1.96, \\sigma = 10\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 1.96 \\cdot \\frac{10}{\\sqrt{14}} = 59.07143 \\pm 5.238224\\), ce qui donne \\([53.83311,  64.30975]\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 4
+
+Suposons maitenant que nous ne connaissions pas l'écart-type des dépenses militaires par pays (pour la population), et que nous souhaitions construire un intervalle de confiance à un niveau de confiance de \\(95\\%\\) en utilisant l'écart-type calculé sur l'échantillon. Suposez que les données sont normalement distribuées. Quel est le quantile que vous devez utiliser ?
+
+
+
+```{r}
+opts <- c(
+  "\\(1.64\\)",
+ "\\(1.76\\)",
+  "\\(2.14\\)",
+    answer = "\\(2.16\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Puisque la variance de la population est inconnue et que l\'échantillon est petit, vous devez utiliser le quantile de la distribution t de Student avec \\(n-1\\) degrés de liberté.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Le quantile de la distribution t de Student pour un intervalle de confiance à \\(95\\%\\) avec \\(13\\) degrés de liberté (puisque \\(n = 14\\)) est approximativement \\(2.16\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 5
+
+Calculez l'intervalle de confiance à un niveau de confiance de \\(95\\%\\) pour la moyenne de la population des dépenses militaires par pays en utilisant l'écart-type calculé sur l'échantillon \\(s\\) et en supposant que les données sont normalement distribuée et indépendantes. 
+
+
+```{r}
+opts <- c(
+    answer = "\\([53.34011, 64.80275]\\)",
+  "\\([54.33841, 63.80445]\\)",
+  "\\([ 55.46295, 62.67991]\\)",
+  "\\([53.83321, 64.30965]\\)"
+)
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm t_{1-\\frac{\\alpha}{2}} \\cdot \\frac{s}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(t_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution de Student, \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, t_{1-\\frac{\\alpha}{2}} = 2.16, s = 9.926377\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 2.16 \\cdot \\frac{9.926377}{\\sqrt{14}} = 59.07143 \\pm 5.73132\\), ce qui donne \\([ 53.34011, 64.80275]\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 6
+Quelle est l\'interprétation correcte de cet intervalle de confiance dans ce contexte ?
+
+```{r}
+opts <- c(
+          "La moyenne de la population se trouve dans cet intervalle avec une probabilité de \\(95\\%\\).",
+          "\\(95 \\%\\) des données de l'échantillon se trouvent dans cet intervalle.",
+          answer = "Si l\'on construit plusieurs intervalles de confiance de la même manière, alors environ \\(95\\%\\) des intervalles de confiance contiendront la moyenne de la population.",
+          "L'intervalle contient \\(95\\%\\) de la population",
+          "Il y a \\(95\\%\\) de chance que la moyenne de la population soit dans l'intervalle calculé sur cet échantillon."
+)
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Un paramètre est ou n\'est pas inclus dans un intervalle de confiance.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'idée est que si l\'on répète l\'échantillonnage (et donc le calcul de l\'intervalle de confiance) un grand nombre de fois, environ \\(95 \\%\\) de ces intervalles contiendront la moyenne de la population, d\'où la troisième proposition. L’incertitude porte sur la méthode et non sur le paramètre (la moyenne de la population), qui est fixe, donc la première propostion est fausse. Une subtilité est que dans ce contexte, l\'intervalle de confiance est observé et donc fixé, plus rien n\'est aléatoire, donc la dernière propostion est fausse.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+---
+
+
+
+Dans une usine de production de cosmétiques, une certaine crème doit contenir en moyenne \\(50\\) mg d'un principe actif par dose. Pour vérifier si le processus de production respecte cette norme, un échantillon de \\(20\\) doses a été prélevé, et la quantité de principe actif dans chaque dose a été mesurée. La moyenne de principe actif contenu dans les \\(20\\) échantillons est de \\(50.3\\).
+
+On sait également que la variance de la population est \\(\\sigma^2 = 4\\) et que la quantité de principe actif par dose est distributée normalement.
+
+
+## Question 7
+Vous souhaitez effectuer un test d'hypothèse pour déterminer si l'espérance du principe actif par dose est significativement différente de \\(50\\) mg. Déterminez l'hypothèse nulle et l'hypothèse alternative du test que vous vous souhaitez effectuer.
+
+```{r}
+opts <- c(
+  "\\(H_0: \\mu = 50, H_{\\alpha}: \\mu > 50\\)",
+    answer =   "\\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\)",
+   "\\(H_0: \\mu \\neq 50 , H_{\\alpha}: \\mu = 50\\)",
+ "\\(H_0: \\mu > 50, H_{\\alpha}: \\mu = 50 \\)",
+  "\\(H_0: \\mu = 50, H_{\\alpha}: \\mu < 50\\)"
+
+)
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'L\'hypothèse nulle (\\(H_0\\)) suppose que l\'espérance du principe actif par dose est de \\(50\\) mg. L\'hypothèse alternative (\\(H_{\\alpha}\\)) suggère que l\'espérance du principe actif par dose est différente de \\(50\\) mg.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses sont formulées comme suit : \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question  8
+
+Calculez la statistique de test associé.
+
+```{r}
+opts <- c(
+  answer = "\\(z_{obs} = 0.67\\)",
+  "\\(z_{obs} = 1.34\\)",
+  "\\(z_{obs} = 2.12\\)",
+  "\\(z_{obs} = 1.50\\)",
+  "\\(z_{obs} = 3\\)"
+)
+
+```
+
+
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utiliser la formule \\(z_{obs} = \\frac{\\bar{X} - \\mu_0}{\\sigma / \\sqrt{n}}\\)', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(z_{obs} = \\frac{50.3 - 50}{2 / \\sqrt{20}} = \\frac{0.3}{0.447} \\approx 0.67\\). La statistique de test est donc \\(z_{obs} = 0.67\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 9
+
+Calculez la p-valeur associée à ce test.
+
+```{r}
+opts <- c(
+
+  "\\(0.045\\)",
+  "\\(0.125\\)",
+  "\\(0.455\\)",
+    answer = "\\(0.502\\)",
+  "\\(0.752\\)"
+)
+
+```
+
+
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 10
+
+Peut-on rejeter l’hypothèse nulle au niveau de signification de \\(5\\%\\), en se basant sur la statistique de test calculée précédement ?
+
+```{r}
+opts <- c(
+  "Oui, car la p-valeur est supérieure à \\(0.05\\)",
+  answer = "Non, car la p-valeur est supérieure à \\(0.05\\)",
+  "Oui, car la p-valeur est inférieure à \\(0.05\\)",
+  "Non, car la p-valeur est inférieure à \\(0.05\\)",
+  "Impossible de conclure sans connaître la moyenne"
+)
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\) et comparer la p-valeur au niveau de signification \\(\\alpha\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\). Comme \\(0.5028 > 0.05\\), on ne rejette pas \\(H_0\\) au niveau de signification de 5 %.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 11
+On souhaite estimer une moyenne avec une marge d’erreur de \\(0.5\\), un niveau de confiance de \\(95 \\%\\), et un écart-type \\(\\sigma\\) de \\(2\\). Quelle taille minimale d’échantillon faut-il ? 
+
+```{r}
+opts <- c("\\(8\\)", "\\(16\\)", "\\(31\\)", answer="\\(62\\)", "\\(246\\)")
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utiliser la formule pour la taille d\'échantillon \\(n\\) donnée dans les slides et le bon quantile.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La formule a utilisé est \\(n=(z_{1-\\alpha/2}\\sigma/E)^2\\) avec \\(z_{1-\\alpha/2}=z_{0.975}\\approx 1.96\\), \\(E=0.5\\) et \\(\\sigma=2\\). On obtient \\(n=(1.96\\cdot2\\cdot2)^2\\approx 61.47\\Rightarrow62.\\)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 12
+Un test-t unilatéral à droite est mené sur un échantillon de \\(15\\) observations, avec une statistique de test \\(t_{\\text{obs}}=2.5\\). Le niveau de signification est \\(\\alpha=0.05\\). Faut-il rejeter l\'hypothèse nulle ?
+
+```{r}
+opts <- c("Non, car \\(2.5<t_{0.95,14}\\).", 
+          answer = "Oui, car \\(2.5>t_{0.95,14}\\).", 
+          "Non, car \\(2.5<t_{0.05,14}\\).", 
+          "Oui, car \\(2.5>z_{0.95}\\).", 
+          "Impossible de conclure sans connaître la moyenne.")
+
+```
+
+
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculer la bonne valeur critique.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On rejette \\(H_0\\) si \\(t_{\\text{obs}}>t_{1-\\alpha,\\text{df}}\\). Ici \\(\\alpha=0.05\\), \\(\\text{df}=n-1=14\\) et \\(t_{1-\\alpha, \\text{df}}=1.7613\\) selon la table dans les slides. Donc on rejette \\(H_0\\) car \\(2.5>1.7613\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
