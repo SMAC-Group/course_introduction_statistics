@@ -165,7 +165,7 @@ Dans le cadre d'une étude sur les dépenses militaires par pays, on collecte le
 
 ## Question 1
 
-Calculer \\(\\bar{X}\\)
+Calculez \\(\\bar{X}\\)
 
 ```{r}
 opts <- c(
@@ -481,7 +481,7 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculer la bonne valeur critique.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la bonne valeur critique.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
 
 <button class="custom-button explanation" onclick="toggleAlert(event, 'On rejette \\(H_0\\) si \\(t_{\\text{obs}}>t_{1-\\alpha,\\text{df}}\\). Ici \\(\\alpha=0.05\\), \\(\\text{df}=n-1=14\\) et \\(t_{1-\\alpha, \\text{df}}=1.7613\\) selon la table dans les slides. Donc on rejette \\(H_0\\) car \\(2.5>1.7613\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
 
