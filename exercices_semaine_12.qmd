@@ -376,7 +376,7 @@ cat(longmcq2(opts))
 <button class="custom-button hint" onclick="toggleAlert(event, 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
 
 
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < 1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < -1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
 
 ## Question 9
 
