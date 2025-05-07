@@ -1,0 +1,556 @@
+---
+title: "Exercices Semaine 12"
+format:
+  html:
+    html-math-method: mathjax
+    includes:
+      in_header: |
+        <script type="text/javascript" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+toc: false
+editor: source
+---
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+```
+
+```{r}
+
+add_backslashes <- function(input_string) {
+  # Use regular expressions to replace single backslashes with double backslashes
+  result <- gsub("\\\\", "\\\\\\\\", input_string)
+  return(result)
+}
+
+
+longmcq2 <- function(opts) {
+  
+  
+  
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+  
+  # Encode special characters
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # Add mathjax wrapper to LaTeX expressions (fix regex)
+  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
+  
+  # Generate a unique name for the radio buttons
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  # HTML format for display
+  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
+                 paste(options, collapse = ""),
+                 "</div>\n")
+  
+  # PDF format (no changes here)
+  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
+  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
+  
+  # Check the output format and return the appropriate version
+  out_fmt <- knitr::opts_knit$get("out.format")
+  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
+                            isTRUE(out_fmt == "html") ||
+                            isTRUE(pandoc_to == "html"),
+                          html, pdf))
+  
+  
+ 
+}
+
+```
+
+<!-- JavaScript -->
+
+```{=html}
+<script type="text/javascript">
+function toggleAlert(event, message, type) {
+  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+  var alertMessage = alertBox.querySelector(".alertMessage");
+  var alertType = alertBox.querySelector(".alertType");
+
+  if (alertBox.style.display === "block") {
+    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+  } else {
+    alertMessage.innerHTML = message;
+    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+
+    // Change style based on type (yellow for hint, green for explanation)
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.display = "block";  // Show the alert
+
+    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+  }
+}
+</script>
+```
+
+<!-- CSS for Styling -->
+
+```{=html}
+<style>
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.hint:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+</style>
+```
+
+<!-- MathJax for Rendering Math -->
+
+```{=html}
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+```
+
+
+
+Dans une étude sur le temps moyen passé par les étudiants à faire leurs devoirs quotidiens, on a collecté des données pour un échantillon de \\(40\\) étudiants. On souhaite tester si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour. 
+
+
+
+## Question 1
+Quelles sont les hypothèses nulle et alternative pour ce test ?
+
+```{r}
+opts <- c(
+  answer = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
+  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
+  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
+  "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses pour un test non orienté sont : \\(H_0: \\mu = 2\\) (le temps moyen est égal à 2 heures) contre \\(H_{\\alpha}: \\mu \\neq 2\\) (le temps moyen est différent de 2 heures).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+
+
+## Question 2
+La moyenne de l'échantillon est de \\(2.5\\) et la variance de l'échantillon \\(s^2\\) est de \\(s^2=4\\). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour.
+
+```{r}
+opts <- c(
+
+  "\\(z_{\\text{obs}} \\approx 2.5\\)",
+    answer = "\\(z_{\\text{obs}} \\approx 1.581\\)",
+  "\\(z_{\\text{obs}} \\approx 1.118\\)",
+  "\\(z_{\\text{obs}} \\approx 0.791\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de la statistique de test z : \\(z_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La statistique de test est calculée comme suit : \\(z_{\\text{obs}} = \\frac{2.5 - 2}{\\sqrt{4/40}} \\approx 1.581\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+## Question 3
+
+Calculez la \\(p\\)-valeur associée à ce test en fonction de \\(z_{\\text{obs}}\\) et de \\(H_{\\alpha}\\)
+
+```{r}
+opts <- c(
+
+  answer = "\\(p \\approx 0.114\\)",
+  "\\(p \\approx 0.057\\)",
+  "\\(p \\approx 0.061\\)",
+  "\\(p \\approx 0.228\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'La \\(p\\)-valeur pour un test bilatéral est calculée avec \\(2\\times \\mathbb{P}(Z > |z_{\\text{obs}}|)\\)', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La \\(p\\)-valeur est calculée comme suit : \\(p = 2 \\times P(Z > |1.581|) \\approx 2 \\times 0.057 \\approx 0.114\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+
+## Question 4
+
+Quelle est la conclusion du test en considérant les hypothèses formulées dans la question \\(1\\), un seuil de signification de \\(\\alpha = 5\\%\\), et les résultats obtenus précédemment ?
+
+```{r}
+opts <- c(
+  answer = "On ne rejette pas \\(H_0\\) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de \\(2\\) heures.",
+  "On rejette \\(H_0\\) : le temps moyen est significativement supérieur à \\(2\\) heures.",
+  "On rejette \\(H_0\\) : le temps moyen est significativement différent de \\(2\\) heures.",
+  "On ne peut pas conclure sans connaître la moyenne théorique sous \\(H_0\\)."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez la \\(p\\)-valeur obtenue à \\(\\alpha = 0.05\\). Si \\(p > \\alpha\\), on ne rejette pas \\(H_0\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La \\(p\\)-valeur obtenue est \\(0.114\\), ce qui est supérieure au seuil de \\(5\\%\\). On ne rejette donc pas \\(H_0\\). Il n’y a pas de preuve suffisante pour conclure à une différence significative.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+---
+
+Une entreprise de production de thé veut s’assurer que ses sachets de thé ne contiennent pas moins que la quantité annoncée de \\(2.0\\) grammes de thé par sachet. Elle suspecte que la machine sous-remplit légèrement les sachets. Pour en avoir le coeur net, elle effectue un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes.
+
+Un échantillon de \\(15\\) sachets est prélevé. On observe une moyenne calculée sur l'échantillon de \\(1.92\\) grammes, et un écart-type de l'échantillon \\(s\\) de \\(0.1\\) gramme.
+
+
+## Question 5
+
+Déterminez l'hypothèse nulle est l'hypothèse alternative du test à effectuer.
+
+```{r}
+opts <- c(
+"\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
+  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
+    answer = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
+  "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)",
+"\\(H_0: \\mu < 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur \\(\\mu_0\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses pour ce test  unilatéral sont : \\(H_0: \\mu = 2\\) (le poids moyen des sachets est de \\(2\\) grammes) contre \\(H_{\\alpha}: \\mu < 2\\) (le poids moyen des sachets est plus petit que  \\(2\\) grammes)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 6
+
+Calculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à \\(2.0\\) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.
+
+
+
+
+```{r}
+opts <- c(
+ 
+ "\\(t_{\\text{obs}} \\approx -0.980\\)",
+ "\\(t_{\\text{obs}} \\approx 3.098\\)",
+   answer = "\\(t_{\\text{obs}} \\approx -3.098\\)",
+ "\\(t_{\\text{obs}} \\approx 1.96\\)",
+ "\\(t_{\\text{obs}} \\approx 1.64\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de la statistique de test t : \\(t_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'La statistique de test est calculée comme suit : \\(t_{\\text{obs}} = \\frac{1.92 - 2}{0.1/\\sqrt{15}} \\approx -3.098\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 7
+Quelle est la valeur critique à considérer dans la table de la loi de Student si l'on souhaite effectuer un test à un niveau de confiance de \\(90\\%\\)?
+
+
+
+```{r}
+opts <- c(
+ 
+ "\\(t_{0.95, 15} \\approx 1.75\\)",
+ answer = "\\(t_{0.9, 14} \\approx 1.35\\)",
+  "\\(t_{0.05, 14} \\approx -1.761\\)",
+ "\\(t_{0.2, 15} \\approx -0.866\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%, (\\alpha = 0.1)\\) doit être trouvée sur la table de Student avec \\(n - 1\\) degrés de liberté.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 8
+
+Quelle est la conclusion du test à un niveau de confiance de \\(90\\%\\)?
+
+
+
+```{r}
+opts <- c(
+ 
+   answer =  "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
+   "Puisque \\(t_{\\text{obs}} > -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
+   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on ne rejette pas l'hypothèse nulle.",
+   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on accepte l'hypothèse nulle.",
+   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), le test est inconclusif."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < 1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+## Question 9
+
+Pour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \\(10 \\%\\), quel était la valeur de la statistique de test ?
+
+
+
+```{r}
+opts <- c(
+          "\\(1.96\\)",
+          "\\(-1.96\\)",
+          "\\(\\{-1.96, 1.96\\}\\)",
+          "\\(1.64\\)",
+          answer = "\\(\\{-1.64, 1.64\\}\\)"
+)
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir comment la p-valeur est calculée dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\text{p-val}=2P(Z\\geq\\lvert z_{\\text{obs}}\\rvert)=0.1\\). On déduit que \\(P(Z\\leq\\lvert z_{\\text{obs}}\\rvert)=0.95\\), ce qui implique que \\(\\lvert z_{\\text{obs}}\\rvert=1.64\\), donc la statistique de test est soit \\(-1.64\\), soit \\(1.64\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+---
+On veut comparer le taux moyen d'approbation d'une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\\(n_A=200, n_B=250\\)). On veut tester si le taux d'approbation est supérieur pour le pays A. 
+
+## Question 10
+
+Quelle est la formulation correcte des hypothèses de test ?
+
+```{r}
+opts <- c(
+          "\\(H_0: \\mu_A>\\mu_B, H_{\\alpha}: \\mu_A\\neq\\mu_B\\)",
+          "\\(H_0: \\mu_A\\neq\\mu_B, H_{\\alpha}: \\mu_A>\\mu_B\\)",
+          answer = "\\(H_0: \\mu_A-\\mu_B = 0, H_{\\alpha}: \\mu_A-\\mu_B>0\\)",
+          "\\(H_0: \\mu_A-\\mu_B\\neq0, H_{\\alpha}: \\mu_B-\\mu_A>0\\)",
+          "\\(H_0: \\mu_B-\\mu_A<0, H_{\\alpha}: \\mu_A-\\mu_B<0\\)"
+)
+
+
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'hyopthèse nulle est l\'égalité des deux moyennes, ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B= 0\\). Pour l\'alternative, on cherche à savoir si \\(\\mu_A>\\mu_B\\), ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B>0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 11
+
+On connaît \\(s_A=5\\%, s_B=6\\%\\), les écarts-types des populations. Les échantillons donnent \\(\\bar{X}_A=48\\%, \\bar{X}_B=45\\%\\). Calculez la statistique de test :
+
+```{r}
+opts <- c(
+    answer = "\\(5.78\\)",
+    "\\(1.36\\)",
+    "\\(5.67\\)",
+    "\\(1.96\\)",
+    "\\(1.64\\)"
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir la statistique de test pour le test-z à deux échantillons dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\frac{\\bar{X}_A-\\bar{X}_B}{\\sqrt{\\frac{s_A^2}{n_A}+\\frac{s_B^2}{n_B}}}\\) ce qui donne approximativement \\(5.78\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 12
+Vous recevez l\'output suivant (calculé avec le logiciel `R`) pour ce test:
+
+```{r, eval=FALSE, echo=TRUE}
+	Two-sample z-Test
+
+data:  xbar1 and xbar2
+z = 3.420, p-value = 0.0006
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 1.523 4.477
+sample estimates:
+difference in means 
+                 3 
+```
+Quelle décision prend-on au niveau \\(\\alpha=1\\%\\)?
+
+```{r}
+opts <- c(
+          "On rejette \\(H_0\\) car la p-valeur est supérieure à \\(0.05\\).",
+          "On ne peut pas conclure ce test au niveau de \\(1\\%\\).",
+          answer = "On rejette \\(H_0\\) car la p-valeur est inférieure à \\(1\\%\\).",
+          "On rejette \\(H_{\\alpha}\\) car la statistique de test est plus grande que le quantile de la loi normale \\(z_{\\alpha}\\).",
+          "On devrait diminuer le niveau \\(\\alpha\\) pour pouvoir rejetter \\(H_0\\)."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Essaie de trouver la p-valeur.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\text{p-val}=0.006<0.01\\) donc on rejette \\(H_0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
+
+
+## Question 13
+
+
+Un chercheur effectue un test d'hypothèse avec \\(\\alpha = 5\\%\\), et obtient une $p$-valeur de \\(0.08\\), donc un résultat non significatif. Il décide alors d'augmenter \\(\\alpha\\) à \\(10\\%\\) pour conclure que le test est significatif. Êtes-vous d'accord avec cette approche ?
+
+
+```{r}
+opts <- c(
+    answer = "Non, ce n'est pas une bonne pratique.",
+    "Oui, tant que cela permet d'obtenir une conclusion.",
+    "Oui, si le test est correctement justifié ensuite.",
+    "Cela dépend du contexte.",
+    "Cela est acceptable en recherche exploratoire."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la signification de la valeur \\(\\alpha\\) dans un test d\'hypothèse.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Changer \\(\\alpha\\) après coup fausse l\'interprétation du test. Le niveau \\(\\alpha\\) doit être fixé avant l\'analyse pour éviter le biais de confirmation.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+## Question 14
+
+Un étudiant teste \\(20\\) relations différentes entre des variables économiques dans un jeu de données. Seuls \\(2\\) tests donnent une \\(p\\)-valeur inférieure à \\(5\\%\\), et ce sont les seuls qu’il retient pour rédiger son rapport. Que pensez-vous de cette approche ?
+
+```{r}
+opts <- c(
+    answer = "Ce n'est pas acceptable : il s'agit de p-hacking.",
+    "C'est une bonne stratégie pour trouver des résultats intéressants.",
+    "C'est acceptable si les résultats sont publiés.",
+    "Il aurait dû conserver les \\(5\\%\\) de résultats avec les plus petites \\(p\\)-valeurs.",
+    "Cela montre que les deux relations sont significatives."
+)
+```
+
+```{r, results='asis'}
+cat(longmcq2(opts))
+```
+
+
+<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez au risque d\'erreur de type I lorsqu\'on effectue de nombreux tests sans correction.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
+
+
+<button class="custom-button explanation" onclick="toggleAlert(event, 'Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\'est du p-hacking.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+
+
+
