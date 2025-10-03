@@ -380,6 +380,9 @@ cat(longmcq2(opts))
 
 ## Question 9
 
+
+
+
 Pour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \\(10 \\%\\), quel était la valeur de la statistique de test ?
 
 
