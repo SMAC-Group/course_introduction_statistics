@@ -1,0 +1,52 @@
+---
+title: "Demo Q&A env"
+format:
+  html:
+    html-math-method: mathjax
+    include-in-header: |
+      <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+      </script>
+    include-after-body: include/webex_2.js
+    css: include/webex_2.css
+toc: false
+editor: source
+---
+
+
+```{r, echo = FALSE, results='asis'}
+knitr::opts_chunk$set(echo = FALSE)
+source("include/q_a_env.R")
+```
+
+<!-- MathJax for Rendering Math -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+
+---
+
+
+
+### Question 1
+This is a question
+
+
+```{r, results='asis'}
+# Define questions choice and individual feedback for each question
+opts <- list(
+   answer =list(value = "\\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\)",
+       feedback = "Yes!"),
+  list(value = "\\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\)",
+       feedback = "Nope, the null hypothesis always contains the equality."),
+  list(
+    value = "\\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} > \\mu_{CC} \\)",
+    feedback = "No, we want to test if there is a difference, not if one is larger than the other."
+  ),
+  list(value="\\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} < \\mu_{CC} \\)",
+       feedback = "No, we want to test if there is a difference, not if one is larger than the other.")
+)
+# render QA environment
+render_q_a_env(opts)
+```

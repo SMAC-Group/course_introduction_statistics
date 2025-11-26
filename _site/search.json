@@ -1076,5 +1076,12 @@
     "title": "Exercices Semaine 4",
     "section": "Question 9",
     "text": "Question 9\nSupposez maintenant que l’organisme réalise \\(100\\) inspections indépendantes, quelle est la probabilité de détecter deux violations ou plus ? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.60\\) \\(0.87\\) \\(0.40\\) \\(0.80\\)\n\n\n❓ Indice\n\n\n: \n\n\n\n\n\n💡 Explication\n\n\n:"
+  },
+  {
+    "objectID": "demo_q_a.html",
+    "href": "demo_q_a.html",
+    "title": "Demo Q&A env",
+    "section": "",
+    "text": "Question 1\nThis is a question\n\n \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\) \\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &gt; \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &lt; \\mu_{CC} \\)"
   }
 ]

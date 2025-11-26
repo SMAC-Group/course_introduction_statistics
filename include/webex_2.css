@@ -1,0 +1,184 @@
+:root {
+  /* Incorrect feedback */
+  --incorrect: #d32f2f;          /* Slightly darker red for strong contrast */
+  --incorrect_alpha: rgba(211, 47, 47, 0.15);  /* soft transparent background */
+
+  /* Correct feedback */
+  --correct:    #388E3C;          /* Darker green, better contrast on text */
+  --correct_alpha:#C0EDC2;   /* soft transparent background */}
+  
+  
+
+.webex-correct {
+
+   border: 2px solid var(--correct); 
+  background-color: var(--correct_alpha);
+  border-radius: 0.25em;
+  position: relative;
+}
+
+.webex-incorrect {
+
+ border: 2px dotted var(--incorrect); 
+  background-color: var(--incorrect_alpha);
+  border-radius: 0.25em;
+  position: relative;
+}
+
+/* Check / cross icons */
+.webex-correct::after {
+  content: " ✅";
+  font-size: 1.2em;
+  margin-left: 0.5em;
+  color: var(--correct);
+}
+
+
+
+.webex-incorrect::after {
+  content: " ❌";
+  font-size: 1.2em;
+  margin-left: 0.5em;
+  color: var(--incorrect);
+}
+
+/* Radio labels */
+.webex-radiogroup {
+  border: 1px solid #aaa;       
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #f9f9f9;
+  display: block;
+}
+
+/* Each radio label */
+.webex-radiogroup label {
+  display: block !important;
+  padding: 0.25em 0.5em;
+  border: 2px solid transparent;
+  border-radius: 0.25em;
+  cursor: pointer;
+  margin-bottom: 0.25em;
+  transition: all 0.2s ease;  /* smooth hover effect */
+}
+
+
+/* Hover effect for labels */
+.webex-radiogroup label:hover {
+  border-color: #888;           /* darker grey on hover */
+
+}
+
+
+
+/* Selects */
+.webex-select {
+  border: 2px solid #ccc;
+  border-radius: 0.25em;
+  padding: 0.25em;
+}
+
+
+
+.webex-feedback-box {
+  margin: 0.5em auto;         /* center horizontally */
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  display: none;
+  font-weight: 500;
+  max-width: 80%;             /* smaller than the group */
+  text-align: center;         /* center the text inside */
+}
+
+.webex-feedback {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.webex-feedback.show {
+  visibility: visible;
+  height: auto;
+}
+
+
+/* Correct feedback = green */
+.correct-feedback {
+  background-color: var(--correct_alpha);
+  border: 2px solid var(--correct);
+  color: black;
+}
+
+/* Incorrect feedback = red/purple */
+.incorrect-feedback {
+  background-color: var(--incorrect_alpha);
+  border: 2px solid var(--incorrect);
+  color: black;
+}
+/* Custom styles for the buttons */
+.custom-button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Green button for Explanation */
+.explanation {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.explanation:hover {
+  background: #388E3C; /* Darker green */
+  transform: scale(1.08);
+}
+
+/* Yellow button for Hint */
+.hint2 {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+
+
+.hint {
+  background: #FFEDA3; /* Yellow */
+  border: 2px solid #E5B800; /* Slightly darker yellow */
+}
+
+.exercise-solution {
+  background: #C0EDC2; /* Green */
+  border: 2px solid #388E3C; /* Slightly darker green */
+}
+
+.hint2:hover {
+  background: #E5B800; /* Darker yellow */
+  transform: scale(1.08);
+}
+
+/* Custom styles for the alert box */
+.alert {
+  padding: 15px;
+  color: black;
+  margin-top: 10px; /* Ensure spacing between button and alert */
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  width: fit-content; /* Prevent full-width alerts */
+}
+
+
+
+
+
+/* Make radio button dot black */
+.webex-radiogroup input[type="radio"] {
+  accent-color: black;
+}
+
