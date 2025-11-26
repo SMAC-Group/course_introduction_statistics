@@ -55,5 +55,5 @@ render_q_a_env(opts)
 
 
 ```{r, results='asis'}
-make_alert_button("This is a hint")
+make_alert_button("This is a hint ubtton that supports mathjax:  \\(\\mu\\)")
 ```
