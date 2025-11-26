@@ -1082,6 +1082,6 @@
     "href": "demo_q_a.html",
     "title": "Demo Q&A env",
     "section": "",
-    "text": "Question 1\nThis is a question\n\n \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\) \\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &gt; \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &lt; \\mu_{CC} \\)"
+    "text": "Question 1\nThis is a question\n\n \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\) \\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &gt; \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &lt; \\mu_{CC} \\)\n\n\n\n\n\n❓ Hint\n\n\n:"
   }
 ]
