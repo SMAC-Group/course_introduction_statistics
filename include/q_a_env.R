@@ -85,3 +85,29 @@ small_v_space_html = function(v_space_px=4){
 }
 
 
+# AI Help button - opens chat with question context
+make_ai_help_button <- function(question, hint = "", explanation = "", correct_answer = "") {
+  # Escape for JavaScript
+  escape_js <- function(text) {
+    text <- gsub("\\\\", "\\\\\\\\", text)
+    text <- gsub("'", "\\\\'", text)
+    text <- gsub("\n", " ", text)
+    text
+  }
+
+  q_safe <- escape_js(question)
+  h_safe <- escape_js(hint)
+  e_safe <- escape_js(explanation)
+  a_safe <- escape_js(correct_answer)
+
+  html <- sprintf(
+    '<button class="custom-button ai-help" onclick="openAIHelp(\'%s\', \'%s\', \'%s\', \'%s\')" title="Poser une question a l\'assistant IA">
+      🤖 Aide IA
+    </button>',
+    q_safe, h_safe, e_safe, a_safe
+  )
+
+  return(cat(html))
+}
+
+

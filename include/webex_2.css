@@ -1,11 +1,19 @@
 :root {
-  /* Incorrect feedback */
-  --incorrect: #d32f2f;          /* Slightly darker red for strong contrast */
-  --incorrect_alpha: rgba(211, 47, 47, 0.15);  /* soft transparent background */
+  /* Feedback colors - aligned with main palette */
+  --incorrect: #e53e3e;
+  --incorrect_alpha: #fed7d7;
 
-  /* Correct feedback */
-  --correct:    #388E3C;          /* Darker green, better contrast on text */
-  --correct_alpha:#C0EDC2;   /* soft transparent background */}
+  --correct: #38a169;
+  --correct_alpha: #c6f6d5;
+
+  /* Hint/Warning */
+  --hint-bg: #fefcbf;
+  --hint-border: #ecc94b;
+
+  /* Primary accent for interactive elements */
+  --primary: #5a67d8;
+  --primary-light: #7c85e0;
+}
   
   
 
@@ -42,32 +50,54 @@
   color: var(--incorrect);
 }
 
-/* Radio labels */
+/* Radio labels - card style */
 .webex-radiogroup {
-  border: 1px solid #aaa;       
-  border-radius: 0.5em;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  background-color: #f9f9f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  background-color: #f7fafc;
   display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Each radio label */
 .webex-radiogroup label {
-  display: block !important;
-  padding: 0.25em 0.5em;
+  display: flex !important;
+  align-items: center;
+  padding: 0.75em 1em;
   border: 2px solid transparent;
-  border-radius: 0.25em;
+  border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 0.25em;
-  transition: all 0.2s ease;  /* smooth hover effect */
+  margin-bottom: 0.5em;
+  transition: all 0.2s ease;
+  background: white;
 }
 
+.webex-radiogroup label:last-child {
+  margin-bottom: 0;
+}
 
 /* Hover effect for labels */
 .webex-radiogroup label:hover {
-  border-color: #888;           /* darker grey on hover */
+  border-color: var(--primary-light);
+  background-color: #f0f4ff;
+  transform: translateX(4px);
+}
 
+/* Selected state */
+.webex-radiogroup label:has(input:checked) {
+  border-color: var(--primary);
+  background-color: #f0f4ff;
+}
+
+/* Custom radio button styling */
+.webex-radiogroup input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  accent-color: var(--primary);
+  cursor: pointer;
 }
 
 
@@ -82,13 +112,26 @@
 
 
 .webex-feedback-box {
-  margin: 0.5em auto;         /* center horizontally */
-  padding: 0.5em 1em;
-  border-radius: 0.25em;
+  margin: 1em auto;
+  padding: 1em 1.5em;
+  border-radius: 10px;
   display: none;
   font-weight: 500;
-  max-width: 80%;             /* smaller than the group */
-  text-align: center;         /* center the text inside */
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .webex-feedback {
@@ -120,46 +163,55 @@
 /* Custom styles for the buttons */
 .custom-button {
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: black;
-  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3748;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-button:active {
+  transform: scale(0.98);
 }
 
 /* Green button for Explanation */
 .explanation {
-  background: #C0EDC2; /* Green */
-  border: 2px solid #388E3C; /* Slightly darker green */
+  background: var(--correct_alpha);
+  border: 2px solid var(--correct);
 }
 
 .explanation:hover {
-  background: #388E3C; /* Darker green */
-  transform: scale(1.08);
+  background: var(--correct);
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Yellow button for Hint */
-.hint2 {
-  background: #FFEDA3; /* Yellow */
-  border: 2px solid #E5B800; /* Slightly darker yellow */
+.hint2, .hint {
+  background: var(--hint-bg);
+  border: 2px solid var(--hint-border);
 }
 
-
-
-.hint {
-  background: #FFEDA3; /* Yellow */
-  border: 2px solid #E5B800; /* Slightly darker yellow */
+.hint2:hover, .hint:hover {
+  background: var(--hint-border);
+  transform: scale(1.05);
 }
 
 .exercise-solution {
-  background: #C0EDC2; /* Green */
-  border: 2px solid #388E3C; /* Slightly darker green */
+  background: var(--correct_alpha);
+  border: 2px solid var(--correct);
 }
 
-.hint2:hover {
-  background: #E5B800; /* Darker yellow */
-  transform: scale(1.08);
+.exercise-solution:hover {
+  background: var(--correct);
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Custom styles for the alert box */
@@ -177,8 +229,30 @@
 
 
 
-/* Make radio button dot black */
-.webex-radiogroup input[type="radio"] {
-  accent-color: black;
+/* Question buttons container */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1em 0;
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  .custom-button {
+    padding: 14px 20px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  .webex-radiogroup label {
+    padding: 1em;
+    min-height: 44px;
+  }
+
+  .webex-radiogroup input[type="radio"] {
+    width: 24px;
+    height: 24px;
+  }
 }
 

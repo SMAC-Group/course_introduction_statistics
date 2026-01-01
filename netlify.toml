@@ -1,2 +1,15 @@
+[build]
+  publish = "_site"
+  command = "quarto render"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  publish = "_site"
+  port = 8888
+  autoLaunch = false
+
+# Plugin runs on Netlify, not needed locally
 [[plugins]]
-package = "@quarto/netlify-plugin-quarto"
+  package = "@quarto/netlify-plugin-quarto"

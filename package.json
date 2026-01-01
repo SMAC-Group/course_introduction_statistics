@@ -1,5 +1,23 @@
 {
-  "dependencies": {
+  "name": "course_introduction_statistics",
+  "version": "1.0.0",
+  "main": "webex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMAC-Group/course_introduction_statistics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SMAC-Group/course_introduction_statistics/issues"
+  },
+  "homepage": "https://github.com/SMAC-Group/course_introduction_statistics#readme",
+  "description": "",
+  "devDependencies": {
     "@quarto/netlify-plugin-quarto": "^0.0.5"
   }
 }
