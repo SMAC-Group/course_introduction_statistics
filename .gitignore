@@ -50,3 +50,24 @@ rsconnect/
 
 /.quarto/
 /_site/
+
+**/*.quarto_ipynb
+
+# Claude Code files
+CLAUDE.md
+
+# Environment variables (API keys)
+.env
+.env.local
+.env.*
+
+# Local Netlify folder
+.netlify
+
+# Node.js
+node_modules/
+package-lock.json
+deno.lock
+
+# Scripts (development only)
+scripts/
