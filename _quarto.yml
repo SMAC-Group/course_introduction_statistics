@@ -26,7 +26,6 @@ website:
       - href: exercices_semaine_9.qmd
       - href: exercices_semaine_11.qmd
       - href: exercices_semaine_12.qmd
-      - href: demo_q_a.qmd
 execute:
   freeze: auto
 format:
@@ -37,5 +36,9 @@ format:
     css:
     - styles.css
     - include/webex.css
+    - include/chat.css
     toc: true
-    include-after-body: include/webex.js
+    include-after-body:
+    - include/webex.js
+    - include/chat.js
+    - include/site-features.js

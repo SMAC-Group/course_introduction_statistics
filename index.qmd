@@ -2,28 +2,136 @@
 title: ""
 css: styles.css
 toc: false
-
 ---
 
+::: {.hero-section}
+<div class="hero-content">
+<h1 class="hero-title">Plateforme d'exercices</h1>
+<p class="hero-subtitle">Introduction à la Statistique</p>
+<p class="hero-description">Ce site te permet de t'entraîner chaque semaine avec des exercices interactifs.<br>Les supports de cours sont disponibles sur la plateforme officielle de l'université.</p>
+<div class="hero-buttons">
+<a href="#exercices" class="hero-button primary">Accéder aux exercices</a>
+<a href="#" class="hero-button secondary" title="Lien Moodle à ajouter">Supports de cours</a>
+</div>
+</div>
+:::
 
+<div class="content-section" id="exercices">
 
-<div style="text-align: center;"><img src="img/logo_intro_stat.png" width="250px" alt="Logo"></div>
+## Exercices par semaine
 
-<br>
+<div class="week-grid">
 
-Ce cours introduit les notions fondamentales de la statistique à travers trois axes principaux.
-Le premier axe porte sur les probabilités. Nous explorons les règles élémentaires permettant de quantifier l’incertitude et d’associer une probabilité à divers événements.
-Le deuxième axe est consacré aux statistiques descriptives. L'objectif est ici de résumer et de visualiser un échantillon de données afin d’en faciliter l’interprétation.
-Enfin, le troisième axe traite de la statistique inférentielle. Nous utilisons des modèles statistiques pour formuler des hypothèses et prendre des décisions à partir d’un échantillon de données.
+<a href="exercices_semaine_1.html" class="week-card available">
+<div class="week-number">Semaine 1</div>
+<div class="week-topic">Probabilités de base</div>
+<div class="week-status available">Disponible</div>
+</a>
 
-Le contenu présenté sur ce site a été principalement développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol.
+<a href="exercices_semaine_2.html" class="week-card available">
+<div class="week-number">Semaine 2</div>
+<div class="week-topic">Probabilités conditionnelles</div>
+<div class="week-status available">Disponible</div>
+</a>
 
- <div style="text-align: center;"><img src="img/team2.png" width="250px" alt="Team"></div>
+<a href="exercices_semaine_3.html" class="week-card available">
+<div class="week-number">Semaine 3</div>
+<div class="week-topic">Variables aléatoires</div>
+<div class="week-status available">Disponible</div>
+</a>
 
----
+<a href="exercices_semaine_4.html" class="week-card available">
+<div class="week-number">Semaine 4</div>
+<div class="week-topic">Loi binomiale</div>
+<div class="week-status available">Disponible</div>
+</a>
 
+<a href="exercices_semaine_5.html" class="week-card available">
+<div class="week-number">Semaine 5</div>
+<div class="week-topic">Loi normale</div>
+<div class="week-status available">Disponible</div>
+</a>
 
-<div style="text-align: center;"><img src="img/licence.png" width="100px" alt="Copyright License"></div>
+<a href="exercices_semaine_6.html" class="week-card available">
+<div class="week-number">Semaine 6</div>
+<div class="week-topic">Statistiques descriptives</div>
+<div class="week-status available">Disponible</div>
+</a>
 
+<div class="week-card holiday">
+<div class="week-number">Semaine 7</div>
+<div class="week-topic">Pas de cours</div>
+<div class="week-status holiday">Vacances</div>
+</div>
 
----
+<a href="exercices_semaine_8.html" class="week-card available">
+<div class="week-number">Semaine 8</div>
+<div class="week-topic">Échantillonnage</div>
+<div class="week-status available">Disponible</div>
+</a>
+
+<a href="exercices_semaine_9.html" class="week-card available">
+<div class="week-number">Semaine 9</div>
+<div class="week-topic">Intervalles de confiance</div>
+<div class="week-status available">Disponible</div>
+</a>
+
+<div class="week-card exam">
+<div class="week-number">Semaine 10</div>
+<div class="week-topic">Examen intermédiaire</div>
+<div class="week-status exam">Examen</div>
+</div>
+
+<a href="exercices_semaine_11.html" class="week-card available">
+<div class="week-number">Semaine 11</div>
+<div class="week-topic">Intervalles de confiance (suite)</div>
+<div class="week-status available">Disponible</div>
+</a>
+
+<a href="exercices_semaine_12.html" class="week-card available">
+<div class="week-number">Semaine 12</div>
+<div class="week-topic">Tests d'hypothèses</div>
+<div class="week-status available">Disponible</div>
+</a>
+
+<div class="week-card exam">
+<div class="week-number">Semaine 13</div>
+<div class="week-topic">Examen final</div>
+<div class="week-status exam">Examen</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="content-section exam-section">
+
+## S'entraîner pour les examens
+
+<div class="exam-grid">
+
+<a href="#" class="exam-card disabled" title="Contenu à venir">
+<div class="exam-icon">📝</div>
+<div class="exam-title">Examen intermédiaire</div>
+<div class="exam-subtitle">Entraînement</div>
+<div class="exam-status">À venir</div>
+</a>
+
+<a href="#" class="exam-card disabled" title="Contenu à venir">
+<div class="exam-icon">📝</div>
+<div class="exam-title">Examen final</div>
+<div class="exam-subtitle">Entraînement</div>
+<div class="exam-status">À venir</div>
+</a>
+
+</div>
+
+</div>
+
+::: {.footer-section}
+<div class="footer-content">
+<p class="footer-about">Ce site est un support d'exercices pour le cours Introduction à la Statistique.<br>Il est conçu pour t'aider à pratiquer et à te préparer aux examens.</p>
+<p class="footer-team">Développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso et Lionel Voirol</p>
+<img src="img/licence.png" width="60px" alt="Copyright License">
+</div>
+:::
