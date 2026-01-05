@@ -1,5 +1,13 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!webexercises.qmd"
+    - "!Untitled.qmd"
+    - "!quarto_quiz.qmd"
+    - "!show_quarto_quiz_1.qmd"
+    - "!about.qmd"
+    - "!cours_semaine_1.qmd"
 website:
   page-navigation: true
   title: "Introduction à la Statistique"
@@ -14,6 +22,8 @@ website:
     left:
     - href: index.qmd
       text: Accueil
+    - href: demo_q_a.qmd
+      text: Demo
     - text: Exercices
       menu:
       - href: exercices_semaine_1.qmd
