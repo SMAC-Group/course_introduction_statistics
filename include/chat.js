@@ -8,6 +8,16 @@
   let styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
   let currentQuestionId = null; // Track which question the assistant is scoped to
 
+  // Detect current page source (semaine) from URL
+  function detectSource() {
+    const path = window.location.pathname;
+    const match = path.match(/semaine[_-]?(\d+)/i);
+    if (match) {
+      return 'semaine_' + match[1];
+    }
+    return null;
+  }
+
   // Panel width settings
   const MIN_WIDTH = 320;
   const MAX_WIDTH = 800;
@@ -572,7 +582,8 @@
             attemptCount: studentAnswer ? 1 : 0,
             aiTurnCount: aiTurnCount,
             intent: intent,
-            styleMode: styleMode
+            styleMode: styleMode,
+            source: detectSource()
           }
         })
       });

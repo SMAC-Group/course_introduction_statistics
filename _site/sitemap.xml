@@ -1,75 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_12.html</loc>
-    <lastmod>2025-10-03T13:10:29.198Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_6.html</loc>
-    <lastmod>2025-03-25T17:24:35.056Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/webexercises.html</loc>
-    <lastmod>2025-02-09T22:17:47.376Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/cours_semaine_1.html</loc>
-    <lastmod>2025-02-09T22:10:01.303Z</lastmod>
-  </url>
-  <url>
     <loc>intro-statistique.netlify.app/index.html</loc>
     <lastmod>2026-01-12T09:53:15.962Z</lastmod>
   </url>
   <url>
-    <loc>intro-statistique.netlify.app/quarto_quiz.html</loc>
-    <lastmod>2025-02-08T21:13:30.422Z</lastmod>
-  </url>
-  <url>
     <loc>intro-statistique.netlify.app/exercices_semaine_8.html</loc>
-    <lastmod>2025-04-08T18:53:28.625Z</lastmod>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
   </url>
   <url>
-    <loc>intro-statistique.netlify.app/Untitled.html</loc>
-    <lastmod>2025-02-08T19:25:19.712Z</lastmod>
+    <loc>intro-statistique.netlify.app/exercices_semaine_5.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_3.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_12.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
   </url>
   <url>
     <loc>intro-statistique.netlify.app/exercices_semaine_1.html</loc>
     <lastmod>2026-01-12T09:23:54.182Z</lastmod>
   </url>
   <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_2.html</loc>
-    <lastmod>2025-03-12T15:59:16.358Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/show_quarto_quiz_1.html</loc>
-    <lastmod>2025-02-08T19:53:39.258Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/about.html</loc>
-    <lastmod>2025-02-08T18:49:19.053Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_3.html</loc>
-    <lastmod>2025-03-04T22:31:27.399Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_11.html</loc>
-    <lastmod>2025-05-01T10:32:06.509Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_5.html</loc>
-    <lastmod>2025-03-20T00:25:22.211Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_9.html</loc>
-    <lastmod>2025-04-16T20:59:32.075Z</lastmod>
-  </url>
-  <url>
-    <loc>intro-statistique.netlify.app/exercices_semaine_4.html</loc>
-    <lastmod>2025-03-12T16:54:47.061Z</lastmod>
+    <loc>intro-statistique.netlify.app/chatbot_slides.html</loc>
+    <lastmod>2026-01-12T15:33:03.724Z</lastmod>
   </url>
   <url>
     <loc>intro-statistique.netlify.app/demo_q_a.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_11.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_2.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_4.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_6.html</loc>
+    <lastmod>2026-01-12T08:44:40.918Z</lastmod>
+  </url>
+  <url>
+    <loc>intro-statistique.netlify.app/exercices_semaine_9.html</loc>
     <lastmod>2026-01-12T08:44:40.918Z</lastmod>
   </url>
 </urlset>

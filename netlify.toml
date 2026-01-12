@@ -8,7 +8,6 @@
   publish = "_site"
   port = 8888
   autoLaunch = false
-  command = "quarto preview"
 
 # Plugin installs Quarto and runs 'quarto render'
 [[plugins]]

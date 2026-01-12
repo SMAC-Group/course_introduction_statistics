@@ -1,6 +1,25 @@
 // Netlify Function - Scaffolded AI Tutor for Statistics Course
 // Implements pedagogical scaffolding with modular prompt blocks
 
+// Course content will be loaded dynamically
+let coursContent = null;
+
+async function loadCoursContent(baseUrl) {
+  if (coursContent) return coursContent;
+  try {
+    const response = await fetch(`${baseUrl}/content/cours.json`);
+    if (response.ok) {
+      coursContent = await response.json();
+    } else {
+      coursContent = {};
+    }
+  } catch (e) {
+    console.error('Failed to load cours.json:', e);
+    coursContent = {};
+  }
+  return coursContent;
+}
+
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 60000;
 const MAX_REQUESTS_PER_WINDOW = 15;
@@ -249,6 +268,87 @@ exports.handler = async (event) => {
     // Build modular system prompt
     const styleMode = context && context.styleMode ? context.styleMode : 'classique';
     const intent = context && context.intent ? context.intent : 'OPEN_CHAT';
+    const source = context && context.source ? context.source : null;
+
+    // Check for slide/week requests and validate against actual content
+    const baseUrl = origin || 'https://intro-statistique.netlify.app';
+    const content = await loadCoursContent(baseUrl);
+
+    // Detect week reference in message
+    const weekMatch = message.match(/semaine\s*(\d+)/i);
+    const slideMatch = message.match(/slide\s*(\d+)/i);
+
+    if (weekMatch || slideMatch) {
+      const requestedWeek = weekMatch ? parseInt(weekMatch[1], 10) : null;
+      const requestedSlide = slideMatch ? parseInt(slideMatch[1], 10) : null;
+
+      // If a specific week is mentioned, check if it has content
+      if (requestedWeek) {
+        const weekKey = `semaine_${requestedWeek}`;
+        const weekContent = content[weekKey];
+
+        if (!weekContent || !weekContent.contenu || weekContent.contenu.trim() === '') {
+          // Find which weeks have content
+          const weeksWithContent = Object.entries(content)
+            .filter(([key, val]) => val.contenu && val.contenu.trim() !== '')
+            .map(([key]) => key.replace('semaine_', ''))
+            .join(', ');
+
+          return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+              response: `Le contenu de la semaine ${requestedWeek} n'est pas encore disponible dans la base de données. Pour l'instant, seul le contenu de la semaine ${weeksWithContent || '1'} est disponible. Tu peux me poser des questions sur ce contenu !`
+            })
+          };
+        }
+
+        // Check if requested slide exists in this week's content
+        if (requestedSlide) {
+          const slideNumbers = weekContent.contenu.match(/### SLIDE (\d+)/g);
+          const maxSlide = slideNumbers
+            ? Math.max(...slideNumbers.map(s => parseInt(s.match(/\d+/)[0])))
+            : 0;
+
+          if (requestedSlide < 1 || requestedSlide > maxSlide) {
+            return {
+              statusCode: 200,
+              headers,
+              body: JSON.stringify({
+                response: `La slide ${requestedSlide} n'existe pas dans la semaine ${requestedWeek}. Cette semaine contient uniquement les slides 1 à ${maxSlide}. Peux-tu vérifier le numéro de slide ?`
+              })
+            };
+          }
+        }
+      }
+      // If only slide is mentioned (no week), check against all available content
+      else if (requestedSlide) {
+        // Get max slide from all content
+        let maxSlide = 0;
+        let availableWeeks = [];
+
+        for (const [key, val] of Object.entries(content)) {
+          if (val.contenu && val.contenu.trim() !== '') {
+            availableWeeks.push(key.replace('semaine_', ''));
+            const slideNumbers = val.contenu.match(/### SLIDE (\d+)/g);
+            if (slideNumbers) {
+              const weekMax = Math.max(...slideNumbers.map(s => parseInt(s.match(/\d+/)[0])));
+              if (weekMax > maxSlide) maxSlide = weekMax;
+            }
+          }
+        }
+
+        if (requestedSlide < 1 || requestedSlide > maxSlide) {
+          return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+              response: `La slide ${requestedSlide} n'existe pas. Le contenu disponible (semaine ${availableWeeks.join(', ')}) contient uniquement les slides 1 à ${maxSlide}. Peux-tu vérifier le numéro de slide ?`
+            })
+          };
+        }
+      }
+    }
 
     // Select style based on mode
     let styleBlock = STYLE_CLASSIQUE;
@@ -262,6 +362,102 @@ exports.handler = async (event) => {
     let systemPrompt = SYSTEM_BASE + ANTI_CHEATING;
     systemPrompt += styleBlock;
     systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+
+    // Load course content if source is specified
+    if (source) {
+      if (source === 'global') {
+        // OPTIMIZED: Only load relevant slide(s) instead of all content
+
+        // Helper function to extract a specific slide from content
+        function extractSlide(contenu, slideNum) {
+          const regex = new RegExp(`### SLIDE ${slideNum}[^#]*(?=### SLIDE|$)`, 's');
+          const match = contenu.match(regex);
+          return match ? match[0].trim() : null;
+        }
+
+        // Helper function to get list of slide titles for context
+        function getSlideIndex(contenu) {
+          const matches = contenu.match(/### SLIDE \d+ : [^\n]+/g);
+          return matches ? matches.join('\n') : '';
+        }
+
+        if (slideMatch) {
+          // User asked about a specific slide - only include that slide
+          const requestedSlide = parseInt(slideMatch[1], 10);
+          let slideContent = null;
+          let weekTitle = '';
+
+          for (const [key, cours] of Object.entries(content)) {
+            if (cours.contenu && cours.contenu.trim() !== '') {
+              const extracted = extractSlide(cours.contenu, requestedSlide);
+              if (extracted) {
+                slideContent = extracted;
+                weekTitle = cours.titre;
+                break;
+              }
+            }
+          }
+
+          if (slideContent) {
+            systemPrompt += `
+
+## CONTENU DE LA SLIDE ${requestedSlide} (${weekTitle})
+${slideContent}
+
+## INSTRUCTIONS IMPORTANTES
+- Base ta réponse sur cette slide.
+- Mentionne toujours "**Slide ${requestedSlide}**" dans ta réponse pour référence.
+- Si la question dépasse le contenu de cette slide mais reste en statistique, indique que "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
+- Si la question est hors-sujet, redirige poliment l'étudiant.`;
+          }
+        } else {
+          // No specific slide requested - provide slide index + context from conversation
+          let allSlideIndexes = '';
+          let allCourseTitles = [];
+
+          for (const [key, cours] of Object.entries(content)) {
+            if (cours.contenu && cours.contenu.trim() !== '') {
+              const weekNum = key.replace('semaine_', '');
+              allSlideIndexes += `\n### Semaine ${weekNum} - ${cours.titre}\n`;
+              allSlideIndexes += getSlideIndex(cours.contenu);
+              allCourseTitles.push(cours.titre);
+            }
+          }
+
+          systemPrompt += `
+
+## COURS DISPONIBLES
+${allSlideIndexes}
+
+## INSTRUCTIONS IMPORTANTES
+
+### Quand l'étudiant pose une question sur un CONCEPT du cours:
+1. Identifie quelle(s) slide(s) traite(nt) de ce concept
+2. Explique le concept de manière pédagogique
+3. **TOUJOURS mentionner** la slide de référence, exemple: "Ce concept est abordé dans la **Slide X de la semaine Y**."
+4. Suggère à l'étudiant de consulter cette slide pour plus de détails
+
+### Quand la question DÉPASSE le contenu du cours:
+Si l'étudiant pose une question qui va au-delà du contenu STAT 101 (régression avancée, machine learning, statistiques bayésiennes, etc.):
+1. Explique poliment que cette question dépasse le cadre du cours d'introduction
+2. Donne une brève réponse si possible pour satisfaire la curiosité
+3. Ajoute: "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
+
+### Quand la question est HORS-SUJET (pas de la statistique):
+Redirige poliment l'étudiant vers le sujet du cours.`;
+        }
+      } else if (content[source]) {
+        const cours = content[source];
+        systemPrompt += `
+
+## CONTENU DU COURS (${cours.titre})
+Voici le contenu de référence pour cette semaine. Base tes réponses sur ce contenu :
+
+${cours.contenu}
+
+IMPORTANT: Réponds uniquement aux questions en lien avec ce contenu. Si la question est hors-sujet, redirige poliment l'étudiant vers le sujet du cours.`;
+      }
+    }
 
     const messages = [
       { role: 'system', content: systemPrompt }

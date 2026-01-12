@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./demo_q_a.html"> 
 <span class="menu-text">Demo</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chatbot_slides.html"> 
+<span class="menu-text">Chatbot Slides</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercices" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Exercices</span>
@@ -815,6 +819,26 @@ window.onload = function() {
   let styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
 
   let currentQuestionId = null; // Track which question the assistant is scoped to
+
+
+
+  // Detect current page source (semaine) from URL
+
+  function detectSource() {
+
+    const path = window.location.pathname;
+
+    const match = path.match(/semaine[_-]?(\d+)/i);
+
+    if (match) {
+
+      return 'semaine_' + match[1];
+
+    }
+
+    return null;
+
+  }
 
 
 
@@ -1946,7 +1970,9 @@ window.onload = function() {
 
             intent: intent,
 
-            styleMode: styleMode
+            styleMode: styleMode,
+
+            source: detectSource()
 
           }
 

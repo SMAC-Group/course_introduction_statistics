@@ -1,0 +1,314 @@
+---
+title: "Chatbot Slides"
+toc: false
+---
+
+```{=html}
+<style>
+/* Prevent page scroll - only chat scrolls */
+html, body {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Hide page title */
+#title-block-header {
+  display: none !important;
+}
+
+/* Full width overrides for Quarto */
+#quarto-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#quarto-content.page-columns {
+  display: block !important;
+}
+
+main.content,
+#quarto-document-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.slides-chat-container {
+  position: fixed;
+  top: 60px; /* navbar height */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slides-chat-header {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  color: white;
+  padding: 16px 20px;
+}
+
+.slides-chat-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.slides-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f8f9fa;
+}
+
+.slides-chat-welcome {
+  text-align: center;
+  color: #666;
+  padding: 30px 20px;
+  line-height: 1.6;
+}
+
+.slides-chat-message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  line-height: 1.5;
+}
+
+.slides-chat-message.user {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.slides-chat-message.assistant {
+  background: white;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.slides-chat-message.error {
+  background: #fee2e2;
+  color: #dc2626;
+  margin: 0 auto;
+}
+
+.slides-typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 16px;
+  width: fit-content;
+}
+
+.slides-typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #9f7aea;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.slides-typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.slides-typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+}
+
+.slides-chat-input-area {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+#slides-chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+#slides-chat-input:focus {
+  outline: none;
+  border-color: #9f7aea;
+}
+
+.slides-chat-send {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slides-chat-send:hover {
+  transform: scale(1.05);
+}
+</style>
+
+<div class="slides-chat-container">
+  <div class="slides-chat-header">
+    <h3>Assistant IA - Questions sur les Slides</h3>
+  </div>
+
+  <div class="slides-chat-messages" id="slides-chat-messages">
+    <div class="slides-chat-welcome">
+      Pose tes questions sur le contenu des cours.<br>
+      Exemple : "Explique-moi la slide 15" ou "C'est quoi la probabilite conditionnelle ?"
+    </div>
+  </div>
+
+  <div class="slides-chat-input-area">
+    <input type="text" id="slides-chat-input" placeholder="Pose ta question..." autocomplete="off">
+    <button class="slides-chat-send" id="slides-chat-send">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- Load MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+<script>
+(function() {
+  var conversationHistory = [];
+
+  function parseMarkdown(text) {
+    text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\n\n/g, '</p><p>');
+    return '<p>' + text + '</p>';
+  }
+
+  function sendMessage(message) {
+    if (!message || !message.trim()) return;
+
+    var messagesDiv = document.getElementById('slides-chat-messages');
+    var input = document.getElementById('slides-chat-input');
+
+    var welcome = messagesDiv.querySelector('.slides-chat-welcome');
+    if (welcome) welcome.remove();
+
+    var userMsg = document.createElement('div');
+    userMsg.className = 'slides-chat-message user';
+    userMsg.textContent = message;
+    messagesDiv.appendChild(userMsg);
+    input.value = '';
+
+    var typing = document.createElement('div');
+    typing.className = 'slides-typing-indicator';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    messagesDiv.appendChild(typing);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: message,
+        conversationHistory: conversationHistory,
+        context: {
+          intent: 'OPEN_CHAT',
+          styleMode: 'classique',
+          source: 'global'
+        }
+      })
+    })
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      typing.remove();
+
+      if (data.error) {
+        var errMsg = document.createElement('div');
+        errMsg.className = 'slides-chat-message error';
+        errMsg.textContent = data.error;
+        messagesDiv.appendChild(errMsg);
+      } else {
+        conversationHistory.push({ role: 'user', content: message });
+        conversationHistory.push({ role: 'assistant', content: data.response });
+
+        if (conversationHistory.length > 20) {
+          conversationHistory = conversationHistory.slice(-20);
+        }
+
+        var assistantMsg = document.createElement('div');
+        assistantMsg.className = 'slides-chat-message assistant';
+        assistantMsg.innerHTML = parseMarkdown(data.response);
+        messagesDiv.appendChild(assistantMsg);
+
+        // Render MathJax after content is added
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          MathJax.typesetPromise([assistantMsg]).catch(function(err) {
+            console.log('MathJax error:', err);
+          });
+        } else {
+          // MathJax not ready yet, wait and retry
+          setTimeout(function() {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+              MathJax.typesetPromise([assistantMsg]);
+            }
+          }, 500);
+        }
+      }
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    })
+    .catch(function(error) {
+      typing.remove();
+      var errMsg = document.createElement('div');
+      errMsg.className = 'slides-chat-message error';
+      errMsg.textContent = 'Erreur de connexion. Reessayez.';
+      messagesDiv.appendChild(errMsg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+  }
+
+  document.getElementById('slides-chat-send').addEventListener('click', function() {
+    sendMessage(document.getElementById('slides-chat-input').value);
+  });
+
+  document.getElementById('slides-chat-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendMessage(this.value);
+    }
+  });
+})();
+</script>
+```
