@@ -6,7 +6,7 @@ toc: false
 
 ::: {.hero-section}
 <div class="hero-content">
-<h1 class="hero-title">Plateforme d'exercices</h1>
+<div class="hero-title">Plateforme d'exercices</div>
 <p class="hero-subtitle">Introduction à la Statistique</p>
 <p class="hero-description">Ce site te permet de t'entraîner chaque semaine avec des exercices interactifs.<br>Les supports de cours sont disponibles sur la plateforme officielle de l'université.</p>
 <div class="hero-buttons">
