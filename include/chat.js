@@ -699,13 +699,18 @@
 
   // Update token display
   function updateTokenDisplay(tokens) {
-    if (tokens) {
-      // Update tokenInfo with server data (server is source of truth)
+    if (tokens && tokens.total > 0) {
+      // Client is source of truth - ADD tokens used to cumulative total
+      // (Server Map is ephemeral and resets on cold start)
+      const tokensUsedThisRequest = tokens.total || 0;
+      const newUsed = tokenInfo.used + tokensUsedThisRequest;
+      const newRemaining = Math.max(0, tokenInfo.max - newUsed);
+
       tokenInfo = {
-        used: tokens.used !== undefined ? tokens.used : tokenInfo.used,
-        remaining: tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining,
+        used: newUsed,
+        remaining: newRemaining,
         max: tokens.max || tokenInfo.max,
-        lastRequest: tokens.total || 0,
+        lastRequest: tokensUsedThisRequest,
         resetTime: tokenInfo.resetTime || (Date.now() + TOKEN_QUOTA_WINDOW_MS)
       };
       // Save to localStorage for persistence across page loads

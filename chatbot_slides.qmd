@@ -284,12 +284,18 @@ window.MathJax = {
   var tokenInfo = loadTokenInfo();
 
   function updateTokenDisplay(tokens) {
-    if (tokens) {
+    if (tokens && tokens.total > 0) {
+      // Client is source of truth - ADD tokens used to cumulative total
+      // (Server Map is ephemeral and resets on cold start)
+      var tokensUsedThisRequest = tokens.total || 0;
+      var newUsed = tokenInfo.used + tokensUsedThisRequest;
+      var newRemaining = Math.max(0, tokenInfo.max - newUsed);
+
       tokenInfo = {
-        used: tokens.used !== undefined ? tokens.used : tokenInfo.used,
-        remaining: tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining,
+        used: newUsed,
+        remaining: newRemaining,
         max: tokens.max || tokenInfo.max,
-        lastRequest: tokens.total || 0,
+        lastRequest: tokensUsedThisRequest,
         resetTime: tokenInfo.resetTime || (Date.now() + TOKEN_QUOTA_WINDOW_MS)
       };
       saveTokenInfo();
