@@ -135,6 +135,93 @@ const RATE_LIMIT_WINDOW_MS = 60000;
 const MAX_REQUESTS_PER_WINDOW = 15;
 const MAX_MESSAGE_LENGTH = 1000;
 
+// ============================================================================
+// OPTIMISATION: Détection précoce et réponses sans appel API
+// ============================================================================
+
+/**
+ * Réponses pré-définies pour les cas triviaux (0 tokens API)
+ */
+const PREDEFINED_RESPONSES = {
+  // Tests et messages sans contenu
+  trivial: [
+    { pattern: /^(test|testing|t|tt|ttt|ok|oui|non|yes|no|k|kk|kkk|\.+|\?+|!+)$/i,
+      response: "Je suis prêt à t'aider avec tes questions de statistiques ! Pose-moi une question sur le cours STAT 101." },
+    { pattern: /^[a-z]{1,3}$/i,
+      response: "Message trop court. Pose-moi une question sur les statistiques !" }
+  ],
+  // Salutations simples
+  greetings: [
+    { pattern: /^(bonjour|salut|hello|hi|hey|coucou|bonsoir|allô|allo)!*$/i,
+      response: "Bonjour ! Je suis l'assistant du cours STAT 101. Comment puis-je t'aider aujourd'hui ? Tu peux me poser des questions sur les probabilités, les statistiques descriptives, les tests d'hypothèse, etc." },
+    { pattern: /^(merci|thanks|thx|ty)!*$/i,
+      response: "De rien ! N'hésite pas si tu as d'autres questions sur les statistiques." },
+    { pattern: /^(bye|au revoir|à\+|a\+|ciao|tchao)!*$/i,
+      response: "À bientôt ! Bonne révision !" }
+  ],
+  // Questions méta sur le bot
+  meta: [
+    { pattern: /^(qui es[- ]tu|tu es qui|c'est quoi|what are you|who are you)\??$/i,
+      response: "Je suis l'assistant IA du cours STAT 101. Mon rôle est de t'aider à comprendre les concepts statistiques, pas de te donner les réponses directement. Pose-moi une question sur le cours !" },
+    { pattern: /^(ça va|comment vas[- ]tu|how are you)\??$/i,
+      response: "Je suis prêt à t'aider ! Quelle est ta question sur les statistiques ?" }
+  ]
+};
+
+/**
+ * Vérifie si le message correspond à une réponse pré-définie
+ * @returns {string|null} La réponse pré-définie ou null si aucune correspondance
+ */
+function getPredefinedResponse(message) {
+  const trimmed = message.trim();
+
+  for (const category of Object.values(PREDEFINED_RESPONSES)) {
+    for (const item of category) {
+      if (item.pattern.test(trimmed)) {
+        return item.response;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Classifie le type de requête pour optimiser le traitement
+ * @returns {'trivial'|'greeting'|'course_related'|'exercise'|'general'}
+ */
+function classifyRequest(message, context) {
+  const lower = message.toLowerCase().trim();
+
+  // Si contexte d'exercice présent, c'est lié au cours
+  if (context && context.question) {
+    return 'exercise';
+  }
+
+  // Mots-clés statistiques
+  const statsKeywords = [
+    'moyenne', 'médiane', 'écart', 'variance', 'probabilité', 'proba',
+    'échantillon', 'population', 'hypothèse', 'test', 'intervalle',
+    'confiance', 'p-value', 'distribution', 'normale', 'binomiale',
+    'corrélation', 'régression', 'statistique', 'stat', 'données',
+    'slide', 'semaine', 'cours', 'formule', 'calcul', 'espérance',
+    'bernoulli', 'poisson', 'événement', 'indépendant', 'conditionnel'
+  ];
+
+  // Vérifier si le message contient des mots-clés du cours
+  for (const keyword of statsKeywords) {
+    if (lower.includes(keyword)) {
+      return 'course_related';
+    }
+  }
+
+  // Message très court sans contexte = probablement trivial ou salutation
+  if (lower.length < 20) {
+    return 'general';
+  }
+
+  return 'general';
+}
+
 // Token quota system - 50,000 tokens per day per IP
 const tokenQuotaMap = new Map();
 const TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
@@ -150,6 +237,16 @@ const ALLOWED_ORIGINS = [
 // ============================================================================
 // PROMPT BLOCKS - Modular system for pedagogical modes
 // ============================================================================
+
+// PROMPT MINIMAL pour les questions générales/hors-sujet (~200 tokens au lieu de ~1500)
+const SYSTEM_MINIMAL = `Tu es l'assistant IA du cours STAT 101 (statistiques universitaires, introduction).
+
+RÈGLES:
+- Réponds en FRANÇAIS, de manière concise (2-4 phrases max).
+- Si la question concerne les stats → donne une réponse brève et utile.
+- Si hors-sujet → redirige poliment vers les statistiques.
+- Ne révèle jamais les réponses aux QCM.
+- Format: texte simple, LaTeX pour formules: \\( ... \\)`;
 
 // BASE SYSTEM PROMPT (always on)
 const SYSTEM_BASE = `Tu es un assistant pédagogique IA pour un cours d'introduction à la statistique (STAT 101) de niveau universitaire.
@@ -404,6 +501,37 @@ exports.handler = async (event) => {
       };
     }
 
+    // =========================================================================
+    // OPTIMISATION 1: Réponses pré-définies (0 tokens API)
+    // =========================================================================
+    // Si pas de contexte d'exercice, vérifier si c'est un message trivial
+    if (!context || !context.question) {
+      const predefinedResponse = getPredefinedResponse(message);
+      if (predefinedResponse) {
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({
+            response: predefinedResponse,
+            tokens: {
+              prompt: 0,
+              completion: 0,
+              total: 0,
+              used: tokenQuotaMap.get(clientIP)?.used || 0,
+              remaining: MAX_TOKENS_PER_DAY - (tokenQuotaMap.get(clientIP)?.used || 0),
+              max: MAX_TOKENS_PER_DAY,
+              optimized: true // Indicateur d'optimisation
+            }
+          })
+        };
+      }
+    }
+
+    // =========================================================================
+    // OPTIMISATION 2: Classification de la requête
+    // =========================================================================
+    const requestType = classifyRequest(message, context);
+
     // Build modular system prompt
     const styleMode = context && context.styleMode ? context.styleMode : 'classique';
     const intent = context && context.intent ? context.intent : 'OPEN_CHAT';
@@ -478,18 +606,30 @@ exports.handler = async (event) => {
       }
     }
 
-    // Select style based on mode
-    let styleBlock = STYLE_CLASSIQUE;
-    if (styleMode === 'fun') {
-      styleBlock = STYLE_FUN;
-    } else if (styleMode === 'sceptique') {
-      styleBlock = STYLE_SCEPTIQUE;
-    }
+    // =========================================================================
+    // OPTIMISATION 3: Choix du prompt selon le type de requête
+    // =========================================================================
+    let systemPrompt;
+    let useMinimalPrompt = false;
 
-    // Assemble system prompt: BASE + ANTI_CHEATING + STYLE + INTENT
-    let systemPrompt = SYSTEM_BASE + ANTI_CHEATING;
-    systemPrompt += styleBlock;
-    systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+    // Utiliser le prompt minimal pour les questions générales sans contexte de cours
+    if (requestType === 'general' && !source) {
+      systemPrompt = SYSTEM_MINIMAL;
+      useMinimalPrompt = true;
+    } else {
+      // Select style based on mode
+      let styleBlock = STYLE_CLASSIQUE;
+      if (styleMode === 'fun') {
+        styleBlock = STYLE_FUN;
+      } else if (styleMode === 'sceptique') {
+        styleBlock = STYLE_SCEPTIQUE;
+      }
+
+      // Assemble system prompt: BASE + ANTI_CHEATING + STYLE + INTENT
+      systemPrompt = SYSTEM_BASE + ANTI_CHEATING;
+      systemPrompt += styleBlock;
+      systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+    }
 
     // OPTIMIZED: Load only necessary content based on request
     if (source) {
@@ -611,6 +751,13 @@ ${message}`;
 
     messages.push({ role: 'user', content: userMessage });
 
+    // =========================================================================
+    // OPTIMISATION 4: Paramètres API adaptés au type de requête
+    // =========================================================================
+    // Pour les requêtes générales: réponse courte (200 tokens max)
+    // Pour les requêtes cours/exercice: réponse complète (800 tokens max)
+    const maxResponseTokens = useMinimalPrompt ? 200 : 800;
+
     // Call OpenAI
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -621,7 +768,7 @@ ${message}`;
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: messages,
-        max_tokens: 800,
+        max_tokens: maxResponseTokens,
         temperature: 0.7
       })
     });
@@ -662,7 +809,9 @@ ${message}`;
           total: totalTokens,
           used: tokenData.used,
           remaining: Math.max(0, newTokensRemaining),
-          max: MAX_TOKENS_PER_DAY
+          max: MAX_TOKENS_PER_DAY,
+          optimized: useMinimalPrompt, // true si prompt minimal utilisé
+          requestType: requestType // 'general', 'course_related', 'exercise'
         }
       })
     };

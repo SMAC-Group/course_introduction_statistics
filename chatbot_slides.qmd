@@ -251,14 +251,48 @@ window.MathJax = {
 <script>
 (function() {
   var conversationHistory = [];
-  var tokenInfo = { used: 0, remaining: 50000, max: 50000 };
+
+  // Token quota tracking - shared with chat.js via localStorage
+  var TOKEN_STORAGE_KEY = 'aiChatTokenInfo';
+  var TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+  function loadTokenInfo() {
+    try {
+      var stored = localStorage.getItem(TOKEN_STORAGE_KEY);
+      if (stored) {
+        var data = JSON.parse(stored);
+        // Check if quota should be reset (24h passed)
+        if (data.resetTime && Date.now() > data.resetTime) {
+          return { used: 0, remaining: 50000, max: 50000, resetTime: Date.now() + TOKEN_QUOTA_WINDOW_MS };
+        }
+        return data;
+      }
+    } catch (e) {
+      console.warn('Failed to load token info from localStorage:', e);
+    }
+    return { used: 0, remaining: 50000, max: 50000, resetTime: Date.now() + TOKEN_QUOTA_WINDOW_MS };
+  }
+
+  function saveTokenInfo() {
+    try {
+      localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(tokenInfo));
+    } catch (e) {
+      console.warn('Failed to save token info to localStorage:', e);
+    }
+  }
+
+  var tokenInfo = loadTokenInfo();
 
   function updateTokenDisplay(tokens) {
     if (tokens) {
-      tokenInfo.used = tokens.used || tokenInfo.used;
-      tokenInfo.remaining = tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining;
-      tokenInfo.max = tokens.max || tokenInfo.max;
-      tokenInfo.lastRequest = tokens.total || 0;
+      tokenInfo = {
+        used: tokens.used !== undefined ? tokens.used : tokenInfo.used,
+        remaining: tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining,
+        max: tokens.max || tokenInfo.max,
+        lastRequest: tokens.total || 0,
+        resetTime: tokenInfo.resetTime || (Date.now() + TOKEN_QUOTA_WINDOW_MS)
+      };
+      saveTokenInfo();
     }
 
     var tokenBar = document.getElementById('slides-token-bar');

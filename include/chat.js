@@ -7,7 +7,37 @@
   let aiTurnCount = 0;
   let styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
   let currentQuestionId = null; // Track which question the assistant is scoped to
-  let tokenInfo = { used: 0, remaining: 50000, max: 50000 }; // Token quota tracking
+  // Token quota tracking - load from localStorage if available
+  const TOKEN_STORAGE_KEY = 'aiChatTokenInfo';
+  const TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+  function loadTokenInfo() {
+    try {
+      const stored = localStorage.getItem(TOKEN_STORAGE_KEY);
+      if (stored) {
+        const data = JSON.parse(stored);
+        // Check if quota should be reset (24h passed)
+        if (data.resetTime && Date.now() > data.resetTime) {
+          // Quota expired, reset to full
+          return { used: 0, remaining: 50000, max: 50000, resetTime: Date.now() + TOKEN_QUOTA_WINDOW_MS };
+        }
+        return data;
+      }
+    } catch (e) {
+      console.warn('Failed to load token info from localStorage:', e);
+    }
+    return { used: 0, remaining: 50000, max: 50000, resetTime: Date.now() + TOKEN_QUOTA_WINDOW_MS };
+  }
+
+  function saveTokenInfo() {
+    try {
+      localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(tokenInfo));
+    } catch (e) {
+      console.warn('Failed to save token info to localStorage:', e);
+    }
+  }
+
+  let tokenInfo = loadTokenInfo();
 
   // Detect current page source (semaine) from URL
   function detectSource() {
@@ -670,12 +700,16 @@
   // Update token display
   function updateTokenDisplay(tokens) {
     if (tokens) {
+      // Update tokenInfo with server data (server is source of truth)
       tokenInfo = {
-        used: tokens.used || tokenInfo.used,
+        used: tokens.used !== undefined ? tokens.used : tokenInfo.used,
         remaining: tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining,
         max: tokens.max || tokenInfo.max,
-        lastRequest: tokens.total || 0
+        lastRequest: tokens.total || 0,
+        resetTime: tokenInfo.resetTime || (Date.now() + TOKEN_QUOTA_WINDOW_MS)
       };
+      // Save to localStorage for persistence across page loads
+      saveTokenInfo();
     }
 
     const tokenBar = document.getElementById('token-bar');
