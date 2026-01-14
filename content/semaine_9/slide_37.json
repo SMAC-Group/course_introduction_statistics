@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nAvec un échantillon de données, la p-valeur obtenue résume d'une certaine manière l'incompatibilité entre les données et le modèle construit sous l'ensemble des hypothèses.\n\nLa p-valeur (de l'échantillon) est habituellement comparée à une valeur seuil qui fixe le niveau de risque (subjectif) de décision en faveur de l'incompatibilité.\n\nLe niveau de risque est appelé niveau de signification et est une petite valeur, généralement 5 %, mais cela dépend du contexte."
+}

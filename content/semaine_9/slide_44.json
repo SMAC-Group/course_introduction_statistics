@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nGraphique préparatoire : Relation entre la taille d'échantillon et la p-value.\n\nAxes du graphique :\n- Axe Y : Pvalue % (de 0 à 100%)\n- Axe X : Sample size (taille d'échantillon, de 0 à 600)\n\nCe graphique vide sera utilisé pour illustrer comment la p-value évolue en fonction de la taille de l'échantillon lors des tests d'hypothèse. Plus l'échantillon est grand, plus le test statistique devient précis et capable de détecter des différences significatives."
+}

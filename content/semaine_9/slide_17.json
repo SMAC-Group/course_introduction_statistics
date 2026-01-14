@@ -1,0 +1,3 @@
+{
+  "c": "Théorème central limite : exemple\n\nIllustration du TCL avec plusieurs échantillons.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nDeux échantillons sont prélevés et leurs proportions estimées sont affichées sur le graphique. On observe que différents échantillons donnent des estimations différentes (un point rouge et un point bleu sur l'axe).\n\nEstimated proportion of votes for Biden (%)"
+}

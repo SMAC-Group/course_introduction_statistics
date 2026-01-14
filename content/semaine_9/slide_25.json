@@ -1,0 +1,3 @@
+{
+  "c": "Détail du calcul de l'intervalle de confiance\n\nDans notre échantillon de taille n = 200, il y a m = 95 électeurs en faveur de Biden. Ainsi, p̂ = 95/200 = 0.475\n\nPour un niveau de confiance de 1 - α = 95%, on trouve dans la table de la loi normale la valeur z₁₋α/₂. Avec α = 0.05, z₁₋α/₂ = z₀.₉₇₅ ≈ 1.96\n\nOn calcule ensuite l'intervalle de confiance avec :\n\np̂ ± z₁₋α/₂ × √(p̂(1-p̂)/n)\n\nEn remplaçant les valeurs on obtient :\n\n0.475 ± 1.96 × √(0.475 × 0.525 / 200)\n0.475 ± 1.96 × 0.0353\n\nOn obtient ainsi : [0.4058, 0.5442]"
+}

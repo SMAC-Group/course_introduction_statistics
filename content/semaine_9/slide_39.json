@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nExemple avec un échantillon de 2% de la population.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nÉchantillon (2% de pop.) : Biden: 25%, Trump: 65%, Indep: 10%\n\nParamètres du test :\n- α = 5%\n- H₀ : p_Biden = 50%\n- H₁ : p_Biden > 50%\n\nRésultat : P-value = 99.41%\n\nComme P-value > α, nous ne pouvons pas rejeter que p_Biden est égal à 50%.\n\nL'intervalle de confiance estimé pour la proportion de votes Biden est centré autour de 25%, bien en dessous du seuil de 50%."
+}

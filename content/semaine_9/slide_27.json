@@ -1,0 +1,3 @@
+{
+  "c": "Intervalles de confiance avec α = 0.20\n\nExemple avec un échantillon plus grand (8% de la population).\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nSample (8% of pop.) : Biden: 51%, Trump: 47%, Indep: 2%\n\nL'intervalle de confiance à 80% est représenté sur le graphique. Avec un échantillon plus grand, l'estimation se rapproche de la vraie proportion et l'intervalle est plus étroit.\n\nEstimated proportion of votes for Biden (%)"
+}

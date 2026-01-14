@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nVisualisation de la population complète avec séparation par candidat.\n\nPopulation :\n- Biden: 51.3%\n- Trump: 46.8%\n- Indep: 1.9%\n\nLe graphique montre :\n1. Un diagramme à barres en haut comparant les trois catégories (B, T, I)\n2. Une grille de points représentant la population totale :\n   - Points bleus : électeurs de Biden (partie supérieure)\n   - Points rouges : électeurs de Trump (partie inférieure)\n   - Points gris : électeurs indépendants (visibles dans la barre du haut)\n\nCette visualisation permet de voir clairement la répartition majoritaire de Biden dans la population réelle."
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Décisions et précision en statistiques\n\nIl existe un compromis entre le risque, mesuré par 1 − α (généralement 95 %), le niveau de confiance, et la précision de la conclusion, mesurée par exemple par la longueur de l'intervalle de confiance.\n\nPlus la taille de l'échantillon est grande, plus la conclusion est précise, pour le même niveau de confiance.\n\nPar conséquent, toute décision basée sur des méthodes statistiques comporte un risque, et la quantité de risque acceptable dépend du contexte."
+}

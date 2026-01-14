@@ -3158,6 +3158,287 @@
         }
       ]
     },
+    "9": {
+      "titre": "Inférence statistique: intervalles de confiance et test d'hypothèse pour une proportion",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Inférence statistique: intervalles de confiance et test d'hypothèse pour une proportion. Auteurs: Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol. Data Analytics Lab - Université de Genève.",
+          "k": ["proportion", "intervalle de confiance", "test d'hypothèse", "inférence"]
+        },
+        {
+          "n": 2,
+          "t": "Inférence statistique",
+          "r": "Population → Paramètres (Espérance, Variance, Médiane, Proportion). Échantillon → Statistiques. Statistiques descriptives: de l'échantillon vers les statistiques. Statistiques inférentielles: des statistiques vers les paramètres.",
+          "k": ["population", "échantillon", "paramètres", "statistiques descriptives", "statistiques inférentielles"]
+        },
+        {
+          "n": 3,
+          "t": "Exemple élections américaines (intro)",
+          "r": "Élection présidentielle américaine 2020 (3 novembre). Biden: 51.3% des voix, Trump: 46.8%. Objectif: évaluer si Biden recevrait plus de 50% des voix.",
+          "k": ["élections", "Biden", "Trump", "proportion", "exemple"]
+        },
+        {
+          "n": 4,
+          "t": "Hypothèses simplificatrices",
+          "r": "Population de 1200 électeurs (616 Biden, 561 Trump, 23 indépendants). Échantillonnage parfait, aléatoire, sans double comptage. Les gens ne changent pas d'avis et ne mentent pas.",
+          "k": ["hypothèses", "population", "échantillonnage", "simplification"]
+        },
+        {
+          "n": 5,
+          "t": "Estimation d'une proportion",
+          "r": "Variables aléatoires Xi=1 si électeur i vote Biden, 0 sinon. Pr(Xi=1)=p où p est la vraie proportion (51.3%). Échantillon aléatoire de taille n.",
+          "k": ["estimation", "proportion", "variable aléatoire", "probabilité"]
+        },
+        {
+          "n": 6,
+          "t": "Estimateur de la proportion",
+          "r": "p̂ = (1/n)ΣXi = m/n où m est le nombre d'électeurs pour Biden. L'estimateur est une fonction des données. p̂ est le meilleur estimateur possible de p.",
+          "k": ["estimateur", "p-chapeau", "formule", "proportion"]
+        },
+        {
+          "n": 7,
+          "t": "Exemple échantillon n=10",
+          "r": "Échantillon de 10 électeurs: 5 Biden, 5 Trump. Réalisations x1=...=x5=1, x6=...=x10=0. Estimateur p̂=0.5.",
+          "k": ["exemple", "échantillon", "réalisation", "estimateur"]
+        },
+        {
+          "n": 8,
+          "t": "Population vs échantillon n=40",
+          "r": "Population: Biden 51.3%, Trump 46.8%. Échantillon n=40: Biden 45%, Trump 55%. L'échantillon ne reflète pas exactement la population - variabilité d'échantillonnage.",
+          "k": ["variabilité", "échantillonnage", "biais", "comparaison"]
+        },
+        {
+          "n": 9,
+          "t": "Visualisation population",
+          "r": "Population représentée par points colorés: bleu (Biden), rouge (Trump), gris (indépendants). Biden: 51.3%, Trump: 46.8%, Indep: 1.9%.",
+          "k": ["visualisation", "population", "graphique", "proportion"]
+        },
+        {
+          "n": 10,
+          "t": "Comparaison population-échantillon",
+          "r": "Comparaison visuelle entre population et échantillon de 40 électeurs. Illustration de la différence entre proportions réelles et estimées.",
+          "k": ["comparaison", "population", "échantillon", "visualisation"]
+        },
+        {
+          "n": 11,
+          "t": "Variabilité d'échantillonnage",
+          "r": "Différents échantillons donnent différentes estimations. L'estimation varie d'un échantillon à l'autre - c'est la variabilité d'échantillonnage.",
+          "k": ["variabilité", "échantillonnage", "estimation", "aléatoire"]
+        },
+        {
+          "n": 12,
+          "t": "Distribution d'échantillonnage",
+          "r": "En répétant l'échantillonnage plusieurs fois, on obtient une distribution des estimations. Cette distribution permet de quantifier l'incertitude.",
+          "k": ["distribution", "échantillonnage", "répétition", "incertitude"]
+        },
+        {
+          "n": 13,
+          "t": "Histogramme des proportions estimées",
+          "r": "Histogramme montrant la distribution des p̂ après de nombreux échantillons. La distribution se concentre autour de la vraie proportion p.",
+          "k": ["histogramme", "distribution", "proportion estimée", "concentration"]
+        },
+        {
+          "n": 14,
+          "t": "Espérance de l'estimateur",
+          "r": "E(p̂) = p. L'estimateur p̂ est sans biais: en moyenne, il estime correctement la vraie proportion p.",
+          "k": ["espérance", "sans biais", "estimateur", "moyenne"]
+        },
+        {
+          "n": 15,
+          "t": "Distribution asymptotique de p̂",
+          "r": "Par le TCL: p̂ ≈ N(p, √(p(1-p)/n)). Cette distribution asymptotique permet de quantifier l'incertitude autour de l'estimation.",
+          "k": ["TCL", "distribution normale", "asymptotique", "écart-type"]
+        },
+        {
+          "n": 16,
+          "t": "Écart-type de p̂",
+          "r": "σ_p̂ = √(p(1-p)/n). L'écart-type diminue quand n augmente. Plus l'échantillon est grand, plus l'estimation est précise.",
+          "k": ["écart-type", "précision", "taille échantillon", "formule"]
+        },
+        {
+          "n": 17,
+          "t": "Effet de la taille d'échantillon",
+          "r": "Comparaison de la distribution de p̂ pour différentes tailles d'échantillon. Plus n est grand, plus la distribution est concentrée.",
+          "k": ["taille échantillon", "concentration", "précision", "comparaison"]
+        },
+        {
+          "n": 18,
+          "t": "TCL: illustration n=40",
+          "r": "Avec n=40, la distribution d'échantillonnage commence à ressembler à une normale centrée sur p=51.3%.",
+          "k": ["TCL", "illustration", "n=40", "distribution"]
+        },
+        {
+          "n": 19,
+          "t": "TCL: illustration n=100",
+          "r": "Avec n=100, la distribution est plus concentrée. L'écart-type diminue avec √n.",
+          "k": ["TCL", "illustration", "n=100", "concentration"]
+        },
+        {
+          "n": 20,
+          "t": "TCL: illustration n=200",
+          "r": "Avec n=200, la distribution est encore plus concentrée autour de p=51.3%. Distribution normale clairement visible.",
+          "k": ["TCL", "illustration", "n=200", "normale"]
+        },
+        {
+          "n": 21,
+          "t": "Intervalle de confiance: concept",
+          "r": "Un intervalle de confiance est un intervalle aléatoire qui contient la vraie valeur p avec une probabilité donnée (niveau de confiance).",
+          "k": ["intervalle de confiance", "concept", "probabilité", "niveau de confiance"]
+        },
+        {
+          "n": 22,
+          "t": "Construction de l'IC",
+          "r": "IC à (1-α)%: p̂ ± z_{1-α/2} × √(p̂(1-p̂)/n). z_{1-α/2} est le quantile de la loi normale standard.",
+          "k": ["construction", "IC", "formule", "quantile"]
+        },
+        {
+          "n": 23,
+          "t": "Exemple: IC avec n=200",
+          "r": "Échantillon n=200, m=95 pour Biden. p̂=95/200=0.475. Pour α=0.05, z_{0.975}≈1.96.",
+          "k": ["exemple", "IC", "calcul", "n=200"]
+        },
+        {
+          "n": 24,
+          "t": "Calcul de l'IC",
+          "r": "IC = 0.475 ± 1.96×√(0.475×0.525/200) = 0.475 ± 0.069 = [0.406, 0.544].",
+          "k": ["calcul", "IC", "résultat", "bornes"]
+        },
+        {
+          "n": 25,
+          "t": "Détail du calcul IC",
+          "r": "p̂=0.475, z_{0.975}=1.96, erreur standard=0.0353. IC=[0.4058, 0.5442]. L'IC contient 50% donc on ne peut pas conclure que Biden a la majorité.",
+          "k": ["détail", "calcul", "erreur standard", "interprétation"]
+        },
+        {
+          "n": 26,
+          "t": "Interprétation de l'IC",
+          "r": "L'IC [0.406, 0.544] contient 50%. On ne peut pas conclure avec 95% de confiance que Biden obtient la majorité.",
+          "k": ["interprétation", "IC", "conclusion", "majorité"]
+        },
+        {
+          "n": 27,
+          "t": "Niveau de confiance",
+          "r": "Le niveau de confiance (1-α) représente la probabilité que l'IC contienne la vraie valeur. Avec α=0.05, on a 95% de confiance.",
+          "k": ["niveau de confiance", "alpha", "probabilité", "interprétation"]
+        },
+        {
+          "n": 28,
+          "t": "Visualisation IC multiples",
+          "r": "En répétant l'échantillonnage, environ 95% des IC à 95% contiennent la vraie valeur p. 5% ne la contiennent pas.",
+          "k": ["visualisation", "IC multiples", "couverture", "95%"]
+        },
+        {
+          "n": 29,
+          "t": "IC avec différents niveaux",
+          "r": "Comparaison IC à 90%, 95%, 99%. Plus le niveau de confiance est élevé, plus l'intervalle est large.",
+          "k": ["comparaison", "niveaux", "largeur IC", "compromis"]
+        },
+        {
+          "n": 30,
+          "t": "IC avec α=0.05 (visualisation)",
+          "r": "Visualisation de la population et échantillons avec IC à 95%. Illustration du concept de couverture.",
+          "k": ["visualisation", "α=0.05", "couverture", "population"]
+        },
+        {
+          "n": 31,
+          "t": "Test d'hypothèse: introduction",
+          "r": "Peut-on tester si p>0.5 (majorité pour Biden)? Le test d'hypothèse permet de prendre une décision basée sur les données.",
+          "k": ["test d'hypothèse", "introduction", "décision", "majorité"]
+        },
+        {
+          "n": 32,
+          "t": "Hypothèses H0 et H1",
+          "r": "H0: p≤0.5 (pas de majorité). H1: p>0.5 (majorité pour Biden). H0 est l'hypothèse nulle, H1 l'hypothèse alternative.",
+          "k": ["H0", "H1", "hypothèse nulle", "hypothèse alternative"]
+        },
+        {
+          "n": 33,
+          "t": "Logique du test",
+          "r": "On suppose H0 vraie et on calcule la probabilité d'observer des données aussi extrêmes. Si cette probabilité est faible, on rejette H0.",
+          "k": ["logique", "test", "probabilité", "rejet"]
+        },
+        {
+          "n": 34,
+          "t": "Statistique de test",
+          "r": "z = (p̂ - p0) / √(p0(1-p0)/n). Sous H0, z suit approximativement une loi N(0,1).",
+          "k": ["statistique de test", "z", "formule", "loi normale"]
+        },
+        {
+          "n": 35,
+          "t": "Comment tester une hypothèse",
+          "r": "La p-valeur est associée à une paire d'hypothèses. L'hypothèse nulle ne peut jamais être prouvée. L'hypothèse alternative a une chance d'être favorisée.",
+          "k": ["p-valeur", "hypothèses", "nulle", "alternative"]
+        },
+        {
+          "n": 36,
+          "t": "Calcul de la p-valeur",
+          "r": "p-valeur = P(observer z aussi extrême | H0 vraie). Plus la p-valeur est petite, plus les données contredisent H0.",
+          "k": ["p-valeur", "calcul", "extrême", "H0"]
+        },
+        {
+          "n": 37,
+          "t": "Règle de décision",
+          "r": "Si p-valeur < α, on rejette H0. Si p-valeur ≥ α, on ne rejette pas H0. α est le seuil de signification (souvent 5%).",
+          "k": ["règle de décision", "seuil", "rejet", "alpha"]
+        },
+        {
+          "n": 38,
+          "t": "Erreurs de type I et II",
+          "r": "Erreur de type I: rejeter H0 alors qu'elle est vraie (faux positif). Erreur de type II: ne pas rejeter H0 alors qu'elle est fausse (faux négatif).",
+          "k": ["erreur type I", "erreur type II", "faux positif", "faux négatif"]
+        },
+        {
+          "n": 39,
+          "t": "Exemple test élection",
+          "r": "H0: p≤0.5, H1: p>0.5. Avec p̂=0.475 et n=200, la p-valeur est supérieure à 5%. On ne rejette pas H0.",
+          "k": ["exemple", "test", "élection", "non rejet"]
+        },
+        {
+          "n": 40,
+          "t": "Puissance du test",
+          "r": "La puissance = P(rejeter H0 | H1 vraie). Plus la puissance est élevée, mieux le test détecte les vraies différences.",
+          "k": ["puissance", "détection", "H1", "probabilité"]
+        },
+        {
+          "n": 41,
+          "t": "Effet de la taille d'échantillon sur la puissance",
+          "r": "Plus n est grand, plus la puissance augmente. Avec un grand échantillon, on détecte mieux les petites différences.",
+          "k": ["taille échantillon", "puissance", "détection", "augmentation"]
+        },
+        {
+          "n": 42,
+          "t": "Visualisation population",
+          "r": "Population complète: Biden 51.3%, Trump 46.8%, Indep 1.9%. Représentation visuelle avec points colorés.",
+          "k": ["visualisation", "population", "proportions", "graphique"]
+        },
+        {
+          "n": 43,
+          "t": "Visualisation population séparée",
+          "r": "Population avec séparation par candidat. Points bleus (Biden) en haut, points rouges (Trump) en bas. Diagramme à barres comparatif.",
+          "k": ["visualisation", "séparation", "candidats", "comparaison"]
+        },
+        {
+          "n": 44,
+          "t": "P-value vs taille d'échantillon",
+          "r": "Graphique montrant la relation entre la taille d'échantillon (0-600) et la p-valeur (0-100%). Plus n augmente, plus le test est précis.",
+          "k": ["p-valeur", "taille échantillon", "relation", "graphique"]
+        },
+        {
+          "n": 45,
+          "t": "Ce qu'il faut retenir (1)",
+          "r": "La p-valeur est une variable aléatoire dépendant des données. Elle est liée à la largeur de l'IC: plus l'IC est étroit, plus la p-valeur est petite.",
+          "k": ["résumé", "p-valeur", "variable aléatoire", "IC"]
+        },
+        {
+          "n": 46,
+          "t": "Ce qu'il faut retenir (2)",
+          "r": "Attention aux tests multiples: avec α=5%, on obtient un faux positif 1 fois sur 20 en moyenne. Les IC et p-valeurs s'appliquent à de nombreux modèles.",
+          "k": ["résumé", "tests multiples", "faux positifs", "généralisation"]
+        }
+      ]
+    },
     "11": {
       "titre": "Intervalles de confiance pour une moyenne, test-z et test-t",
       "slides": [

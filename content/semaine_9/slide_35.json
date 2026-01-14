@@ -1,0 +1,3 @@
+{
+  "c": "Comment tester une hypothèse scientifique ?\n\nUne p-valeur est associée à une paire d'hypothèses concernant le phénomène étudié. Par exemple, pour l'élection présidentielle américaine, une hypothèse est que la majorité vote pour l'équipe de Biden, et l'autre est qu'il n'y a pas de majorité.\n\nChaque hypothèse exclut l'autre, permettant d'exclure l'une en faveur de l'autre à l'aide des données.\n\nL'hypothèse nulle est celle que l'on ne pourra jamais prouver car les données sont aléatoires.\n\nL'hypothèse alternative est celle qui offre plus de choix de valeurs et a donc une chance d'être favorisée par rapport à l'hypothèse nulle (par exemple, l'équipe de Biden reçoit plus de 50 % des votes)."
+}

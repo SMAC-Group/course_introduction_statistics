@@ -1,0 +1,3 @@
+{
+  "c": "Intervalles de confiance\n\nComment cet intervalle de confiance est-il calculé ? En utilisant le TCL mais en remplaçant la valeur inconnue p par p̂, nous pouvons écrire :\n\np̂ ≈ N(p, p̂(1-p̂)/n)\n\nAinsi, l'intervalle de confiance à 1 - α pour p est donné par :\n\np̂ ± z₁₋α/₂ × √(p̂(1-p̂)/n)\n\noù z₁₋α/₂ correspond au quantile 1 - α/2 d'une distribution normale standard N(0, 1). Par exemple, z₀.₉₇₅ ≈ 1.96 pour un intervalle de confiance à 95%. Ainsi, nous avons :\n\nPr(p ∈ p̂ ± z₁₋α/₂ × √(p̂(1-p̂)/n)) ≈ 1 - α\n\nCela signifie que 100 × α% des intervalles de confiance ne contiennent pas p."
+}

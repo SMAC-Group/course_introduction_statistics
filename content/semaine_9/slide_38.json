@@ -1,0 +1,3 @@
+{
+  "c": "Calcul de la p-valeur pour un test sur une proportion\n\nOn considère les hypothèses suivantes :\n- H₀ : p = p₀ (hypothèse nulle : la proportion est égale à p₀)\n- H₁ : p ≠ p₀ (hypothèse alternative : la proportion est différente de p₀)\n\nLa statistique de test pour une proportion est donnée par :\n\nZ = (p̂ − p₀) / √(p̂(1−p̂)/n),  Z ∼ N(0, 1)\n\noù Z est la statistique de test et z_observée est la valeur calculée de Z.\n\nSi le test est bilatéral (H₁ : p ≠ p₀) :\np-valeur = 2 × P(Z > |z_observée|)\n\nSi le test est unilatéral (H₁ : p > p₀ ou H₁ : p < p₀) :\np-valeur = P(Z > z_observée) ou P(Z < z_observée)"
+}
