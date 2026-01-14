@@ -210,8 +210,10 @@ body {
   border-radius: 16px;
   font-size: 14px;
   line-height: 1.6;
-  overflow-x: auto;
+  overflow: visible;
+  overflow-wrap: break-word;
   word-wrap: break-word;
+  flex-shrink: 0;
 }
 
 /* Paragraphs in messages */
@@ -423,7 +425,8 @@ body {
 }
 
 .ai-chat-message mjx-container {
-  overflow-x: auto;
+  overflow-x: visible;
+  overflow-y: visible;
   max-width: 100%;
   display: inline-block;
   vertical-align: middle !important;

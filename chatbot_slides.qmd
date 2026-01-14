@@ -84,6 +84,10 @@ main.content,
   padding: 12px 16px;
   border-radius: 16px;
   line-height: 1.5;
+  overflow: visible;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  flex-shrink: 0;
 }
 
 .slides-chat-message.user {
