@@ -1,0 +1,3 @@
+{
+  "c": "Si on jette la pièce 2 fois :\n\nArbre de décision avec probabilité 1/2 à chaque branche :\n- Face, Face\n- Face, Pile\n- Pile, Face\n- Pile, Pile\n\n---"
+}

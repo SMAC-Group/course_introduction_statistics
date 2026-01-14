@@ -1,0 +1,3 @@
+{
+  "c": "- P(X = 6) = **0**\n  La probabilité que la variable aléatoire prenne une certaine valeur unique est nulle.\n\n- Les intervalles ont une probabilité > 0\n\n- Pour une variable aléatoire Uniforme U :\n  P(x < U < y) = (y − x) / (longueur de l'intervalle total)\n\n---"
+}

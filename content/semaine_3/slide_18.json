@@ -1,0 +1,3 @@
+{
+  "c": "1. Var(αX) = α² Var(X)\n2. Var(α + X) = Var(X)\n3. Si X et Y sont **indépendants**, Var(X + Y) = Var(X) + Var(Y)\n\n**Exemples** :\n- Var(3 × X) = 3² × Var(X) = 9 × Var(X)\n- Var(3 + X) = Var(X)\n\n---"
+}

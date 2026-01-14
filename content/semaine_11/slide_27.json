@@ -1,0 +1,3 @@
+{
+  "c": "Statistique de test pour la moyenne de la population - Population normale, σ connue, petit échantillon\n\ni.e. N(μ, σ)\n\nStatistique de test : moyenne échantillonnée standardisée (statistique de test-z)\n\nz_obs = (X̄ − μ₀) / (σ/√n)\n\nDistribution de z sous H₀ :\nz_obs = (X̄ − μ₀) / (σ/√n) ∼ N(0, 1)\n\nExemple taille :\nz_obs = (1.83 − 1.75) / (0.4/√20) ≈ 0.89\n\n---"
+}

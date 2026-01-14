@@ -1,0 +1,3 @@
+{
+  "c": "Marge d'erreur et taille d'échantillon\n\nÀ partir de l'IC, nous définissons la marge d'erreur E comme :\nE = z_{1−α/2} · σ/√n\n\nLa taille minimale d'échantillon nécessaire pour un intervalle avec un niveau de signification α pour la moyenne de la population avec une marge d'erreur E est :\n\nn = (z_{1−α/2} · σ / E)²\n\n---"
+}

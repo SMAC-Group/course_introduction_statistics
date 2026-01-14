@@ -1,0 +1,3 @@
+{
+  "c": "Question : Quelle est la probabilité que le résultat d'un lancer de dé équilibré soit cinq étant donné que le résultat est un nombre impair ?\n\nSolution :\n- A = \"obtenir un 5\" = {5}\n- B = \"obtenir un nombre impair\" = {1, 3, 5}\n- A et B = A ∩ B = {5}\n\nP(A|B) = P(A et B) / P(B) = (# de résultats dans A et B) / (# de résultats dans B) = 1/3\n\n---"
+}

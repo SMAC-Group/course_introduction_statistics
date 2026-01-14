@@ -1,0 +1,3 @@
+{
+  "c": "X = variable aléatoire\nA = un ensemble des valeurs possibles de X (un événement)\n\nP(\"X prend une valeur dans A\") = ∑(pour tout k dans A) P(X = k)\n\n---"
+}

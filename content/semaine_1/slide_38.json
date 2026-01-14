@@ -1,0 +1,3 @@
+{
+  "c": "1. Utilisez la règle de la probabilité totale :\n   P(\"Test positif\") = P(\"Test positif\" et \"Léa a le COVID\") + P(\"Test positif\" et \"Léa N'A PAS le COVID\")\n\n2. Utilisez la règle de multiplication :\n   P(\"Test positif\" et \"Léa N'A PAS le COVID\") = P(\"Léa N'A PAS le COVID\") × P(\"Test positif\" | \"Léa N'A PAS le COVID\")\n\n3. Utilisez la règle du complément :\n   P(\"Léa N'A PAS le COVID\") = 1 - P(\"Léa a le COVID\") = 1 - 0.01 = 0.99\n\n---"
+}

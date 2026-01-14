@@ -1,0 +1,3 @@
+{
+  "c": "Si le dé est équilibré, alors la probabilité d'obtenir chaque face est la même :\n\nProbabilité(un) = Probabilité(deux) = Probabilité(trois) = Probabilité(quatre) = Probabilité(cinq) = Probabilité(six)\n\nOu en notation mathématique :\nP({1}) = P({2}) = P({3}) = P({4}) = P({5}) = P({6}) = 1/6\n\n---"
+}

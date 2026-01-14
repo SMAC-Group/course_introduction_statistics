@@ -1,0 +1,3 @@
+{
+  "c": "Calcul de l'intervalle de confiance\n\nOn remplace ensuite dans la formule donnée pour l'intervalle de confiance :\n\n(X̄ − t_{1−α/2,df} · s/√n , X̄ + t_{1−α/2,df} · s/√n)\n\n(X̄ − t_{0.975,18} · s/√n , X̄ + t_{0.975,18} · s/√n)\n\n(5.6 − 2.1009 × 0.75/√19 , 5.6 + 2.1009 × 0.75/√19)\n\n(5.238512 , 5.961488)\n\n---"
+}

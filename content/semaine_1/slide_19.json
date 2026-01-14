@@ -1,0 +1,3 @@
+{
+  "c": "Contexte : Lancez un dé équilibré et quelqu'un nous dit que le résultat du dé est un nombre impair.\n\nQuestions :\n1. Quelle est la probabilité que le résultat soit un cinq étant donné que le résultat du dé est un nombre impair ?\n2. Et la probabilité d'obtenir un 6 étant donné que le résultat du dé est un nombre impair ?\n\n---"
+}

@@ -1,0 +1,1 @@
+{"c": "Exemple: lancer une pièce n fois (calcul final)\n\nμ = p = 0.25\n\nσ_p̂ = √[p(1-p)/n] = √[0.25(1-0.25)/50] = 0.06\n\np̂ ~ N(0.25, 0.06²)\n\nP(p̂ ≥ 0.5) = P(Z ≥ (0.5 - 0.25)/0.06)\n           = P(Z ≥ 4.17)\n           ≈ 0\n\nLa probabilité d'obtenir plus de 50% de Faces est pratiquement nulle car la vraie proportion est seulement de 25%."}

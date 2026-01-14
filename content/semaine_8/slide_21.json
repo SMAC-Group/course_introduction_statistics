@@ -1,0 +1,1 @@
+{"c": "Espérance et écart-type de X̄\n\nE(X̄) = μ\n\nσ_X̄ = √Var(X̄) = σ/√n\n\nqui est remplacé par:\n\ne.s.(X̄) = s/√n\n\npuisque nous ne connaissons pas σ.\n\nL'erreur standard utilise s (estimateur de σ) à la place de σ."}

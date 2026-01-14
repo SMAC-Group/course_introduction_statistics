@@ -1,0 +1,3 @@
+{
+  "c": "**DonnÃ©es**\n\n$$\\{x_1, x_2, x_3, \\ldots, x_n\\}$$\n\n**Moyenne**\n\n$$\\bar{x} = \\frac{x_1 + x_2 + x_3 + \\ldots + x_n}{n}$$\n\n$$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i$$\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Tests à deux échantillons\n\nIl est courant de vouloir déterminer des différences entre deux groupes. Par exemple :\n- En médecine : comparer un traitement à un placebo\n- En économie : comparer deux politiques publiques\n- Dans l'industrie : comparer les performances entre deux machines\n\nObjectif statistique : déterminer si les différences observées sont dues au hasard ou à un effet réel.\n\nOn considère deux échantillons indépendants, chacun provenant d'une des deux populations. Ces échantillons ne sont pas nécessairement de même taille.\n\nOn fait un test pour déterminer si les moyennes des populations sont les mêmes.\n\n---"
+}

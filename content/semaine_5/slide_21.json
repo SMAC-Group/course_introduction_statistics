@@ -1,0 +1,3 @@
+{
+  "c": "Graphique montrant plusieurs distributions normales avec le même écart-type mais des moyennes différentes :\n- μ = 1 (violet)\n- μ = 4 (vert)\n- μ = 5 (rose)\n- μ = 8 (noir)\n\nChanger la moyenne déplace la courbe horizontalement sans modifier sa forme.\n\n---"
+}

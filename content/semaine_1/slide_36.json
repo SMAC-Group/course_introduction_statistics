@@ -1,0 +1,3 @@
+{
+  "c": "Nous savons que :\n- P(\"Léa a le COVID\") = 0.01\n- P(\"Test positif\" | \"Léa a le COVID\") = 0.99 (test précis)\n- P(\"Test positif\" | \"Léa N'A PAS le COVID\") = 0.01 (faux positif)\n\nMais, nous devons calculer :\nP(\"Léa a le COVID\" | \"Test positif\") = ???\n\n---"
+}

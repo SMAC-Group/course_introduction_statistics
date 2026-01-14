@@ -1,0 +1,3 @@
+{
+  "c": "Représentation graphique de la p-valeur selon Hα\n\nHα : μ > μ₀ (test unilatéral à droite)\n→ P(Z ≥ z) : aire sous la courbe à droite de z_obs\n\nHα : μ < μ₀ (test unilatéral à gauche)\n→ P(Z ≤ z) : aire sous la courbe à gauche de z_obs\n\nHα : μ ≠ μ₀ (test bilatéral)\n→ P(Z ≥ |z|) + P(Z ≤ −|z|) : aires dans les deux queues de la distribution\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "**Formule de standardisation** : Z = (X - μ)/σ\n\n**Formule de déstandardisation** : X = μ + σZ\n\nP(X < score SAT) = 0.60\n\n0.60 correspond à un score z égal à 0.25, autrement dit :\nΦ(0.25) ≈ 0.6 ↔ Φ⁻¹(0.6) ≈ 0.25\n\nAinsi :\nZ = 0.25 ⇒ X = 500 + 100(0.25) = **525**\n\nLe 60e percentile de X est **525**.\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "P-valeur\n\nRejeter l'hypothèse nulle ou pas ?\n\nComparer la p-valeur avec une valeur fixe que l'on considère comme décisive.\nCette valeur est le niveau de signification α, qui est généralement 0.05.\n\nSachant que H₀ : μ = μ₀, nous avons :\n\n| Hα        | p-valeur                                    |\n|-----------|---------------------------------------------|\n| μ > μ₀    | p = P(Z ≥ z_obs) = 1 − P(Z ≤ z_obs)        |\n| μ < μ₀    | p = P(Z ≤ z_obs)                           |\n| μ ≠ μ₀    | p = P(|Z| ≥ |z_obs|) = 2P(Z ≥ |z_obs|)     |\n\nDonc, si la p-valeur est aussi petite ou plus petite que α, on dit que le test est statistiquement significatif au niveau α.\n\n---"
+}

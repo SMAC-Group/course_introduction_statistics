@@ -1,0 +1,3 @@
+{
+  "c": "Quelle est la variabilitÃ© des donnÃ©es ?\n\n**Ã‰tendue** = Maximum - Minimum\n\n**Ã‰tendue Interquartile (IQR)** : Q3 âˆ’ Q1\n\n**Ã‰cart-Type (s)** : Racine carrÃ©e de la moyenne des distances quadratiques Ã  la moyenne.\n\n---"
+}

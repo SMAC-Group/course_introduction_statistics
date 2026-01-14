@@ -1,0 +1,3 @@
+{
+  "c": "Prenons Z ∼ N(0, 1)\n\n**Transformation** :\n1. Multipliez par l'écart-type σ : σZ → le nouvel écart-type devient σ\n2. Ajoutez μ : X = μ + σZ → la nouvelle valeur espérée est μ\n\nOn obtient :\nX ∼ N(μ, σ²)\n- Moyenne = μ\n- Variance = σ²\n- Écart-type = σ\n\n---"
+}

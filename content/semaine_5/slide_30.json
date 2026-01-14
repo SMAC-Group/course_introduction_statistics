@@ -1,0 +1,3 @@
+{
+  "c": "La taille des hommes (X) est normalement distribuée avec une moyenne de 178.4 cm et un écart-type de 7.6 cm.\n\nSoit X ∼ N(178.4, 7.6²)\n\n**Calculer P(X < 160)** :\nP(X ≤ 160) = P((X - 178.4)/7.6 < (160 - 178.4)/7.6)\n≈ P(Z < -2.42) ≈ **0.0077**\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Quelle est la probabilité de sélectionner **au moins 4 chaussettes rouges** lorsque vous en tirez 5 du tiroir (avec remise) ?\n\nP(X ≥ 4) = P(X = 4) + P(X = 5)\n= C₅⁴ × (0.6)⁴ × (0.4)¹ + C₅⁵ × (0.6)⁵ × (0.4)⁰\n= 5 × (0.6)⁴ × (0.4)¹ + (0.6)⁵ × (0.4)⁰\n= 0.2592 + 0.0778\n= **0.3369**\n\n---"
+}

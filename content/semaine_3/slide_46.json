@@ -1,0 +1,3 @@
+{
+  "c": "Caractéristiques :\n- n essais\n- Les essais sont **indépendants**\n- Deux issues possibles : \"Succès\" (encodé par 1) ou \"Échec\" (encodé par 0)\n- P(\"Succès\") = p et P(\"Échec\") = 1 − p\n\n---"
+}

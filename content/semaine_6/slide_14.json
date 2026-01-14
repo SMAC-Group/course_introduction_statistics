@@ -1,0 +1,3 @@
+{
+  "c": "**Formule**\n\n$$s = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$\n\n**Calcul simplifiÃ©** lorsque la moyenne de l'Ã©chantillon est donnÃ©e\n\n$$s = \\sqrt{\\frac{1}{n-1} \\left\\{ \\left( \\sum_{i=1}^{n} x_i^2 \\right) - n\\bar{x}^2 \\right\\}}$$\n\n---"
+}

@@ -1,0 +1,3670 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generated": "2026-01-14T08:04:47.199Z",
+    "description": "Index optimisé pour le chatbot - résumés et mots-clés par slide"
+  },
+  "semaines": {
+    "1": {
+      "titre": "Concepts Clés en Probabilité",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Concepts Clés en Probabilité Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab - Université de Genève",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "Contenu du cours",
+          "r": "Ce cours propose une introduction aux notions fondamentales de la statistique.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "hypothèse",
+            "intervalle",
+            "régression",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Statistique - Les trois parties",
+          "r": "Le contenu de ce cours se compose de trois parties : 1.  Probabilité : Nous utilisons les règles de probabilités élémentaires afin de quantifier la probabilité associée à certains événements.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "Modélisation des phénomènes aléatoires",
+          "r": "Définitions fondamentales : - Résultats : résultats possibles d'une expérience.  - Population (Univers S) : ensemble de tous les résultats possibles (noté S).",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "Exemple - Lancer d'un dé équilibré (définitions)",
+          "r": "Univers : S = {1, 2, 3, 4, 5, 6} Exemples d'événements : - I = \"obtenir un nombre impair\" = {1, 3, 5} - P = \"obtenir un nombre pair\" = {2, 4, 6} - A = \"obtenir un 5 et un 6\" = {5, 6} - C = \"obtenir...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Exemple - Lancer d'un dé équilibré (équiprobabilité)",
+          "r": "Si le dé est équilibré, alors la probabilité d'obtenir chaque face est la même : Probabilité(un) = Probabilité(deux) = Probabilité(trois) = Probabilité(quatre) = Probabilité(cinq) = Probabilité(six...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "Exemple - Lancer d'une pièce équilibrée",
+          "r": "Univers : S = {F, P} (Face, Pile) Si la pièce est équilibrée, alors la probabilité d'obtenir Face ou Pile est la même : Probabilité(Face) = Probabilité(Pile) Ou en notation mathématique : P({F}) = ...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Probabilité - Définition classique",
+          "r": "Si tous les résultats sont équiprobables (c'est-à-dire qu'ils ont la même probabilité de se produire) : P(Événement) = (# résultats dans l'événement) / (Nombre total de résultats)",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "définition"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Exemple - Lancer d'un dé équilibré (questions)",
+          "r": "Questions : 1.  Quelle est la probabilité d'obtenir un 5 ?",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple",
+            "définition"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "Exemple - Lancer d'un dé équilibré (solution)",
+          "r": "Méthode en 3 étapes : (i) Déterminer l'univers : S = {1, 2, 3, 4, 5, 6} (ii) Déterminer les événements : - C = \"obtenir un 5\" = {5} - I = \"obtenir un nombre impair\" = {1, 3, 5} (iii) Calculer la pr...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple",
+            "méthode"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "Exemple - Lancer une pièce équilibrée trois fois (3 faces)",
+          "r": "Résultats possibles : {FFF, FFP, FPF, FPP, PFF, PFP, PPF, PPP} (8 résultats) Probabilité d'obtenir 3 faces : P({FFF}) = 1/8 = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Exemple - Lancer une pièce équilibrée trois fois (2 faces)",
+          "r": "Probabilité d'obtenir 2 faces : D = \"obtenir deux faces\" = {PFF, FFP, FPF} P(D) = 3/8 = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Exemple - Lancer une pièce équilibrée trois fois (au moins 2 faces)",
+          "r": "Probabilité d'obtenir au moins 2 faces : A = \"obtenir au moins deux faces\" = {FFF, PFF, FFP, FPF} P(A) = 4/8 = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Propriétés des probabilités",
+          "r": "Trois propriétés fondamentales : 1.  0 ≤ P(A) ≤ 1, pour tout événement A (la probabilité est toujours entre 0 et 1) 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "propriété"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "Complément / Événements opposés",
+          "r": "Formule du complément : P(A) = 1 - P(opposé de A) = 1 - P(Aᶜ) Le diagramme montre A et son complément Aᶜ qui forment ensemble l'univers S.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "formule",
+            "exemple"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Événements mutuellement exclusifs - Définition",
+          "r": "Lorsque les événements A et B (notés A ∩ B) ne peuvent pas se produire simultanément (noté A ∩ B = ∅), alors ils sont appelés événements mutuellement exclusifs.  Exemples : 1.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "définition"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "Événements mutuellement exclusifs - Formule",
+          "r": "Si A et B ne peuvent pas se produire simultanément (A et B n'ont aucun élément en commun) : P(A OU B) = P(A ∪ B) = P(A) + P(B) Le diagramme montre deux cercles disjoints A et B dans l'univers S.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "formule"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "Ensembles - Tableau récapitulatif",
+          "r": "| Ensemble | Notation | Interprétation | Diagramme | |-|-|-|-| | A et B | A ∩ B | Résultats dans A et B | Intersection des deux cercles | | A ou B | A ∪ B | Résultats dans A ou B, ou les deux | Uni...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "tableau"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Probabilité Conditionnelle - Introduction",
+          "r": "Contexte : Lancez un dé équilibré et quelqu'un nous dit que le résultat du dé est un nombre impair.  Questions : 1.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Probabilité Conditionnelle - Définition (version 1)",
+          "r": "Probabilité conditionnelle de l'événement B étant donné que l'événement A est survenu : P(B|A) = \"la probabilité de B sachant A\" = P(A et B) / P(A) Le diagramme montre deux rectangles A et B qui se...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "définition"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "Probabilité Conditionnelle - Définition (version équiprobable)",
+          "r": "Si les résultats sont équiprobables : P(B|A) = [# de résultats dans A et B] / [Nombre total de résultats] ÷ [# de résultats dans A] / [Nombre total de résultats]",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "définition"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Probabilité Conditionnelle - Formule simplifiée",
+          "r": "P(B|A) = la probabilité de B sachant A = (# de résultats dans A et B) / (# de résultats dans A)",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "formule"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Probabilité Conditionnelle - P(A|B) définition",
+          "r": "La probabilité conditionnelle de l'événement A sachant que l'événement B s'est produit : P(A|B) = la probabilité de A sachant B = P(A et B) / P(B)",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "définition"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Probabilité Conditionnelle - P(A|B) version équiprobable",
+          "r": "Si les résultats sont équiprobables : P(A|B) = [# de résultats dans A et B] / [# total de résultats] ÷ [# de résultats dans B] / [# total de résultats]",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Probabilité Conditionnelle - P(A|B) formule simplifiée",
+          "r": "P(A|B) = la probabilité de A sachant B = (# de résultats dans A et B) / (# de résultats dans B)",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "formule"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Probabilité jointe",
+          "r": "P(A et B) = probabilité jointe de A et B = la probabilité que les événements A et B se produisent ensemble (A ∩ B).  Le diagramme montre l'intersection A ∩ B entre les deux ensembles.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "Probabilité Conditionnelle - Exemple du dé",
+          "r": "Question : Quelle est la probabilité que le résultat d'un lancer de dé équilibré soit cinq étant donné que le résultat est un nombre impair ?",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "exemple"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "Autre exemple - Famille avec deux enfants (énoncé)",
+          "r": "Si vous savez qu'une famille a deux enfants et que l'un d'eux est un garçon, quelle est la probabilité que l'autre enfant soit également un garçon ?",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "exemple"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Autre exemple - Famille avec deux enfants (solution)",
+          "r": "Calculs : - P(deux garçons et au moins un garçon) = P(deux garçons) = 1/4 - P(au moins un garçon) = 3/4 (car {GG, GF, FG} sur {GG, GF, FG, FF}) Résultat : P(deux garçons | au moins un garçon) = (1/...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 30,
+          "t": "En général, P(A|B) ≠ P(B|A)",
+          "r": "Important : P(A|B) = probabilité conditionnelle de A sachant B P(B|A) = probabilité conditionnelle de B sachant A Ces deux probabilités sont généralement différentes !",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "exemple"
+          ]
+        },
+        {
+          "n": 31,
+          "t": "Règles de Probabilité (partie 1)",
+          "r": "1.  Probabilité conditionnelle de A sachant B :    P(A|B) = P(A et B) / P(B)    Probabilité conditionnelle de B sachant A :    P(B|A) = P(A et B) / P(A) 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "conditionnel",
+            "règle"
+          ]
+        },
+        {
+          "n": 32,
+          "t": "Règles de Probabilité (partie 2)",
+          "r": "3.  Règle générale d'addition :    P(A ou B) = P(A) + P(B) - P(A et B) 4.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "règle"
+          ]
+        },
+        {
+          "n": 33,
+          "t": "Deux types de questions",
+          "r": "1.  Calculer P(A et B) :    - On déduit la probabilité conditionnelle P(B|A)    - On calcule la probabilité jointe : P(A et B) = P(B|A) × P(A) 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "conditionnel"
+          ]
+        },
+        {
+          "n": 34,
+          "t": "Exemple - Le problème de Monty Hall",
+          "r": "Illustration du célèbre problème de Monty Hall : un présentateur de jeu télévisé, trois portes (une voiture derrière l'une, des chèvres derrière les deux autres).  Après votre choix initial, le pré...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 35,
+          "t": "Exemple - Test COVID (énoncé)",
+          "r": "Données du problème : - 1% des étudiants ont le COVID - Le test de dépistage est précis à 99% (donc 1% de chance que le test ne soit pas précis) - Léa (une étudiante) est testée positive au COVID Q...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "hypothèse",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "exemple"
+          ]
+        },
+        {
+          "n": 36,
+          "t": "Exemple - Test COVID (ce qu'on sait vs ce qu'on cherche)",
+          "r": "Nous savons que : - P(\"Léa a le COVID\") = 0. 01 - P(\"Test positif\" | \"Léa a le COVID\") = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "hypothèse",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 37,
+          "t": "Exemple - Test COVID (étape 1)",
+          "r": "Commençons par la définition : P(\"Léa a le COVID\" | \"Test positif\") = P(\"Léa a le COVID\" et \"Test positif\") / P(\"Test positif\") Utilisons la règle de multiplication : P(\"Léa a le COVID\" et \"Test po...",
+          "k": [
+            "échantillon",
+            "population",
+            "hypothèse",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "exemple",
+            "définition"
+          ]
+        },
+        {
+          "n": 38,
+          "t": "Exemple - Test COVID (étape 2)",
+          "r": "1.  Utilisez la règle de la probabilité totale :    P(\"Test positif\") = P(\"Test positif\" et \"Léa a le COVID\") + P(\"Test positif\" et \"Léa N'A PAS le COVID\") 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "hypothèse",
+            "intervalle",
+            "corrélation",
+            "exemple",
+            "règle"
+          ]
+        },
+        {
+          "n": 39,
+          "t": "Exemple - Test COVID (résultat final)",
+          "r": "Calcul final : P(\"Test positif\") = 0. 0099 + (0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "hypothèse",
+            "corrélation",
+            "dé",
+            "exemple",
+            "calcul"
+          ]
+        }
+      ]
+    },
+    "2": {
+      "titre": "Indépendance et Variables Aléatoires",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Indépendance et variables aléatoires Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab - Université de Genève",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "Règles de Probabilité (partie 1)",
+          "r": "1.  Probabilité conditionnelle de A sachant B : P(A|B) = P(A et B) / P(B) = P(A ∩ B) / P(B) Probabilité conditionnelle de B sachant A : P(B|A) = P(A et B) / P(A) = P(A ∩ B) / P(A) 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "conditionnel",
+            "règle"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Règles de Probabilité (partie 2)",
+          "r": "3.  Règle générale d'addition : P(A ou B) = P(A ∪ B) = P(A) + P(B) - P(A ∩ B) 4.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "conditionnel",
+            "règle"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "Exemple - Paquet standard de cartes (énoncé)",
+          "r": "Un paquet standard de cartes contient 52 cartes.  - 4 couleurs : Cœurs ♥, Piques ♠, Carreaux ♦, Trèfles ♣ - Chaque couleur contient : Des numéros de 1 à 10 et des figures (Roi, Dame, Valet) Nous ti...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "Exemple - Paquet de cartes (solution)",
+          "r": "Utilisez la règle générale de l'addition : P(\"Roi\") = 4/52 P(\"Coeurs\") = 13/52 P(\"Roi\" ∩ \"Coeurs\") = P(\"Roi de Coeurs\") = 1/52 P(\"Roi\" ∪ \"Coeurs\") = P(\"Roi\") + P(\"Coeurs\") - P(\"Roi\" ∩ \"Coeurs\") = 4...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple",
+            "règle"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Exemple - Dé équilibré (pair ou 3)",
+          "r": "Considérons un dé équilibré.  Question : Quelle est la probabilité de lancer un nombre pair ou un 3 ?",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "Indépendance - Définition",
+          "r": "A et B sont des événements indépendants si : P(B|A) = P(B)  ou  P(A|B) = P(A) Remarques : Si A et B sont indépendants, alors : - Aᶜ et B sont indépendants - A et Bᶜ sont indépendants - Aᶜ et Bᶜ son...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "conditionnel",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Indépendance - \"Roi\" et \"Coeur\" (vérification 1)",
+          "r": "P(\"Roi\") = 4/52 P(\"Coeurs\") = 13/52 P(\"Roi\" ∩ \"Coeurs\") = P(\"Roi de Coeurs\") = 1/52 P(\"Roi\") × P(\"Coeurs\") = (4/52) × (13/52) = 52/52² = 1/52 Comme P(\"Roi\" ∩ \"Coeurs\") = P(\"Roi\") × P(\"Coeurs\"), ils...",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Indépendance - \"Roi\" et \"Coeur\" (vérification 2)",
+          "r": "Une autre façon de vérifier l'indépendance : P(\"Roi\") = 4/52 = 1/13 P(\"Roi\" | \"Coeurs\") = P(\"Roi\" ∩ \"Coeurs\") / P(\"Coeurs\") = P(\"Roi de Coeurs\") / P(\"Coeurs\") = (1/52) / (13/52) = 1/13 P(\"Roi\" | \"C...",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "Indépendance - \"Figure\" et \"Roi\" (vérification 1)",
+          "r": "P(\"Roi\") = 4/52 P(\"Figure\") = P({\"Roi coeur\", \"Dame coeur\", ... , \"Valet Pique\"}) = 12/52 P(\"Roi\" ∩ \"Figure\") = P(\"Roi\") = 4/52 P(\"Roi\") × P(\"Figure\") = (4/52) × (12/52) = 48/52² Comme 4/52 ≠ 48/52...",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "Indépendance - \"Figure\" et \"Roi\" (vérification 2)",
+          "r": "Une autre façon de vérifier l'indépendance : P(\"Roi\") = 4/52 = 1/13 P(\"Roi\" | \"Figure\") = P(\"Roi\" ∩ \"Figure\") / P(\"Figure\") = P(\"Roi\") / P(\"Figure\") = (4/52) / (12/52) = 4/12 = 1/3 P(\"Roi\" | \"Figur...",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Événements mutuellement exclusifs vs indépendants",
+          "r": "| | Événements indépendants | Événements mutuellement exclusifs | |||| | P(A et B) | P(A) × P(B) | 0 | | P(A|B) | P(A) | 0 | | P(A ou B) | P(A) + P(B) - P(A) × P(B) | P(A) + P(B) |",
+          "k": [
+            "échantillon",
+            "population",
+            "dé",
+            "conditionnel",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Règles de base - Résumé",
+          "r": "- \"Non\" → 1 - Probabilité - \"Ou\" & Événements mutuellement exclusifs → Additionner - \"Et\" & Indépendance → Multiplier",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Événements successifs",
+          "r": "P(\"Face puis Pile\") = (1/2)(1/2) = 1/4 P(\"Lancer deux 1\") = (1/6)(1/6) = 1/36 P(\"Lancer 1 puis un nombre pair\") = (1/6)(1/2) = 1/12",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "Événements successifs - Lancers répétés",
+          "r": "A = \"Lancer Face 6 fois\" P(A) = (1/2) × (1/2) × (1/2) × (1/2) × (1/2) × (1/2) = (1/2)⁶ = 1/64 B = \"Obtenir FPFPPF\" P(B) = 1/64",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Échantillonnage sans remplacement - Billes",
+          "r": "Un bocal contient 6 billes bleues et 6 billes rouges.  Vous en tirez 3.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "Échantillonnage sans remplacement - Cartes",
+          "r": "Tirer deux cartes d'un jeu standard : A = \"Première carte est un Roi\" B = \"Deuxième carte est un Roi\" P(B|A) = 3/51 P(\"Tirer deux Rois\") = P(A et B) = P(A) × P(B|A) = (4/52) × (3/51) = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "Variables Aléatoires - Définition",
+          "r": "Une variable aléatoire est une variable dont la valeur dépend de l'issue d'un phénomène aléatoire.  Chaque issue correspond à un nombre ou à un état/condition : | Valeur (X) | 1 | 2 | 3 | ||||| | P...",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "définition"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Lancer une pièce équilibrée 3 fois",
+          "r": "Résultats possibles : FFF, FFP, FPF, FPP, PFF, PFP, PPF, PPP X = Nombre de faces (\"F\")",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Fonction de masse de probabilité (FMP)",
+          "r": "| k | X = 0 | X = 1 | X = 2 | X = 3 | |||||| | P(X = k) | 1/8 | 3/8 | 3/8 | 1/8 | La FMP représente la probabilité de chaque valeur possible de X.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "FMP - Forme générale",
+          "r": "X prend des valeurs {x₁, ... , xₖ} | k | X = x₁ | ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Remarques sur la FMP",
+          "r": "1.  Toutes les probabilités somment à 1 :    p₁ + ...",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Lancer deux dés équilibrés",
+          "r": "Résultats possibles : 36 paires (1,1) à (6,6) X = somme des deux dés | k | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | ||||||||||||| | P(X=k) | 1/36 | 1/18 | 1/12 | 1/9 | 5/36 | 1/6 | 5/36 | 1/9...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Lancer deux dés - Graphique",
+          "r": "La distribution de la somme de deux dés forme une distribution triangulaire symétrique avec un pic à 7 (probabilité 1/6).",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution",
+            "dé"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Événement A = {X = k}",
+          "r": "Les événements {X = k} et {X = j} sont mutuellement exclusifs.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "règle"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Entretien d'embauche - Énoncé",
+          "r": "On choisit 5 personnes au hasard dans une salle de 100 personnes.  - 50 personnes étudient à Genève - 50 personnes étudient à Lausanne X = nombre de personnes sélectionnées qui étudient à Genève | ...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "Entretien d'embauche - Solution (1 ou 2)",
+          "r": "P(\"une ou deux personnes sélectionnées étudient à Genève\") = P(X = 1 ou X = 2) = P(X = 1) + P(X = 2) = 0. 15625 + 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "Entretien d'embauche - Au moins 2",
+          "r": "Question : Quelle est la probabilité qu'au moins 2 personnes sélectionnées étudient à Genève ?  P(X ≥ 2) = P(X = 2) + P(X = 3) + P(X = 4) + P(X = 5) = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Notation Sigma",
+          "r": "Une abréviation pour écrire de longues sommes : ∑(k=1 à 5) k = 1 + 2 + 3 + 4 + 5 ∑(k=1 à 5) k² = 1² + 2² + 3² + 4² + 5² = 1 + 4 + 9 + 16 + 25 ∑(0≤k≤3) (k-1)² = (0-1)² + (1-1)² + (2-1)² + (3-1)² = 1...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 30,
+          "t": "Formule fondamentale de la probabilité",
+          "r": "X = variable aléatoire A = un ensemble des valeurs possibles de X (un événement) P(\"X prend une valeur dans A\") = ∑(pour tout k dans A) P(X = k)",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "formule"
+          ]
+        },
+        {
+          "n": 31,
+          "t": "Formule fondamentale - Explication",
+          "r": "Dans la formule : - k sont les résultats possibles - P(X = k) sont les probabilités de la FMP",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "formule"
+          ]
+        },
+        {
+          "n": 32,
+          "t": "Exemple de l'entretien d'embauche - Tableau récapitulatif",
+          "r": "| Événement | Probabilité | Notation ∑ | Calcul | ||||| | Au moins 3 | P(X≥3) | ∑(k≥3) P(X=k) | P(X=3) + P(X=4) + P(X=5) | | Au plus 3 | P(X≤3) | ∑(k≤3) P(X=k) | P(X=0) + P(X=1) + P(X=2) + P(X=3) |...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "tableau",
+            "exemple",
+            "calcul"
+          ]
+        },
+        {
+          "n": 33,
+          "t": "Exemple - Calcul de P(X ≤ 3)",
+          "r": "Supposons la distribution suivante : | X = 0 | X = 1 | X = 2 | X = 3 | X = 4 | |||||| | 0. 0625 | 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "exemple",
+            "calcul"
+          ]
+        },
+        {
+          "n": 34,
+          "t": "Exemple - Calcul avec complément",
+          "r": "Une autre façon de calculer cette probabilité est d'utiliser la règle du complément : P(X ≤ 3) = 1 - P(X > 3) = 1 - P(X = 4) = 1 - 0. 0625 = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple",
+            "calcul",
+            "règle"
+          ]
+        },
+        {
+          "n": 35,
+          "t": "Espérance - Définition",
+          "r": "E(X) = ∑(tout k) k × P(X = k) Interprétation : 1.  Une moyenne pondérée par les probabilités 2.",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "espérance",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 36,
+          "t": "Comment calculer E(X)",
+          "r": "| k | 2 | 5 | |||| | P(X = k) | 1/3 | 2/3 | E(X) = 2 × P(X = 2) + 5 × P(X = 5) = 2 × (1/3) + 5 × (2/3) = 2/3 + 10/3 = 12/3 = 4",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 37,
+          "t": "E(X) - Représentation graphique",
+          "r": "L'espérance E(X) = 4 correspond au point d'équilibre de la distribution.  Sur le graphique, le losange à X = 4 indique ce point d'équilibre entre les probabilités à X = 2 (1/3) et X = 5 (2/3).",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "espérance",
+            "histogramme"
+          ]
+        }
+      ]
+    },
+    "3": {
+      "titre": "Espérance, Variance et la Distribution Binomiale",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Espérance, variance et la distribution binomiale Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab - Université de Genève",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution",
+            "combinaison",
+            "espérance"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "Espérance",
+          "r": "E(X) = ∑(tout k) k × P(X = k) Interprétations : - Une moyenne pondérée par les probabilités - La moyenne à long terme de X - La valeur juste d'un pari - Le point d'équilibre pour un histogramme ou ...",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "espérance",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Comment calculer E(X)",
+          "r": "| k | 2 | 5 | |||| | P(X = k) | 1/3 | 2/3 | E(X) = 2 × P(X = 2) + 5 × P(X = 5) = 2 (1/3) + 5 (2/3) = 2/3 + 10/3 = 12/3 = 4 C'est une moyenne pondérée des valeurs de X, où les poids correspondent au...",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "espérance"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "E(X) - Représentation graphique",
+          "r": "Graphique montrant la distribution de probabilité avec : - X = 2 avec probabilité 1/3 (environ 0. 33) - X = 5 avec probabilité 2/3 (environ 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "espérance",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "Exemple - Pari équitable (énoncé)",
+          "r": "Vous payez 100 CHF pour un pari.  - Si vous gagnez, vous recevez 210 CHF - Si vous perdez, vous recevez 0 CHF X = votre gain/perte - X = 110 CHF, si vous gagnez - X = −100 CHF, si vous perdez Suppo...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Exemple - Pari équitable (solution)",
+          "r": "La fonction de masse de probabilité (FMP) de X est : | k | 110 CHF | −100 CHF | |||| | P(X = k) | 0. 55 | 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance",
+            "exemple"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "Qui veut gagner des millions ?",
+          "r": "Quitter = 100 000 CHF Bonne réponse X = 250 000 CHF Mauvaise réponse X = 32 000 CHF Deux cas : 1.  Choisir au hasard parmi les 4 réponses possibles.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Ajout d'une constante",
+          "r": "Ajout d'une constante",
+          "k": [
+            "échantillon",
+            "population",
+            "espérance"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Fonctions d'une variable aléatoire",
+          "r": "| k | 10 | 12 | 15 | ||||| | P(X = k) | 0. 4 | 0.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "Multiplication par une constante",
+          "r": "Multiplication par une constante",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "Propriétés de E(X)",
+          "r": "1.  E(X + α) = E(X) + α 2.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "indépendant",
+            "espérance"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Exemple - Dé bleu et dé vert (énoncé)",
+          "r": "Deux dés équilibrés sont lancés, un bleu et un vert.",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Exemple - Dé bleu et dé vert (espérance de Y)",
+          "r": "FMP : | y | Y = 1 | Y = 2 | Y = 3 | Y = 4 | Y = 5 | Y = 6 | |||||||| | P(Y = y) | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 | Espérance : E(Y) = 1 × (1/6) + 2 × (1/6) + 3 × (1/6) + 4 × (1/6) + 5 × (1/6) + ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "espérance",
+            "exemple"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Exemple - Dé bleu et dé vert (espérance de X et W)",
+          "r": "Quelle est l'espérance de X ?  X = Y + Z E(X) = E(Y + Z) = E(Y) + E(Z) = 21/6 + 21/6 = 42/6 = 7 Quelle est l'espérance de W ?",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "indépendant",
+            "espérance"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "Mesurer la variabilité",
+          "r": "La variance = Mesure de l'étendue de la FMP.  La variance = Espérance de la distance au carré de l'espérance : - Espérance : E(X) - Distance de l'espérance : X − E(X) - Distance au carré de l'espér...",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Comment calculer Var(X)",
+          "r": "| k | 1 | 2 | 3 | ||||| | P(X = k) | 0. 2 | 0.",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "Écart type",
+          "r": "L'écart-type (noté σ) mesure la dispersion des valeurs autour de la moyenne.  Il correspond à la racine carrée de la variance, ce qui permet de conserver les mêmes unités que les données.",
+          "k": [
+            "moyenne",
+            "variance",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "espérance",
+            "exemple"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "Propriétés de la variance",
+          "r": "1.  Var(αX) = α² Var(X) 2.",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "indépendant",
+            "propriété"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Événements indépendants",
+          "r": "Si A et B sont indépendants : P(A et B) = P(A) P(B) Si A₁, A₂, ... , Aₙ sont indépendants : P(A₁, A₂, ...",
+          "k": [
+            "échantillon",
+            "population",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Lancers de pièces équilibrées",
+          "r": "Chaque lancer a une probabilité de 1/2 de tomber sur Pile.  Les issues sont indépendantes.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "Et compter les Piles",
+          "r": "Lancer une pièce équilibrée 4 fois X = nombre de Piles P(X = 4) = (1/2)(1/2)(1/2)(1/2) = 1/16 P(X = 0) = P(4 Faces) = 1/16 P(X = 1) = ???",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Univers - Arbre de probabilité (2 lancers)",
+          "r": "Si on jette la pièce 2 fois : Arbre de décision avec probabilité 1/2 à chaque branche : - Face, Face - Face, Pile - Pile, Face - Pile, Pile",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Univers - 4 lancers (tableau)",
+          "r": "Si on jette la pièce 4 fois : | FFFF | FPFF | PFFF | PPFF | | FFFP | FPFP | PFFP | PPFP | | FFPF | FPPF | PFPF | PPPF | | FFPP | FPPP | PFPP | PPPP | | k | 0 | 1 | 2 | 3 | 4 | ||||||| | P(X = k) | ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "tableau"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Univers - P(X = 0) et P(X = 4)",
+          "r": "| k | 0 | 1 | 2 | 3 | 4 | ||||||| | P(X = k) | 1/16 | | | | 1/16 | P(X = 0) = P(X = 4) = 1/16",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Univers - P(X = 1)",
+          "r": "Séquences avec 1 Pile : FPFF, PFFF, FFFP, FFPF | k | 0 | 1 | 2 | 3 | 4 | ||||||| | P(X = k) | 1/16 | 1/4 | | | 1/16 | P(X = 1) = 4/16 = 1/4",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "pièce"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Univers - P(X = 3)",
+          "r": "Séquences avec 3 Piles : PPFP, PPPF, FPPP, PFPP | k | 0 | 1 | 2 | 3 | 4 | ||||||| | P(X = k) | 1/16 | 1/4 | | 1/4 | 1/16 | P(X = 3) = 4/16 = 1/4",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "pièce"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "Univers - P(X = 2)",
+          "r": "Séquences avec 2 Piles : PPFF, FPFP, PFFP, FPPF, PFPF, FFPP | k | 0 | 1 | 2 | 3 | 4 | ||||||| | P(X = k) | 1/16 | 1/4 | 3/8 | 1/4 | 1/16 | P(X = 2) = 6/16 = 3/8",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "pièce"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "En général",
+          "r": "- Lancez une pièce n fois - 2ⁿ résultats dans l'espace des échantillons - P(une séquence) = (1/2)ⁿ - P(X = k) = (1/2)ⁿ × (# de séquences avec k Faces) Comment comptons-nous ces combinaisons ?",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "pièce",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Principe fondamental du comptage",
+          "r": "Supposons que r actions (choix, expériences) doivent être effectuées dans un certain ordre : | ACTION | NOMBRE DE RÉALISATIONS POSSIBLES | |--|-| | Action 1 | m₁ | | Action 2 | m₂ | | ...  | ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "permutation"
+          ]
+        },
+        {
+          "n": 37,
+          "t": "Comptage des séquences - Factorielle",
+          "r": "Dans l'exemple ci-dessus : (5)(4)(3)(2)(1) = 5!  Plus généralement, n factoriel est noté par : n!",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple",
+            "définition"
+          ]
+        },
+        {
+          "n": 41,
+          "t": "k parmi n - Coefficient binomial",
+          "r": "k parmi n - Coefficient binomial",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 44,
+          "t": "Suite d'événements indépendants",
+          "r": "Suite d'événements indépendants",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 45,
+          "t": "Autres probabilités",
+          "r": "Lancé d'une pièce déséquilibrée 5 fois : P(F) = 0. 2 et P(P) = 0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce"
+          ]
+        },
+        {
+          "n": 46,
+          "t": "Expérience binomiale",
+          "r": "Caractéristiques : - n essais - Les essais sont indépendants - Deux issues possibles : \"Succès\" (encodé par 1) ou \"Échec\" (encodé par 0) - P(\"Succès\") = p et P(\"Échec\") = 1 − p",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "indépendant",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 47,
+          "t": "Exemple - Votation d'une loi",
+          "r": "- Échantillon de 100 votants (n = 100) - Hypothèse : les individus sont indépendants - \"Soutien au projet de loi\" correspond à un \"Succès\" - p = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "hypothèse",
+            "corrélation",
+            "distribution",
+            "dé",
+            "indépendant",
+            "exemple"
+          ]
+        },
+        {
+          "n": 48,
+          "t": "Probabilité binomiale",
+          "r": "P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ n = nombre total d'essais, p = probabilité de succès Exemple : P(X = 40) = C₁₀₀⁴⁰ × (0. 44)⁴⁰ × (0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "combinaison",
+            "exemple"
+          ]
+        },
+        {
+          "n": 49,
+          "t": "Distribution Binomiale - Résumé",
+          "r": "Expérience binomiale : - n essais - Les essais sont indépendants - Deux issues possibles : P(\"Succès\") = p Probabilité binomiale : P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ = (n!  / (k!",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "indépendant",
+            "combinaison"
+          ]
+        }
+      ]
+    },
+    "4": {
+      "titre": "La Distribution Binomiale et les Variables Aléatoires Continues",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - La distribution binomiale et les variables aléatoires continues Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab - Univers...",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "n factoriel",
+          "r": "n factoriel : n!  = n (n − 1) (n − 2) ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Combinaisons",
+          "r": "k parmi n : Cₙᵏ = n!  / (k!",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "Exemple - Création d'un examen (énoncé)",
+          "r": "Nous avons un ensemble de : - 15 questions vrai/faux (V/F) et - 20 questions à choix multiple.  Question : Nous voulons créer un examen avec 10 questions dont exactement 4 sont V/F.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "permutation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "Exemple - Création d'un examen (solution)",
+          "r": "Le nombre total de façons de choisir 4 questions V/F est : C₁₅⁴ = 15!  / (4!",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Exemple - Création d'un examen (probabilité)",
+          "r": "Nous avons un ensemble de 15 questions vrai/faux et 20 questions à choix multiple.  Parmi les examens avec 10 questions, quelle est la probabilité de choisir un examen avec 4 questions V/F (et 6 qu...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple",
+            "définition"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "Exemple - Lancer d'une pièce équilibrée",
+          "r": "P(\"6 Faces en 10 Lancers\") = C₁₀⁶ × (1/2)¹⁰ - C₁₀⁶ = # de combinaisons - (1/2)¹⁰ = probabilité de chaque combinaison Calcul : (10!  / (6!",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "combinaison",
+            "exemple"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Exemple - Lancer d'une pièce déséquilibrée",
+          "r": "Lancé d'une pièce déséquilibrée 5 fois : P(F) = 0. 2 et P(P) = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Exemple - Lancer d'une pièce déséquilibrée (100 fois)",
+          "r": "Vous lancez une pièce déséquilibrée 100 fois : - n = 100 - Les lancers sont indépendants - \"Face\" = \"Succès\" - \"Pile\" = \"Échec\" - p = P(\"Face\") = 0. 44 - 1 − p = P(\"Pile\") = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "indépendant",
+            "exemple"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "Exemple - Probabilité de 40 Faces",
+          "r": "P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ Quelle est la probabilité d'obtenir 40 Faces parmi les 100 lancers ?  P(\"40 Faces\") = P(X = 40) = C₁₀₀⁴⁰ × (0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "pièce",
+            "exemple"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "Distribution binomiale - Résumé",
+          "r": "Expérience binomiale : - n essais - Les essais sont indépendants - Deux issues possibles : P(\"Succès\") = p Probabilité binomiale : P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ = (n!  / (k!",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "indépendant",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Exemple - Le tiroir à chaussettes (énoncé)",
+          "r": "Un tiroir contient 6 chaussettes rouges et 4 chaussettes noires.  Quelle est la probabilité de sélectionner 2 chaussettes rouges lorsque vous en tirez 5 du tiroir (avec remise) ?",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "indépendant"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Exemple - Le tiroir à chaussettes (solution)",
+          "r": "X : # de chaussettes rouges (c'est-à-dire succès) parmi les 5 essais.  P(X = 2) = C₅² × (6/10)² × (1 − 6/10)⁵⁻² = 10 × (0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Exemple - Le tiroir à chaussettes (au moins 4)",
+          "r": "Quelle est la probabilité de sélectionner au moins 4 chaussettes rouges lorsque vous en tirez 5 du tiroir (avec remise) ?  P(X ≥ 4) = P(X = 4) + P(X = 5) = C₅⁴ × (0.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "Prenez la route la plus courte",
+          "r": "450 étudiants suivent le cours \"Introduction à la Statistique\", mais la probabilité qu'un étudiant ne soit pas endormi à la fin d'un cours est de 0. 01.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "méthode"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Distribution binomiale (n = 1)",
+          "r": "X = { 1, avec probabilité p ; 0, avec probabilité (1 − p) } X ∼ Bin(1, p) | k | 0 | 1 | |||| | P(X = k) | 1 − p | p | E(X) = 0 × (1 − p) + 1 × p = p E(X²) = 0² × (1 − p) + 1² × p = p Var(X) = E(X²)...",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "combinaison",
+            "espérance"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "Espérance & variance de W",
+          "r": "Soit W = X₁ + X₂ + ...  + Xₙ Si X₁, X₂, ...",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "indépendant",
+            "espérance"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "Loi binomiale - Espérance et variance",
+          "r": "X ∼ Bin(n, p) Fonction de Masse de Probabilité (FMP) : P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ Espérance : E(X) = n × p Variance : Var(X) = n × p × (1 − p) Écart-type : σ = √Var(X) = √(n × p × (1 − p))",
+          "k": [
+            "probabilité",
+            "variance",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "combinaison"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Variable aléatoire discrète",
+          "r": "X prend des valeurs de manière aléatoire | k | 1 | 2 | 3 | ||||| | P(X = k) | 0. 2 | 0.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Exemple de variables aléatoires continues",
+          "r": "- X = taille - Y = temps d'attente - U = nombre aléatoire compris entre 0 et 1",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "Variables aléatoires discrètes vs continues",
+          "r": "Variables aléatoires discrètes : - Prennent des valeurs dans une liste de nombres distincts - Correspondent à des dénombrements Variables aléatoires continues : - Prennent des valeurs sur un interv...",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Une variable aléatoire U",
+          "r": "U est un nombre entre 0 et 1.  On suppose une distribution uniforme.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Longueur d'un intervalle",
+          "r": "P(U dans A) = Longueur de A P(U > 0. 6) = 1 − 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Exemples avec la loi uniforme",
+          "r": "Intervalle : [0, 1] - A = {0. 15 < U < 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Généralement",
+          "r": "Soit X une variable aléatoire uniforme sur l'intervalle de a à b : P(\"X ∈ intervalle\") = (longueur de l'intervalle de l'événement) / (longueur de l'intervalle total)",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Variable aléatoire continue",
+          "r": "- P(X = 6) = 0   La probabilité que la variable aléatoire prenne une certaine valeur unique est nulle.",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "Loi uniforme - Fonction de densité de probabilité",
+          "r": "f(x) = 1 / (b − a) Graphique : Rectangle de hauteur 1/(b−a) sur l'intervalle [a, b]",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "Loi uniforme - Calcul des probabilités",
+          "r": "Calcul des probabilités : P(x < U < y) = Aire = largeur × hauteur = (y − x) × (1 / (b − a)) Aire totale sous la courbe = 1",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "calcul"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Loi uniforme - Espérance et variance",
+          "r": "Centre de gravité : Espérance : E(U) = (b + a) / 2 Variance : Var(U) = (b − a)² / 12",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "espérance"
+          ]
+        },
+        {
+          "n": 30,
+          "t": "Exemple - Attendre le bus (énoncé)",
+          "r": "Jean prend le bus tous les jours pour aller en cours.  Le bus arrive à l'arrêt ponctuellement toutes les 30 minutes.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 31,
+          "t": "Exemple - Attendre le bus (modélisation)",
+          "r": "X est une variable aléatoire continue qui prend ses valeurs dans (0, 30).",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 32,
+          "t": "Exemple - Attendre le bus (solution)",
+          "r": "L'aire sous la courbe de densité entre 0 et 10 représente la probabilité P(X ≤ 10), c'est-à-dire la probabilité que Jean attende moins de 10 minutes.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 33,
+          "t": "Fonction de répartition cumulative",
+          "r": "Une autre manière de décrire la distribution de X : F(x) = P(U ≤ x) F(x) correspond à l'aire sous la courbe jusqu'à x Pour U ∼ U(a, b) : F(x) = P(U ≤ x) = (x − a) / (b − a)",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé"
+          ]
+        },
+        {
+          "n": 34,
+          "t": "Fonction de répartition cumulative - Calculs",
+          "r": "X est une variable aléatoire continue F(x) = P(X ≤ x) (définition) | Probabilité | Calcul à l'aide de la fonction de répartition cumulative | |-|-| | P(X ≤ x) | = F(x) | | P(x ≤ X ≤ y) | = F(y) − F...",
+          "k": [
+            "probabilité",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "définition",
+            "calcul"
+          ]
+        },
+        {
+          "n": 35,
+          "t": "Fonction de densité de probabilité",
+          "r": "Graphique montrant une courbe de densité (forme de cloche) P(\"X ∈ Intervalle\") = Aire sous la fonction de densité de probabilité L'aire sous la courbe entre deux valeurs représente la probabilité q...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "histogramme"
+          ]
+        }
+      ]
+    },
+    "5": {
+      "titre": "La Distribution Normale",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - La distribution normale Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab - Université de Genève",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "Motivation de la distribution normale",
+          "r": "La distribution normale, ou gaussienne, est l'une des distributions les plus importantes en statistique.  Elle apparaît naturellement dans de nombreux phénomènes physiques, biologiques et sociaux.",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "médiane",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Motivation de la distribution normale - Exemple des tailles",
+          "r": "The distribution of male and female heights Données basées sur des études de cohortes dans 20 pays (Amérique du Nord, Europe, Asie de l'Est, Australie) pour les cohortes nées entre 1980 et 1994.  F...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "exemple"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "Motivation de la distribution normale - Notation",
+          "r": "La hauteur des femmes en cm (dénotée X) est distribuée normalement avec une espérance de 164. 7 cm et un écart type de 7.",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "espérance"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "La planche de Galton",
+          "r": "La planche de Galton est un dispositif qui illustre comment des événements aléatoires peuvent conduire à une distribution normale.  Des billes tombent à travers une série de clous, rebondissant alé...",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "régression",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Densité de la distribution standard normale",
+          "r": "Fonction de densité : f(x) = (1/√(2π)) × e^(-x²/2) X ∼ N(0, 1) X a une espérance de 0 et une variance de 1.  Le graphique montre une courbe en cloche symétrique centrée sur 0, avec une hauteur maxi...",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "espérance",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "Densité de la distribution standard normale - P(-1 < X < 1)",
+          "r": "L'aire sous la courbe entre -1 et 1 représente environ 68% de la distribution.  P(-1 < X < 1) ≈ 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Densité de la distribution standard normale - P(-2 < X < 2)",
+          "r": "L'aire sous la courbe entre -2 et 2 représente environ 95% de la distribution.  P(-2 < X < 2) ≈ 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Densité de la distribution standard normale - P(-3 < X < 3)",
+          "r": "L'aire sous la courbe entre -3 et 3 représente environ 99. 7% de la distribution.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "La distribution standard normale - Résumé",
+          "r": "Z ∼ N(0, 1), E(Z) = 0, √Var(Z) = σ = 1 Règle 68-95-99. 7 : - P(-1 < X < 1) ≈ 68% - P(-2 < X < 2) ≈ 95% - P(-3 < X < 3) ≈ 99.",
+          "k": [
+            "variance",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "règle"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "La fonction de distribution cumulative",
+          "r": "Lorsque Z ∼ N(0, 1) : P(X ≤ x) = Φ(x) = ∫_{-∞}^{x} (1/√(2π)) × e^(-t²/2) dt On utilise la lettre \"Φ\" dans le cas de la distribution standard normale.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Tables de la distribution cumulative",
+          "r": "Table pour les valeurs négatives de Z (de -3. 0 à -0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Calculer Φ(x) - Exemple",
+          "r": "Considérons P(Z ≤ 1. 53) = Φ(1.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "exemple"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Calcul du complément",
+          "r": "Calcul du complément",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "calcul"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "Symétrie de la distribution normale",
+          "r": "La fonction de densité de la distribution normale est symétrique.  Propriété fondamentale : P(Z ≤ -z) = P(Z > z) Les aires sous la courbe à gauche de -z et à droite de z sont égales.",
+          "k": [
+            "échantillon",
+            "population",
+            "régression",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Symétrie de la distribution normale - Application",
+          "r": "Grâce à la symétrie : P(Z > 1. 53) = P(Z ≤ -1.",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "Calcul de probabilité d'intervalles",
+          "r": "P(a ≤ Z ≤ b) Formule : P(a ≤ Z ≤ b) = P(Z ≤ b) - P(Z ≤ a) = Φ(b) - Φ(a) Méthode : 1.  Calculez les deux probabilités 2.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "calcul",
+            "formule",
+            "méthode"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "Exemple - Calcul de probabilité d'intervalle",
+          "r": "Exemple - Calcul de probabilité d'intervalle",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "exemple",
+            "calcul"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Valeurs non présentes dans la table",
+          "r": "P(Z < -5) = 0. 00000028711 ≈ 0 P(Z < 4) = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Distribution Normale N(μ, σ²)",
+          "r": "Prenons Z ∼ N(0, 1) Transformation : 1.  Multipliez par l'écart-type σ : σZ → le nouvel écart-type devient σ 2.",
+          "k": [
+            "moyenne",
+            "variance",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "Différentes moyennes",
+          "r": "Graphique montrant plusieurs distributions normales avec le même écart-type mais des moyennes différentes : - μ = 1 (violet) - μ = 4 (vert) - μ = 5 (rose) - μ = 8 (noir) Changer la moyenne déplace ...",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "dé",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Différents écarts-types",
+          "r": "Graphique montrant plusieurs distributions normales avec la même moyenne (μ = 0) mais des écarts-types différents : - σ = 0. 5 (violet clair) - courbe étroite et haute - σ = 1 (vert) - courbe stand...",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Comment calculer les probabilités normales pour X ∼ N(μ, σ²)",
+          "r": "Standardisez : Z = (X - μ) / σ Cette transformation convertit toute distribution normale en distribution standard normale N(0, 1).",
+          "k": [
+            "probabilité",
+            "variance",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Étapes pour calculer une probabilité normale",
+          "r": "1.  Standardisez : Z = (X - μ) / σ 2.",
+          "k": [
+            "probabilité",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Exemple - X ∼ N(300, 5²)",
+          "r": "Calculer P(X < 296) : P(X < 296) = P((X - μ)/σ < (296 - μ)/σ) = P(Z < (296 - 300)/5) = P(Z < -4/5) = P(Z < -0. 8) = Φ(-0.",
+          "k": [
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Calculer P(Z < -0.8) = 0.2119",
+          "r": "Dans la table des valeurs négatives : - Ligne : -0. 8 - Colonne : 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "Exemple - X ∼ N(300, 5²) suite",
+          "r": "Calculer P(X > 296) : P(X > 296) = P(Z > -0. 8) = 1 - P(Z < -0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "X ∼ N(150, 12²), P(X > 144) = ?",
+          "r": "Standardiser : Z = (X - μ)/σ P(X > 144) = P((X - 150)/12 > (144 - 150)/12) = P(Z > -0. 5) Dessiner la distribution : P(Z > -0.",
+          "k": [
+            "écart-type",
+            "échantillon",
+            "population",
+            "régression",
+            "corrélation",
+            "distribution",
+            "tableau"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Exemple - Scores SAT",
+          "r": "Les scores SAT sont normalement distribués avec une moyenne de 500 et un écart-type de 100.  Question : Quelle est la probabilité qu'un étudiant ait un score entre 550 et 650 ?",
+          "k": [
+            "probabilité",
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "exemple"
+          ]
+        },
+        {
+          "n": 30,
+          "t": "Exemple - Tailles (partie 1)",
+          "r": "La taille des hommes (X) est normalement distribuée avec une moyenne de 178. 4 cm et un écart-type de 7.",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "exemple"
+          ]
+        },
+        {
+          "n": 31,
+          "t": "Exemple - Tailles (partie 2)",
+          "r": "Soit X ∼ N(178. 4, 7.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 32,
+          "t": "Exemple - Temps d'attente (énoncé)",
+          "r": "On considère X, le temps de réponse d'un service client en minutes.  Supposons que X ∼ N(5, 1.",
+          "k": [
+            "probabilité",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 33,
+          "t": "Percentiles - Définition",
+          "r": "x_α est le 27e percentile lorsque P(X ≤ x_α) = 0. 27 = α Cela signifie que 27% du temps, X est inférieur à une valeur qu'on note x_α.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "histogramme",
+            "définition"
+          ]
+        },
+        {
+          "n": 34,
+          "t": "Percentiles - Fonction de répartition cumulative",
+          "r": "x_α est le 27e percentile lorsque P(X ≤ x_α) = 0. 27 = α Sur le graphique de la fonction de répartition cumulative : - On trace une ligne horizontale à hauteur α = 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 35,
+          "t": "Percentiles - Exemple des scores SAT",
+          "r": "Les scores SAT sont normalement distribués avec une moyenne μ = 500 et un écart-type σ = 100.  Question : Quel score SAT devez-vous obtenir pour être dans le 60e percentile ?",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "exemple",
+            "méthode"
+          ]
+        },
+        {
+          "n": 38,
+          "t": "Regarder dans le tableau (suite)",
+          "r": "La valeur 0. 5987 (la plus proche de 0.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "tableau"
+          ]
+        },
+        {
+          "n": 39,
+          "t": "Déstandardiser",
+          "r": "Formule de standardisation : Z = (X - μ)/σ Formule de déstandardisation : X = μ + σZ P(X < score SAT) = 0. 60 0.",
+          "k": [
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "formule"
+          ]
+        },
+        {
+          "n": 40,
+          "t": "Top 3% - Énoncé",
+          "r": "Les scores SAT sont normalement distribués avec une moyenne μ = 500 et un écart-type σ = 100.  Question : Un étudiant souhaite être dans les \"Top 3%\" des scores SAT.",
+          "k": [
+            "moyenne",
+            "écart-type",
+            "échantillon",
+            "population",
+            "régression",
+            "corrélation",
+            "distribution",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 41,
+          "t": "Top 3% - Solution",
+          "r": "Étape 1 : Chercher le 97e percentile (1 - 0. 03 = 0.",
+          "k": [
+            "écart-type",
+            "échantillon",
+            "population",
+            "corrélation",
+            "dé",
+            "tableau"
+          ]
+        },
+        {
+          "n": 42,
+          "t": "Exemple - Temps d'attente (percentile)",
+          "r": "On considère X, le temps de réponse d'un service client en minutes.  Supposons que X ∼ N(5, 1.",
+          "k": [
+            "écart-type",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "distribution",
+            "dé",
+            "exemple"
+          ]
+        }
+      ]
+    },
+    "6": {
+      "titre": "Statistiques Descriptives",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction Ã  la Statistique Statistiques descriptives StÃ©phane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol Data Analytics Lab Licence : CC BY NC SA 4.",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 2,
+          "t": "Statistiques descriptives et infÃ©rentielles",
+          "r": "Statistiques descriptives : dÃ©crire les donnÃ©es que nous avons collectÃ©es qui composent l'Ã©chantillon InfÃ©rence statistique : faire des gÃ©nÃ©ralisations sur un ensemble plus large, la population",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 3,
+          "t": "Description des Ã©chantillons",
+          "r": "Quelle est sa tendance centrale ?  Quelle est sa dispersion ou variabilitÃ© ?",
+          "k": [
+            "médiane",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 4,
+          "t": "Tendance centrale de la distribution",
+          "r": "Mesures de la tendance centrale de la distribution Moyenne : additionner les donnÃ©es et diviser par le nombre d'observations.  MÃ©diane : un nombre Ã©gal d'observations plus grandes et plus petite...",
+          "k": [
+            "moyenne",
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 5,
+          "t": "Moyenne",
+          "r": "Additionner les donnÃ©es et diviser par le nombre d'observations Exemples : DonnÃ©es : 1, 2, 2, 3, 4 Moyenne = (1 + 2 + 2 + 3 + 4)/5 = 2. 4 DonnÃ©es : 10, 12, 56, 78, 113, 1209 Moyenne = (10 + 12 +...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 6,
+          "t": "Moyenne (formule)",
+          "r": "DonnÃ©es $$\\{x_1, x_2, x_3, \\ldots, x_n\\}$$ Moyenne $$\\bar{x} = \\frac{x_1 + x_2 + x_3 + \\ldots + x_n}{n}$$ $$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i$$",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "formule"
+          ]
+        },
+        {
+          "n": 7,
+          "t": "MÃ©diane",
+          "r": "Trier les donnÃ©es et considÃ©rer la valeur de l'observation centrale DonnÃ©es : 1, 2, 2, 3, 4 MÃ©diane = 2 DonnÃ©es : 10, 12, 56, 78, 113, 1209 MÃ©diane = (56+78)/2 = 67",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 8,
+          "t": "Moyenne versus mÃ©diane",
+          "r": "La moyenne et la mÃ©diane sont proches pour des distributions symÃ©triques.  La moyenne se dÃ©place dans la direction de l'asymÃ©trie d'une distribution.",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "régression",
+            "corrélation",
+            "distribution"
+          ]
+        },
+        {
+          "n": 9,
+          "t": "Valeurs aberrantes",
+          "r": "Valeur aberrante = une valeur qui ne correspond pas au reste DonnÃ©es : 3, 6, 7, 10, 157 Moyenne = (1/5)(3 + 6 + 7 + 10 + 157) = 36. 6 MÃ©diane = 7 La mÃ©diane est rÃ©sistante aux valeurs aberrantes.",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "outlier"
+          ]
+        },
+        {
+          "n": 10,
+          "t": "RÃ©sumÃ© en 5 nombres",
+          "r": "- MÃ©diane - Minimum, Maximum - Quartiles : observation centrale au-dessus et en dessous de la mÃ©diane | Min | Q1 | MÃ©diane | Q3 | Max |",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 11,
+          "t": "Trouver les quartiles",
+          "r": "DonnÃ©es : 7, 23, 75, 82, 34, 91, 10 Trier, on obtient 7, 10, 23, 34, 75, 82, 91 Trouver la mÃ©diane, on obtient 34 Observations en dessous de la mÃ©diane : 7, 10, 23 Premier quartile Q1 = 10 Obser...",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 12,
+          "t": "Autre exemple",
+          "r": "DonnÃ©es : 7, 8, 22, 38, 48, 62 MÃ©diane = (22+38)/2 = 30 Premier Quartile : 7, 8, 22 Q1 = 8 TroisiÃ¨me Quartile : 38, 48, 62 Q3 = 48",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot",
+            "exemple"
+          ]
+        },
+        {
+          "n": 13,
+          "t": "Mesurer la dispersion",
+          "r": "Quelle est la variabilitÃ© des donnÃ©es ?  Ã‰tendue = Maximum - Minimum Ã‰tendue Interquartile (IQR) : Q3 âˆ’ Q1 Ã‰cart-Type (s) : Racine carrÃ©e de la moyenne des distances quadratiques Ã  la moye...",
+          "k": [
+            "moyenne",
+            "médiane",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 14,
+          "t": "Ã‰cart-type de l'Ã©chantillon",
+          "r": "Formule $$s = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$$ Calcul simplifiÃ© lorsque la moyenne de l'Ã©chantillon est donnÃ©e $$s = \\sqrt{\\frac{1}{n-1} \\left\\{ \\left( \\sum_{i=1}^{n} x_i^...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "formule",
+            "calcul"
+          ]
+        },
+        {
+          "n": 15,
+          "t": "5 Ã‰tapes faciles",
+          "r": "1.  Calculer la moyenne $\\bar{x}$ 2.",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 16,
+          "t": "Exemple : 7, 8, 3",
+          "r": "Moyenne = $\\bar{x}$ = 6 CarrÃ© de la moyenne = $\\bar{x}^2$ = 36 (Somme des $x^2$) = $7^2 + 8^2 + 3^2$ = 49 + 64 + 9 = 122 (Somme des $x^2$) âˆ’ $n\\bar{x}^2$ = 122 â€“ 3(36) = 122 â€“ 108 = 14 $\\fra...",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 17,
+          "t": "IQR versus s",
+          "r": "L'IQR, comme la mÃ©diane, ne dÃ©pend pas des observations les plus grandes (ou les plus petites) L'IQR est rÃ©sistant aux valeurs aberrantes s dÃ©pend de toutes les donnÃ©es et peut Ãªtre sensible ...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "distribution",
+            "outlier"
+          ]
+        },
+        {
+          "n": 18,
+          "t": "RÃ©sumÃ© en 5 nombres",
+          "r": "(Minimum, Q1, MÃ©diane, Q3, Maximum) Exemple : 25, 78, 97, 133, 193, 212, 215, 274 MÃ©diane : (133+193)/2 = 163 Partie infÃ©rieure : 25, 78, 97, 133 Q1 = (78 + 97)/2 = 87. 5 Partie supÃ©rieure : 19...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 19,
+          "t": "Variables",
+          "r": "Variable : l'aspect qui diffÃ¨re d'un sujet Ã  un autre, d'un individu Ã  un autre, par exemple l'orientation politique, l'Ã¢ge, le sexe, le revenu, etc.  DonnÃ©es : la valeur des variables, par ex...",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 20,
+          "t": "Deux types de variables",
+          "r": "Variables quantitatives ou numÃ©riques - Nombres, mesures - Ã‚ge, taille, distance parcourue, heures de sommeil, revenu Variables catÃ©gorielles - Classifier chaque observation - NationalitÃ©, lang...",
+          "k": [
+            "moyenne",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 21,
+          "t": "Quatre sous-types de variables",
+          "r": "Variables quantitatives ou numÃ©riques : (i) continues et (ii) discrÃ¨tes (i) Ã‚ge (21,25 ans), taille (1,67 m), distance parcourue (42,195 kms), heures de sommeil (8,4 h), revenu (24,48 CHF/h) (ii...",
+          "k": [
+            "moyenne",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 22,
+          "t": "Boxplot",
+          "r": "Structure d'un boxplot : - MÃ©diane : ligne centrale dans la boÃ®te - Q1 : bord infÃ©rieur de la boÃ®te - Q3 : bord supÃ©rieur de la boÃ®te - Moustache supÃ©rieure : jusqu'Ã  Q3 + 1. 5Ã—IQR - Moust...",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot",
+            "outlier"
+          ]
+        },
+        {
+          "n": 23,
+          "t": "Boxplot (illustration)",
+          "r": "ReprÃ©sentation visuelle d'un boxplot avec les donnÃ©es superposÃ©es.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 24,
+          "t": "Boxplot (dÃ©tails)",
+          "r": "- Q1 : Premier quartile - Q3 : TroisiÃ¨me quartile - IQR = Q3 - Q1 - Moustache supÃ©rieure : Q3 + 1. 5Ã—IQR - Moustache infÃ©rieure : Q1 - 1.",
+          "k": [
+            "médiane",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 25,
+          "t": "Comparaison entre groupes",
+          "r": "Boxplot cÃ´te Ã  cÃ´te pour comparer deux ensembles de donnÃ©es ou plus.  Ont-ils le mÃªme centre ?",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "boxplot"
+          ]
+        },
+        {
+          "n": 26,
+          "t": "Exemple : rÃ©sultats de tests pulmonaires avant et aprÃ¨s traitement",
+          "r": "Comparaison de boxplots : - Avant traitement : mÃ©diane plus basse, dispersion plus faible - AprÃ¨s traitement : mÃ©diane plus Ã©levÃ©e, dispersion plus grande",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "hypothèse",
+            "corrélation",
+            "boxplot",
+            "exemple"
+          ]
+        },
+        {
+          "n": 27,
+          "t": "L'histogramme",
+          "r": "Exemple : Heures de sommeil {12, 8. 5, 7.",
+          "k": [
+            "moyenne",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "histogramme",
+            "exemple"
+          ]
+        },
+        {
+          "n": 28,
+          "t": "Exemple : Heures de sommeil",
+          "r": "Trier les donnÃ©es : {1. 2, 1.",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 29,
+          "t": "Exemple : Heures de sommeil (tableau)",
+          "r": "Comment dessiner les blocs ?  Compter le nombre de points de donnÃ©es dans chaque classe : | Heures de sommeil (X) | Effectifs | Proportions | |::|::|:--:| | 1 < X â‰¤ 2 | 4 | 4/20=0.",
+          "k": [
+            "moyenne",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "tableau",
+            "exemple"
+          ]
+        },
+        {
+          "n": 35,
+          "t": "Exemple : Orientation politique",
+          "r": "Harvard Kennedy School - Institute of Politics La 13Ã¨me enquÃªte bisannuelle des jeunes sur la politique et le service public (novembre 2007, N=2 526, jeunes de 18-24 ans) *\"Lorsqu'il s'agit de la...",
+          "k": [
+            "variance",
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation",
+            "exemple"
+          ]
+        },
+        {
+          "n": 36,
+          "t": "RÃ©sumÃ© des catÃ©gories",
+          "r": "Proportion d'Ã©chantillon - Comptages (Chaque catÃ©gorie a un certain nombre d'occurrences) - On obtient des proportions/pourcentages | Orientation politique | Total | |:|:--:| | LibÃ©ral | 32% | |...",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 37,
+          "t": "Proportion d'Ã©chantillon",
+          "r": "$$\\hat{p}_{\\text{LibÃ©ral}} = \\frac{\\text{# de personnes libÃ©rales}}{\\text{nombre total de rÃ©pondants}} = 0. 32$$ $$\\hat{p}_{\\text{ModÃ©rÃ©-libÃ©ral}} = \\frac{\\text{# de personnes modÃ©rÃ©es penc...",
+          "k": [
+            "échantillon",
+            "population",
+            "intervalle",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 38,
+          "t": "Visualiser les donnÃ©es catÃ©gorielles",
+          "r": "- Donner une image claire de ce que contiennent les donnÃ©es - Souligner les diffÃ©rences/similitudes - Les barplot sont gÃ©nÃ©ralement les meilleurs",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation"
+          ]
+        },
+        {
+          "n": 39,
+          "t": "Barplot",
+          "r": "ReprÃ©sentation graphique des proportions d'orientation politique avec un diagramme en barres.",
+          "k": [
+            "échantillon",
+            "population",
+            "corrélation",
+            "histogramme"
+          ]
+        },
+        {
+          "n": 40,
+          "t": "Statistiques (tableau rÃ©capitulatif)",
+          "r": "| Type de variable | Statistiques | Graphiques | |:--|:-|:--| | CatÃ©gorielle | Proportions | Barplot | | Quantitative Continue | Moyenne, Ã‰cart type, MÃ©diane, IQR, RÃ©sumÃ© Ã  5 nombres | Histog...",
+          "k": [
+            "moyenne",
+            "variance",
+            "échantillon",
+            "population",
+            "corrélation",
+            "tableau",
+            "histogramme",
+            "boxplot"
+          ]
+        }
+      ]
+    },
+    "8": {
+      "titre": "Inférence statistique: estimateurs",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Inférence statistique: estimateurs. Auteurs: Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol. Data Analytics Lab - Université de Genève.",
+          "k": ["estimateur", "inférence", "échantillon", "population"]
+        },
+        {
+          "n": 2,
+          "t": "Statistiques descriptives et inférentielles",
+          "r": "Statistiques descriptives: décrire les données que nous avons collectées qui composent l'échantillon. Inférence statistique: faire des généralisations sur un ensemble plus large, la population.",
+          "k": ["statistiques descriptives", "inférence", "échantillon", "population"]
+        },
+        {
+          "n": 3,
+          "t": "Statistiques descriptives et inférentielles (diagramme)",
+          "r": "Population → Paramètres (Espérance, Variance, Médiane, Proportion). Échantillon → Statistiques descriptives → Statistiques. Statistiques inférentielles permettent de remonter vers les paramètres.",
+          "k": ["paramètre", "statistique", "échantillon", "population", "espérance", "variance"]
+        },
+        {
+          "n": 4,
+          "t": "Exemple - Stephen Curry",
+          "r": "Supposons que Stephen Curry ait marqué en moyenne 30.1 points lors de 79 matches. X = points marqués dans un seul match. X ~ N(μ, σ²). μ et σ sont inconnus.",
+          "k": ["exemple", "moyenne", "écart-type", "distribution normale"]
+        },
+        {
+          "n": 5,
+          "t": "Statistiques vs. paramètres",
+          "r": "Paramètre: une caractéristique de la population, typiquement inconnue. Statistique: une quantité calculée à partir des données de l'échantillon.",
+          "k": ["paramètre", "statistique", "population", "échantillon"]
+        },
+        {
+          "n": 6,
+          "t": "Statistiques vs. paramètres (notation)",
+          "r": "Statistiques: X̄ (moyenne), s (écart-type), p̂ (proportion). Paramètres: μ (moyenne population), σ (écart-type population), p (proportion population).",
+          "k": ["moyenne", "écart-type", "proportion", "notation"]
+        },
+        {
+          "n": 7,
+          "t": "Distribution d'échantillonnage",
+          "r": "Les données sont des variables aléatoires. Les statistiques sont des fonctions des données, donc aussi des variables aléatoires. La distribution des statistiques dépend des paramètres.",
+          "k": ["distribution échantillonnage", "variable aléatoire", "statistique"]
+        },
+        {
+          "n": 8,
+          "t": "X̄ en tant que variable aléatoire",
+          "r": "Données: X₁, X₂, ..., Xₙ. Échantillon Aléatoire Simple (EAS). Observations Indépendantes et Identiquement Distribuées (iid). Xᵢ ~ N(μ, σ²).",
+          "k": ["EAS", "iid", "échantillon aléatoire", "indépendant"]
+        },
+        {
+          "n": 9,
+          "t": "Espérance de X̄",
+          "r": "E(X̄) = (1/n) Σ E(Xᵢ) = μ. L'espérance de la moyenne de l'échantillon est égale à la moyenne de la population.",
+          "k": ["espérance", "moyenne", "estimateur sans biais"]
+        },
+        {
+          "n": 10,
+          "t": "Écart-type de X̄",
+          "r": "σ_X̄ = √Var(X̄) = σ/√n. L'erreur dans X̄ diminue avec n. Dépend de σ, l'écart-type des données, qui est inconnu.",
+          "k": ["écart-type", "variance", "erreur", "taille échantillon"]
+        },
+        {
+          "n": 11,
+          "t": "Erreur standard de X̄",
+          "r": "e.s.(X̄) = s/√n. σ est généralement inconnu, nous le remplaçons par s. L'erreur standard est une estimation de l'écart-type de X̄.",
+          "k": ["erreur standard", "écart-type", "estimation"]
+        },
+        {
+          "n": 12,
+          "t": "Exemple: 5 observations normales",
+          "r": "Jeu de données: 63, 65, 72, 74, 74. Moyenne X̄ = 69.6. Écart-type s = 5.225. Erreur standard e.s.(X̄) = 2.337.",
+          "k": ["exemple", "moyenne", "écart-type", "erreur standard", "calcul"]
+        },
+        {
+          "n": 13,
+          "t": "Distribution de X̄",
+          "r": "Si X₁, ..., Xₙ sont indépendantes et normales avec moyenne μ et écart-type σ, alors X̄ ~ N(μ, σ²/n).",
+          "k": ["distribution normale", "moyenne échantillon", "variance"]
+        },
+        {
+          "n": 14,
+          "t": "Standardisation",
+          "r": "Pour X: Z = (X-μ)/σ. Pour X̄: Z = (X̄-μ)/(σ/√n) = √n(X̄-μ)/σ. Transformation en variable normale centrée réduite.",
+          "k": ["standardisation", "score Z", "normale centrée réduite"]
+        },
+        {
+          "n": 15,
+          "t": "Population et échantillon (récapitulatif)",
+          "r": "Diagramme montrant la relation entre population, paramètres, échantillon et statistiques. Les statistiques inférentielles permettent de remonter vers les paramètres.",
+          "k": ["population", "échantillon", "paramètre", "statistique", "inférence"]
+        },
+        {
+          "n": 16,
+          "t": "Exemple: Voitures dans les foyers américains",
+          "r": "Population: tous les foyers américains (N = 324,227,000). Moyenne de la population μ et écart-type σ sont calculés sur toute la population.",
+          "k": ["exemple", "population", "moyenne", "écart-type"]
+        },
+        {
+          "n": 17,
+          "t": "Échantillon",
+          "r": "Jeu de données: {X₁, ..., Xₙ}. Taille n ≪ N. Objectif: tirer des conclusions sur les paramètres. L'échantillon doit être représentatif et non biaisé.",
+          "k": ["échantillon", "taille", "représentativité", "biais"]
+        },
+        {
+          "n": 18,
+          "t": "Échantillon aléatoire simple",
+          "r": "EAS: chaque membre a la même probabilité d'être choisi, et le choix d'un membre n'affecte pas les autres. Les observations sont iid.",
+          "k": ["EAS", "échantillon aléatoire simple", "iid", "indépendance"]
+        },
+        {
+          "n": 19,
+          "t": "Estimation de μ",
+          "r": "Un estimateur est une statistique utilisée pour estimer un paramètre. X̄ est un estimateur pour μ. s est un estimateur pour σ.",
+          "k": ["estimateur", "estimation", "moyenne", "écart-type"]
+        },
+        {
+          "n": 20,
+          "t": "Propriétés de X̄",
+          "r": "Est-ce que X̄ est un bon estimateur pour μ? Cela dépend de comment l'échantillon est choisi. Si EAS (iid), X̄ possède des propriétés intéressantes.",
+          "k": ["propriétés", "estimateur", "EAS", "iid"]
+        },
+        {
+          "n": 21,
+          "t": "Espérance et écart-type de X̄",
+          "r": "E(X̄) = μ. σ_X̄ = σ/√n, remplacé par e.s.(X̄) = s/√n car σ inconnu.",
+          "k": ["espérance", "écart-type", "erreur standard"]
+        },
+        {
+          "n": 22,
+          "t": "Distribution d'échantillonnage",
+          "r": "X̄ est une variable aléatoire avec une distribution appelée distribution d'échantillonnage. Différents chercheurs obtiennent différentes valeurs de X̄.",
+          "k": ["distribution échantillonnage", "variable aléatoire"]
+        },
+        {
+          "n": 23,
+          "t": "Exemple Stephen Curry (calcul)",
+          "r": "X ~ N(28, 8.5²). E(X̄) = 28, σ_X̄ = 0.939. P(X̄ ≥ 28.33) = P(Z ≥ 0.352) = 0.3632.",
+          "k": ["exemple", "calcul", "probabilité", "distribution normale"]
+        },
+        {
+          "n": 24,
+          "t": "Théorème Central Limite (TCL)",
+          "r": "Si X₁, ..., Xₙ sont iid avec moyenne μ et écart-type σ fini, et n > 30, alors X̄ ~ N(μ, σ²/n). Le TCL s'applique aux sommes de variables iid.",
+          "k": ["TCL", "théorème central limite", "distribution normale", "approximation"]
+        },
+        {
+          "n": 25,
+          "t": "Quand utiliser le TCL?",
+          "r": "Le TCL ne dit pas que chaque variable est normale. Il s'applique indépendamment de la distribution de X. En pratique, n > 30 suffit.",
+          "k": ["TCL", "conditions", "taille échantillon"]
+        },
+        {
+          "n": 26,
+          "t": "Exemple: scores d'examen (énoncé)",
+          "r": "Scores avec moyenne 74 et écart-type 14. Classe de 64 étudiants. Probabilité que la moyenne dépasse 80? La distribution n'est pas supposée normale.",
+          "k": ["exemple", "examen", "TCL", "probabilité"]
+        },
+        {
+          "n": 27,
+          "t": "Exemple: scores d'examen (calcul)",
+          "r": "P(X̄ > 80) = P(Z > (80-74)/(14/√64)) = P(Z > 3.429) = 0.0003. Probabilité très faible (0.03%).",
+          "k": ["exemple", "calcul", "TCL", "probabilité"]
+        },
+        {
+          "n": 28,
+          "t": "Distribution d'échantillonnage de X̄ (résumé)",
+          "r": "1) Si Xᵢ ~ N(μ, σ²), alors X̄ ~ N(μ, σ²/n) exactement. 2) Si n > 30 et iid, X̄ ~ N(μ, σ²/n) approximativement (TCL).",
+          "k": ["distribution échantillonnage", "TCL", "normale"]
+        },
+        {
+          "n": 29,
+          "t": "Proportion d'échantillon",
+          "r": "X ~ Binomial(n, p). p̂ = X/n est la proportion de l'échantillon. p̂ est un estimateur de p.",
+          "k": ["proportion", "binomial", "estimateur"]
+        },
+        {
+          "n": 30,
+          "t": "Enquête et variabilité",
+          "r": "EAS: 55% en faveur. Répéter l'enquête donne des résultats différents (56%, 52%...). L'échantillon est aléatoire, les résultats varient.",
+          "k": ["enquête", "variabilité", "échantillon", "référendum"]
+        },
+        {
+          "n": 31,
+          "t": "Proportion d'échantillon (référendum)",
+          "r": "X = nombre soutenant le Brexit, n = nombre total. p̂ = X/n = proportion de soutien. On estime la proportion de la population.",
+          "k": ["proportion", "référendum", "estimation"]
+        },
+        {
+          "n": 32,
+          "t": "Distribution d'échantillonnage de p̂",
+          "r": "p̂ = X/n = (Σ Zᵢ)/n. E(p̂) = p. σ_p̂ = √[p(1-p)/n]. e.s.(p̂) = √[p̂(1-p̂)/n].",
+          "k": ["distribution", "proportion", "espérance", "écart-type"]
+        },
+        {
+          "n": 33,
+          "t": "Distribution binomiale n=10, p=0.5",
+          "r": "Graphique de la distribution binomiale avec n=10, p=0.5. Distribution symétrique centrée sur np=5. Forme en cloche commence à apparaître.",
+          "k": ["binomiale", "graphique", "distribution"]
+        },
+        {
+          "n": 34,
+          "t": "Distribution binomiale n=20, p=0.5",
+          "r": "Graphique de la distribution binomiale avec n=20, p=0.5. La distribution se rapproche de la normale.",
+          "k": ["binomiale", "graphique", "distribution"]
+        },
+        {
+          "n": 35,
+          "t": "Distribution binomiale n=50, p=0.5",
+          "r": "Graphique de la distribution binomiale avec n=50, p=0.5. La forme de cloche est bien visible.",
+          "k": ["binomiale", "graphique", "distribution", "TCL"]
+        },
+        {
+          "n": 36,
+          "t": "Distribution binomiale n=100, p=0.5",
+          "r": "Graphique de la distribution binomiale avec n=100, p=0.5. Approximation normale excellente.",
+          "k": ["binomiale", "graphique", "distribution", "TCL"]
+        },
+        {
+          "n": 37,
+          "t": "Distribution binomiale n=10, p=0.05",
+          "r": "Graphique avec p=0.05. Distribution asymétrique à gauche.",
+          "k": ["binomiale", "graphique", "asymétrie"]
+        },
+        {
+          "n": 38,
+          "t": "Distribution binomiale n=20, p=0.05",
+          "r": "Graphique avec n=20, p=0.05. Toujours asymétrique.",
+          "k": ["binomiale", "graphique", "asymétrie"]
+        },
+        {
+          "n": 39,
+          "t": "Distribution binomiale n=50, p=0.05",
+          "r": "Graphique avec n=50, p=0.05. Distribution commence à se symétriser.",
+          "k": ["binomiale", "graphique", "TCL"]
+        },
+        {
+          "n": 40,
+          "t": "Distribution binomiale n=100, p=0.05",
+          "r": "Graphique avec n=100, p=0.05. Même avec p petit, si n grand, convergence vers la normale (TCL).",
+          "k": ["binomiale", "graphique", "TCL", "convergence"]
+        },
+        {
+          "n": 41,
+          "t": "TCL pour les proportions",
+          "r": "Si n grand, p̂ ~ N(p, p(1-p)/n) approximativement. Z = (p̂-p)/√[p(1-p)/n] ~ N(0,1).",
+          "k": ["TCL", "proportion", "approximation normale"]
+        },
+        {
+          "n": 42,
+          "t": "Conditions d'utilisation de l'approximation",
+          "r": "Règle: population avec proportion fixe, échantillon aléatoire, indépendant, np > 10 et n(1-p) > 10.",
+          "k": ["conditions", "approximation", "règle"]
+        },
+        {
+          "n": 43,
+          "t": "Exemple: lancer une pièce (énoncé)",
+          "r": "Lancer une pièce 50 fois avec P(Face) = 0.25. Quelle est la distribution de p̂? Probabilité d'obtenir plus de 50% de Faces?",
+          "k": ["exemple", "pièce", "proportion", "binomiale"]
+        },
+        {
+          "n": 44,
+          "t": "Exemple: lancer une pièce (vérification)",
+          "r": "X = nombre de Faces. n=50 fixes, lancers indépendants, P(Face)=0.25. np=12.5>10, n(1-p)=37.5>10. Conditions satisfaites.",
+          "k": ["exemple", "vérification", "conditions"]
+        },
+        {
+          "n": 45,
+          "t": "Exemple: lancer une pièce (calcul)",
+          "r": "μ=p=0.25, σ_p̂=0.06. p̂ ~ N(0.25, 0.06²). P(p̂ ≥ 0.5) = P(Z ≥ 4.17) ≈ 0. Probabilité pratiquement nulle.",
+          "k": ["exemple", "calcul", "probabilité", "TCL"]
+        }
+      ]
+    },
+    "11": {
+      "titre": "Intervalles de confiance pour une moyenne, test-z et test-t",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Inférence statistique: intervalles de confiance pour une moyenne, test-z et test-t. Auteurs : Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol. Data Analytics Lab - Université de Genève.",
+          "k": ["inférence", "intervalle de confiance", "test-z", "test-t", "moyenne"]
+        },
+        {
+          "n": 2,
+          "t": "Inférence statistique",
+          "r": "L'inférence statistique permet de passer de l'échantillon à la population. Population → Paramètres (Espérance, Variance, Médiane, Proportion). Échantillon → Statistiques. Statistiques descriptives et inférentielles.",
+          "k": ["inférence", "population", "échantillon", "paramètres", "statistiques"]
+        },
+        {
+          "n": 3,
+          "t": "Intervalles de confiance",
+          "r": "Un intervalle de confiance à 95% représente la zone centrale de la distribution normale standard contenant 95% des valeurs. Les 5% restants sont répartis dans les deux queues (2.5% de chaque côté).",
+          "k": ["intervalle de confiance", "95%", "distribution normale", "queues"]
+        },
+        {
+          "n": 4,
+          "t": "Niveau de signification α",
+          "r": "Chaque niveau de confiance correspond à un niveau de signification: α = 1 − niveau de confiance. Exemple: Un IC à 68% correspond à α = 1 − 0.68 = 0.32.",
+          "k": ["alpha", "niveau de signification", "niveau de confiance"]
+        },
+        {
+          "n": 5,
+          "t": "Formule de l'IC avec niveau α",
+          "r": "IC pour un niveau de signification α: X̄ − z_{1−α/2} · σ/√n < μ < X̄ + z_{1−α/2} · σ/√n. z_{1−α/2} est la valeur z correspondant à P(Z > z_{1−α/2}) = α/2.",
+          "k": ["formule IC", "z-score", "écart-type", "moyenne"]
+        },
+        {
+          "n": 6,
+          "t": "Table de la distribution normale",
+          "r": "La table Z permet de trouver les probabilités cumulatives P(Z ≤ z) pour la distribution normale standard. Exemples: P(Z ≤ -1.96) ≈ 0.025, P(Z ≤ 1.96) ≈ 0.975.",
+          "k": ["table Z", "distribution normale", "probabilité cumulative"]
+        },
+        {
+          "n": 7,
+          "t": "Exemple: âge des véhicules (énoncé)",
+          "r": "Enquête auprès de 30 adultes, âge moyen du véhicule = 5.6 ans. Écart-type de la population σ = 0.8 an. Trouver un IC à 90% pour la moyenne.",
+          "k": ["exemple", "véhicule", "IC 90%", "estimation"]
+        },
+        {
+          "n": 8,
+          "t": "Exemple: âge des véhicules (solution)",
+          "r": "X̄ = 5.6 ans. Pour IC 90%: α = 0.1, z_{0.95} = 1.65. IC: 5.6 ± 1.65 × 0.8/√30 = 5.6 ± 0.24. Donc 5.36 < μ < 5.84.",
+          "k": ["exemple", "calcul IC", "z-score", "solution"]
+        },
+        {
+          "n": 9,
+          "t": "Étapes pour calculer un IC (σ connu)",
+          "r": "Étape 1: Calculer X̄. Étape 2: Trouver α/2. Étape 3: Trouver z_{1−α/2} dans la table. Étape 4: Substituer dans X̄ ± z_{1−α/2} · σ/√n.",
+          "k": ["étapes", "méthodologie", "IC", "sigma connu"]
+        },
+        {
+          "n": 10,
+          "t": "Marge d'erreur et taille d'échantillon",
+          "r": "Marge d'erreur E = z_{1−α/2} · σ/√n. Taille minimale d'échantillon: n = (z_{1−α/2} · σ / E)².",
+          "k": ["marge d'erreur", "taille échantillon", "formule"]
+        },
+        {
+          "n": 11,
+          "t": "Exemple: taille d'échantillon (énoncé)",
+          "r": "Estimer l'âge moyen des étudiants. σ = 3 ans. Quelle taille n pour un IC 99% avec marge d'erreur E = 1?",
+          "k": ["exemple", "taille échantillon", "IC 99%"]
+        },
+        {
+          "n": 12,
+          "t": "Exemple: taille d'échantillon (solution)",
+          "r": "α = 0.01, z_{0.995} = 2.58. n = (2.58 × 3 / 1)² = 59.9. Il faut au moins 60 étudiants.",
+          "k": ["exemple", "calcul", "solution", "taille échantillon"]
+        },
+        {
+          "n": 13,
+          "t": "IC avec σ inconnue",
+          "r": "Deux situations: 1) Grande taille d'échantillon (n > 30), population IID. 2) Petite taille d'échantillon (n < 30), population IID normale.",
+          "k": ["sigma inconnu", "grand échantillon", "petit échantillon"]
+        },
+        {
+          "n": 14,
+          "t": "Grand échantillon, σ inconnue",
+          "r": "Formule: X̄ ± z_{1−α/2} · s/√n. Même formule qu'avant mais on remplace σ par s (écart-type de l'échantillon).",
+          "k": ["grand échantillon", "écart-type échantillon", "formule"]
+        },
+        {
+          "n": 15,
+          "t": "Distribution de Student",
+          "r": "Pour petits échantillons avec σ inconnue, on utilise la loi de Student. Forme en cloche, symétrique, plus aplatie que la normale. Converge vers N(0,1) quand df → ∞.",
+          "k": ["Student", "loi t", "degrés de liberté", "distribution"]
+        },
+        {
+          "n": 16,
+          "t": "Petit échantillon, population normale",
+          "r": "Degré de liberté df = n − 1. IC: (X̄ − t_{1−α/2,df} · s/√n, X̄ + t_{1−α/2,df} · s/√n).",
+          "k": ["petit échantillon", "degrés de liberté", "formule IC"]
+        },
+        {
+          "n": 17,
+          "t": "Exemple: âge véhicules avec Student (énoncé)",
+          "r": "n = 19 adultes, X̄ = 5.6 ans, s = 0.75. Calculer un IC à 95%. Trouver t pour n = 22.",
+          "k": ["exemple", "Student", "IC 95%"]
+        },
+        {
+          "n": 18,
+          "t": "Table de Student",
+          "r": "La table donne t_{1−α/2,df} pour différents df et α. Pour IC 95% (α = 0.05): df=18 → t=2.1009, df=19 → t=2.0930, df=20 → t=2.0860.",
+          "k": ["table Student", "valeurs critiques", "degrés de liberté"]
+        },
+        {
+          "n": 19,
+          "t": "Calcul de l'IC avec Student",
+          "r": "IC = (X̄ − t_{0.975,18} · s/√n, X̄ + t_{0.975,18} · s/√n) = (5.6 − 2.1009 × 0.75/√19, 5.6 + 2.1009 × 0.75/√19) = (5.24, 5.96).",
+          "k": ["calcul", "IC", "Student", "solution"]
+        },
+        {
+          "n": 20,
+          "t": "Étapes IC avec σ inconnu et n ≤ 30",
+          "r": "Étape 1: Calculer X̄ et s. Étape 2: Trouver α/2. Étape 3: Trouver t_{1−α/2,df} avec df = n−1. Étape 4: Substituer dans la formule.",
+          "k": ["étapes", "méthodologie", "petit échantillon"]
+        },
+        {
+          "n": 21,
+          "t": "Test d'hypothèse - Introduction",
+          "r": "Peut-on tester si μ = μ₀? Principe: formuler hypothèse, collecter observations, calculer probabilité d'observer valeur aussi extrême. Petite probabilité → rejeter H₀.",
+          "k": ["test hypothèse", "principe", "p-valeur"]
+        },
+        {
+          "n": 22,
+          "t": "Hypothèse nulle et alternative",
+          "r": "H₀: hypothèse nulle (aucun effet, aucune différence). Hα: hypothèse alternative (ce qu'on espère montrer). Exemple: H₀: μ = μ₀, Hα: μ ≠ μ₀.",
+          "k": ["hypothèse nulle", "hypothèse alternative", "H0", "Ha"]
+        },
+        {
+          "n": 23,
+          "t": "Types d'hypothèses alternatives",
+          "r": "Trois types: Hα: μ > μ₀ (unilatéral droite), Hα: μ ≠ μ₀ (bilatéral), Hα: μ < μ₀ (unilatéral gauche).",
+          "k": ["unilatéral", "bilatéral", "hypothèse alternative"]
+        },
+        {
+          "n": 24,
+          "t": "Exemple: taille des étudiants",
+          "r": "Tester si taille moyenne = 1.75m. H₀: μ = 1.75, Hα: μ ≠ 1.75. n = 20, X̄ = 1.83m, σ = 0.4.",
+          "k": ["exemple", "taille", "test bilatéral"]
+        },
+        {
+          "n": 25,
+          "t": "Exemple: nouveau régime",
+          "r": "X = différence de poids (fin - début). Tester si régime fait perdre du poids. H₀: μ = 0, Hα: μ < 0. n = 40, X̄ = -0.4kg, s = 0.12.",
+          "k": ["exemple", "régime", "test unilatéral"]
+        },
+        {
+          "n": 26,
+          "t": "Statistique de test",
+          "r": "La statistique de test montre si les données fournissent des preuves contre H₀. Si H₀ vrai, estimation proche de μ₀. Valeurs éloignées → preuves contre H₀.",
+          "k": ["statistique de test", "preuves", "H0"]
+        },
+        {
+          "n": 27,
+          "t": "Test-z (σ connue)",
+          "r": "Population normale, σ connue. z_obs = (X̄ − μ₀)/(σ/√n). Sous H₀: z_obs ~ N(0,1). Exemple taille: z_obs = (1.83-1.75)/(0.4/√20) ≈ 0.89.",
+          "k": ["test-z", "sigma connue", "statistique de test"]
+        },
+        {
+          "n": 28,
+          "t": "Test-z (σ inconnue, grand n)",
+          "r": "Population IID, grand échantillon. z_obs = (X̄ − μ₀)/(s/√n) ~ N(0,1). Exemple régime: z_obs = (-0.4-0)/(0.12/√40) ≈ -2.53.",
+          "k": ["test-z", "grand échantillon", "sigma inconnue"]
+        },
+        {
+          "n": 29,
+          "t": "P-valeur",
+          "r": "Comparer p-valeur avec α (généralement 0.05). Pour Hα: μ>μ₀, p=P(Z≥z). Pour μ<μ₀, p=P(Z≤z). Pour μ≠μ₀, p=2P(Z≥|z|). Si p ≤ α, test significatif.",
+          "k": ["p-valeur", "alpha", "signification statistique"]
+        },
+        {
+          "n": 30,
+          "t": "Règle de décision",
+          "r": "Si p-valeur < α → rejeter H₀. Si p-valeur ≥ α → ne pas rejeter H₀. Avec α = 0.05: p < 0.01 très forte preuve, 0.01-0.05 forte preuve.",
+          "k": ["décision", "rejeter H0", "p-valeur", "alpha"]
+        },
+        {
+          "n": 31,
+          "t": "Exemple test-z: taille (solution)",
+          "r": "n=20, X̄=1.83, σ=0.4. H₀: μ=1.75, Hα: μ≠1.75. z_obs=0.89. p-valeur = 2×P(Z≥0.89) = 37.08% >> 5%. On ne rejette pas H₀.",
+          "k": ["exemple", "test-z", "solution", "non rejet"]
+        },
+        {
+          "n": 32,
+          "t": "Exemple test-z: régime (solution)",
+          "r": "n=40, X̄=-0.4, s=1. H₀: μ=0, Hα: μ<0. z_obs=-2.53. p-valeur = P(Z≤-2.53) = 0.57% < 5%. On rejette H₀: le régime fait perdre du poids.",
+          "k": ["exemple", "test-z", "solution", "rejet"]
+        },
+        {
+          "n": 33,
+          "t": "Représentation graphique p-valeur",
+          "r": "Hα: μ>μ₀ → aire à droite. Hα: μ<μ₀ → aire à gauche. Hα: μ≠μ₀ → aires dans les deux queues.",
+          "k": ["graphique", "p-valeur", "aires", "queues"]
+        },
+        {
+          "n": 34,
+          "t": "Interprétation de la p-valeur",
+          "r": "P-valeur = probabilité sous H₀ d'observer une statistique aussi extrême. Plus p petite, plus fortes les preuves contre H₀. α=0.05 signifie rejet erroné max 5% du temps.",
+          "k": ["interprétation", "p-valeur", "probabilité"]
+        },
+        {
+          "n": 35,
+          "t": "Test-t (σ inconnue, petit n)",
+          "r": "Population normale, σ inconnue. t_obs = (X̄ − μ₀)/(s/√n). Suit approximativement la loi de Student. Comparer avec valeur critique.",
+          "k": ["test-t", "Student", "petit échantillon"]
+        },
+        {
+          "n": 36,
+          "t": "Table de Student (rappel)",
+          "r": "Valeurs critiques pour test d'hypothèse. Test bilatéral: t_{1−α/2,df}. Test unilatéral: t_{1−α,df}. df=19, α=0.05 bilatéral → t=2.0930.",
+          "k": ["table Student", "valeur critique", "test"]
+        },
+        {
+          "n": 37,
+          "t": "Règles de décision test-t",
+          "r": "Bilatéral: rejeter H₀ si |t_obs| > t_{1−α/2,df}. Unilatéral droite: rejeter si t_obs > t_{1−α,df}. Unilatéral gauche: rejeter si t_obs < −t_{1−α,df}. df = n−1.",
+          "k": ["règle de décision", "test-t", "valeur critique"]
+        },
+        {
+          "n": 38,
+          "t": "Exemple test-t (énoncé)",
+          "r": "Âge des étudiants, distribution normale. n=20, X̄=21.42, s=2.91. Tester si âge moyen > 18 ans. α=0.05. H₀: μ=18, Hα: μ>18.",
+          "k": ["exemple", "test-t", "unilatéral"]
+        },
+        {
+          "n": 39,
+          "t": "Exemple test-t (solution)",
+          "r": "t_obs = (21.42-18)/(2.91/√20) = 5.26. Valeur critique t_{0.95,19} = 1.7291. 5.26 > 1.7291 donc rejeter H₀. L'âge moyen est supérieur à 18 ans.",
+          "k": ["exemple", "test-t", "solution", "rejet"]
+        },
+        {
+          "n": 40,
+          "t": "Étapes pour un test d'hypothèse",
+          "r": "Étape 1: Formuler H₀ et Hα. Étape 2: Calculer z_obs ou t_obs. Étape 3: Comparer à la valeur critique ou calculer la p-valeur et comparer à α.",
+          "k": ["étapes", "méthodologie", "test hypothèse"]
+        }
+      ]
+    },
+    "12": {
+      "titre": "Inférence statistique: test-Z, test-t et test-Z à deux échantillons",
+      "slides": [
+        {
+          "n": 1,
+          "t": "Page de titre",
+          "r": "Introduction à la Statistique - Inférence statistique: test-Z, test-t et test-Z à deux échantillons. Auteurs: Stéphane Guerrier, Mucyo Karemera, Samuel Orso & Lionel Voirol. Data Analytics Lab - Université de Genève.",
+          "k": ["test-Z", "test-t", "deux échantillons", "inférence"]
+        },
+        {
+          "n": 2,
+          "t": "Inférence statistique",
+          "r": "Population → Paramètres (Espérance, Variance, Médiane, Proportion). Échantillon → Statistiques. Statistiques descriptives: de l'échantillon vers les statistiques. Statistiques inférentielles: des statistiques vers les paramètres.",
+          "k": ["population", "échantillon", "paramètres", "statistiques descriptives", "statistiques inférentielles"]
+        },
+        {
+          "n": 3,
+          "t": "Test d'hypothèse",
+          "r": "Est-il possible de tester que l'espérance μ d'une variable aléatoire X soit égale à μ₀? Processus: hypothèse, observations, probabilité d'observer une statistique aussi extrême, décision de rejeter ou non.",
+          "k": ["test hypothèse", "espérance", "hypothèse nulle", "rejet"]
+        },
+        {
+          "n": 4,
+          "t": "Exemple test-Z (énoncé batteries)",
+          "r": "Entreprise affirme durée de vie moyenne batteries type A = 100h. Échantillon n=100, moyenne=99.1h, s=5. Tester au seuil 5% si durée diffère de 100h.",
+          "k": ["test-Z", "exemple", "batteries", "durée de vie"]
+        },
+        {
+          "n": 5,
+          "t": "Exemple test-Z (calcul)",
+          "r": "X: durée de vie batterie type A. H₀: μ=100, Hα: μ≠100. z_obs = (X̄-μ₀)/(s/√n) = (99.1-100)/(5/√100) = -1.8",
+          "k": ["test-Z", "calcul", "z_obs", "hypothèses"]
+        },
+        {
+          "n": 6,
+          "t": "Exemple test-Z (graphique)",
+          "r": "Distribution normale standard. z_obs = -1.8. P(Z < z_obs) ≈ 0.036. L'aire sous la courbe représente la probabilité.",
+          "k": ["test-Z", "graphique", "distribution normale", "probabilité"]
+        },
+        {
+          "n": 7,
+          "t": "Calcul de la p-valeur",
+          "r": "P-valeur selon Hα: μ>μ₀: p=P(Z≥z_obs). μ<μ₀: p=P(Z≤z_obs). μ≠μ₀: p=2P(Z≥|z_obs|). Pour z_obs=-1.8: p≈0.0718",
+          "k": ["p-valeur", "test bilatéral", "test unilatéral", "calcul"]
+        },
+        {
+          "n": 8,
+          "t": "Table distribution cumulative Z",
+          "r": "Table donnant P(Z≤z) pour différentes valeurs de z. Pour z=1.8: P(Z≤1.8)=0.9641",
+          "k": ["table Z", "distribution cumulative", "normale standard"]
+        },
+        {
+          "n": 9,
+          "t": "Conclusion test-Z bilatéral",
+          "r": "Test bilatéral α=5%. Valeurs critiques: -1.96 et 1.96. z_obs=-1.8, |z_obs|=1.8. p-valeur=0.0718>0.05. On ne peut pas rejeter H₀.",
+          "k": ["conclusion", "test bilatéral", "valeur critique", "non rejet"]
+        },
+        {
+          "n": 10,
+          "t": "Test-Z unilatéral droite",
+          "r": "H₀: μ=100, Hα: μ>100. p-valeur = 1-P(Z≤z_obs) ≈ 0.964",
+          "k": ["test unilatéral", "droite", "p-valeur"]
+        },
+        {
+          "n": 11,
+          "t": "Conclusion test-Z unilatéral droite",
+          "r": "Valeur critique: 1.64 (α=5%). z_obs=-1.8. p-valeur=0.964>0.05. On ne peut pas rejeter H₀: μ=100 au profit de Hα: μ>100.",
+          "k": ["conclusion", "test unilatéral", "droite", "non rejet"]
+        },
+        {
+          "n": 12,
+          "t": "Test-Z unilatéral gauche",
+          "r": "H₀: μ=100, Hα: μ<100. p-valeur = P(Z≤z_obs) ≈ 0.0359",
+          "k": ["test unilatéral", "gauche", "p-valeur"]
+        },
+        {
+          "n": 13,
+          "t": "Conclusion test-Z unilatéral gauche",
+          "r": "Valeur critique: -1.64 (α=5%). z_obs=-1.8<-1.64. p-valeur=0.0359<0.05. On rejette H₀ au profit de Hα: μ<100.",
+          "k": ["conclusion", "test unilatéral", "gauche", "rejet"]
+        },
+        {
+          "n": 14,
+          "t": "Exemple test-t (énoncé batteries B)",
+          "r": "Batteries type B, durée moyenne affirmée 50h. Échantillon n=10, moyenne=47.1h, s=4.5. Distribution normale. Tester au seuil 5%.",
+          "k": ["test-t", "exemple", "petit échantillon", "normalité"]
+        },
+        {
+          "n": 15,
+          "t": "Exemple test-t (calcul)",
+          "r": "X: durée de vie batterie type B. H₀: μ=50, Hα: μ≠50. t_obs = (X̄-μ₀)/(s/√n) = (47.1-50)/(4.5/√10) ≈ -2.038",
+          "k": ["test-t", "calcul", "t_obs", "hypothèses"]
+        },
+        {
+          "n": 16,
+          "t": "Règles de décision test-t",
+          "r": "Valeur critique selon Hα. Bilatéral: rejeter si |t_obs|>t_{1-α/2,df}. Unilatéral droite: rejeter si t_obs>t_{1-α,df}. Unilatéral gauche: rejeter si t_obs<-t_{1-α,df}. df=n-1.",
+          "k": ["règle décision", "test-t", "valeur critique", "degrés liberté"]
+        },
+        {
+          "n": 17,
+          "t": "Table loi de Student",
+          "r": "Table donnant t_{1-α/2,df} pour différentes valeurs de df et α. Pour df=9, α=0.05: t_{0.975,9}=2.2622",
+          "k": ["table Student", "loi t", "valeur critique"]
+        },
+        {
+          "n": 18,
+          "t": "Conclusion test-t bilatéral",
+          "r": "df=9, α=5%. Valeurs critiques: -2.26 et 2.26. t_obs=-2.038, |t_obs|=2.038<2.26. On ne peut pas rejeter H₀: μ=50.",
+          "k": ["conclusion", "test-t", "bilatéral", "non rejet"]
+        },
+        {
+          "n": 19,
+          "t": "Test-t unilatéral droite (énoncé)",
+          "r": "H₀: μ=50, Hα: μ>50. Tester si la moyenne est supérieure à 50h.",
+          "k": ["test-t", "unilatéral", "droite"]
+        },
+        {
+          "n": 20,
+          "t": "Conclusion test-t unilatéral droite",
+          "r": "Valeur critique: 1.83 (α=5%, df=9). t_obs=-2.038<1.83. On ne peut pas rejeter H₀ au profit de Hα: μ>50.",
+          "k": ["conclusion", "test-t", "unilatéral droite", "non rejet"]
+        },
+        {
+          "n": 21,
+          "t": "Test-t unilatéral gauche (énoncé)",
+          "r": "H₀: μ=50, Hα: μ<50. Tester si la moyenne est inférieure à 50h.",
+          "k": ["test-t", "unilatéral", "gauche"]
+        },
+        {
+          "n": 22,
+          "t": "Conclusion test-t unilatéral gauche",
+          "r": "Valeur critique: -1.83 (α=5%, df=9). t_obs=-2.038<-1.83. On rejette H₀ au profit de Hα: μ<50.",
+          "k": ["conclusion", "test-t", "unilatéral gauche", "rejet"]
+        },
+        {
+          "n": 23,
+          "t": "Tests à deux échantillons",
+          "r": "Comparer deux groupes: médecine (traitement vs placebo), économie (deux politiques), industrie (deux machines). Objectif: déterminer si différences dues au hasard ou effet réel.",
+          "k": ["deux échantillons", "comparaison", "groupes indépendants"]
+        },
+        {
+          "n": 24,
+          "t": "Exemple deux chaînes production",
+          "r": "Deux chaînes production batteries type A. Chaîne 1: n₁=80, X̄₁=99.3h, s₁=4.7. Chaîne 2: n₂=70, X̄₂=100.8h, s₂=5.4. Tester si μ₁≠μ₂ au seuil 5%.",
+          "k": ["exemple", "deux échantillons", "chaînes production"]
+        },
+        {
+          "n": 25,
+          "t": "Test-Z à deux échantillons",
+          "r": "Conditions: populations IID, groupes indépendants, σ inconnue, grands échantillons (n≥30). z_obs = (X̄₁-X̄₂)/√(s₁²/n₁+s₂²/n₂) ~ N(0,1) sous H₀.",
+          "k": ["test-Z", "deux échantillons", "formule", "conditions"]
+        },
+        {
+          "n": 26,
+          "t": "Solution exemple chaînes production",
+          "r": "H₀: μ₁=μ₂, H₁: μ₁≠μ₂. z_obs=(99.3-100.8)/√(4.7²/80+5.4²/70)≈-1.8. p-valeur≈7.18%>5%. On ne rejette pas H₀.",
+          "k": ["solution", "deux échantillons", "p-valeur", "non rejet"]
+        },
+        {
+          "n": 27,
+          "t": "Exemple test médicament",
+          "r": "Médicament pour réduire pression artérielle. Groupe 1 (médicament): n₁=50, X̄₁=125mmHg, s₁=10. Groupe 2 (placebo): n₂=50, X̄₂=130mmHg, s₂=9.6. H₀: μ₁=μ₂, H₁: μ₁<μ₂.",
+          "k": ["exemple", "médicament", "placebo", "pression artérielle"]
+        },
+        {
+          "n": 28,
+          "t": "Calcul test-Z unilatéral médicament",
+          "r": "z_obs=(125-130)/√(10²/50+9.6²/50)≈-2.55. p-valeur=P(Z≤-2.55)≈0.0054<0.05. On rejette H₀ en faveur de H₁: μ₁<μ₂.",
+          "k": ["calcul", "test-Z", "unilatéral", "rejet", "médicament"]
+        },
+        {
+          "n": 29,
+          "t": "Randomisation",
+          "r": "Problème si choix traitement non aléatoire: biais de sélection. Le médicament semble efficace mais pourrait être dû au biais. Solution: assignation aléatoire (randomisation).",
+          "k": ["randomisation", "biais de sélection", "assignation aléatoire"]
+        },
+        {
+          "n": 30,
+          "t": "Petits échantillons",
+          "r": "Pour petits échantillons avec normalité douteuse: test-t à deux échantillons, test de Welch (variances inégales), test de Wilcoxon (non paramétrique).",
+          "k": ["petit échantillon", "test Welch", "test Wilcoxon", "non paramétrique"]
+        },
+        {
+          "n": 31,
+          "t": "Autres tests à deux échantillons",
+          "r": "Tests possibles pour: proportions, variances. Tests pour plus de deux groupes possibles mais attention aux tests multiples!",
+          "k": ["proportions", "variances", "tests multiples"]
+        },
+        {
+          "n": 32,
+          "t": "Exemple jelly beans et acné (intro)",
+          "r": "Illustration xkcd: 'GREEN JELLY BEANS LINKED TO ACNE! 95% CONFIDENCE'. Exemple des dangers de l'interprétation erronée des tests statistiques.",
+          "k": ["jelly beans", "acné", "xkcd", "interprétation erronée"]
+        },
+        {
+          "n": 33,
+          "t": "Jelly beans: demande d'investigation",
+          "r": "Les scientifiques testent le lien jelly beans-acné: pas de lien trouvé (p>0.05). On leur demande alors de tester chaque couleur séparément.",
+          "k": ["jelly beans", "tests multiples", "couleurs"]
+        },
+        {
+          "n": 34,
+          "t": "Test de 10 couleurs (1)",
+          "r": "Tests sur 10 couleurs: purple, brown, pink, blue, teal, salmon, red, turquoise, magenta, yellow. Tous p>0.05, pas de lien.",
+          "k": ["jelly beans", "couleurs", "tests multiples", "p>0.05"]
+        },
+        {
+          "n": 35,
+          "t": "Test de 10 couleurs (2)",
+          "r": "10 autres couleurs testées. Grey, tan, cyan, mauve, beige, lilac, black, peach, orange: p>0.05. GREEN: p<0.05! Un lien trouvé sur 20 tests.",
+          "k": ["jelly beans", "vert", "tests multiples", "faux positif"]
+        },
+        {
+          "n": 36,
+          "t": "Résultat final jelly beans",
+          "r": "Titre sensationnaliste: 'GREEN JELLY BEANS LINKED TO ACNE! 95% CONFIDENCE'. Problème: sur 20 tests à α=5%, on attend ~1 résultat significatif par hasard!",
+          "k": ["faux positif", "tests multiples", "erreur type I"]
+        },
+        {
+          "n": 37,
+          "t": "Dangers des tests multiples",
+          "r": "La p-valeur est aléatoire. À α=5%, même sans effet, p<5% une fois sur 20. Plus de tests = plus de risque d'erreur type I. Solutions: ajustement du niveau de signification.",
+          "k": ["tests multiples", "erreur type I", "ajustement", "Bonferroni"]
+        },
+        {
+          "n": 38,
+          "t": "p-hacking",
+          "r": "p-hacking: multiplier les tests et ne retenir que ceux avec p-valeur suffisamment petite. Exemple: les Républicains bons ou mauvais pour l'économie? Les deux selon les variables choisies!",
+          "k": ["p-hacking", "pratiques questionnables", "manipulation données"]
+        },
+        {
+          "n": 39,
+          "t": "HARKing",
+          "r": "HARKing: Hypothesizing After Results are Known. Faire passer des hypothèses a posteriori comme a priori. Exemple: tester 20 couleurs, trouver vert significatif, prétendre que c'était l'hypothèse initiale.",
+          "k": ["HARKing", "hypothèse a posteriori", "pratiques questionnables"]
+        },
+        {
+          "n": 40,
+          "t": "Crise de reproductibilité",
+          "r": "p-hacking et HARKing contribuent à la crise de reproductibilité en science. Étude Open Science Collaboration (2015): beaucoup de résultats publiés non reproductibles.",
+          "k": ["reproductibilité", "crise", "réplication", "science"]
+        },
+        {
+          "n": 41,
+          "t": "Aliments et cancer",
+          "r": "Graphique: tout ce qu'on mange cause et prévient le cancer selon différentes études. Vin, tomates, thé, lait, oeufs, café, beurre: études contradictoires des deux côtés.",
+          "k": ["cancer", "études contradictoires", "alimentation", "reproductibilité"]
+        },
+        {
+          "n": 42,
+          "t": "Conclusion",
+          "r": "Toute analyse basée sur échantillons soumise à l'aléatoire. Jamais 100% certitude. Bien contrôler le risque statistique permet d'apporter de nouvelles connaissances.",
+          "k": ["conclusion", "aléatoire", "risque statistique", "incertitude"]
+        },
+        {
+          "n": 43,
+          "t": "Remerciements",
+          "r": "Merci pour votre attention. Bonne chance pour vos examens.",
+          "k": ["fin", "remerciements", "examens"]
+        }
+      ]
+    }
+  }
+}

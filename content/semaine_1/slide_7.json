@@ -1,0 +1,3 @@
+{
+  "c": "**Univers** : S = {F, P} (Face, Pile)\n\nSi la pièce est équilibrée, alors la probabilité d'obtenir Face ou Pile est la même :\nProbabilité(Face) = Probabilité(Pile)\n\nOu en notation mathématique :\nP({F}) = P({P}) = 1/2\n\n---"
+}

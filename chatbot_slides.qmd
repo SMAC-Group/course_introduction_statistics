@@ -169,6 +169,40 @@ main.content,
 .slides-chat-send:hover {
   transform: scale(1.05);
 }
+
+/* Token Info Display */
+.slides-token-info {
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slides-token-bar-container {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.slides-token-bar {
+  height: 100%;
+  width: 100%;
+  background: #28a745;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.slides-token-text {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  min-width: 130px;
+  text-align: right;
+}
 </style>
 
 <div class="slides-chat-container">
@@ -191,6 +225,12 @@ main.content,
       </svg>
     </button>
   </div>
+  <div class="slides-token-info">
+    <div class="slides-token-bar-container">
+      <div class="slides-token-bar" id="slides-token-bar"></div>
+    </div>
+    <span class="slides-token-text" id="slides-token-text">Tokens: -- / --</span>
+  </div>
 </div>
 
 <!-- Load MathJax -->
@@ -211,6 +251,39 @@ window.MathJax = {
 <script>
 (function() {
   var conversationHistory = [];
+  var tokenInfo = { used: 0, remaining: 50000, max: 50000 };
+
+  function updateTokenDisplay(tokens) {
+    if (tokens) {
+      tokenInfo.used = tokens.used || tokenInfo.used;
+      tokenInfo.remaining = tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining;
+      tokenInfo.max = tokens.max || tokenInfo.max;
+      tokenInfo.lastRequest = tokens.total || 0;
+    }
+
+    var tokenBar = document.getElementById('slides-token-bar');
+    var tokenText = document.getElementById('slides-token-text');
+
+    if (tokenBar && tokenText) {
+      var percentage = Math.max(0, Math.min(100, (tokenInfo.remaining / tokenInfo.max) * 100));
+      tokenBar.style.width = percentage + '%';
+
+      if (percentage > 50) {
+        tokenBar.style.backgroundColor = '#28a745';
+      } else if (percentage > 20) {
+        tokenBar.style.backgroundColor = '#ffc107';
+      } else {
+        tokenBar.style.backgroundColor = '#dc3545';
+      }
+
+      var formatNum = function(n) { return n.toLocaleString('fr-FR'); };
+      tokenText.textContent = 'Tokens: ' + formatNum(tokenInfo.remaining) + ' / ' + formatNum(tokenInfo.max);
+
+      if (tokenInfo.lastRequest > 0) {
+        tokenText.title = 'Dernière requête: ' + tokenInfo.lastRequest + ' tokens';
+      }
+    }
+  }
 
   function parseMarkdown(text) {
     text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -256,11 +329,24 @@ window.MathJax = {
     .then(function(data) {
       typing.remove();
 
+      // Update token display
+      if (data.tokens) {
+        updateTokenDisplay(data.tokens);
+      }
+
       if (data.error) {
         var errMsg = document.createElement('div');
         errMsg.className = 'slides-chat-message error';
         errMsg.textContent = data.error;
         messagesDiv.appendChild(errMsg);
+        // Update tokens from error response (quota exceeded)
+        if (data.tokensUsed !== undefined) {
+          updateTokenDisplay({
+            used: data.tokensUsed,
+            remaining: data.tokensRemaining,
+            max: data.tokensMax
+          });
+        }
       } else {
         conversationHistory.push({ role: 'user', content: message });
         conversationHistory.push({ role: 'assistant', content: data.response });
@@ -309,6 +395,9 @@ window.MathJax = {
       sendMessage(this.value);
     }
   });
+
+  // Initialize token display
+  updateTokenDisplay();
 })();
 </script>
 ```

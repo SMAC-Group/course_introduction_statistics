@@ -1,0 +1,3 @@
+{
+  "c": "Lorsque Z ∼ N(0, 1) :\n\nP(X ≤ x) = Φ(x) = ∫_{-∞}^{x} (1/√(2π)) × e^(-t²/2) dt\n\nOn utilise la lettre \"Φ\" dans le cas de la distribution standard normale.\n\n---"
+}

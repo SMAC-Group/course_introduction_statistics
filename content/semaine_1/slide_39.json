@@ -1,0 +1,3 @@
+{
+  "c": "Calcul final :\nP(\"Test positif\") = 0.0099 + (0.99)(0.01) = 0.0198\n\nP(\"Léa a le COVID\" | \"Test positif\") = P(\"Léa a le COVID\" et \"Test positif\") / P(\"Test positif\")\n= 0.0099 / 0.0198 = 1/2 = 50%\n\n**Conclusion** : Même avec un test précis à 99%, si seulement 1% de la population est malade, une personne testée positive n'a que 50% de chances d'être réellement malade. C'est le paradoxe des tests de dépistage."
+}

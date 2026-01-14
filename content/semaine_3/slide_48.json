@@ -1,0 +1,3 @@
+{
+  "c": "P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ\n\nn = nombre total d'essais, p = probabilité de succès\n\n**Exemple** :\nP(X = 40) = C₁₀₀⁴⁰ × (0.44)⁴⁰ × (0.56)⁶⁰\n= (1.3746 × 10²⁸)(5.47151 × 10⁻¹⁵)(7.78541 × 10⁻¹⁶)\n= **0.0586**\n\n---"
+}

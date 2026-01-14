@@ -1,0 +1,3 @@
+{
+  "c": "A₁, A₂, ..., Aₙ sont indépendants avec :\n- P(Aᵢ) = p\n- P(Aᵢᶜ) = 1 − p\n\nAlors :\nP(A₁, A₂ᶜ, et A₃) = p (1 − p) p = p² (1 − p)\n\n---"
+}

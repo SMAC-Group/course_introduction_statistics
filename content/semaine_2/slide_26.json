@@ -1,0 +1,3 @@
+{
+  "c": "On choisit 5 personnes au hasard dans une salle de 100 personnes.\n- 50 personnes étudient à Genève\n- 50 personnes étudient à Lausanne\n\nX = nombre de personnes sélectionnées qui étudient à Genève\n\n| X = 0 | X = 1 | X = 2 | X = 3 | X = 4 | X = 5 |\n|---|---|---|---|---|---|\n| 0.03125 | 0.15625 | 0.3125 | 0.3125 | 0.15625 | 0.03125 |\n\n**Question** : Quelle est la probabilité qu'une ou deux personnes sélectionnées étudient à Genève ?\n\n---"
+}

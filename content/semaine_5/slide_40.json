@@ -1,0 +1,3 @@
+{
+  "c": "Les scores SAT sont normalement distribués avec une moyenne μ = 500 et un écart-type σ = 100.\n\n**Question** : Un étudiant souhaite être dans les \"Top 3%\" des scores SAT. Combien doit-il obtenir ?\n\nÊtre dans le Top 3% signifie être au-dessus du 97e percentile (1 - 0.03 = 0.97).\n\nSur le graphique : l'aire α = 0.97 est à gauche de x_α, et l'aire 1 - α = 0.03 est à droite.\n\n---"
+}

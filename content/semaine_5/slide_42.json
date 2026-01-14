@@ -1,0 +1,3 @@
+{
+  "c": "On considère X, le temps de réponse d'un service client en minutes.\n\nSupposons que X ∼ N(5, 1.5²)\n\n**Question** : En utilisant la table de la fonction cumulative de densité de la distribution standard normale, calculez le temps de réponse qui correspond au 85ème percentile de cette distribution, soit x tel que P(X ≤ x) = 0.85.\n\n**Solution** :\n1. Chercher Φ⁻¹(0.85) dans la table → Z ≈ 1.04\n2. Déstandardiser : X = μ + σZ = 5 + 1.5(1.04) = **6.56 minutes**"
+}

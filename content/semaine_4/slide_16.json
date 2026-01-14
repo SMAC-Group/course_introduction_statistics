@@ -1,0 +1,3 @@
+{
+  "c": "X = { 1, avec probabilité p ; 0, avec probabilité (1 − p) }\n\nX ∼ Bin(1, p)\n\n| k | 0 | 1 |\n|---|---|---|\n| P(X = k) | 1 − p | p |\n\nE(X) = 0 × (1 − p) + 1 × p = **p**\n\nE(X²) = 0² × (1 − p) + 1² × p = **p**\n\nVar(X) = E(X²) − {E(X)}² = p − p² = **p(1 − p)**\n\n---"
+}

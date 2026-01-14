@@ -1,0 +1,1 @@
+{"c": "Distribution Binomiale: n = 100, p = 0.05\n\nGraphique montrant la distribution binomiale avec n = 100 et p = 0.05.\n\nLa distribution se rapproche d'une distribution normale.\n\nCentrée autour de np = 5.\n\nMême avec p petit, si n est assez grand, la distribution converge vers la normale (TCL)."}

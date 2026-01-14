@@ -1,0 +1,3 @@
+{
+  "c": "Important : P(A|B) = probabilité conditionnelle de A sachant B\nP(B|A) = probabilité conditionnelle de B sachant A\n\nCes deux probabilités sont généralement différentes !\n\n**Exemple** :\n- A = {obtenir un 5}\n- B = {obtenir un nombre impair}\n- P(A|B) = P(obtenir un 5 | obtenir un impair) = 1/3\n- P(B|A) = P(obtenir un impair | obtenir un 5) = 1 (car 5 est toujours impair)\n\n---"
+}

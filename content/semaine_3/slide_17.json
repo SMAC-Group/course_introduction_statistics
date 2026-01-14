@@ -1,0 +1,3 @@
+{
+  "c": "L'**écart-type** (noté σ) mesure la **dispersion** des valeurs autour de la moyenne.\nIl correspond à la racine carrée de la variance, ce qui permet de conserver les mêmes unités que les données.\n\nσ = √Var(X)\n\n**Remarque** : Par exemple, si X est en CHF, alors E(X) est en CHF, Var(X) est en CHF² et σ = √Var(X) est en CHF\n\n---"
+}

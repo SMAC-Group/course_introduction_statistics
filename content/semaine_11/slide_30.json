@@ -1,0 +1,3 @@
+{
+  "c": "Décision\n\nEn supposant que nous choisissions α = 0.05 :\n\nLorsque la p-valeur < α → on rejette H₀\n\nLorsque la p-valeur ≥ α → on ne peut pas rejeter H₀\n\nRègles de décision :\n- p < 0.01 : très forte preuve contre H₀\n- 0.01 ≤ p < 0.05 : forte preuve contre H₀\n- 0.05 ≤ p < 0.1 : preuve modérée contre H₀\n- p ≥ 0.1 : peu ou pas de preuve contre H₀\n\n---"
+}

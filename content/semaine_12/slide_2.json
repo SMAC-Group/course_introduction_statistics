@@ -1,0 +1,3 @@
+{
+  "c": "Inférence statistique\n\nPopulation → Paramètres (Espérance, Variance, Médiane, Proportion)\n\nÉchantillon → Statistiques (Moyenne de l'échantillon, Variance de l'échantillon, Médiane de l'échantillon, Proportion de l'échantillon)\n\nStatistiques descriptives : de l'échantillon vers les statistiques\nStatistiques inférentielles : des statistiques vers les paramètres de la population\n\n---"
+}

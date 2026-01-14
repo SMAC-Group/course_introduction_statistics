@@ -1,0 +1,3 @@
+{
+  "c": "1. Toutes les probabilités somment à 1 :\n   p₁ + ... + pₖ = 1\n\n2. Pour chaque k :\n   0 ≤ pₖ ≤ 1\n\n3. Tous les autres nombres ont une probabilité de 0.\n\n---"
+}

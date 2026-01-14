@@ -1,0 +1,3 @@
+{
+  "c": "**Table pour les valeurs négatives de Z** (de -3.0 à -0.0) :\nLa table donne P(Z ≤ z) pour chaque valeur de z.\n\n**Table pour les valeurs positives de Z** (de 0.0 à 3.0) :\nLa table donne P(Z ≤ z) pour chaque valeur de z.\n\nExemples de valeurs :\n- P(Z ≤ 0) = 0.5000\n- P(Z ≤ 1) = 0.8413\n- P(Z ≤ -1) = 0.1587\n- P(Z ≤ 2) = 0.9772\n\n---"
+}

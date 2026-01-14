@@ -1,0 +1,3 @@
+{
+  "c": "P(U dans A) = Longueur de A\n\nP(U > 0.6) = 1 − 0.6 = **0.4**\n\nP(U = 0.3) = ?\n\nP(\"U = n'importe quel nombre\") = **0**\n\n**Pourquoi ?** Car un point n'a pas de longueur (intervalle de longueur 0).\n\n---"
+}

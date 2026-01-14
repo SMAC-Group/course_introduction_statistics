@@ -1,0 +1,3 @@
+{
+  "c": "X ∼ Bin(n, p)\n\n**Fonction de Masse de Probabilité (FMP)** :\nP(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ\n\n**Espérance** :\nE(X) = n × p\n\n**Variance** :\nVar(X) = n × p × (1 − p)\n\n**Écart-type** :\nσ = √Var(X) = √(n × p × (1 − p))\n\n---"
+}

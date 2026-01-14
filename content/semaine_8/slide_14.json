@@ -1,0 +1,1 @@
+{"c": "Standardisation\n\nPour une variable X:\nZ = (X - μ)/σ\n\nPour la moyenne de l'échantillon X̄ de n variables X₁, ..., Xₙ:\n\nZ = (X̄ - μ)/(σ/√n) = √n(X̄ - μ)/σ\n\nCette standardisation permet de transformer X̄ en une variable normale centrée réduite Z ~ N(0,1)."}

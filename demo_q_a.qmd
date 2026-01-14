@@ -3,10 +3,6 @@ title: "Demo Q&A env"
 format:
   html:
     html-math-method: mathjax
-    include-in-header: |
-      <script type="text/javascript" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-      </script>
     include-after-body: include/webex_2.js
     css: include/webex_2.css
 toc: false

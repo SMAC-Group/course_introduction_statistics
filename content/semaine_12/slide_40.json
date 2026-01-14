@@ -1,0 +1,3 @@
+{
+  "c": "Conséquence du p-hacking & du HARKing\n\nLe p-hacking et le HARKing jouent un rôle prépondérant dans la crise de reproducibilité en science !\n\nL'étude \"Estimating the reproducibility of psychological science\" (Open Science Collaboration, Science 2015) montre que :\n- Les études originales ont des p-valeurs faibles et des tailles d'effet élevées\n- Les réplications ont des p-valeurs beaucoup plus élevées et des tailles d'effet plus faibles\n- Beaucoup de résultats publiés ne sont pas reproductibles\n\nSource : Open Science Collaboration. \"Estimating the reproducibility of psychological science.\" Science 349.6251 (2015)\n\n---"
+}

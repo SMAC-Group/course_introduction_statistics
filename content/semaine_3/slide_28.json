@@ -1,0 +1,3 @@
+{
+  "c": "- Lancez une pièce n fois\n- 2ⁿ résultats dans l'espace des échantillons\n- P(une séquence) = (1/2)ⁿ\n- P(X = k) = (1/2)ⁿ × (# de séquences avec k Faces)\n\n**Comment comptons-nous ces combinaisons ?**\n\n---"
+}

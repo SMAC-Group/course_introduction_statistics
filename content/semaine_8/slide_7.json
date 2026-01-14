@@ -1,0 +1,1 @@
+{"c": "Distribution d'échantillonnage\n\nLes données sont des variables aléatoires.\n\nLes statistiques sont des fonctions des données. Elles sont donc aussi des variables aléatoires.\n\nLa distribution des statistiques dépend des paramètres de la distribution des données.\n\nExemple: Moyenne de l'échantillon\n- Statistique = X̄\n- Paramètre = μ"}

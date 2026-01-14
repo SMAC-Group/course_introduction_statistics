@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : test-t\n\nOn considère l'âge des étudiants inscrits au bachelor en relations internationales. On considère que la distribution de l'âge des étudiants est distribuée normalement.\n\nOn considère un échantillon de 20 étudiants pour lequel on mesure leur âge. La moyenne de l'échantillon est de X̄ = 21.42 et l'écart-type de l'échantillon est de s = 2.91.\n\nVous cherchez à tester si l'âge moyen des étudiants est supérieur à 18 ans à un niveau de significativité de α = 0.05.\n\nLes hypothèses sont donc :\nH₀ : μ = 18\nHα : μ > 18\n\n---"
+}

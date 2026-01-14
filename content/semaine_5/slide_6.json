@@ -1,0 +1,3 @@
+{
+  "c": "**Fonction de densité** :\nf(x) = (1/√(2π)) × e^(-x²/2)\n\nX ∼ N(0, 1)\n\nX a une **espérance de 0** et une **variance de 1**.\n\nLe graphique montre une courbe en cloche symétrique centrée sur 0, avec une hauteur maximale d'environ 0.4.\n\n---"
+}

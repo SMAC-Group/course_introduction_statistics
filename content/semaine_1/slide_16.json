@@ -1,0 +1,3 @@
+{
+  "c": "Lorsque les événements A et B (notés A ∩ B) ne peuvent pas se produire simultanément (noté A ∩ B = ∅), alors ils sont appelés **événements mutuellement exclusifs**.\n\n**Exemples** :\n1. Élections : A = \"Harris élue présidente\", B = \"Trump élu président\"\n2. Lancer une pièce : A = \"obtenir face\" = {F}, B = \"obtenir pile\" = {P}\n3. Lancer un dé équilibré : A = \"obtenir un nombre impair\" = {1, 3, 5}, B = \"obtenir un nombre pair\" = {2, 4, 6}\n\n---"
+}

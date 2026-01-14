@@ -1,0 +1,3 @@
+{
+  "c": "**Expérience binomiale** :\n- n essais\n- Les essais sont indépendants\n- Deux issues possibles : P(\"Succès\") = p\n\n**Probabilité binomiale** :\nP(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ = (n! / (k! (n − k)!)) × pᵏ × (1 − p)ⁿ⁻ᵏ\n\n---"
+}

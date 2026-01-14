@@ -1,0 +1,3 @@
+{
+  "c": "La fonction de masse de probabilité (FMP) de X est :\n\n| k | 110 CHF | −100 CHF |\n|---|---|---|\n| P(X = k) | 0.55 | 0.45 |\n\nPour vérifier si le pari est équitable ou non, calculez l'espérance de votre gain/perte :\n\nE(X) = 110 × P(X = 110) − 100 × P(X = −100)\n= 110 (0.55) − 100 (0.45)\n= **15.5 CHF**\n\nCe n'est pas un pari **équitable**, puisque l'espérance n'est pas nulle... mais devriez-vous jouer ?\n\n---"
+}

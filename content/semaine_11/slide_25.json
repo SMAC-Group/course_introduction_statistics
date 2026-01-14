@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : tester un nouveau régime\n\nOn considère la variable aléatoire X qui correspond à la différence de poids au début et à la fin d'un régime (poids à la fin du régime moins poids au début du régime).\n\nOn souhaite tester si le régime fait effectivement perdre du poids, i.e., si l'espérance de X est bien négative.\n\nHypothèse nulle : Le régime n'a aucun effet, μ = 0 car aucun poids n'a été perdu\nH₀ : μ = 0\n\nHypothèse alternative : Le régime amène les personnes à perdre du poids\nHα : μ < 0\n\nOn considère un échantillon de 40 personnes. La moyenne de l'échantillon est de X̄ = −0.4kg et l'écart-type de l'échantillon est de s = 0.12\n\n---"
+}

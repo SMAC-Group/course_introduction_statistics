@@ -1,0 +1,3 @@
+{
+  "c": "Vous payez 100 CHF pour un pari.\n- Si vous gagnez, vous recevez 210 CHF\n- Si vous perdez, vous recevez 0 CHF\n\nX = votre gain/perte\n- X = 110 CHF, si vous gagnez\n- X = −100 CHF, si vous perdez\n\nSupposons que les probabilités de gagner/perdre sont :\n- P(gagner) = 0.55\n- P(perdre) = 0.45\n\n**Question** : Ce pari est-il équitable ?\n\n---"
+}

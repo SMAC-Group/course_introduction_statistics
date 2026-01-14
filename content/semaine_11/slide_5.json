@@ -1,0 +1,3 @@
+{
+  "c": "Niveau de signification α - Formule de l'IC\n\nIC pour un niveau de signification α :\n\nX̄ − z_{1−α/2} · σ/√n < μ < X̄ + z_{1−α/2} · σ/√n\n\noù α est le niveau de signification et z_{1−α/2} est la valeur z correspondant à P(Z > z_{1−α/2}) = α/2.\n\nNotez que, grâce à la symétrie :\nP(Z > z_{1−α/2}) = P(Z ≤ −z_{1−α/2}) = α/2.\n\n---"
+}

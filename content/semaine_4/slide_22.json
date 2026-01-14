@@ -1,0 +1,3 @@
+{
+  "c": "U est un nombre entre 0 et 1. On suppose une **distribution uniforme**.\n\nIntervalle : [0, 1]\n\nP(U < 1/2) = 1/2\n\nP(0.5 < U < 0.6) = 0.1\n\n---"
+}

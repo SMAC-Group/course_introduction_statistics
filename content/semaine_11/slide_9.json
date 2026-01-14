@@ -1,0 +1,3 @@
+{
+  "c": "Étapes pour calculer un intervalle de confiance pour μ avec σ connu\n\nÉtape 1 : Calculez (si nécessaire) la moyenne de l'échantillon. Parfois, cette donnée peut être directement fournie.\n\nÉtape 2 : Trouvez α/2. Si on vous demande un intervalle de confiance à 95%, alors α = 1 − 0.95 = 0.05 et α/2 = 0.025.\n\nÉtape 3 : Trouvez z_{1−α/2}, la valeur z correspondante dans la table de distribution normale.\n\nÉtape 4 : Substituez dans la formule :\nX̄ − z_{1−α/2} · σ/√n < μ < X̄ + z_{1−α/2} · σ/√n\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Nous avons un ensemble de :\n- **15** questions vrai/faux (V/F) et\n- **20** questions à choix multiple.\n\n**Question** : Nous voulons créer un examen avec **10 questions** dont exactement **4 sont V/F**. Combien d'examens avec exactement 4 questions V/F peuvent être construits ?\n\n*Remarque* : Ignorez l'ordre des questions.\n\n---"
+}

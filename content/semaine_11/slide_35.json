@@ -1,0 +1,3 @@
+{
+  "c": "Statistique de test pour la moyenne de la population - Population normale, σ inconnue, petit échantillon\n\ni.e. N(μ, σ), σ inconnue\n\nStatistique de test : statistique de test-t\n\nt_obs = (X̄ − μ₀) / (s/√n)\n\nDans ce cas, le test-t suit approximativement la loi de Student. On compare alors la statistique de test avec la valeur critique correspondant à un quantile de la loi de Student.\n\n---"
+}

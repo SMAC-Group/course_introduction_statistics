@@ -1,0 +1,3 @@
+{
+  "c": "Si vous savez qu'une famille a deux enfants et que l'un d'eux est un garçon, quelle est la probabilité que l'autre enfant soit également un garçon ?\n\nPopulation = ensemble des paires possibles d'enfants : S = {GG, GF, FG, FF}\n\nLa probabilité que les deux enfants soient des garçons étant donné qu'il y a au moins un garçon est :\nP(deux garçons | au moins un garçon) = P(deux garçons et au moins un garçon) / P(au moins un garçon)\n\n---"
+}

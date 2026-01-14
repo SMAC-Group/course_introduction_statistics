@@ -1,0 +1,3 @@
+{
+  "c": "La hauteur des femmes en cm (dénotée X) est distribuée normalement avec une espérance de 164.7 cm et un écart type de 7.1 cm. On note ainsi :\n\nX ∼ N(164.7, 7.1²)\n\n**Règle empirique (68-95-99.7)** :\n- P(157.6 < X < 171.8) ≈ 68% (μ ± σ)\n- P(150.5 < X < 178.9) ≈ 95% (μ ± 2σ)\n- P(143.4 < X < 186) ≈ 99.7% (μ ± 3σ)\n\nLa distribution est divisée en zones :\n- 34% de chaque côté de la moyenne (entre μ-σ et μ+σ)\n- 13.5% dans chaque zone entre 1σ et 2σ\n- 2.35% dans chaque zone au-delà de 2σ\n\n---"
+}

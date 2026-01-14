@@ -1,29 +1,144 @@
 // Netlify Function - Scaffolded AI Tutor for Statistics Course
 // Implements pedagogical scaffolding with modular prompt blocks
 
-// Course content will be loaded dynamically
-let coursContent = null;
+// ============================================================================
+// OPTIMIZED CONTENT LOADING - Index + Individual Slides
+// ============================================================================
 
-async function loadCoursContent(baseUrl) {
-  if (coursContent) return coursContent;
+// Cache for index and recently accessed slides
+let cachedIndex = null;
+const slideCache = new Map();
+const SLIDE_CACHE_MAX_SIZE = 20;
+
+/**
+ * Load the course index (metadata, summaries, keywords)
+ * ~800 tokens instead of ~30,000
+ */
+async function loadIndex(baseUrl) {
+  if (cachedIndex) return cachedIndex;
   try {
-    const response = await fetch(`${baseUrl}/content/cours.json`);
+    const response = await fetch(`${baseUrl}/content/index.json`);
     if (response.ok) {
-      coursContent = await response.json();
+      cachedIndex = await response.json();
     } else {
-      coursContent = {};
+      cachedIndex = { semaines: {} };
     }
   } catch (e) {
-    console.error('Failed to load cours.json:', e);
-    coursContent = {};
+    console.error('Failed to load index.json:', e);
+    cachedIndex = { semaines: {} };
   }
-  return coursContent;
+  return cachedIndex;
+}
+
+/**
+ * Load a specific slide content
+ * ~100-300 tokens per slide
+ */
+async function loadSlide(baseUrl, semaine, slideNum) {
+  const cacheKey = `${semaine}_${slideNum}`;
+
+  if (slideCache.has(cacheKey)) {
+    return slideCache.get(cacheKey);
+  }
+
+  try {
+    const response = await fetch(`${baseUrl}/content/semaine_${semaine}/slide_${slideNum}.json`);
+    if (response.ok) {
+      const data = await response.json();
+
+      // Manage cache size
+      if (slideCache.size >= SLIDE_CACHE_MAX_SIZE) {
+        const firstKey = slideCache.keys().next().value;
+        slideCache.delete(firstKey);
+      }
+
+      slideCache.set(cacheKey, data);
+      return data;
+    }
+  } catch (e) {
+    console.error(`Failed to load slide ${slideNum} from semaine ${semaine}:`, e);
+  }
+  return null;
+}
+
+/**
+ * Find which week contains a specific slide number
+ */
+function findSlideWeek(index, slideNum) {
+  for (const [weekNum, week] of Object.entries(index.semaines)) {
+    const slide = week.slides.find(s => s.n === slideNum);
+    if (slide) {
+      return { weekNum, weekTitle: week.titre, slide };
+    }
+  }
+  return null;
+}
+
+/**
+ * Find slides matching keywords from a question
+ */
+function findRelevantSlides(index, question) {
+  const questionLower = question.toLowerCase();
+  const matches = [];
+
+  for (const [weekNum, week] of Object.entries(index.semaines)) {
+    for (const slide of week.slides) {
+      let score = 0;
+
+      // Check keywords
+      for (const keyword of slide.k) {
+        if (questionLower.includes(keyword.toLowerCase())) {
+          score += 2;
+        }
+      }
+
+      // Check title
+      if (questionLower.includes(slide.t.toLowerCase())) {
+        score += 3;
+      }
+
+      // Check summary
+      const summaryWords = slide.r.toLowerCase().split(/\s+/);
+      const questionWords = questionLower.split(/\s+/);
+      for (const qWord of questionWords) {
+        if (qWord.length > 3 && summaryWords.some(w => w.includes(qWord))) {
+          score += 1;
+        }
+      }
+
+      if (score > 0) {
+        matches.push({ weekNum, weekTitle: week.titre, slide, score });
+      }
+    }
+  }
+
+  // Sort by score and return top matches
+  return matches.sort((a, b) => b.score - a.score).slice(0, 3);
+}
+
+/**
+ * Build slide index string from index data
+ */
+function buildSlideIndexFromIndex(index) {
+  let result = '';
+  for (const [weekNum, week] of Object.entries(index.semaines)) {
+    result += `\n### Semaine ${weekNum} - ${week.titre}\n`;
+    for (const slide of week.slides) {
+      result += `### SLIDE ${slide.n} : ${slide.t}\n`;
+    }
+  }
+  return result;
 }
 
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 60000;
 const MAX_REQUESTS_PER_WINDOW = 15;
 const MAX_MESSAGE_LENGTH = 1000;
+
+// Token quota system - 50,000 tokens per day per IP
+const tokenQuotaMap = new Map();
+const TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+const MAX_TOKENS_PER_DAY = 50000;
 
 const ALLOWED_ORIGINS = [
   'https://intro-statistique.netlify.app',
@@ -236,6 +351,30 @@ exports.handler = async (event) => {
     };
   }
 
+  // Token quota check
+  const tokenData = tokenQuotaMap.get(clientIP) || { used: 0, resetTime: now + TOKEN_QUOTA_WINDOW_MS };
+
+  if (now > tokenData.resetTime) {
+    tokenData.used = 0;
+    tokenData.resetTime = now + TOKEN_QUOTA_WINDOW_MS;
+  }
+
+  const tokensRemaining = MAX_TOKENS_PER_DAY - tokenData.used;
+
+  if (tokensRemaining <= 0) {
+    const resetInHours = Math.ceil((tokenData.resetTime - now) / (60 * 60 * 1000));
+    return {
+      statusCode: 429,
+      headers,
+      body: JSON.stringify({
+        error: `Quota de tokens épuisé. Réinitialisation dans ${resetInHours}h.`,
+        tokensUsed: tokenData.used,
+        tokensRemaining: 0,
+        tokensMax: MAX_TOKENS_PER_DAY
+      })
+    };
+  }
+
   const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
   if (!OPENAI_API_KEY) {
@@ -270,9 +409,9 @@ exports.handler = async (event) => {
     const intent = context && context.intent ? context.intent : 'OPEN_CHAT';
     const source = context && context.source ? context.source : null;
 
-    // Check for slide/week requests and validate against actual content
+    // OPTIMIZED: Load only index instead of full content (~800 tokens vs ~30,000)
     const baseUrl = origin || 'https://intro-statistique.netlify.app';
-    const content = await loadCoursContent(baseUrl);
+    const index = await loadIndex(baseUrl);
 
     // Detect week reference in message
     const weekMatch = message.match(/semaine\s*(\d+)/i);
@@ -282,35 +421,29 @@ exports.handler = async (event) => {
       const requestedWeek = weekMatch ? parseInt(weekMatch[1], 10) : null;
       const requestedSlide = slideMatch ? parseInt(slideMatch[1], 10) : null;
 
-      // If a specific week is mentioned, check if it has content
+      // If a specific week is mentioned, check if it exists in index
       if (requestedWeek) {
-        const weekKey = `semaine_${requestedWeek}`;
-        const weekContent = content[weekKey];
+        const weekData = index.semaines[requestedWeek];
 
-        if (!weekContent || !weekContent.contenu || weekContent.contenu.trim() === '') {
+        if (!weekData || !weekData.slides || weekData.slides.length === 0) {
           // Find which weeks have content
-          const weeksWithContent = Object.entries(content)
-            .filter(([key, val]) => val.contenu && val.contenu.trim() !== '')
-            .map(([key]) => key.replace('semaine_', ''))
-            .join(', ');
+          const weeksWithContent = Object.keys(index.semaines).join(', ');
 
           return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-              response: `Le contenu de la semaine ${requestedWeek} n'est pas encore disponible dans la base de données. Pour l'instant, seul le contenu de la semaine ${weeksWithContent || '1'} est disponible. Tu peux me poser des questions sur ce contenu !`
+              response: `Le contenu de la semaine ${requestedWeek} n'est pas encore disponible dans la base de données. Pour l'instant, seul le contenu des semaines ${weeksWithContent || '1'} est disponible. Tu peux me poser des questions sur ce contenu !`
             })
           };
         }
 
-        // Check if requested slide exists in this week's content
+        // Check if requested slide exists in this week
         if (requestedSlide) {
-          const slideNumbers = weekContent.contenu.match(/### SLIDE (\d+)/g);
-          const maxSlide = slideNumbers
-            ? Math.max(...slideNumbers.map(s => parseInt(s.match(/\d+/)[0])))
-            : 0;
+          const slideExists = weekData.slides.some(s => s.n === requestedSlide);
+          const maxSlide = Math.max(...weekData.slides.map(s => s.n));
 
-          if (requestedSlide < 1 || requestedSlide > maxSlide) {
+          if (!slideExists) {
             return {
               statusCode: 200,
               headers,
@@ -323,27 +456,22 @@ exports.handler = async (event) => {
       }
       // If only slide is mentioned (no week), check against all available content
       else if (requestedSlide) {
-        // Get max slide from all content
-        let maxSlide = 0;
-        let availableWeeks = [];
+        const slideInfo = findSlideWeek(index, requestedSlide);
+        const availableWeeks = Object.keys(index.semaines);
 
-        for (const [key, val] of Object.entries(content)) {
-          if (val.contenu && val.contenu.trim() !== '') {
-            availableWeeks.push(key.replace('semaine_', ''));
-            const slideNumbers = val.contenu.match(/### SLIDE (\d+)/g);
-            if (slideNumbers) {
-              const weekMax = Math.max(...slideNumbers.map(s => parseInt(s.match(/\d+/)[0])));
-              if (weekMax > maxSlide) maxSlide = weekMax;
-            }
+        if (!slideInfo) {
+          // Get max slide across all weeks
+          let maxSlide = 0;
+          for (const week of Object.values(index.semaines)) {
+            const weekMax = Math.max(...week.slides.map(s => s.n));
+            if (weekMax > maxSlide) maxSlide = weekMax;
           }
-        }
 
-        if (requestedSlide < 1 || requestedSlide > maxSlide) {
           return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
-              response: `La slide ${requestedSlide} n'existe pas. Le contenu disponible (semaine ${availableWeeks.join(', ')}) contient uniquement les slides 1 à ${maxSlide}. Peux-tu vérifier le numéro de slide ?`
+              response: `La slide ${requestedSlide} n'existe pas. Le contenu disponible (semaines ${availableWeeks.join(', ')}) contient uniquement les slides 1 à ${maxSlide}. Peux-tu vérifier le numéro de slide ?`
             })
           };
         }
@@ -363,99 +491,92 @@ exports.handler = async (event) => {
     systemPrompt += styleBlock;
     systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
 
-    // Load course content if source is specified
+    // OPTIMIZED: Load only necessary content based on request
     if (source) {
       if (source === 'global') {
-        // OPTIMIZED: Only load relevant slide(s) instead of all content
-
-        // Helper function to extract a specific slide from content
-        function extractSlide(contenu, slideNum) {
-          const regex = new RegExp(`### SLIDE ${slideNum}[^#]*(?=### SLIDE|$)`, 's');
-          const match = contenu.match(regex);
-          return match ? match[0].trim() : null;
-        }
-
-        // Helper function to get list of slide titles for context
-        function getSlideIndex(contenu) {
-          const matches = contenu.match(/### SLIDE \d+ : [^\n]+/g);
-          return matches ? matches.join('\n') : '';
-        }
-
         if (slideMatch) {
-          // User asked about a specific slide - only include that slide
+          // User asked about a specific slide - load only that slide (~200 tokens)
           const requestedSlide = parseInt(slideMatch[1], 10);
-          let slideContent = null;
-          let weekTitle = '';
+          const slideInfo = findSlideWeek(index, requestedSlide);
 
-          for (const [key, cours] of Object.entries(content)) {
-            if (cours.contenu && cours.contenu.trim() !== '') {
-              const extracted = extractSlide(cours.contenu, requestedSlide);
-              if (extracted) {
-                slideContent = extracted;
-                weekTitle = cours.titre;
-                break;
-              }
-            }
-          }
+          if (slideInfo) {
+            const slideData = await loadSlide(baseUrl, slideInfo.weekNum, requestedSlide);
 
-          if (slideContent) {
-            systemPrompt += `
+            if (slideData && slideData.c) {
+              systemPrompt += `
 
-## CONTENU DE LA SLIDE ${requestedSlide} (${weekTitle})
-${slideContent}
+## CONTENU DE LA SLIDE ${requestedSlide} - ${slideInfo.slide.t} (Semaine ${slideInfo.weekNum}: ${slideInfo.weekTitle})
+${slideData.c}
 
 ## INSTRUCTIONS IMPORTANTES
 - Base ta réponse sur cette slide.
 - Mentionne toujours "**Slide ${requestedSlide}**" dans ta réponse pour référence.
 - Si la question dépasse le contenu de cette slide mais reste en statistique, indique que "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
 - Si la question est hors-sujet, redirige poliment l'étudiant.`;
+            }
           }
         } else {
-          // No specific slide requested - provide slide index + context from conversation
-          let allSlideIndexes = '';
-          let allCourseTitles = [];
+          // OPTIMIZED: Find relevant slides and load only their content (~500-1000 tokens total)
+          const relevantSlides = findRelevantSlides(index, message);
 
-          for (const [key, cours] of Object.entries(content)) {
-            if (cours.contenu && cours.contenu.trim() !== '') {
-              const weekNum = key.replace('semaine_', '');
-              allSlideIndexes += `\n### Semaine ${weekNum} - ${cours.titre}\n`;
-              allSlideIndexes += getSlideIndex(cours.contenu);
-              allCourseTitles.push(cours.titre);
+          // Load content of top 2 most relevant slides
+          let slidesContent = '';
+          const slidesToLoad = relevantSlides.slice(0, 2);
+
+          for (const match of slidesToLoad) {
+            const slideData = await loadSlide(baseUrl, match.weekNum, match.slide.n);
+            if (slideData && slideData.c) {
+              slidesContent += `\n### SLIDE ${match.slide.n} - ${match.slide.t} (Semaine ${match.weekNum})\n${slideData.c}\n`;
+            }
+          }
+
+          // Build compact course summary (just week titles, no slide list)
+          const weeksList = Object.entries(index.semaines)
+            .map(([num, w]) => `Semaine ${num}: ${w.titre}`)
+            .join('\n');
+
+          systemPrompt += `
+
+## COURS DISPONIBLES
+${weeksList}
+${slidesContent ? `\n## CONTENU PERTINENT\n${slidesContent}` : ''}
+
+## INSTRUCTIONS
+- Réponds en te basant sur le contenu ci-dessus si disponible.
+- Mentionne la slide de référence: "Voir **Slide X de la semaine Y**."
+- Si la question dépasse le cours STAT 101, indique-le poliment.
+- Si hors-sujet, redirige vers le cours.`;
+        }
+      } else if (source.startsWith('semaine_')) {
+        // Specific week requested - load only relevant slides
+        const weekNum = source.replace('semaine_', '');
+        const weekData = index.semaines[weekNum];
+
+        if (weekData) {
+          // Find relevant slides from this week
+          const relevantSlides = findRelevantSlides(index, message)
+            .filter(s => s.weekNum === weekNum);
+
+          let weekContent = `## SEMAINE ${weekNum}: ${weekData.titre}\n\n`;
+
+          // Load content of top 2 relevant slides only
+          const slidesToLoad = relevantSlides.length > 0
+            ? relevantSlides.slice(0, 2)
+            : [{ slide: weekData.slides[0], weekNum }]; // Default to first slide
+
+          for (const match of slidesToLoad) {
+            const slideData = await loadSlide(baseUrl, weekNum, match.slide.n);
+            if (slideData && slideData.c) {
+              weekContent += `### SLIDE ${match.slide.n}: ${match.slide.t}\n${slideData.c}\n\n`;
             }
           }
 
           systemPrompt += `
 
-## COURS DISPONIBLES
-${allSlideIndexes}
-
-## INSTRUCTIONS IMPORTANTES
-
-### Quand l'étudiant pose une question sur un CONCEPT du cours:
-1. Identifie quelle(s) slide(s) traite(nt) de ce concept
-2. Explique le concept de manière pédagogique
-3. **TOUJOURS mentionner** la slide de référence, exemple: "Ce concept est abordé dans la **Slide X de la semaine Y**."
-4. Suggère à l'étudiant de consulter cette slide pour plus de détails
-
-### Quand la question DÉPASSE le contenu du cours:
-Si l'étudiant pose une question qui va au-delà du contenu STAT 101 (régression avancée, machine learning, statistiques bayésiennes, etc.):
-1. Explique poliment que cette question dépasse le cadre du cours d'introduction
-2. Donne une brève réponse si possible pour satisfaire la curiosité
-3. Ajoute: "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
-
-### Quand la question est HORS-SUJET (pas de la statistique):
-Redirige poliment l'étudiant vers le sujet du cours.`;
+## CONTENU DU COURS
+${weekContent}
+Réponds aux questions sur ce contenu. Si hors-sujet, redirige poliment.`;
         }
-      } else if (content[source]) {
-        const cours = content[source];
-        systemPrompt += `
-
-## CONTENU DU COURS (${cours.titre})
-Voici le contenu de référence pour cette semaine. Base tes réponses sur ce contenu :
-
-${cours.contenu}
-
-IMPORTANT: Réponds uniquement aux questions en lien avec ce contenu. Si la question est hors-sujet, redirige poliment l'étudiant vers le sujet du cours.`;
       }
     }
 
@@ -518,11 +639,31 @@ ${message}`;
     const data = await response.json();
     const assistantMessage = data.choices[0].message.content;
 
+    // Extract token usage from OpenAI response
+    const usage = data.usage || {};
+    const promptTokens = usage.prompt_tokens || 0;
+    const completionTokens = usage.completion_tokens || 0;
+    const totalTokens = usage.total_tokens || 0;
+
+    // Update token quota
+    tokenData.used += totalTokens;
+    tokenQuotaMap.set(clientIP, tokenData);
+
+    const newTokensRemaining = MAX_TOKENS_PER_DAY - tokenData.used;
+
     return {
       statusCode: 200,
       headers,
       body: JSON.stringify({
-        response: assistantMessage
+        response: assistantMessage,
+        tokens: {
+          prompt: promptTokens,
+          completion: completionTokens,
+          total: totalTokens,
+          used: tokenData.used,
+          remaining: Math.max(0, newTokensRemaining),
+          max: MAX_TOKENS_PER_DAY
+        }
       })
     };
 

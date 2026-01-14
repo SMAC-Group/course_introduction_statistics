@@ -1,0 +1,3 @@
+{
+  "c": "Étapes pour effectuer un test d'hypothèse\n\nÉtape 1 : Formuler l'hypothèse nulle (H₀) et l'hypothèse alternative (Hα)\n\nÉtape 2 : Calculer la valeur de la statistique de test z_obs ou t_obs\n\nÉtape 3 : Comparer la statistique de test à la valeur critique ou trouver la p-valeur pour les données observées et comparer la p-valeur avec le niveau de signification désiré α.\n\n---"
+}

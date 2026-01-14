@@ -1,0 +1,3 @@
+{
+  "c": "Un tiroir contient 6 chaussettes rouges et 4 chaussettes noires. Quelle est la probabilité de sélectionner 2 chaussettes rouges lorsque vous en tirez 5 du tiroir (**avec remise**) ?\n\n- Il y a 5 essais.\n- Chaque tirage est indépendant des autres, puisque nous choisissons une chaussette à chaque fois **avec remise**.\n- Comme nous sommes intéressés à sélectionner des chaussettes *rouges*, nous appelons cela un **succès** et sélectionner une chaussette *noire* est un **échec**.\n- Pour chaque essai, la probabilité de succès est p = 6/10 = 0.6, elle est **constante**.\n\nCeci est une **expérience binomiale**.\n\n---"
+}

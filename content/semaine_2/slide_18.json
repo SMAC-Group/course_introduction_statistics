@@ -1,0 +1,3 @@
+{
+  "c": "Une **variable aléatoire** est une variable dont la valeur dépend de l'issue d'un phénomène aléatoire.\n\nChaque issue correspond à un nombre ou à un état/condition :\n\n| Valeur (X) | 1 | 2 | 3 |\n|---|---|---|---|\n| Probabilité (P) | 0.2 | 0.6 | 0.2 |\n\nNommons la variable aléatoire X :\nP(X = 1) = 0.2, P(X = 2) = 0.6, P(X = 3) = 0.2\n\n---"
+}

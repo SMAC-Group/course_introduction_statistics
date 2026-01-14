@@ -1,0 +1,3 @@
+{
+  "c": "Z ∼ N(0, 1), E(Z) = 0, √Var(Z) = σ = 1\n\n**Règle 68-95-99.7** :\n- P(-1 < X < 1) ≈ 68%\n- P(-2 < X < 2) ≈ 95%\n- P(-3 < X < 3) ≈ 99.7%\n\nLes valeurs μ - 3σ, μ - 2σ, μ - σ, μ, μ + σ, μ + 2σ, μ + 3σ correspondent à -3, -2, -1, 0, 1, 2, 3 pour la distribution standard.\n\n---"
+}

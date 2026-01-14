@@ -1,0 +1,3 @@
+{
+  "c": "Calcul du test-Z unilatéral\n\nHypothèses : H₀ : μ₁ = μ₂    H₁ : μ₁ < μ₂\nNiveau de signification : α = 5%\nDonnées : X̄₁ = 125, X̄₂ = 130, s₁ = 10, s₂ = 9.6, n₁ = n₂ = 50\n\nStatistique de test :\nz_obs = (X̄₁ - X̄₂) / √(s₁²/n₁ + s₂²/n₂) = (125 - 130) / √(10²/50 + 9.6²/50) ≈ -2.55\n\np-valeur (test unilatéral à gauche) :\nP(Z ≤ -2.55) ≈ 0.0054\n\nConclusion : Au niveau de signification 5%, on rejette H₀ : μ₁ = μ₂ en faveur de H₁ : μ₁ < μ₂, puisque : p-valeur ≈ 0.0054 < 0.05\n\n---"
+}

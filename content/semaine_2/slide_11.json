@@ -1,0 +1,3 @@
+{
+  "c": "Une autre façon de vérifier l'indépendance :\n\nP(\"Roi\") = 4/52 = 1/13\n\nP(\"Roi\" | \"Figure\") = P(\"Roi\" ∩ \"Figure\") / P(\"Figure\")\n= P(\"Roi\") / P(\"Figure\")\n= (4/52) / (12/52) = 4/12 = 1/3\n\nP(\"Roi\" | \"Figure\") ≠ P(\"Roi\")\n\n**Ils ne sont PAS indépendants !**\n\n---"
+}

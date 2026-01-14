@@ -1,0 +1,3 @@
+{
+  "c": "Une autre manière de décrire la distribution de X :\n\nF(x) = P(U ≤ x)\n\nF(x) correspond à l'aire sous la courbe jusqu'à x\n\nPour U ∼ U(a, b) :\nF(x) = P(U ≤ x) = (x − a) / (b − a)\n\n---"
+}

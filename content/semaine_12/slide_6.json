@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : test-Z\n\nReprésentation graphique de la distribution normale standard :\n- z_obs = -1.8\n- P(Z < z_obs) ≈ 0.036\n\nL'aire sous la courbe à gauche de z_obs = -1.8 représente la probabilité d'observer une valeur aussi extrême ou plus extrême.\n\n---"
+}

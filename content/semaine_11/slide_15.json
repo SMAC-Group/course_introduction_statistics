@@ -1,0 +1,3 @@
+{
+  "c": "Petite taille d'échantillon, population IID normale - Distribution de Student\n\nLa distribution de Student (ou loi t) est utilisée quand :\n- L'échantillon est petit (n < 30)\n- σ est inconnue\n- La population est normale\n\nCaractéristiques :\n- Forme en cloche, symétrique autour de 0\n- Plus aplatie que la loi normale (queues plus épaisses)\n- Converge vers la loi normale quand df → ∞\n- df (degrés de liberté) = n - 1\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "| Ensemble | Notation | Interprétation | Diagramme |\n|----------|----------|----------------|----------|\n| A et B | A ∩ B | Résultats dans A et B | Intersection des deux cercles |\n| A ou B | A ∪ B | Résultats dans A ou B, ou les deux | Union des deux cercles |\n| Complément de A | Aᶜ | Résultats qui ne sont pas dans A | Tout sauf le cercle A |\n\n---"
+}

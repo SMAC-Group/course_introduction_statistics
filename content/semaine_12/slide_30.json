@@ -1,0 +1,3 @@
+{
+  "c": "Que faire si les échantillons sont petits ?\n\nLorsque les échantillons sont petits, et que la normalité est douteuse, d'autres tests peuvent être utilisés.\n\nPar exemple :\n- le test-t à deux échantillons\n- le test de Welch (en cas de variances inégales)\n- le test de Wilcoxon (non paramétrique)\n\nCes tests ne sont pas abordés ici, mais l'idée générale reste la même : utiliser une statistique de test pour décider si les données sont compatibles avec l'hypothèse nulle H₀.\n\n---"
+}

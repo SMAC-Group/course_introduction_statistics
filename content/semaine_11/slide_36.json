@@ -1,0 +1,3 @@
+{
+  "c": "Table de la loi de Student (rappel)\n\nLa table donne les valeurs critiques t_{1−α/2,df} pour différents degrés de liberté (df) et niveaux de signification (α).\n\nPour un test d'hypothèse, on utilise :\n- Test bilatéral : t_{1−α/2,df}\n- Test unilatéral : t_{1−α,df}\n\nExemples pour df = 19 :\n- α = 0.05 (bilatéral) → t = 2.0930\n- α = 0.1 (unilatéral) → t = 1.7291\n\n---"
+}

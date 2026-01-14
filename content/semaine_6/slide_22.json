@@ -1,0 +1,3 @@
+{
+  "c": "**Structure d'un boxplot :**\n\n- **MÃ©diane** : ligne centrale dans la boÃ®te\n- **Q1** : bord infÃ©rieur de la boÃ®te\n- **Q3** : bord supÃ©rieur de la boÃ®te\n- **Moustache supÃ©rieure** : jusqu'Ã  Q3 + 1.5Ã—IQR\n- **Moustache infÃ©rieure** : jusqu'Ã  Q1 - 1.5Ã—IQR\n- **Points isolÃ©s** : valeurs aberrantes au-delÃ  des moustaches\n\n---"
+}

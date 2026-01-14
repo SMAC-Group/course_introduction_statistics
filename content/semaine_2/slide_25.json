@@ -1,0 +1,3 @@
+{
+  "c": "Les événements {X = k} et {X = j} sont **mutuellement exclusifs**.\n\nRègle simple du \"OU\" :\nP(X = k ou X = j) = P(X = k) + P(X = j)\n\n---"
+}

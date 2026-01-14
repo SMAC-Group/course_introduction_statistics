@@ -1,0 +1,3 @@
+{
+  "c": "Si on jette la pièce 4 fois :\n\n| FFFF | FPFF | PFFF | PPFF |\n| FFFP | FPFP | PFFP | PPFP |\n| FFPF | FPPF | PFPF | PPPF |\n| FFPP | FPPP | PFPP | PPPP |\n\n| k | 0 | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|---|\n| P(X = k) | | | | | |\n\n---"
+}

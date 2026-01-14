@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : test-Z\n\nOn calcule ensuite la p-valeur associée au test étant donné l'hypothèse alternative :\n\n| Hₐ | p-valeur |\n|---|---|\n| μ > μ₀ | p = P(Z ≥ z_obs) = 1 - P(Z ≤ z_obs) |\n| μ < μ₀ | p = P(Z ≤ z_obs) |\n| μ ≠ μ₀ | p = P(|Z| ≥ |z_obs|) = 2P(Z ≥ |z_obs|) |\n\nLa p-valeur est donc de :\np = P(|Z| ≥ |z_obs|) = 2 × P(Z ≥ |z_obs|)\n= 2 × P(Z ≥ |-1.8|) = 2 × P(Z ≥ 1.8)\n= 2 × {1 - P(Z ≤ 1.8)} ≈ 0.0718\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "P-valeur - Interprétation\n\nLa p-valeur est la probabilité, en supposant que H₀ soit vrai, que la statistique de test prenne une valeur au moins aussi extrême que celle effectivement observée.\n\nPlus la p-valeur est petite, plus les preuves contre H₀ fournies par les données sont fortes.\n\nSi α = 0.05, nous exigeons que les données fournissent des preuves suffisamment solides contre l'hypothèse nulle pour que son rejet se produise au maximum 5% du temps lorsque H₀ est vrai.\n\n---"
+}

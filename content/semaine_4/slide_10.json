@@ -1,0 +1,3 @@
+{
+  "c": "P(X = k) = Cₙᵏ × pᵏ × (1 − p)ⁿ⁻ᵏ\n\nQuelle est la probabilité d'obtenir 40 Faces parmi les 100 lancers ?\n\nP(\"40 Faces\") = P(X = 40)\n= C₁₀₀⁴⁰ × (0.44)⁴⁰ × (0.56)⁶⁰\n= (1.3746 × 10²⁸) × (5.47151 × 10⁻¹⁵) × (7.78541 × 10⁻¹⁶)\n= **0.0586**\n\n---"
+}

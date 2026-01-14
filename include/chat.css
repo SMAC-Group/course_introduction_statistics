@@ -450,3 +450,43 @@ body {
   font-weight: 500;
   transition: opacity 0.5s ease;
 }
+
+/* Token Info Display */
+.ai-chat-token-info {
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.token-bar-container {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.token-bar {
+  height: 100%;
+  width: 100%;
+  background: #28a745;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.token-text {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  min-width: 120px;
+  text-align: right;
+}
+
+/* Tooltip style for last request info */
+.token-text[title] {
+  cursor: help;
+}

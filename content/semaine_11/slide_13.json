@@ -1,0 +1,3 @@
+{
+  "c": "Intervalle de confiance pour la moyenne μ de la population avec σ inconnue\n\nDeux situations possibles :\n\n1. Taille de l'échantillon grande (n > 30), population IID\n\n2. Taille de l'échantillon petite (n < 30), population IID normale\n\n---"
+}

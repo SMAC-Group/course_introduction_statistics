@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : test-Z\n\nUne entreprise de production de batteries affirme que la durée de vie moyenne de ses batteries de type A est de 100 heures.\n\nUn ingénieur souhaite vérifier cette affirmation. Il prélève un échantillon aléatoire de 100 batteries de type A et observe une durée de vie moyenne de 99.1 heures. On considère la durée de vie de chaque batterie comme indépendante.\n\nIl estime ensuite l'écart-type de la population avec l'écart-type de l'échantillon s qui est de 5.\n\nIl souhaite déterminer, au seuil de signification de 5%, si les données fournissent des preuves que la durée de vie moyenne des batteries de type A diffère de 100, ou si l'écart observé peut simplement être dû au hasard.\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Probabilité d'obtenir au moins 2 faces :\nA = \"obtenir au moins deux faces\" = {FFF, PFF, FFP, FPF}\n\nP(A) = 4/8 = 0.5\n\n---"
+}

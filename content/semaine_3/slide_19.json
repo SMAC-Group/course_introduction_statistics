@@ -1,0 +1,3 @@
+{
+  "c": "Si A et B sont **indépendants** :\nP(A et B) = P(A) P(B)\n\nSi A₁, A₂, ..., Aₙ sont **indépendants** :\nP(A₁, A₂, ..., et Aₙ) = P(A₁) P(A₂) ... P(Aₙ)\n\n---"
+}

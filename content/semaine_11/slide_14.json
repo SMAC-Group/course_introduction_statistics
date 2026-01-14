@@ -1,0 +1,3 @@
+{
+  "c": "Grande taille d'échantillon, population IID\n\nFormule de l'IC :\nX̄ − z_{1−α/2} · s/√n < μ < X̄ + z_{1−α/2} · s/√n\n\nRemarque :\nMême formule qu'auparavant, avec la différence que vous remplacez σ (l'écart-type de la population) par s (l'écart-type de l'échantillon).\n\n---"
+}

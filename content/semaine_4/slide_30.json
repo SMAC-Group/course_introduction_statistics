@@ -1,0 +1,3 @@
+{
+  "c": "Jean prend le bus tous les jours pour aller en cours. Le bus arrive à l'arrêt ponctuellement **toutes les 30 minutes**. Supposons que Jean arrive à l'arrêt de bus à un moment quelconque de la journée, avec une probabilité uniforme.\n\nSoit :\nX = le temps (en minutes) que Jean doit attendre pour le bus\n\n**Question** : Quelle est la probabilité que Jean attende moins de 10 minutes ?\n\n---"
+}

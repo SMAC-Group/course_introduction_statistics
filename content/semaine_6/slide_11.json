@@ -1,0 +1,3 @@
+{
+  "c": "DonnÃ©es : 7, 23, 75, 82, 34, 91, 10\n\n**Trier**, on obtient 7, 10, 23, **34**, 75, 82, 91\n\n**Trouver la mÃ©diane**, on obtient **34**\n\nObservations en dessous de la mÃ©diane : 7, **10**, 23\n\n**Premier quartile Q1 = 10**\n\nObservations au-dessus de la mÃ©diane : 75, **82**, 91\n\n**TroisiÃ¨me quartile Q3 = 82**\n\n---"
+}

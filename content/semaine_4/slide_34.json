@@ -1,0 +1,3 @@
+{
+  "c": "X est une variable aléatoire continue\n\nF(x) = P(X ≤ x) (définition)\n\n| Probabilité | Calcul à l'aide de la fonction de répartition cumulative |\n|-------------|----------------------------------------------------------|\n| P(X ≤ x) | = F(x) |\n| P(x ≤ X ≤ y) | = F(y) − F(x) |\n| P(X ≥ x) | = 1 − F(x) |\n\n---"
+}

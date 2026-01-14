@@ -1,0 +1,3 @@
+{
+  "c": "Méthode en 3 étapes :\n\n(i) Déterminer l'univers : S = {1, 2, 3, 4, 5, 6}\n\n(ii) Déterminer les événements :\n- C = \"obtenir un 5\" = {5}\n- I = \"obtenir un nombre impair\" = {1, 3, 5}\n\n(iii) Calculer la probabilité :\n- P(C) = 1/6 (1 résultat favorable sur 6 possibles)\n- P(I) = 3/6 = 1/2 (3 résultats favorables sur 6 possibles)\n\n---"
+}

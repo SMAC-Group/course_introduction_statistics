@@ -1,0 +1,3 @@
+{
+  "c": "Soit W = X₁ + X₂ + ... + Xₙ\n\nSi X₁, X₂, ..., Xₙ sont indépendantes avec X ∼ Bin(1, p), alors :\nW ∼ Bin(n, p)\n\n**Espérance de W** :\nE(W) = E(X₁) + E(X₂) + ... + E(Xₙ)\n= n × E(X) = **n × p**\n\n**Variance de W** :\nVar(W) = Var(X₁) + Var(X₂) + ... + Var(Xₙ)\n= n × Var(X) = **n × p × (1 − p)**\n\n---"
+}

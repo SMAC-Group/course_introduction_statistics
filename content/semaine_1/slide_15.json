@@ -1,0 +1,3 @@
+{
+  "c": "Formule du complément :\nP(A) = 1 - P(opposé de A) = 1 - P(Aᶜ)\n\nLe diagramme montre A et son complément Aᶜ qui forment ensemble l'univers S.\n\n**Exemple** : Lancer un dé équilibré\n- A = \"obtenir un nombre impair\" = {1, 3, 5}\n- Aᶜ = \"NE PAS obtenir un nombre impair\" = \"obtenir un nombre pair\" = {2, 4, 6}\n- P(A) = 1 - P(Aᶜ)\n- P(\"nombre impair\") = 1 - P(\"nombre pair\")\n\n---"
+}

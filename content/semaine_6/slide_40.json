@@ -1,0 +1,3 @@
+{
+  "c": "| Type de variable | Statistiques | Graphiques |\n|:-----------------|:-------------|:-----------|\n| CatÃ©gorielle | Proportions | Barplot |\n| Quantitative Continue | Moyenne, Ã‰cart type, MÃ©diane, IQR, RÃ©sumÃ© Ã  5 nombres | Histogramme, Boxplot |"
+}

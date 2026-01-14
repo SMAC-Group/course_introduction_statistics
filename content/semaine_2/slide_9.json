@@ -1,0 +1,3 @@
+{
+  "c": "Une autre façon de vérifier l'indépendance :\n\nP(\"Roi\") = 4/52 = 1/13\n\nP(\"Roi\" | \"Coeurs\") = P(\"Roi\" ∩ \"Coeurs\") / P(\"Coeurs\")\n= P(\"Roi de Coeurs\") / P(\"Coeurs\")\n= (1/52) / (13/52) = 1/13\n\nP(\"Roi\" | \"Coeurs\") = P(\"Roi\")\n\n**Ils sont indépendants !**\n\n---"
+}

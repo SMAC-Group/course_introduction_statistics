@@ -1,0 +1,3 @@
+{
+  "c": "1. **Calculer P(A et B)** :\n   - On déduit la probabilité conditionnelle P(B|A)\n   - On calcule la probabilité jointe : P(A et B) = P(B|A) × P(A)\n\n2. **Calculer P(B|A)** :\n   - On connaît la probabilité jointe P(A et B)\n   - On calcule la probabilité conditionnelle : P(B|A) = P(A et B) / P(A)\n\n---"
+}

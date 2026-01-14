@@ -1,0 +1,3 @@
+{
+  "c": "X prend des valeurs {x₁, ..., xₖ}\n\n| k | X = x₁ | ... | X = xₖ |\n|---|---|---|---|\n| P(X = k) | p₁ | ... | pₖ |\n\np₁ = P(X = x₁)\n...\npₖ = P(X = xₖ)\n\n---"
+}

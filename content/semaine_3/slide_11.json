@@ -1,0 +1,3 @@
+{
+  "c": "1. E(X + α) = E(X) + α\n2. E(b X) = b E(X)\n3. E(X + Y) = E(X) + E(Y)\n4. Si X et Y sont **indépendants**, alors E(XY) = E(X) E(Y)\n\nSoit X et Y des variables aléatoires et a₁, a₂, b₁ et b₂ des constantes :\nE[b₁X + a₁ + b₂Y + a₂] = b₁E[X] + a₁ + b₂E[Y] + a₂\n\n---"
+}

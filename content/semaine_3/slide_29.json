@@ -1,0 +1,3 @@
+{
+  "c": "Supposons que r actions (choix, expériences) doivent être effectuées dans un certain ordre :\n\n| ACTION | NOMBRE DE RÉALISATIONS POSSIBLES |\n|--------|----------------------------------|\n| Action 1 | m₁ |\n| Action 2 | m₂ |\n| ... | ... |\n| Action r | mᵣ |\n| **TÂCHE ENTIÈRE** | **m₁ × ... × mᵣ** |\n\n---"
+}

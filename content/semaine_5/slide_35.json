@@ -1,0 +1,3 @@
+{
+  "c": "Les scores SAT sont normalement distribués avec une moyenne μ = 500 et un écart-type σ = 100.\n\n**Question** : Quel score SAT devez-vous obtenir pour être dans le 60e percentile ?\n\nP(X < score SAT) = 0.60\n\n**Méthode** : Résoudre le problème à l'envers.\n\nOn utilise l'**inverse de la fonction cumulative** de la standard normale, Φ⁻¹(p), où Φ⁻¹(p) correspond à la valeur Z tel que Φ(Z) = p.\n\n---"
+}

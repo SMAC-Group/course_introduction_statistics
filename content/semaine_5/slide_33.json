@@ -1,0 +1,3 @@
+{
+  "c": "x_α est le 27e percentile lorsque P(X ≤ x_α) = 0.27 = α\n\nCela signifie que **27% du temps**, X est inférieur à une valeur qu'on note x_α.\n\nGraphiquement : l'aire sous la courbe à gauche de x_α représente 27% de l'aire totale.\n\n---"
+}

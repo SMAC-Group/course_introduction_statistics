@@ -55,6 +55,7 @@ rsconnect/
 
 # Claude Code files
 CLAUDE.md
+.claude/
 
 # Environment variables (API keys)
 .env

@@ -1,0 +1,3 @@
+{
+  "c": "P(a ≤ Z ≤ b)\n\n**Formule** :\nP(a ≤ Z ≤ b) = P(Z ≤ b) - P(Z ≤ a) = Φ(b) - Φ(a)\n\n**Méthode** :\n1. Calculez les deux probabilités\n2. Soustrayez la plus petite à la plus grande\n\nVisuellement : l'aire entre a et b = aire jusqu'à b - aire jusqu'à a\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : quelle est la taille de l'échantillon ? - Solution\n\nα = 1 − 0.99 = 0.01\nz_{1−α/2} = 2.58\n\nNous savons déjà que E = 1 et σ = 3, donc en substituant dans la formule :\n\nn = (z_{1−α/2} · σ / E)² = (2.58 × 3 / 1)² = 59.9\n\nIl faut donc un échantillon d'au moins 60 étudiants.\n\n---"
+}

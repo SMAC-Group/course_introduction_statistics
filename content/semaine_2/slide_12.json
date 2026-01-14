@@ -1,0 +1,3 @@
+{
+  "c": "| | Événements indépendants | Événements mutuellement exclusifs |\n|---|---|---|\n| P(A et B) | P(A) × P(B) | 0 |\n| P(A|B) | P(A) | 0 |\n| P(A ou B) | P(A) + P(B) - P(A) × P(B) | P(A) + P(B) |\n\n---"
+}

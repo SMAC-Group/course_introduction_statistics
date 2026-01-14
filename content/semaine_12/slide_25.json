@@ -1,0 +1,3 @@
+{
+  "c": "Test-Z à deux échantillons\n\nConditions : Populations IID, groupes indépendants, σ inconnue, grands échantillons (n ≥ 30)\n\nStatistique de test :\nz_obs = (X̄₁ - X̄₂) / √(s₁²/n₁ + s₂²/n₂)\n\nDistribution de z_obs sous H₀ :\nz_obs = (X̄₁ - X̄₂) / √(s₁²/n₁ + s₂²/n₂) ~ N(0, 1)\n\nRègle de décision : Basée sur la p-valeur et le niveau de signification comme pour les tests à un échantillon.\n\n---"
+}

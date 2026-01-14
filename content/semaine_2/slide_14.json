@@ -1,0 +1,3 @@
+{
+  "c": "P(\"Face puis Pile\") = (1/2)(1/2) = 1/4\n\nP(\"Lancer deux 1\") = (1/6)(1/6) = 1/36\n\nP(\"Lancer 1 puis un nombre pair\") = (1/6)(1/2) = 1/12\n\n---"
+}

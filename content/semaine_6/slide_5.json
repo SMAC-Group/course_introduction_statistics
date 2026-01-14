@@ -1,0 +1,3 @@
+{
+  "c": "Additionner les donnÃ©es et diviser par le nombre d'observations\n\n**Exemples :**\n\nDonnÃ©es : 1, 2, 2, 3, 4\n\nMoyenne = (1 + 2 + 2 + 3 + 4)/5 = **2.4**\n\nDonnÃ©es : 10, 12, 56, 78, 113, 1209\n\nMoyenne = (10 + 12 + 56 + 78 + 113 + 1209)/6 = **246.3**\n\n---"
+}

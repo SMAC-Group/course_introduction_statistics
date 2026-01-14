@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : test-Z\n\nUn second ingénieur pense que la moyenne de la population est supérieure à 100 heures et souhaite tester les hypothèses suivantes :\n\n- H₀ : μ = μ₀ = 100\n- Hₐ : μ > 100\n\nLa p-valeur est donc de :\np = 1 - P(Z ≤ z_obs) ≈ 1 - 0.0359 ≈ 0.964\n\n---"
+}

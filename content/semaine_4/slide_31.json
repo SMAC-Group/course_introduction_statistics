@@ -1,0 +1,3 @@
+{
+  "c": "X est une variable aléatoire **continue** qui prend ses valeurs dans (0, 30).\n\nComme **tous les temps d'attente sont équiprobables**, la variable aléatoire suit la loi uniforme :\nX ∼ U(0, 30)\n\nFonction de densité de probabilité de X : rectangle de hauteur 1/30 sur [0, 30]\n\n---"
+}

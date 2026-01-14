@@ -1,0 +1,3 @@
+{
+  "c": "Données du problème :\n- 1% des étudiants ont le COVID\n- Le test de dépistage est précis à 99% (donc 1% de chance que le test ne soit pas précis)\n- Léa (une étudiante) est testée positive au COVID\n\nQuestion : Quelle est la probabilité que Léa ait effectivement le COVID étant donné qu'elle a été testée positive ?\n\n---"
+}

@@ -1,0 +1,3 @@
+{
+  "c": "- **Q1** : Premier quartile\n- **Q3** : TroisiÃ¨me quartile\n- **IQR** = Q3 - Q1\n- **Moustache supÃ©rieure** : Q3 + 1.5Ã—IQR\n- **Moustache infÃ©rieure** : Q1 - 1.5Ã—IQR\n\n---"
+}

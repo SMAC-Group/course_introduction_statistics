@@ -1,0 +1,3 @@
+{
+  "c": "3. **Règle générale d'addition** :\nP(A ou B) = P(A ∪ B) = P(A) + P(B) - P(A ∩ B)\n\n4. **Probabilité totale** :\nP(A) = P(A ∩ B) + P(A ∩ Bᶜ)\n\n5. **Règle du complément** :\nP(A) = 1 - P(Aᶜ)\nP(A|B) = 1 - P(Aᶜ|B)\n\n---"
+}

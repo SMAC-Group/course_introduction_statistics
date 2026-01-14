@@ -1,0 +1,3 @@
+{
+  "c": "1. **Probabilité conditionnelle de A sachant B** :\nP(A|B) = P(A et B) / P(B) = P(A ∩ B) / P(B)\n\n**Probabilité conditionnelle de B sachant A** :\nP(B|A) = P(A et B) / P(A) = P(A ∩ B) / P(A)\n\n2. **Règle de multiplication** :\nP(A et B) = P(A ∩ B) = P(B) × P(A|B)\nP(A et B) = P(A ∩ B) = P(A) × P(B|A)\n\n---"
+}

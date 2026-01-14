@@ -1,0 +1,3 @@
+{
+  "c": "**Quelle est l'espérance de X ?**\nX = Y + Z\nE(X) = E(Y + Z) = E(Y) + E(Z) = 21/6 + 21/6 = 42/6 = **7**\n\n**Quelle est l'espérance de W ?**\nW = YZ\nPuisque le résultat d'un dé ne dépend pas de l'autre, les variables aléatoires Y et Z sont **indépendantes**.\nE(W) = E(YZ) = E(Y)E(Z) = (21/6) × (21/6) = **12.25**\n\n**Questions** : Quel devrait-être le prix d'un jeu équitable où on gagne X ? Et pour W ?\n\n---"
+}

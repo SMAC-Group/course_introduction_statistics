@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nEst-il possible de tester que l'espérance μ d'une variable aléatoire X soit égale à une certaine valeur μ₀ ?\n\nPrincipe du test d'hypothèse :\n1. On formule une hypothèse (μ = μ₀)\n2. On collecte des observations (X̄, s)\n3. On calcule la probabilité d'observer une statistique aussi extrême dans le monde théorique\n4. Si cette probabilité est petite → Hypothèse rejetée\n   Si cette probabilité est grande → Hypothèse non rejetée\n\n---"
+}

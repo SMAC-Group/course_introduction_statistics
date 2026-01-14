@@ -820,6 +820,8 @@ window.onload = function() {
 
   let currentQuestionId = null; // Track which question the assistant is scoped to
 
+  let tokenInfo = { used: 0, remaining: 50000, max: 50000 }; // Token quota tracking
+
 
 
   // Detect current page source (semaine) from URL
@@ -1304,6 +1306,18 @@ window.onload = function() {
 
       </div>
 
+      <div class="ai-chat-token-info" id="ai-chat-token-info">
+
+        <div class="token-bar-container">
+
+          <div class="token-bar" id="token-bar"></div>
+
+        </div>
+
+        <span class="token-text" id="token-text">Tokens: -- / --</span>
+
+      </div>
+
     `;
 
     document.body.appendChild(panel);
@@ -1325,6 +1339,12 @@ window.onload = function() {
     // Setup resize functionality
 
     setupResizeHandle();
+
+
+
+    // Initialize token display
+
+    updateTokenDisplay();
 
   }
 
@@ -1988,9 +2008,35 @@ window.onload = function() {
 
 
 
+      // Update token display
+
+      if (data.tokens) {
+
+        updateTokenDisplay(data.tokens);
+
+      }
+
+
+
       if (data.error) {
 
         addMessage(data.error, 'error');
+
+        // Also update token display from error response (quota exceeded)
+
+        if (data.tokensUsed !== undefined) {
+
+          updateTokenDisplay({
+
+            used: data.tokensUsed,
+
+            remaining: data.tokensRemaining,
+
+            max: data.tokensMax
+
+          });
+
+        }
 
       } else {
 
@@ -2089,6 +2135,80 @@ window.onload = function() {
       btn.classList.toggle('active', btn.dataset.style === mode);
 
     });
+
+  }
+
+
+
+  // Update token display
+
+  function updateTokenDisplay(tokens) {
+
+    if (tokens) {
+
+      tokenInfo = {
+
+        used: tokens.used || tokenInfo.used,
+
+        remaining: tokens.remaining !== undefined ? tokens.remaining : tokenInfo.remaining,
+
+        max: tokens.max || tokenInfo.max,
+
+        lastRequest: tokens.total || 0
+
+      };
+
+    }
+
+
+
+    const tokenBar = document.getElementById('token-bar');
+
+    const tokenText = document.getElementById('token-text');
+
+
+
+    if (tokenBar && tokenText) {
+
+      const percentage = Math.max(0, Math.min(100, (tokenInfo.remaining / tokenInfo.max) * 100));
+
+      tokenBar.style.width = percentage + '%';
+
+
+
+      // Color based on remaining tokens
+
+      if (percentage > 50) {
+
+        tokenBar.style.backgroundColor = '#28a745'; // Green
+
+      } else if (percentage > 20) {
+
+        tokenBar.style.backgroundColor = '#ffc107'; // Yellow
+
+      } else {
+
+        tokenBar.style.backgroundColor = '#dc3545'; // Red
+
+      }
+
+
+
+      // Format numbers with thousands separator
+
+      const formatNum = (n) => n.toLocaleString('fr-FR');
+
+      tokenText.textContent = `Tokens: ${formatNum(tokenInfo.remaining)} / ${formatNum(tokenInfo.max)}`;
+
+
+
+      if (tokenInfo.lastRequest > 0) {
+
+        tokenText.title = `Dernière requête: ${tokenInfo.lastRequest} tokens`;
+
+      }
+
+    }
 
   }
 

@@ -1,0 +1,3 @@
+{
+  "c": "P(Z < -5) = 0.00000028711 ≈ 0\nP(Z < 4) = 0.99997 ≈ 1\n\nGénéralement, par simplicité, les valeurs hors de la table sont soit arrondies à 0, soit à 1.\n\nSi M > 0 n'est pas dans la table :\n- P(Z ≤ -M) ≈ 0\n- P(Z ≤ M) ≈ 1\n- P(Z ≥ -M) ≈ 1\n- P(Z ≥ M) ≈ 0\n\n---"
+}

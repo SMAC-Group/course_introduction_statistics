@@ -1,0 +1,3 @@
+{
+  "c": "La **variance** = Mesure de l'étendue de la FMP.\nLa **variance** = Espérance de la distance au carré de l'espérance :\n\n- Espérance : E(X)\n- Distance de l'espérance : X − E(X)\n- Distance au carré de l'espérance : (X − E(X))²\n- Espérance de la distance au carré de l'espérance :\n\nVar(X) = E({X − E(X)}²) = E(X²) − {E(X)}²\n\n**Remarque** : E(X²) n'est pas la même chose que {E(X)}² !\n\n---"
+}

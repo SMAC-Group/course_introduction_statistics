@@ -1,0 +1,3 @@
+{
+  "c": "Graphique montrant plusieurs distributions normales avec la même moyenne (μ = 0) mais des écarts-types différents :\n- σ = 0.5 (violet clair) - courbe étroite et haute\n- σ = 1 (vert) - courbe standard\n- σ = 2 (rose) - courbe plus large et basse\n- σ = 3 (noir) - courbe très étalée\n\nPlus l'écart-type est grand, plus la distribution est étalée.\n\n---"
+}

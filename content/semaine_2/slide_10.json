@@ -1,0 +1,3 @@
+{
+  "c": "P(\"Roi\") = 4/52\nP(\"Figure\") = P({\"Roi coeur\", \"Dame coeur\", ..., \"Valet Pique\"}) = 12/52\nP(\"Roi\" ∩ \"Figure\") = P(\"Roi\") = 4/52\n\nP(\"Roi\") × P(\"Figure\") = (4/52) × (12/52) = 48/52²\n\nComme 4/52 ≠ 48/52², **ils ne sont PAS indépendants !**\n\n---"
+}

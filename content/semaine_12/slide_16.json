@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : Test-t\n\nOn cherche ensuite la valeur critique en fonction de α, Hₐ et n afin de comparer la valeur t_obs à la valeur critique.\n\n| Hypothèse alternative | Hypothèses | Règle de Décision |\n|---|---|---|\n| Bilatérale | H₀ : μ = μ₀, Hₐ : μ ≠ μ₀ | Rejetez H₀ si |t_obs| > t_{1-α/2, df} |\n| Unilatéral (droite) | H₀ : μ = μ₀, Hₐ : μ > μ₀ | Rejetez H₀ si t_obs > t_{1-α, df} |\n| Unilatéral (gauche) | H₀ : μ = μ₀, Hₐ : μ < μ₀ | Rejetez H₀ si t_obs < -t_{1-α, df} |\n\noù df = n - 1\n\n---"
+}

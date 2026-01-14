@@ -1,0 +1,3 @@
+{
+  "c": "**Valeur aberrante** = une valeur qui ne correspond pas au reste\n\nDonnÃ©es : 3, 6, 7, 10, **157**\n\nMoyenne = (1/5)(3 + 6 + 7 + 10 + 157) = **36.6**\n\nMÃ©diane = **7**\n\n**La mÃ©diane est rÃ©sistante aux valeurs aberrantes.**\n\n---"
+}

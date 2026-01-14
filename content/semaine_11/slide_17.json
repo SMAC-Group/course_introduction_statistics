@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : âge des véhicules (avec distribution de Student)\n\nDans une enquête menée auprès de 19 adultes, l'âge moyen du véhicule principal d'une personne est de 5.6 ans.\n\nL'écart-type de l'échantillon s est de 0.75.\n\nCalculer un intervalle de confiance à 95% pour cette moyenne.\n\nTrouver la valeur t_{1−α/2,df} pour un intervalle de confiance à 95% lorsque la taille de l'échantillon n est 22.\n\n---"
+}

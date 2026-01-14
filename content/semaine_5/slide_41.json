@@ -1,0 +1,3 @@
+{
+  "c": "**Étape 1** : Chercher le 97e percentile (1 - 0.03 = 0.97)\n\n**Étape 2** : Chercher dans le tableau la valeur 0.97\nP(Z ≤ 1.88) = 0.9699 ≈ 0.97\n\n**Étape 3** : Déstandardiser\nX = σZ + μ\nX = 500 + 100(1.88) = **688**\n\nL'étudiant doit obtenir au moins **688** au SAT.\n\nP(X ≤ 688) = 0.9699\n\n---"
+}

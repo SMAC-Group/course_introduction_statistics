@@ -1,0 +1,3 @@
+{
+  "c": "Hypothèse nulle et alternative\n\nUn test d'hypothèse est conçu pour évaluer la force des preuves contre une hypothèse de base appelée hypothèse nulle et en faveur d'une autre hypothèse appelée hypothèse alternative. Par exemple :\n\nH₀ : μ = μ₀ (hypothèse nulle)\nHα : μ ≠ μ₀ (hypothèse alternative)\n\nEn général, l'hypothèse nulle signifie qu'il n'y a \"aucun effet\" ou \"aucune différence\".\n\nL'hypothèse alternative est l'énoncé que nous espérons ou suspectons être vrai à la place de l'hypothèse nulle.\n\n---"
+}

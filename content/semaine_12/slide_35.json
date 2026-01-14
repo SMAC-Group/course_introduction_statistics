@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : peut-être une couleur en particulier ?\n\nLes scientifiques continuent avec 10 autres couleurs :\n- Grey jelly beans : P > 0.05 (pas de lien)\n- Tan jelly beans : P > 0.05 (pas de lien)\n- Cyan jelly beans : P > 0.05 (pas de lien)\n- GREEN jelly beans : P < 0.05 (WHOA! Un lien trouvé!)\n- Mauve jelly beans : P > 0.05 (pas de lien)\n- Beige jelly beans : P > 0.05 (pas de lien)\n- Lilac jelly beans : P > 0.05 (pas de lien)\n- Black jelly beans : P > 0.05 (pas de lien)\n- Peach jelly beans : P > 0.05 (pas de lien)\n- Orange jelly beans : P > 0.05 (pas de lien)\n\nSur 20 tests, un seul est \"significatif\"!\n\n---"
+}

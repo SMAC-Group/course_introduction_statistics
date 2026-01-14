@@ -1,0 +1,3 @@
+{
+  "c": "Utilisez la règle générale de l'addition :\n\nP(\"Roi\") = 4/52\nP(\"Coeurs\") = 13/52\nP(\"Roi\" ∩ \"Coeurs\") = P(\"Roi de Coeurs\") = 1/52\n\nP(\"Roi\" ∪ \"Coeurs\") = P(\"Roi\") + P(\"Coeurs\") - P(\"Roi\" ∩ \"Coeurs\")\n= 4/52 + 13/52 - 1/52 = 16/52 = 4/13\n\n---"
+}

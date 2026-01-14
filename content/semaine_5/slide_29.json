@@ -1,0 +1,3 @@
+{
+  "c": "Les scores SAT sont normalement distribués avec une moyenne de 500 et un écart-type de 100.\n\n**Question** : Quelle est la probabilité qu'un étudiant ait un score entre 550 et 650 ?\n\nX = scores SAT, X ∼ N(500, 100²)\n\nP(550 < X < 650) = P((550-500)/100 < (X-500)/100 < (650-500)/100)\n= P(0.5 < Z < 1.5)\n= P(Z < 1.5) - P(Z < 0.5)\n= Φ(1.5) - Φ(0.5)\n= 0.9332 - 0.6915 = **0.2417**\n\n---"
+}

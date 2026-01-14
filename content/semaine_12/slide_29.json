@@ -1,0 +1,3 @@
+{
+  "c": "Randomisation\n\nReprenons l'exemple du médicament et supposons que :\n- le choix de recevoir le traitement ait été fait directement par la personne concernée\n- ou que le traitement ait été prescrit en priorité aux situations les plus graves par le personnel soignant\n\nProblème : les groupes pourraient différer systématiquement avant même le traitement.\n\nLe médicament semble efficace, mais cet effet pourrait venir d'un biais de sélection.\n\nSolution : l'assignation aléatoire (randomisation) garantit que les différences observées sont dues, en moyenne, au traitement.\n\n---"
+}

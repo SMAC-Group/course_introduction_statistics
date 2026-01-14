@@ -1,0 +1,3 @@
+{
+  "c": "Petite taille d'échantillon, population IID normale\n\nLe degré de liberté (df) est le nombre de valeurs qui peuvent varier après qu'une statistique d'échantillon a été calculée. Il détermine quelle courbe spécifique utiliser et est défini par :\n\ndf = n − 1\n\noù n est la taille de l'échantillon.\n\nIntervalle de confiance :\n(X̄ − t_{1−α/2,df} · s/√n , X̄ + t_{1−α/2,df} · s/√n)\n\navec df = n − 1.\n\n---"
+}
