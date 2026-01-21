@@ -75,8 +75,21 @@ longmcq2 <- function(opts) {
 
 ```{=html}
 <script type="text/javascript">
-function toggleAlert(event, message, type) {
-  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+function toggleAlert(alertId, message, type) {
+  var alertBox = document.getElementById(alertId);
+  if (!alertBox) return;
+
+  // Close all other alerts in the same question-alerts container
+  var alertsContainer = alertBox.closest('.question-alerts');
+  if (alertsContainer) {
+    var allAlerts = alertsContainer.querySelectorAll('.alert');
+    allAlerts.forEach(function(alert) {
+      if (alert.id !== alertId) {
+        alert.style.display = "none";
+      }
+    });
+  }
+
   var alertMessage = alertBox.querySelector(".alertMessage");
   var alertType = alertBox.querySelector(".alertType");
 
@@ -87,8 +100,8 @@ function toggleAlert(event, message, type) {
     alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -144,6 +157,23 @@ function toggleAlert(event, message, type) {
   font-size: 16px;
   width: fit-content; /* Prevent full-width alerts */
 }
+/* Horizontal button layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Alerts container below buttons */
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
 ```
 
@@ -178,9 +208,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses pour un test non orienté sont : \\(H_0: \\mu = 2\\) (le temps moyen est égal à 2 heures) contre \\(H_{\\alpha}: \\mu \\neq 2\\) (le temps moyen est différent de 2 heures).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'Les hypothèses pour un test non orienté sont : \\(H_0: \\mu = 2\\) (le temps moyen est égal à 2 heures) contre \\(H_{\\alpha}: \\mu \\neq 2\\) (le temps moyen est différent de 2 heures).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q1-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q1-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -205,9 +244,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de la statistique de test z : \\(z_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La statistique de test est calculée comme suit : \\(z_{\\text{obs}} = \\frac{2.5 - 2}{\\sqrt{4/40}} \\approx 1.581\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Utilisez la formule de la statistique de test z : \\(z_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'La statistique de test est calculée comme suit : \\(z_{\\text{obs}} = \\frac{2.5 - 2}{\\sqrt{4/40}} \\approx 1.581\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q2-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q2-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -233,9 +281,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'La \\(p\\)-valeur pour un test bilatéral est calculée avec \\(2\\times \\mathbb{P}(Z > |z_{\\text{obs}}|)\\)', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La \\(p\\)-valeur est calculée comme suit : \\(p = 2 \\times P(Z > |1.581|) \\approx 2 \\times 0.057 \\approx 0.114\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'La \\(p\\)-valeur pour un test bilatéral est calculée avec \\(2\\times \\mathbb{P}(Z > |z_{\\text{obs}}|)\\)', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La \\(p\\)-valeur est calculée comme suit : \\(p = 2 \\times P(Z > |1.581|) \\approx 2 \\times 0.057 \\approx 0.114\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q3-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q3-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -261,9 +318,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez la \\(p\\)-valeur obtenue à \\(\\alpha = 0.05\\). Si \\(p > \\alpha\\), on ne rejette pas \\(H_0\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La \\(p\\)-valeur obtenue est \\(0.114\\), ce qui est supérieure au seuil de \\(5\\%\\). On ne rejette donc pas \\(H_0\\). Il n’y a pas de preuve suffisante pour conclure à une différence significative.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Comparez la \\(p\\)-valeur obtenue à \\(\\alpha = 0.05\\). Si \\(p > \\alpha\\), on ne rejette pas \\(H_0\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La \\(p\\)-valeur obtenue est \\(0.114\\), ce qui est supérieure au seuil de \\(5\\%\\). On ne rejette donc pas \\(H_0\\). Il n’y a pas de preuve suffisante pour conclure à une différence significative.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q4-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q4-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -293,9 +359,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur \\(\\mu_0\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses pour ce test  unilatéral sont : \\(H_0: \\mu = 2\\) (le poids moyen des sachets est de \\(2\\) grammes) contre \\(H_{\\alpha}: \\mu < 2\\) (le poids moyen des sachets est plus petit que  \\(2\\) grammes)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur \\(\\mu_0\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Les hypothèses pour ce test  unilatéral sont : \\(H_0: \\mu = 2\\) (le poids moyen des sachets est de \\(2\\) grammes) contre \\(H_{\\alpha}: \\mu < 2\\) (le poids moyen des sachets est plus petit que  \\(2\\) grammes)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q5-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q5-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 6
 
@@ -321,9 +396,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de la statistique de test t : \\(t_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La statistique de test est calculée comme suit : \\(t_{\\text{obs}} = \\frac{1.92 - 2}{0.1/\\sqrt{15}} \\approx -3.098\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Utilisez la formule de la statistique de test t : \\(t_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'La statistique de test est calculée comme suit : \\(t_{\\text{obs}} = \\frac{1.92 - 2}{0.1/\\sqrt{15}} \\approx -3.098\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q6-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q6-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 7
@@ -346,9 +430,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%, (\\alpha = 0.1)\\) doit être trouvée sur la table de Student avec \\(n - 1\\) degrés de liberté.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%, (\\alpha = 0.1)\\) doit être trouvée sur la table de Student avec \\(n - 1\\) degrés de liberté.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q7-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q7-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 8
@@ -373,10 +466,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < -1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < -1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q8-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q8-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 9
 
@@ -403,10 +504,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir comment la p-valeur est calculée dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\text{p-val}=2P(Z\\geq\\lvert z_{\\text{obs}}\\rvert)=0.1\\). On déduit que \\(P(Z\\leq\\lvert z_{\\text{obs}}\\rvert)=0.95\\), ce qui implique que \\(\\lvert z_{\\text{obs}}\\rvert=1.64\\), donc la statistique de test est soit \\(-1.64\\), soit \\(1.64\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Revoir comment la p-valeur est calculée dans le cours.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'On a \\(\\text{p-val}=2P(Z\\geq\\lvert z_{\\text{obs}}\\rvert)=0.1\\). On déduit que \\(P(Z\\leq\\lvert z_{\\text{obs}}\\rvert)=0.95\\), ce qui implique que \\(\\lvert z_{\\text{obs}}\\rvert=1.64\\), donc la statistique de test est soit \\(-1.64\\), soit \\(1.64\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q9-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q9-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ---
 On veut comparer le taux moyen d'approbation d'une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\\(n_A=200, n_B=250\\)). On veut tester si le taux d'approbation est supérieur pour le pays A. 
@@ -432,10 +541,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'hyopthèse nulle est l\'égalité des deux moyennes, ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B= 0\\). Pour l\'alternative, on cherche à savoir si \\(\\mu_A>\\mu_B\\), ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B>0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'L\'hyopthèse nulle est l\'égalité des deux moyennes, ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B= 0\\). Pour l\'alternative, on cherche à savoir si \\(\\mu_A>\\mu_B\\), ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B>0\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q10-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q10-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 11
@@ -457,10 +574,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir la statistique de test pour le test-z à deux échantillons dans le cours.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\frac{\\bar{X}_A-\\bar{X}_B}{\\sqrt{\\frac{s_A^2}{n_A}+\\frac{s_B^2}{n_B}}}\\) ce qui donne approximativement \\(5.78\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Revoir la statistique de test pour le test-z à deux échantillons dans le cours.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'On a \\(\\frac{\\bar{X}_A-\\bar{X}_B}{\\sqrt{\\frac{s_A^2}{n_A}+\\frac{s_B^2}{n_B}}}\\) ce qui donne approximativement \\(5.78\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q11-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q11-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 12
@@ -495,10 +620,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Essaie de trouver la p-valeur.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(\\text{p-val}=0.006<0.01\\) donc on rejette \\(H_0\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Essaie de trouver la p-valeur.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'On a \\(\\text{p-val}=0.006<0.01\\) donc on rejette \\(H_0\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q12-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q12-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -525,10 +658,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la signification de la valeur \\(\\alpha\\) dans un test d\'hypothèse.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Changer \\(\\alpha\\) après coup fausse l\'interprétation du test. Le niveau \\(\\alpha\\) doit être fixé avant l\'analyse pour éviter le biais de confirmation.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q13-hint', 'Pensez à la signification de la valeur \\(\\alpha\\) dans un test d\'hypothèse.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q13-expl', 'Changer \\(\\alpha\\) après coup fausse l\'interprétation du test. Le niveau \\(\\alpha\\) doit être fixé avant l\'analyse pour éviter le biais de confirmation.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q13-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q13-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 14
@@ -550,10 +691,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez au risque d\'erreur de type I lorsqu\'on effectue de nombreux tests sans correction.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\'est du p-hacking.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q14-hint', 'Pensez au risque d\'erreur de type I lorsqu\'on effectue de nombreux tests sans correction.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q14-expl', 'Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\'est du p-hacking.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q14-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q14-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 

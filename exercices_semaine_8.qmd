@@ -75,8 +75,21 @@ longmcq2 <- function(opts) {
 
 ```{=html}
 <script type="text/javascript">
-function toggleAlert(event, message, type) {
-  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+function toggleAlert(alertId, message, type) {
+  var alertBox = document.getElementById(alertId);
+  if (!alertBox) return;
+
+  // Close all other alerts in the same question-alerts container
+  var alertsContainer = alertBox.closest('.question-alerts');
+  if (alertsContainer) {
+    var allAlerts = alertsContainer.querySelectorAll('.alert');
+    allAlerts.forEach(function(alert) {
+      if (alert.id !== alertId) {
+        alert.style.display = "none";
+      }
+    });
+  }
+
   var alertMessage = alertBox.querySelector(".alertMessage");
   var alertType = alertBox.querySelector(".alertType");
 
@@ -87,8 +100,8 @@ function toggleAlert(event, message, type) {
     alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -144,6 +157,23 @@ function toggleAlert(event, message, type) {
   font-size: 16px;
   width: fit-content; /* Prevent full-width alerts */
 }
+/* Horizontal button layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Alerts container below buttons */
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
 ```
 
@@ -182,19 +212,17 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Relisez la notion de statistique et de paramètres dans les slides de la semaine \\(8\\).', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Relisez la notion de statistique et de paramètres dans les slides de la semaine \\(8\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', '\\(80\\) et \\(5\\) sont respectivement l\'espérance et l\'écart type de la distribution des scores et sont donc des paramètres. \\(75\\) est la moyenne empirique (aussi notée \\(\\bar{X}\\)) de l\'échantillon et est ainsi une statistique', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q1-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, '\\(80\\) et \\(5\\) sont respectivement l\'espérance et l\'écart type de la distribution des scores et sont donc des paramètres. \\(75\\) est la moyenne empirique (aussi notée \\(\\bar{X}\\)) de l\'échantillon et est ainsi une statistique', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q1-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -220,19 +248,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Quelle est la variance de \\(\\bar{X}\\)?', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Quelle est la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Si la taille de l\'échantillon \\(n\\) augmente, la variance de l\'estimateur \\(\\bar{X}\\), donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\), diminue. Cela signifie que \\(\\bar{X}\\) devient plus précis (moins variable) car les valeurs de \\(\\bar{X}\\) sont plus concentrées autour de la vraie valeur de l\'espérance \\(\\mu\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q2-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Si la taille de l\'échantillon \\(n\\) augmente, la variance de l\'estimateur \\(\\bar{X}\\), donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\), diminue. Cela signifie que \\(\\bar{X}\\) devient plus précis (moins variable) car les valeurs de \\(\\bar{X}\\) sont plus concentrées autour de la vraie valeur de l\'espérance \\(\\mu\\).', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q2-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -256,11 +282,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Quelle est la formule de la variance de \\(\\bar{X}\\)?', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La variance de \\(\\bar{X}\\) est donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\). Dans ce cas, \\(\\sigma^2 = 25\\) et \\(n = 100\\), donc \\(\\text{Var}(\\bar{X}) = \\frac{25}{100} = 0.25\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> 
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Quelle est la formule de la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La variance de \\(\\bar{X}\\) est donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\). Dans ce cas, \\(\\sigma^2 = 25\\) et \\(n = 100\\), donc \\(\\text{Var}(\\bar{X}) = \\frac{25}{100} = 0.25\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q3-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q3-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div> 
 
 
 
@@ -287,13 +320,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-
-
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 50\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{25}{100} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit supérieure à 51 est donnée par \\(P(\\bar{X} > 51) = P\\left(Z > \\frac{51 - 50}{0.5}\\right) = P(Z > 2) = 1- \\Phi(2) \\approx 0.0228\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 50\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{25}{100} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit supérieure à 51 est donnée par \\(P(\\bar{X} > 51) = P\\left(Z > \\frac{51 - 50}{0.5}\\right) = P(Z > 2) = 1- \\Phi(2) \\approx 0.0228\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q4-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q4-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -320,11 +358,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 100\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{16}{64} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit inférieure à \\(99\\) est donnée par \\(P(\\bar{X} < 99) = P\\left(Z < \\frac{99 - 100}{0.5}\\right) = P(Z < -2) = 0.0228\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 100\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{16}{64} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit inférieure à \\(99\\) est donnée par \\(P(\\bar{X} < 99) = P\\left(Z < \\frac{99 - 100}{0.5}\\right) = P(Z < -2) = 0.0228\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q5-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q5-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -348,11 +393,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(\\bar{X}\\) et \\(s\\) à l\'aide de leur définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour calculer la moyenne \\(\\bar{X}\\), nous additionnons toutes les valeurs de l\'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\) et les divisons par le nombre total de valeurs, soit \\(6\\), ce qui donne \\(\\bar{X} = \\frac{28.95}{6} = 4.825\\). Pour l\'écart type \\(s\\), nous calculons d\'abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit \\((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + \\ldots + (8.35 - 4.825)^2 = 35.25875\\), puis nous divisons cette somme par \\(n-1 = 5\\) et prenons la racine carrée du résultat, ce qui donne \\(s = \\sqrt{\\frac{35.25875}{5}} = 2.655513 \\approx 2.656\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Calculez \\(\\bar{X}\\) et \\(s\\) à l\'aide de leur définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'Pour calculer la moyenne \\(\\bar{X}\\), nous additionnons toutes les valeurs de l\'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\) et les divisons par le nombre total de valeurs, soit \\(6\\), ce qui donne \\(\\bar{X} = \\frac{28.95}{6} = 4.825\\). Pour l\'écart type \\(s\\), nous calculons d\'abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit \\((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + \\ldots + (8.35 - 4.825)^2 = 35.25875\\), puis nous divisons cette somme par \\(n-1 = 5\\) et prenons la racine carrée du résultat, ce qui donne \\(s = \\sqrt{\\frac{35.25875}{5}} = 2.655513 \\approx 2.656\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q6-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q6-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 7
@@ -376,9 +428,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(e.s.(\\bar{X})\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, '\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = \\frac{2.655513}{\\sqrt{6}} =  1.084109\\)', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Calculez \\(e.s.(\\bar{X})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', '\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = \\frac{2.655513}{\\sqrt{6}} =  1.084109\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q7-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q7-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ---
 
@@ -415,9 +476,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(\\hat{p}\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(X=24\\) paniers à trois points réussis pour \\(n=54\\) tentatives, soit une propotion de \\(\\hat{p}=X/n\\approx0.4444\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Calculez \\(\\hat{p}\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'Ici on a \\(X=24\\) paniers à trois points réussis pour \\(n=54\\) tentatives, soit une propotion de \\(\\hat{p}=X/n\\approx0.4444\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q8-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q8-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 9
 
@@ -440,9 +510,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez \\(e.s.(\\hat{p})\\) à l\'aide de sa définition.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(\\hat{p}=0.4444\\) (Question 8) et \\(n=54\\), donc \\(e.s.(\\hat{p})=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx0.0676\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Calculez \\(e.s.(\\hat{p})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Ici on a \\(\\hat{p}=0.4444\\) (Question 8) et \\(n=54\\), donc \\(e.s.(\\hat{p})=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx0.0676\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q9-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q9-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 10
 
@@ -466,9 +545,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir les conditions d\'application du TCL dans les slides.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Ici on a \\(n=54\\). Bien que \\(p\\) (le paramètre) ne soit pas connu,on a \\(n\\hat{p}=24>10\\) et \\(n(1-\\hat{p}=30>10\\) qui sont les deux indications que la taille d\'échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoir les conditions d\'application du TCL dans les slides.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Ici on a \\(n=54\\). Bien que \\(p\\) (le paramètre) ne soit pas connu,on a \\(n\\hat{p}=24>10\\) et \\(n(1-\\hat{p}=30>10\\) qui sont les deux indications que la taille d\'échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q10-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q10-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 11
@@ -493,8 +581,17 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Revoir l\'approximation donnée par le TCL dans les slides.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Par hypothèse on a \\(p=0.397\\). Ici on \\(n=54\\). Donc on déduit que \\(\\sqrt{p(1-p)/n}\\approx0.0666\\). On conclut que \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\) grâce au TCL.', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Revoir l\'approximation donnée par le TCL dans les slides.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'Par hypothèse on a \\(p=0.397\\). Ici on \\(n=54\\). Donc on déduit que \\(\\sqrt{p(1-p)/n}\\approx0.0666\\). On conclut que \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\) grâce au TCL.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q11-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q11-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 

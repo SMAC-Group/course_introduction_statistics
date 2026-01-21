@@ -75,8 +75,21 @@ longmcq2 <- function(opts) {
 
 ```{=html}
 <script type="text/javascript">
-function toggleAlert(event, message, type) {
-  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+function toggleAlert(alertId, message, type) {
+  var alertBox = document.getElementById(alertId);
+  if (!alertBox) return;
+
+  // Close all other alerts in the same question-alerts container
+  var alertsContainer = alertBox.closest('.question-alerts');
+  if (alertsContainer) {
+    var allAlerts = alertsContainer.querySelectorAll('.alert');
+    allAlerts.forEach(function(alert) {
+      if (alert.id !== alertId) {
+        alert.style.display = "none";
+      }
+    });
+  }
+
   var alertMessage = alertBox.querySelector(".alertMessage");
   var alertType = alertBox.querySelector(".alertType");
 
@@ -87,8 +100,8 @@ function toggleAlert(event, message, type) {
     alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -144,6 +157,23 @@ function toggleAlert(event, message, type) {
   font-size: 16px;
   width: fit-content; /* Prevent full-width alerts */
 }
+/* Horizontal button layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Alerts container below buttons */
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
 ```
 
@@ -181,9 +211,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pour calculer la moyenne \\(\\bar{X}\\), additionnez toutes les valeurs et divisez par le nombre total de valeurs.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La moyenne \\(\\bar{X}\\) est calculée comme suit : \\(\\bar{X} = \\frac{50+65+45+70+55+60+48+72+52+68+58+62+47+75}{14} = 59.07143\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Pour calculer la moyenne \\(\\bar{X}\\), additionnez toutes les valeurs et divisez par le nombre total de valeurs.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'La moyenne \\(\\bar{X}\\) est calculée comme suit : \\(\\bar{X} = \\frac{50+65+45+70+55+60+48+72+52+68+58+62+47+75}{14} = 59.07143\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q1-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q1-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -210,9 +249,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Puisque la variance de la population est connue et que les données sont indépendantes, nous utilisons le quantile de la distribution standard normale.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Le quantile de la loi normale standard correspondant à un niveau de confiance est donné par \\(z_{1-\\frac{\\alpha}{2}} = z_{0.975} \\approx 1.959964 \\approx 1.96\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Puisque la variance de la population est connue et que les données sont indépendantes, nous utilisons le quantile de la distribution standard normale.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Le quantile de la loi normale standard correspondant à un niveau de confiance est donné par \\(z_{1-\\frac{\\alpha}{2}} = z_{0.975} \\approx 1.959964 \\approx 1.96\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q2-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q2-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 3
@@ -235,9 +283,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm z_{1-\\frac{\\alpha}{2}} \\cdot \\frac{\\sigma}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard, \\(\\sigma\\) est l\'écart-type de la population, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, z = 1.96, \\sigma = 10\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 1.96 \\cdot \\frac{10}{\\sqrt{14}} = 59.07143 \\pm 5.238224\\), ce qui donne \\([53.83311,  64.30975]\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm z_{1-\\frac{\\alpha}{2}} \\cdot \\frac{\\sigma}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard, \\(\\sigma\\) est l\'écart-type de la population, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, z = 1.96, \\sigma = 10\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 1.96 \\cdot \\frac{10}{\\sqrt{14}} = 59.07143 \\pm 5.238224\\), ce qui donne \\([53.83311,  64.30975]\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q3-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q3-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 4
 
@@ -261,11 +318,18 @@ cat(longmcq2(opts))
 
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Puisque la variance de la population est inconnue et que l\'échantillon est petit, vous devez utiliser le quantile de la distribution t de Student avec \\(n-1\\) degrés de liberté.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Le quantile de la distribution t de Student pour un intervalle de confiance à \\(95\\%\\) avec \\(13\\) degrés de liberté (puisque \\(n = 14\\)) est approximativement \\(2.16\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Puisque la variance de la population est inconnue et que l\'échantillon est petit, vous devez utiliser le quantile de la distribution t de Student avec \\(n-1\\) degrés de liberté.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'Le quantile de la distribution t de Student pour un intervalle de confiance à \\(95\\%\\) avec \\(13\\) degrés de liberté (puisque \\(n = 14\\)) est approximativement \\(2.16\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q4-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q4-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 5
 
@@ -289,9 +353,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm t_{1-\\frac{\\alpha}{2}} \\cdot \\frac{s}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(t_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution de Student, \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, t_{1-\\frac{\\alpha}{2}} = 2.16, s = 9.926377\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 2.16 \\cdot \\frac{9.926377}{\\sqrt{14}} = 59.07143 \\pm 5.73132\\), ce qui donne \\([ 53.34011, 64.80275]\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm t_{1-\\frac{\\alpha}{2}} \\cdot \\frac{s}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(t_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution de Student, \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, t_{1-\\frac{\\alpha}{2}} = 2.16, s = 9.926377\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 2.16 \\cdot \\frac{9.926377}{\\sqrt{14}} = 59.07143 \\pm 5.73132\\), ce qui donne \\([ 53.34011, 64.80275]\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q5-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q5-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 6
 Quelle est l\'interprétation correcte de cet intervalle de confiance dans ce contexte ?
@@ -314,9 +387,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Un paramètre est ou n\'est pas inclus dans un intervalle de confiance.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'L\'idée est que si l\'on répète l\'échantillonnage (et donc le calcul de l\'intervalle de confiance) un grand nombre de fois, environ \\(95 \\%\\) de ces intervalles contiendront la moyenne de la population, d\'où la troisième proposition. L’incertitude porte sur la méthode et non sur le paramètre (la moyenne de la population), qui est fixe, donc la première propostion est fausse. Une subtilité est que dans ce contexte, l\'intervalle de confiance est observé et donc fixé, plus rien n\'est aléatoire, donc la dernière propostion est fausse.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Un paramètre est ou n\'est pas inclus dans un intervalle de confiance.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'L\'idée est que si l\'on répète l\'échantillonnage (et donc le calcul de l\'intervalle de confiance) un grand nombre de fois, environ \\(95 \\%\\) de ces intervalles contiendront la moyenne de la population, d\'où la troisième proposition. L’incertitude porte sur la méthode et non sur le paramètre (la moyenne de la population), qui est fixe, donc la première propostion est fausse. Une subtilité est que dans ce contexte, l\'intervalle de confiance est observé et donc fixé, plus rien n\'est aléatoire, donc la dernière propostion est fausse.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q6-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q6-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ---
@@ -350,9 +432,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'L\'hypothèse nulle (\\(H_0\\)) suppose que l\'espérance du principe actif par dose est de \\(50\\) mg. L\'hypothèse alternative (\\(H_{\\alpha}\\)) suggère que l\'espérance du principe actif par dose est différente de \\(50\\) mg.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les hypothèses sont formulées comme suit : \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'L\'hypothèse nulle (\\(H_0\\)) suppose que l\'espérance du principe actif par dose est de \\(50\\) mg. L\'hypothèse alternative (\\(H_{\\alpha}\\)) suggère que l\'espérance du principe actif par dose est différente de \\(50\\) mg.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Les hypothèses sont formulées comme suit : \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q7-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q7-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question  8
@@ -379,10 +470,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utiliser la formule \\(z_{obs} = \\frac{\\bar{X} - \\mu_0}{\\sigma / \\sqrt{n}}\\)', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
-
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On a \\(z_{obs} = \\frac{50.3 - 50}{2 / \\sqrt{20}} = \\frac{0.3}{0.447} \\approx 0.67\\). La statistique de test est donc \\(z_{obs} = 0.67\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utiliser la formule \\(z_{obs} = \\frac{\\bar{X} - \\mu_0}{\\sigma / \\sqrt{n}}\\)', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'On a \\(z_{obs} = \\frac{50.3 - 50}{2 / \\sqrt{20}} = \\frac{0.3}{0.447} \\approx 0.67\\). La statistique de test est donc \\(z_{obs} = 0.67\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q8-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q8-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -411,9 +510,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q9-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q9-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -438,9 +546,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\) et comparer la p-valeur au niveau de signification \\(\\alpha\\).', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div><div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\). Comme \\(0.5028 > 0.05\\), on ne rejette pas \\(H_0\\) au niveau de signification de 5 %.', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Calculez la p-valeur d’un test bilatéral pour \\(z_{obs} = 0.67\\) et comparer la p-valeur au niveau de signification \\(\\alpha\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\). Comme \\(0.5028 > 0.05\\), on ne rejette pas \\(H_0\\) au niveau de signification de 5 %.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q10-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q10-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 11
@@ -458,9 +575,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utiliser la formule pour la taille d\'échantillon \\(n\\) donnée dans les slides et le bon quantile.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La formule a utilisé est \\(n=(z_{1-\\alpha/2}\\sigma/E)^2\\) avec \\(z_{1-\\alpha/2}=z_{0.975}\\approx 1.96\\), \\(E=0.5\\) et \\(\\sigma=2\\). On obtient \\(n=(1.96\\cdot2\\cdot2)^2\\approx 61.47\\Rightarrow62.\\)', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Utiliser la formule pour la taille d\'échantillon \\(n\\) donnée dans les slides et le bon quantile.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'La formule a utilisé est \\(n=(z_{1-\\alpha/2}\\sigma/E)^2\\) avec \\(z_{1-\\alpha/2}=z_{0.975}\\approx 1.96\\), \\(E=0.5\\) et \\(\\sigma=2\\). On obtient \\(n=(1.96\\cdot2\\cdot2)^2\\approx 61.47\\Rightarrow62.\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q11-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q11-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 12
 Un test-t unilatéral à droite est mené sur un échantillon de \\(15\\) observations, avec une statistique de test \\(t_{\\text{obs}}=2.5\\). Le niveau de signification est \\(\\alpha=0.05\\). Faut-il rejeter l\'hypothèse nulle ?
@@ -481,8 +607,17 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Calculez la bonne valeur critique.', 'hint')"> ❓ Indice </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On rejette \\(H_0\\) si \\(t_{\\text{obs}}>t_{1-\\alpha,\\text{df}}\\). Ici \\(\\alpha=0.05\\), \\(\\text{df}=n-1=14\\) et \\(t_{1-\\alpha, \\text{df}}=1.7613\\) selon la table dans les slides. Donc on rejette \\(H_0\\) car \\(2.5>1.7613\\).', 'explanation')"> 💡 Explication </button><div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Calculez la bonne valeur critique.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'On rejette \\(H_0\\) si \\(t_{\\text{obs}}>t_{1-\\alpha,\\text{df}}\\). Ici \\(\\alpha=0.05\\), \\(\\text{df}=n-1=14\\) et \\(t_{1-\\alpha, \\text{df}}=1.7613\\) selon la table dans les slides. Donc on rejette \\(H_0\\) car \\(2.5>1.7613\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q12-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q12-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 

@@ -75,8 +75,21 @@ longmcq2 <- function(opts) {
 
 ```{=html}
 <script type="text/javascript">
-function toggleAlert(event, message, type) {
-  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+function toggleAlert(alertId, message, type) {
+  var alertBox = document.getElementById(alertId);
+  if (!alertBox) return;
+
+  // Close all other alerts in the same question-alerts container
+  var alertsContainer = alertBox.closest('.question-alerts');
+  if (alertsContainer) {
+    var allAlerts = alertsContainer.querySelectorAll('.alert');
+    allAlerts.forEach(function(alert) {
+      if (alert.id !== alertId) {
+        alert.style.display = "none";
+      }
+    });
+  }
+
   var alertMessage = alertBox.querySelector(".alertMessage");
   var alertType = alertBox.querySelector(".alertType");
 
@@ -87,8 +100,8 @@ function toggleAlert(event, message, type) {
     alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -144,6 +157,23 @@ function toggleAlert(event, message, type) {
   font-size: 16px;
   width: fit-content; /* Prevent full-width alerts */
 }
+/* Horizontal button layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Alerts container below buttons */
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
 ```
 
@@ -174,20 +204,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), \\(\\Phi(0) = 0.5\\). La moyenne et à la médiane de la distribution correspondent à \\(0\\) et ainsi, la probabilité qu\'une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à \\(0\\) est de \\(0.5\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q1-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), \\(\\Phi(0) = 0.5\\). La moyenne et à la médiane de la distribution correspondent à \\(0\\) et ainsi, la probabilité qu\'une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à \\(0\\) est de \\(0.5\\).', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q1-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -218,20 +245,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>0) = 1- \\Phi(0) = 1- 0.5 = 0.5\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q2-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>0) = 1- \\Phi(0) = 1- 0.5 = 0.5\\).', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q2-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -259,20 +283,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.5\\)', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.5\\)', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', '\\( \\Phi^{-1}(0.50)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.50\\). Ainsi, \\( \\Phi^{-1}(0.50) = 0\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q3-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, '\\( \\Phi^{-1}(0.50)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.50\\). Ainsi, \\( \\Phi^{-1}(0.50) = 0\\)', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q3-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -301,20 +322,17 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.9\\)', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.9\\)', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', '\\( \\Phi^{-1}(0.90)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.90\\). Ainsi, \\( \\Phi^{-1}(0.90) \\approx 1.28\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q4-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, '\\( \\Phi^{-1}(0.90)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.90\\). Ainsi, \\( \\Phi^{-1}(0.90) \\approx 1.28\\)', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q4-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -338,20 +356,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">
-❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>1) = 1- \\Phi(1) = 1- 0.8413447 = 0.1586553 \\approx 0.16\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q5-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>1) = 1- \\Phi(1) = 1- 0.8413447 = 0.1586553 \\approx 0.16\\).', 'explanation')">
-💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q5-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -383,9 +398,18 @@ cat(longmcq2(opts))
 ```
 
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la table de la distribution cumulative de la loi normale standard et pensez à calculer la complémentaire.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'D’après la table de la loi normale standard, \\(P(Z > 1.4) = 1 - \\Phi(1.4) = 1 - 0.9192 = 0.0808\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard et pensez à calculer la complémentaire.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'D’après la table de la loi normale standard, \\(P(Z > 1.4) = 1 - \\Phi(1.4) = 1 - 0.9192 = 0.0808\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q6-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q6-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -407,9 +431,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la table de la distribution cumulative de la loi normale standard.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On utilise la table de la loi normale standard : \\(P(Z < -1.1) = \\Phi(-1.1) = 0.1357\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'On utilise la table de la loi normale standard : \\(P(Z < -1.1) = \\Phi(-1.1) = 0.1357\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q7-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q7-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 
@@ -431,9 +464,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la table de la distribution cumulative de la loi normale standard et soustrayez deux probabilités.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On utilise \\(P(a < Z < b) = \\Phi(b) - \\Phi(a)\\) avec \\(a = -0.9\\) et \\(b = 1.2\\). On trouve \\(P(-0.9 < Z < 1.2) = 0.8849 - 0.1841 = 0.7008\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard et soustrayez deux probabilités.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'On utilise \\(P(a < Z < b) = \\Phi(b) - \\Phi(a)\\) avec \\(a = -0.9\\) et \\(b = 1.2\\). On trouve \\(P(-0.9 < Z < 1.2) = 0.8849 - 0.1841 = 0.7008\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q8-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q8-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 9
@@ -454,9 +496,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Standardisez en calculant \\(Z = (X - \\mu) / \\sigma\\), puis utilisez la table de la distribution normale.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On calcule \\(Z = (4 - 5.2) / \\sqrt{1.21} = -1.09\\). En utilisant la table, \\(P(Z < -1.09) = 0.1379\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Standardisez en calculant \\(Z = (X - \\mu) / \\sigma\\), puis utilisez la table de la distribution normale.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'On calcule \\(Z = (4 - 5.2) / \\sqrt{1.21} = -1.09\\). En utilisant la table, \\(P(Z < -1.09) = 0.1379\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q9-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q9-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 ## Question 10
@@ -477,9 +528,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Standardisez les deux valeurs, puis utilisez la table et appliquez \\( P(a < Z < b) = \\Phi(b) - \\Phi(a) \\).', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On calcule \\(Z_1 = (1 - 2.5) / 1.2 = -1.25\\) et \\(Z_2 = (4 - 2.5) / 1.2 = 1.25\\). Avec la table, \\(P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Standardisez les deux valeurs, puis utilisez la table et appliquez \\( P(a < Z < b) = \\Phi(b) - \\Phi(a) \\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'On calcule \\(Z_1 = (1 - 2.5) / 1.2 = -1.25\\) et \\(Z_2 = (4 - 2.5) / 1.2 = 1.25\\). Avec la table, \\(P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q10-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q10-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 11
 
@@ -499,9 +559,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = 0.80\\), puis déstandardisez.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Le 80e percentile correspond à \\(P(Z\\leq z_{80}) = 0.80\\), ce qui donne \\(z_{80} \\approx 0.84\\). On déstandardise avec \\(X = \\mu + \\sigma z_{80} = 70 + 10 \\times 0.84 = 78.4\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = 0.80\\), puis déstandardisez.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'Le 80e percentile correspond à \\(P(Z\\leq z_{80}) = 0.80\\), ce qui donne \\(z_{80} \\approx 0.84\\). On déstandardise avec \\(X = \\mu + \\sigma z_{80} = 70 + 10 \\times 0.84 = 78.4\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q11-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q11-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 ## Question 12
 
@@ -521,9 +590,18 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<button class="custom-button hint" onclick="toggleAlert(event, 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = \\alpha\\) (quelle valeur pour \\(\\alpha\\) ?), puis déstandardisez.', 'hint')"> ❓ Indice </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div> <div style="margin-top: 4px;"></div> 
-
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Le 90e percentile correspond à \\(P(Z\\leq z_{90}) = 0.90\\), ce qui donne \\(z_{90} \\approx 1.28\\). On déstandardise avec \\(X = \\mu + \\sigma z_{90} = 0.75 + 0.10 \\times 1.28 = 0.878\\).', 'explanation')"> 💡 Explication </button> <div class="alert alert-info" style="display: none;"> <strong class="alertType"></strong>: <span class="alertMessage"></span> </div>
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = \\alpha\\) (quelle valeur pour \\(\\alpha\\) ?), puis déstandardisez.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Le 90e percentile correspond à \\(P(Z\\leq z_{90}) = 0.90\\), ce qui donne \\(z_{90} \\approx 1.28\\). On déstandardise avec \\(X = \\mu + \\sigma z_{90} = 0.75 + 0.10 \\times 1.28 = 0.878\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q12-hint" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+<div class="alert alert-info" id="q12-expl" style="display: none;">
+  <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
+</div>
 
 
 

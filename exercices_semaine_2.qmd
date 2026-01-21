@@ -82,8 +82,21 @@ longmcq2 <- function(opts) {
 
 <!-- JavaScript -->
 <script type="text/javascript">
-function toggleAlert(event, message, type) {
-  var alertBox = event.target.nextElementSibling; // Select the alert box next to the clicked button
+function toggleAlert(alertId, message, type) {
+  var alertBox = document.getElementById(alertId);
+  if (!alertBox) return;
+
+  // Close all other alerts in the same question-alerts container
+  var alertsContainer = alertBox.closest('.question-alerts');
+  if (alertsContainer) {
+    var allAlerts = alertsContainer.querySelectorAll('.alert');
+    allAlerts.forEach(function(alert) {
+      if (alert.id !== alertId) {
+        alert.style.display = "none";
+      }
+    });
+  }
+
   var alertMessage = alertBox.querySelector(".alertMessage");
   var alertType = alertBox.querySelector(".alertType");
 
@@ -94,8 +107,8 @@ function toggleAlert(event, message, type) {
     alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
 
     // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';  
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';  
+    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
+    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
     alertBox.style.display = "block";  // Show the alert
 
     MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
@@ -148,6 +161,23 @@ function toggleAlert(event, message, type) {
   font-size: 16px;
   width: fit-content; /* Prevent full-width alerts */
 }
+/* Horizontal button layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Alerts container below buttons */
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
 
 <!-- MathJax for Rendering Math -->
@@ -178,23 +208,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la probabilité totale de \\(1\\).', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Pensez à la probabilité totale de \\(1\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'La règle du complément stipule que la probabilité de l\'événement complémentaire \\(A^C\\) est \\(1-P(A)\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q1-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La règle du complément stipule que la probabilité de l\'événement complémentaire \\(A^C\\) est \\(1-P(A)\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q1-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -218,23 +242,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Deux événements sont mutuellement exclusifs s\'ils ne peuvent pas se produire en même temps. Cela signifie que leur intersection est vide.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Deux événements sont mutuellement exclusifs s\'ils ne peuvent pas se produire en même temps. Cela signifie que leur intersection est vide.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'La probabilité conditionnelle \\(P(A∣B)\\) est la probabilité que \\(A\\) se produise sachant que \\(B\\) s\'est produit. Puisque \\(A\\)  et \\(B\\) ne peuvent pas se produire ensemble, \\(P(A∣B)=P(A∣B)=0\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q2-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité conditionnelle \\(P(A∣B)\\) est la probabilité que \\(A\\) se produise sachant que \\(B\\) s\'est produit. Puisque \\(A\\)  et \\(B\\) ne peuvent pas se produire ensemble, \\(P(A∣B)=P(A∣B)=0\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q2-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -264,26 +282,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Quelles sont les paires dont la somme est \\(8\\)?', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Quelles sont les paires dont la somme est \\(8\\)?', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'Les paires de dés donnant une somme de \\(8\\) sont \\((2,6), (6,2), (3,5), (5,3), (4,4) \\). Parmi elles, \\(2\\) ont un \\(6\\), soit \\(\\frac{2}{5}\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q3-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les paires de dés donnant une somme de \\(8\\) sont \\((2,6), (6,2), (3,5), (5,3), (4,4) \\). Parmi elles, \\(2\\) ont un \\(6\\), soit \\(\\frac{2}{5}\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q3-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -316,26 +325,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Pensez à la règle de l\'union des probabilités.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Pensez à la règle de l\'union des probabilités.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'Utilisation de la règle de l’union des probabilités : \\( P(C \\cup T) = P(C) + P(T) - P(C \\cap T) \\), soit \\( \\frac{60}{100} + \\frac{40}{100} - \\frac{20}{100} = \\frac{80}{100}\\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q4-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Utilisation de la règle de l’union des probabilités : \\( P(C \\cup T) = P(C) + P(T) - P(C \\cap T) \\), soit \\( \\frac{60}{100} + \\frac{40}{100} - \\frac{20}{100} = \\frac{80}{100}\\)', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q4-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -366,26 +366,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Écrivez chacun des termes.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Écrivez chacun des termes.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', '\\(S_5 = -\\frac{1}{1^2} + \\frac{1}{2^2} - \\frac{1}{ 3^2 } + \\frac{1}{4^2} - \\frac{1}{25} = -\\frac{3019}{3600} \\)', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q5-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, '\\(S_5 = -\\frac{1}{1^2} + \\frac{1}{2^2} - \\frac{1}{ 3^2 } + \\frac{1}{4^2} - \\frac{1}{25} = -\\frac{3019}{3600} \\)', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q5-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -424,23 +415,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’espérance : \\(E(X) = \\sum_{\\text{tout }k} k P(X=k)\\) où \\(k\\) correspond à un type de boule.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Utilisez la formule de l’espérance : \\(E(X) = \\sum_{\\text{tout }k} k P(X=k)\\) où \\(k\\) correspond à un type de boule.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'L’espérance se calcule par : \\(E(X) = (2 \\times 0.1) + (4 \\times 0.2) + (6 \\times 0.3) + (8 \\times 0.25) + (10 \\times 0.15) = 6.3\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q6-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'L’espérance se calcule par : \\(E(X) = (2 \\times 0.1) + (4 \\times 0.2) + (6 \\times 0.3) + (8 \\times 0.25) + (10 \\times 0.15) = 6.3\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q6-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -461,23 +446,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule fondamentale de la probabilité.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la formule fondamentale de la probabilité.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'On cherche \\(P(X\\geq6)=P(6)+P(8)+P(10)=0.3 + 0.25 + 0.15 = 0.7\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q7-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'On cherche \\(P(X\\geq6)=P(6)+P(8)+P(10)=0.3 + 0.25 + 0.15 = 0.7\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q7-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 ---
@@ -511,23 +490,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’union des probabilités.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utilisez la formule de l’union des probabilités.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'La probabilité qu’un pays soit membre de l’ONU ou de l’OMC est donnée par : \\( P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\). En remplaçant : \\( \\frac{120}{200} + \\frac{90}{200} - \\frac{50}{200} = 0.80 \\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q8-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité qu’un pays soit membre de l’ONU ou de l’OMC est donnée par : \\( P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\). En remplaçant : \\( \\frac{120}{200} + \\frac{90}{200} - \\frac{50}{200} = 0.80 \\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q8-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -548,23 +521,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la formule de l’union des probabilités.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Utilisez la formule de l’union des probabilités.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Les pays uniquement membres de l’ONU sont : \\( 120 - (50 + 30 - 10) = 50 \\), soit une probabilité de \\( \\frac{50}{200} = 0.25 \\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q9-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les pays uniquement membres de l’ONU sont : \\( 120 - (50 + 30 - 10) = 50 \\), soit une probabilité de \\( \\frac{50}{200} = 0.25 \\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q9-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -585,23 +552,17 @@ opts <- c(
 cat(longmcq2(opts))
 ```
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Additionnez les pays qui sont dans plusieurs organisations. Évitez de compter plusieurs fois le même pays.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Additionnez les pays qui sont dans plusieurs organisations. Évitez de compter plusieurs fois le même pays.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Les pays qui sont membres d’au moins deux organisations sont ceux qui sont dans les intersections : \\( 50 + 30 + 20 - 2 \\times 10 = 80 \\), soit une probabilité de \\(\\frac{80}{200} = 0.40 \\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q10-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les pays qui sont membres d’au moins deux organisations sont ceux qui sont dans les intersections : \\( 50 + 30 + 20 - 2 \\times 10 = 80 \\), soit une probabilité de \\(\\frac{80}{200} = 0.40 \\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q10-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -631,23 +592,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la définition de la probabilité conditionnelle : \\( P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\).', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Utilisez la définition de la probabilité conditionnelle : \\( P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'La probabilité conditionnelle est donnée par : \\( P(UA | ONU) = \\frac{P(UA \\cap ONU)}{P(ONU)} = \\frac{30}{120} = 0.25 \\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q11-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'La probabilité conditionnelle est donnée par : \\( P(UA | ONU) = \\frac{P(UA \\cap ONU)}{P(ONU)} = \\frac{30}{120} = 0.25 \\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q11-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -682,23 +637,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Comparez \\( P(A \\cap B) \\) avec \\( P(A) P(B) \\) pour vérifier l\’indépendance.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Comparez \\( P(A \\cap B) \\) avec \\( P(A) P(B) \\) pour vérifier l\’indépendance.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Les événements sont indépendants si \\( P(A \\cap B) = P(A) P(B) \\). Ici, \\( P(ONU) = \\frac{120}{200} \\), \\( P(UA) = \\frac{60}{200} \\) et \\( P(ONU \\cap UA) =  \\frac{30}{200} = 0.15 \\). Or, \\( P(ONU) P(UA) = \\frac{120}{200} \\times \\frac{60}{200} = 0.18 \\neq 0.15 \\), donc les événements ne sont pas indépendants.', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q12-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Les événements sont indépendants si \\( P(A \\cap B) = P(A) P(B) \\). Ici, \\( P(ONU) = \\frac{120}{200} \\), \\( P(UA) = \\frac{60}{200} \\) et \\( P(ONU \\cap UA) =  \\frac{30}{200} = 0.15 \\). Or, \\( P(ONU) P(UA) = \\frac{120}{200} \\times \\frac{60}{200} = 0.18 \\neq 0.15 \\), donc les événements ne sont pas indépendants.', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q12-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
@@ -734,23 +683,17 @@ cat(longmcq2(opts))
 
 
 
-<!-- Button for Hint -->
-<button class="custom-button hint" onclick="toggleAlert(event, 'Utilisez la règle de multiplication pour des événements indépendants.', 'hint')">
-  ❓ Indice
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="question-buttons">
+<button class="custom-button hint" onclick="toggleAlert('q13-hint', 'Utilisez la règle de multiplication pour des événements indépendants.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q13-expl', 'Pour des événements indépendants, la probabilité que les deux personnes électrices participent est le produit des probabilités individuelles : \\(0.55 \\times 0.50 = 0.275\\).', 'explanation')">💡 Explication</button>
+</div>
+<div class="question-alerts">
+<div class="alert alert-info" id="q13-hint" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-
-<div style="margin-top: 4px;"></div>
-
-
-<!-- Button for Explanation -->
-<button class="custom-button explanation" onclick="toggleAlert(event, 'Pour des événements indépendants, la probabilité que les deux personnes électrices participent est le produit des probabilités individuelles : \\(0.55 \\times 0.50 = 0.275\\).', 'explanation')">
-  💡 Explication
-</button>
-<div class="alert alert-info" style="display: none;">
+<div class="alert alert-info" id="q13-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
+</div>
 </div>
 
 
