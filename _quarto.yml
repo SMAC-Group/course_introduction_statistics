@@ -24,8 +24,6 @@ website:
     left:
     - href: index.qmd
       text: Accueil
-    - href: demo_q_a.qmd
-      text: Demo
     - href: chatbot_slides.qmd
       text: Chatbot Slides
     - text: Exercices
