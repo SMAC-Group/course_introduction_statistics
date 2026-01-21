@@ -174,6 +174,18 @@ function toggleAlert(alertId, message, type) {
 .question-alerts .alert {
   margin-bottom: 8px;
 }
+/* AI Help button - light purple with dark icon, purple on hover */
+.custom-button.ai-help {
+  background: #E8E0F0;
+  border: 2px solid #5a3d8a;
+}
+
+.custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+  transform: scale(1.05);
+}
 </style>
 ```
 
@@ -215,6 +227,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Relisez la notion de statistique et de paramètres dans les slides de la semaine \\(8\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q1-expl', '\\(80\\) et \\(5\\) sont respectivement l\'espérance et l\'écart type de la distribution des scores et sont donc des paramètres. \\(75\\) est la moyenne empirique (aussi notée \\(\\bar{X}\\)) de l\'échantillon et est ainsi une statistique', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Les scores d&#39;un examen de physique sont distribués normalement avec une espérance de (80) et un écart-type de (5). Si nous sélectionnons aléatoirement (20) étudiants de la classe, leur score moyen est de (75). Laquelle de ces proposit&quot;, &quot;Relisez la notion de statistique et de paramètres dans les slides de la semaine (8).&quot;, &quot;(80) et (5) sont respectivement l\&#39;espérance et l\&#39;écart type de la distribution des scores et sont donc des paramètres. (75) est la moyenne empirique (aussi notée (barX)) de l\&#39;échantillon et est ainsi une statistique&quot;, &quot;(80) et (5) sont des paramètres. (75) est une statistique&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -251,6 +266,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Quelle est la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Si la taille de l\'échantillon \\(n\\) augmente, la variance de l\'estimateur \\(\\bar{X}\\), donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\), diminue. Cela signifie que \\(\\bar{X}\\) devient plus précis (moins variable) car les valeurs de \\(\\bar{X}\\) sont plus concentrées autour de la vraie valeur de l\'espérance \\(\\mu\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Si la taille de l&#39;échantillon (n) augmente, quelle affirmation est correcte à propos de (barX), l&#39;estimateur de l&#39;espérance (mu)?&quot;, &quot;Quelle est la variance de (barX)?&quot;, &quot;Si la taille de l\&#39;échantillon (n) augmente, la variance de l\&#39;estimateur (barX), donnée par (textVar(barX) = fracsigma^2n), diminue. Cela signifie que (barX) devient plus précis (moins variable) car les valeurs de (barX) sont plus concentrées autour de la vraie valeur de l\&#39;espérance (mu).&quot;, &quot;L&#39;estimateur (barX) devient moins variable&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -285,6 +303,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Quelle est la formule de la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La variance de \\(\\bar{X}\\) est donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\). Dans ce cas, \\(\\sigma^2 = 25\\) et \\(n = 100\\), donc \\(\\text{Var}(\\bar{X}) = \\frac{25}{100} = 0.25\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 50) et une variance (sigma^2 = 25). On considère un échantillon de taille (n = 100). Quelle est la variance de (barX), la moyenne de l&quot;, &quot;Quelle est la formule de la variance de (barX)?&quot;, &quot;La variance de (barX) est donnée par (textVar(barX) = fracsigma^2n). Dans ce cas, (sigma^2 = 25) et (n = 100), donc (textVar(barX) = frac25100 = 0.25).&quot;, &quot;(0.25)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -323,6 +344,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 50\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{25}{100} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit supérieure à 51 est donnée par \\(P(\\bar{X} > 51) = P\\left(Z > \\frac{51 - 50}{0.5}\\right) = P(Z > 2) = 1- \\Phi(2) \\approx 0.0228\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 50) et une variance (sigma^2 = 25). Maintenant, on considère un échantillon de taille (n = 100). Quelle est la probabilité que la moyenne de l&quot;, &quot;Utilisez la distribution normale de (barX) et calculez la probabilité en standardisant la variable.&quot;, &quot;La moyenne de l\&#39;échantillon (barX) suit une distribution normale avec une espérance (mu = 50) et une variance (textVar(barX) = fracsigma^2n = frac25100 = 0.25). L\&#39;écart-type de (barX) est donc (sqrt0.25 = 0.5). La probabilité que (barX) soit supérieure à 51 est donnée par (P(barX &gt; 51) = Pleft(Z &gt; frac51 - 500.5right) = P(Z &gt; 2) = 1- Phi(2) approx 0.0228).&quot;, &quot;(0.0228)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -361,6 +385,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 100\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{16}{64} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit inférieure à \\(99\\) est donnée par \\(P(\\bar{X} < 99) = P\\left(Z < \\frac{99 - 100}{0.5}\\right) = P(Z < -2) = 0.0228\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 100) et une variance (sigma^2 = 16). Maintenant, on considère un échantillon de taille (n = 64). Quelle est la probabilité que la moyenne de l&quot;, &quot;Utilisez la distribution normale de (barX) et calculez la probabilité en standardisant la variable.&quot;, &quot;La moyenne de l\&#39;échantillon (barX) suit une distribution normale avec une espérance (mu = 100) et une variance (textVar(barX) = fracsigma^2n = frac1664 = 0.25). L\&#39;écart-type de (barX) est donc (sqrt0.25 = 0.5). La probabilité que (barX) soit inférieure à (99) est donnée par (P(barX &lt; 99) = Pleft(Z &lt; frac99 - 1000.5right) = P(Z &lt; -2) = 0.0228).&quot;, &quot;(0.0228)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -396,6 +423,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Calculez \\(\\bar{X}\\) et \\(s\\) à l\'aide de leur définition.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'Pour calculer la moyenne \\(\\bar{X}\\), nous additionnons toutes les valeurs de l\'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\) et les divisons par le nombre total de valeurs, soit \\(6\\), ce qui donne \\(\\bar{X} = \\frac{28.95}{6} = 4.825\\). Pour l\'écart type \\(s\\), nous calculons d\'abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit \\((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + \\ldots + (8.35 - 4.825)^2 = 35.25875\\), puis nous divisons cette somme par \\(n-1 = 5\\) et prenons la racine carrée du résultat, ce qui donne \\(s = \\sqrt{\\frac{35.25875}{5}} = 2.655513 \\approx 2.656\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère l&#39;échantillon suivant: (1.5, 2.6, 3.9, 5.4,7.2, 8.35). Calculez la moyenne (barX) et l&#39;écart type (s) de cet ensemble de données.&quot;, &quot;Calculez (barX) et (s) à l\&#39;aide de leur définition.&quot;, &quot;Pour calculer la moyenne (barX), nous additionnons toutes les valeurs de l\&#39;échantillon (1.5, 2.6, 3.9, 5.4,7.2, 8.35) et les divisons par le nombre total de valeurs, soit (6), ce qui donne (barX = frac28.956 = 4.825). Pour l\&#39;écart type (s), nous calculons d\&#39;abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit ((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + ldots + (8.35 - 4.825)^2 = 35.25875), puis nous divisons cette somme par (n-1 = 5) et prenons la racine carrée du résultat, ce qui donne (s = sqrtfrac35.258755 = 2.655513 approx 2.656).&quot;, &quot;(barX = 4.825, s approx 2.66 )&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -431,6 +461,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Calculez \\(e.s.(\\bar{X})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q7-expl', '\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = \\frac{2.655513}{\\sqrt{6}} =  1.084109\\)', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant la moyenne (barX) et l&#39;écart type (s) que vous avez calculés dans l&#39;exercice précédent, déterminez l&#39;erreur standard de la moyenne (fracssqrtn) pour l&#39;échantillon (1.5, 2.6, 3.9, 5.4,7.2, 8.35).&quot;, &quot;Calculez (e.s.(barX)) à l\&#39;aide de sa définition.&quot;, &quot;(e.s.(barX) = fracssqrtn = frac2.655513sqrt6 = 1.084109)&quot;, &quot;(e.s.(barX) = fracssqrtn = 1.084109)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -479,6 +512,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Calculez \\(\\hat{p}\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'Ici on a \\(X=24\\) paniers à trois points réussis pour \\(n=54\\) tentatives, soit une propotion de \\(\\hat{p}=X/n\\approx0.4444\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Basé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?&quot;, &quot;Calculez (hatp) à l\&#39;aide de sa définition.&quot;, &quot;Ici on a (X=24) paniers à trois points réussis pour (n=54) tentatives, soit une propotion de (hatp=X/napprox0.4444).&quot;, &quot;(0.4444)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -513,6 +549,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Calculez \\(e.s.(\\hat{p})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Ici on a \\(\\hat{p}=0.4444\\) (Question 8) et \\(n=54\\), donc \\(e.s.(\\hat{p})=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx0.0676\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Basé sur ces données, quelle est l\&#39;erreur standard de la proportion de réussites à 3 points de Stephen Curry ?&quot;, &quot;Calculez (e.s.(hatp)) à l\&#39;aide de sa définition.&quot;, &quot;Ici on a (hatp=0.4444) (Question 8) et (n=54), donc (e.s.(hatp)=sqrthatp(1-hatp)/napprox0.0676).&quot;, &quot;(0.0676)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -548,6 +587,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoir les conditions d\'application du TCL dans les slides.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Ici on a \\(n=54\\). Bien que \\(p\\) (le paramètre) ne soit pas connu,on a \\(n\\hat{p}=24>10\\) et \\(n(1-\\hat{p}=30>10\\) qui sont les deux indications que la taille d\'échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?&quot;, &quot;Revoir les conditions d\&#39;application du TCL dans les slides.&quot;, &quot;Ici on a (n=54). Bien que (p) (le paramètre) ne soit pas connu,on a (nhatp=24&gt;10) et (n(1-hatp=30&gt;10) qui sont les deux indications que la taille d\&#39;échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.&quot;, &quot;Le TCL s’applique car l&#39;échantillon est suffisamment grand pour justifier l’approximation normale.&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -584,6 +626,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Revoir l\'approximation donnée par le TCL dans les slides.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'Par hypothèse on a \\(p=0.397\\). Ici on \\(n=54\\). Donc on déduit que \\(\\sqrt{p(1-p)/n}\\approx0.0666\\). On conclut que \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\) grâce au TCL.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Supposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de (p=0.397). En supposant que le TCL s&#39;applique, quelle est la distribution approximative de (hatp) ?&quot;, &quot;Revoir l\&#39;approximation donnée par le TCL dans les slides.&quot;, &quot;Par hypothèse on a (p=0.397). Ici on (n=54). Donc on déduit que (sqrtp(1-p)/napprox0.0666). On conclut que (hatpsimmathcalN(0.397, 0.0666^2)) grâce au TCL.&quot;, &quot;(hatpsimmathcalN(0.397, 0.0666^2))&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">

@@ -174,6 +174,18 @@ function toggleAlert(alertId, message, type) {
 .question-alerts .alert {
   margin-bottom: 8px;
 }
+/* AI Help button - light purple with dark icon, purple on hover */
+.custom-button.ai-help {
+  background: #E8E0F0;
+  border: 2px solid #5a3d8a;
+}
+
+.custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+  transform: scale(1.05);
+}
 </style>
 ```
 
@@ -215,6 +227,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Relisez les définitions de la variance, de l\'écart-type et de l\'IQR.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'Il y a plus de variabilité dans les données lorsque l\'IQR, la variance ou l\'écart-type augmentent.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Il y a plus de variabilité dans les données si :&quot;, &quot;Relisez les définitions de la variance, de l\&#39;écart-type et de l\&#39;IQR.&quot;, &quot;Il y a plus de variabilité dans les données lorsque l\&#39;IQR, la variance ou l\&#39;écart-type augmentent.&quot;, &quot;L’IQR et/ou l’écart-type augmentent&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -256,6 +271,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Calculez d\'abord la moyenne en additionnant les nombres et en divisant par le nombre d\'observations.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Pour calculer la moyenne, additionnez les nombres : \\(4 + 8 + 6 + 5 + 9 = 32\\). Divisez par le nombre d\'observations, soit \\(5\\) : \\(32 / 5 = 6.4\\). Pour la variance, utilisez la formule suivante : \\(s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_{i}-\\bar{x})^{2}\\). Calculez chaque terme : \\((4-6.4)^2 = 5.76\\), \\((8-6.4)^2 = 2.56\\), \\((6-6.4)^2 = 0.16\\), \\((5-6.4)^2 = 1.96\\), \\((9-6.4)^2 = 6.76\\). Additionnez ces termes : \\(5.76 + 2.56 + 0.16 + 1.96 + 6.76 = 17.2\\). Divisez par \\(4\\)  : \\( 17.2 / 4 = 4.3\\). La bonne réponse est donc \\(\\bar{x} = 6.4\\), \\(s^2 = 4.3\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit l&#39;échantillon composé des nombres suivants : (4,8,6,5,9). Calculez la moyenne de l&#39;échantillon (barx) et la variance de l&#39;échantillon (s^2).&quot;, &quot;Calculez d\&#39;abord la moyenne en additionnant les nombres et en divisant par le nombre d\&#39;observations.&quot;, &quot;Pour calculer la moyenne, additionnez les nombres : (4 + 8 + 6 + 5 + 9 = 32). Divisez par le nombre d\&#39;observations, soit (5) : (32 / 5 = 6.4). Pour la variance, utilisez la formule suivante : (s^2 = frac1n-1 sum_i=1^n (x_i-barx)^2). Calculez chaque terme : ((4-6.4)^2 = 5.76), ((8-6.4)^2 = 2.56), ((6-6.4)^2 = 0.16), ((5-6.4)^2 = 1.96), ((9-6.4)^2 = 6.76). Additionnez ces termes : (5.76 + 2.56 + 0.16 + 1.96 + 6.76 = 17.2). Divisez par (4) : ( 17.2 / 4 = 4.3). La bonne réponse est donc (barx = 6.4), (s^2 = 4.3).&quot;, &quot;(barx = 6.4, quad s^2 = 4.3 )&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -310,6 +328,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Relisez la diapositive \\(8\\) du cours de la semaine \\(6\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La distribution est assymétrique à droite et la moyenne se déplace dans la direction de l\'asymétrie d\'une distribution, ainsi la moyenne sera supérieure à la médiane.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit la distribution suivante. Quelle affirmation est correcte?&quot;, &quot;Relisez la diapositive (8) du cours de la semaine (6).&quot;, &quot;La distribution est assymétrique à droite et la moyenne se déplace dans la direction de l\&#39;asymétrie d\&#39;une distribution, ainsi la moyenne sera supérieure à la médiane.&quot;, &quot;La distribution est assymétrique à droite&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -346,6 +367,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Commencez par calculer la médiane \\( (Q2) \\) et \\(Q3\\) avant de vérifier les valeurs proposées.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La médiane \\( (Q2) \\) est la moyenne des 5ᵉ et 6ᵉ valeurs : \\( (16+21)/2 = 18.5\\). Le troisième quartile \\(Q3\\) est simplement la 8ᵉ  : \\( 30 \\). Seul l’ensemble \\(\\{20, 23, 26\\}\\) contient uniquement des valeurs comprises entre \\(18.5\\) et \\(30\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère l’échantillon de (10) valeurs suivant : (3,7,10,12,16,21,25,30,38,50) Quelle suite de valeurs est entièrement comprise entre la médiane et le troisième quartile (Q3) ?&quot;, &quot;Commencez par calculer la médiane ( (Q2) ) et (Q3) avant de vérifier les valeurs proposées.&quot;, &quot;La médiane ( (Q2) ) est la moyenne des 5ᵉ et 6ᵉ valeurs : ( (16+21)/2 = 18.5). Le troisième quartile (Q3) est simplement la 8ᵉ : ( 30 ). Seul l’ensemble (20, 23, 26) contient uniquement des valeurs comprises entre (18.5) et (30).&quot;, &quot;(20, 23, 26)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -378,6 +402,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Demandez-vous si ces statuts suivent un ordre logique.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Le statut d’un pays dans une organisation internationale suit un ordre naturel : Non-membre < Observateur < Membre, mais il n’existe pas d’écart quantifiable entre ces catégories. Il s’agit donc d’une variable catégorielle ordinale.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Dans une organisation internationale, un pays peut avoir le statut de &quot;Membre&quot;, &quot;Observateur&quot; ou &quot;Non-membre&quot;. À quel type de variable ce statut correspond-il ?&quot;, &quot;Demandez-vous si ces statuts suivent un ordre logique.&quot;, &quot;Le statut d’un pays dans une organisation internationale suit un ordre naturel : Non-membre &lt; Observateur &lt; Membre, mais il n’existe pas d’écart quantifiable entre ces catégories. Il s’agit donc d’une variable catégorielle ordinale.&quot;, &quot;Variable catégorielle ordinale&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -427,6 +454,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Vérifiez la fréquence des valeurs et leur répartition.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'D\'après l\'histogramme, les valeurs de \\(1\\) à \\(5\\) ont une fréquence de \\(2\\), tandis que les valeurs de \\(6\\) à \\(10\\) ont une fréquence de \\(1\\). Le jeu de données correspondant doit donc contenir exactement ces occurrences.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Voici l&#39;histogramme d&#39;un échantillon de données discrètes :&quot;, &quot;Vérifiez la fréquence des valeurs et leur répartition.&quot;, &quot;D\&#39;après l\&#39;histogramme, les valeurs de (1) à (5) ont une fréquence de (2), tandis que les valeurs de (6) à (10) ont une fréquence de (1). Le jeu de données correspondant doit donc contenir exactement ces occurrences.&quot;, &quot;(1,1, 2,2, 3,3, 4,4, 5,5, 6, 7, 8, 9, 10)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -459,6 +489,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Revoyez dans les slides comment la moustache supérieure est calculée et les calculs des percentiles d\'une variable aléatoire normale.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Soit \\(X\\sim\\mathcal{N}(10, 5^2)\\). On doit calculer la valeur \\(Q3 + 1.5\\times\\text{IQR}\\) où \\(\\text{IQR}=Q3-Q1\\). On a \\(Q1\\) est la valeur telle que \\(P(X\\leq Q1)=P(Z\\leq (Q1 - 10)/5 )=0.25\\) et on trouve \\(-0.67 = (Q1-10)/5\\), donc \\(Q1=6.65\\). On procède de manière analogue pour le quartile supérieur et on obtient \\(Q3=13.35\\). À noter que par la propriété de symétrie de la loi normale, si \\(P(Z\\leq -0.67)=0.25\\) alors \\(P(Z\\leq 0.67)=0.75\\). Du coup, on \\(\\text{IQR}=13.35-6.65=6.7\\). Finalement, la valeur cherchée est \\(13.35+ 1.5\\cdot 6.7=23.4\\). À noter qu\'ici on a arrondi le percentile vers sa valeur la plus proche, c\'est-à-dire \\(P(Z\\leq -0.67)=0.2514\\). Un autre choix aurait pu être \\(P(Z\\leq -0.68)=0.2483\\). Avec ce choix on aurait obtenu \\(13.4+1.5(13.4-6.6)=23.3\\). De plus, sans ces erreurs d\'arrondis (approche plus avancée), la réponse est \\(23.4898\\). Ces réponses ne sont pas des choix proposé éviter ces confusions.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Supposez que vous avez autant de données que vous le souhaitez qui proviennent d&#39;une variable aléatoire normale centrée en (10) et d&#39;écart-type (5). Quelle est la valeur maximale de la moustache supérieure d&#39;un boxplot sur de telles données ?&quot;, &quot;Revoyez dans les slides comment la moustache supérieure est calculée et les calculs des percentiles d\&#39;une variable aléatoire normale.&quot;, &quot;Soit (XsimmathcalN(10, 5^2)). On doit calculer la valeur (Q3 + 1.5timestextIQR) où (textIQR=Q3-Q1). On a (Q1) est la valeur telle que (P(Xleq Q1)=P(Zleq (Q1 - 10)/5 )=0.25) et on trouve (-0.67 = (Q1-10)/5), donc (Q1=6.65). On procède de manière analogue pour le quartile supérieur et on obtient (Q3=13.35). À noter que par la propriété de symétrie de la loi normale, si (P(Zleq -0.67)=0.25) alors (P(Zleq 0.67)=0.75). Du coup, on (textIQR=13.35-6.65=6.7). Finalement, la valeur cherchée est (13.35+ 1.5cdot 6.7=23.4). À noter qu\&#39;ici on a arrondi le percentile vers sa valeur la plus proche, c\&#39;est-à-dire (P(Zleq -0.67)=0.2514). Un autre choix aurait pu être (P(Zleq -0.68)=0.2483). Avec ce choix on aurait obtenu (13.4+1.5(13.4-6.6)=23.3). De plus, sans ces erreurs d\&#39;arrondis (approche plus avancée), la réponse est (23.4898). Ces réponses ne sont pas des choix proposé éviter ces confusions.&quot;, &quot;(23.4)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -491,6 +524,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Relisez les définitions de la variance, de l\'écart-type et de l\'IQR.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'La variance et l\'écart-type sont donnés dans l\'énoncé, respectivement \\(25\\) et \\(5\\). Il s\'agit des mêmes données du problème que la question \\(7\\) pour laquelle on a calculé l\'IQR à \\(6.7\\). Donc l\'affirmation correcte est que l\'écart-type est plus que l\'IQR qui est plus petit que la variance.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Supposez que vous avez autant de données que vous le souhaitez qui proviennent d&#39;une variable aléatoire normale (mathcalN(10,5^2)). Quelle affirmation est correcte ?&quot;, &quot;Relisez les définitions de la variance, de l\&#39;écart-type et de l\&#39;IQR.&quot;, &quot;La variance et l\&#39;écart-type sont donnés dans l\&#39;énoncé, respectivement (25) et (5). Il s\&#39;agit des mêmes données du problème que la question (7) pour laquelle on a calculé l\&#39;IQR à (6.7). Donc l\&#39;affirmation correcte est que l\&#39;écart-type est plus que l\&#39;IQR qui est plus petit que la variance.&quot;, &quot;Écart-type &lt; IQR &lt; Variance&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -549,6 +585,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Relisez la définition de l\'IQR.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'L\'IQR correspond à la taille de la boîte. Il est évident que la boxplot C a la boîte la plus grande.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quel boxplot a le plus grand IQR ?&quot;, &quot;Relisez la définition de l\&#39;IQR.&quot;, &quot;L\&#39;IQR correspond à la taille de la boîte. Il est évident que la boxplot C a la boîte la plus grande.&quot;, &quot;C&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -601,6 +640,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoyez comment les boxplots sont définis.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Le premier choix ne peut pas être affirmé car il n\'y a pas l\'information sur les moyennes des hommes et des femmes. Le deuxième choix est correct, les minimums se voient avec les points (valeurs abberrantes). Le troisième choix est faux, c\'est le contraire : l\'IQR du boxplot Homme est plus petit que l\'IQR du boxplot Femme. Le quatrième choix est faux, la médiane pour Femme est inférieure à la médiane Homme.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle affirmation est correcte pour ces boxplots ?&quot;, &quot;Revoyez comment les boxplots sont définis.&quot;, &quot;Le premier choix ne peut pas être affirmé car il n\&#39;y a pas l\&#39;information sur les moyennes des hommes et des femmes. Le deuxième choix est correct, les minimums se voient avec les points (valeurs abberrantes). Le troisième choix est faux, c\&#39;est le contraire : l\&#39;IQR du boxplot Homme est plus petit que l\&#39;IQR du boxplot Femme. Le quatrième choix est faux, la médiane pour Femme est inférieure à la médiane Homme.&quot;, &quot;Le salaire minimum des femmes est supérieur au salaire minimum des hommes.&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -662,6 +704,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Relisez la diapositive \\(8\\) du cours de la semaine \\(6\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'La distribution est plutôt symétrique et une loi uniforme semble être un modèle pertinent pour modéliser ces données.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit la distribution suivante. Quelle affirmation est correcte?&quot;, &quot;Relisez la diapositive (8) du cours de la semaine (6).&quot;, &quot;La distribution est plutôt symétrique et une loi uniforme semble être un modèle pertinent pour modéliser ces données.&quot;, &quot;La distribution est plutôt symétrique et une loi uniforme semble être un modèle pertinent modéliser pour ces données&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">

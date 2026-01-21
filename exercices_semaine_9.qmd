@@ -174,6 +174,18 @@ function toggleAlert(alertId, message, type) {
 .question-alerts .alert {
   margin-bottom: 8px;
 }
+/* AI Help button - light purple with dark icon, purple on hover */
+.custom-button.ai-help {
+  background: #E8E0F0;
+  border: 2px solid #5a3d8a;
+}
+
+.custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+  transform: scale(1.05);
+}
 </style>
 ```
 
@@ -211,6 +223,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Utilisez la formule de l\'estimateur d\'une proportion : \\(\\hat{p} = \\frac{m}{n}\\), où \\(m\\) est le nombre de personnes favorables et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'L\'estimateur \\(\\hat{p}\\) est calculé comme suit : \\(\\hat{p} = \\frac{120}{200} = 0.60\\). Donc, la proportion estimée de personnes favorables au traité est \\(0.60\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Dans une étude sur l&#39;opinion publique concernant un traité international, un échantillon aléatoire de (200) personnes a été interrogé. Parmi ces personnes, (120) ont déclaré être en faveur du traité. Quelle est la proportion estimée de person&quot;, &quot;Utilisez la formule de l\&#39;estimateur d\&#39;une proportion : (hatp = fracmn), où (m) est le nombre de personnes favorables et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;estimateur (hatp) est calculé comme suit : (hatp = frac120200 = 0.60). Donc, la proportion estimée de personnes favorables au traité est (0.60).&quot;, &quot;(0.60)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -248,6 +263,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Utilisez la formule de l\'erreur standard pour une proportion : \\(\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\), où \\(\\hat{p}\\) est la proportion estimée et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'L\'erreur standard est calculée comme suit : \\(\\text{e.s.}(\\hat{p})  \\sqrt{\\frac{0.60 \\times 0.40}{200}} = 0.03464102 \\approx 0.0346\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En considérant le même contexte que la question (1), quelle est l&#39;erreur standard de la proportion estimée (hatp) ?&quot;, &quot;Utilisez la formule de l\&#39;erreur standard pour une proportion : (sqrtfrachatp(1-hatp)n), où (hatp) est la proportion estimée et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;erreur standard est calculée comme suit : (texte.s.(hatp) sqrtfrac0.60 times 0.40200 = 0.03464102 approx 0.0346).&quot;, &quot;( texte.s.(hatp) approx 0.0346)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -286,6 +304,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Pour un intervalle de confiance à \\(95\\%\\), on utilise le quantile de la distribution normale standard correspondant à \\(1 - \\frac{\\alpha}{2}\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q3-expl', ' Ici, \\(\\alpha = 0.05\\), donc on cherche le quantile pour \\(1 - \\frac{0.05}{2} = 0.975\\). Le quantile pour un niveau de confiance de \\(95\\%\\) est ainsi \\(Z_{1-\\frac{\\alpha}{2}} = Z_{0.975} = 1.96\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En considérant le contexte de la question (1), vous souhaitez construire un intervalle de confiance pour (p) basé sur (hatp) à un niveau de confiance (alpha = 0.05). Quelle est la valeur du quantile que vous devez utiliser afin&quot;, &quot;Pour un intervalle de confiance à (95%), on utilise le quantile de la distribution normale standard correspondant à (1 - fracalpha2).&quot;, &quot;Ici, (alpha = 0.05), donc on cherche le quantile pour (1 - frac0.052 = 0.975). Le quantile pour un niveau de confiance de (95%) est ainsi (Z_1-fracalpha2 = Z_0.975 = 1.96).&quot;, &quot;(1.96)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -331,6 +352,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Utilisez la formule de l\'intervalle de confiance pour une proportion : \\(\\hat{p} \\pm Z_{1-\\frac{\\alpha}{2}} \\times \\text{e.s.}(\\hat{p})\\), où \\(Z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard correspondant au niveau de confiance souhaité.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'L\'intervalle de confiance à \\(95\\%\\) est calculé comme suit : \\(\\hat{p} \\pm 1.96 \\times \\text{e.s.}(\\hat{p}) = 0.60 \\pm 1.96 \\times 0.0346\\). Cela donne \\([0.532 0.668]\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant le contexte des questions précédentes, calculez l&#39;intervalle de confiance à (95%) pour la proportion (p) de personnes favorables au traité, en utilisant la proportion estimée (hatp) et l&#39;erreur standard (texte.s.(&quot;, &quot;Utilisez la formule de l\&#39;intervalle de confiance pour une proportion : (hatp pm Z_1-fracalpha2 times texte.s.(hatp)), où (Z_1-fracalpha2) est le quantile de la distribution normale standard correspondant au niveau de confiance souhaité.&quot;, &quot;L\&#39;intervalle de confiance à (95%) est calculé comme suit : (hatp pm 1.96 times texte.s.(hatp) = 0.60 pm 1.96 times 0.0346). Cela donne ([0.532 0.668]).&quot;, &quot;([0.532, 0.668])&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -365,6 +389,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Revoyez comment calculer l\'intervalle de confiance et l\'impact sur la valeur du quantile considéré dans le calcul de l\'intervalle de confiance lorsque \\(\\alpha\\) diminue.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Lorsque le niveau de confiance augmente, le quantile utilisé dans le calcul de l\'intervalle de confiance augmente également. Cela entraîne ainsi une augmentation de la longueur de l\'intervalle de confiance.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Considérons maintenant un niveau de confiance de 99% (c&#39;est-à-dire (alpha=0.01)) au lieu de (95%). Quel sera l&#39;effet sur la longueur de l&#39;intervalle de confiance pour la proportion (p) de personnes favorables au traité ? La longueur d&quot;, &quot;Revoyez comment calculer l\&#39;intervalle de confiance et l\&#39;impact sur la valeur du quantile considéré dans le calcul de l\&#39;intervalle de confiance lorsque (alpha) diminue.&quot;, &quot;Lorsque le niveau de confiance augmente, le quantile utilisé dans le calcul de l\&#39;intervalle de confiance augmente également. Cela entraîne ainsi une augmentation de la longueur de l\&#39;intervalle de confiance.&quot;, &quot;La longueur de l&#39;intervalle de confiance augmentera&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -399,6 +426,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Rappelez-vous que l’hypothèse nulle \\(H_0\\) correspond à l’hypothèse de base, et l’hypothèse alternative \\(H_1\\) est celle que vous cherchez à tester.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'Nous cherchons à tester si la proportion diffère de \\(50\\%\\), donc \\(H_0: p = 0.50\\) et \\(H_1: p ≠ 0.50\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Vous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de (50%). Quelle est la formulation correcte des hypothèses statistique pour ce test ?&quot;, &quot;Rappelez-vous que l’hypothèse nulle (H_0) correspond à l’hypothèse de base, et l’hypothèse alternative (H_1) est celle que vous cherchez à tester.&quot;, &quot;Nous cherchons à tester si la proportion diffère de (50%), donc (H_0: p = 0.50) et (H_1: p ≠ 0.50).&quot;, &quot;(H_0: p = 0.50), (H_1: p ≠ 0.50)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -432,6 +462,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la formule du test : \\(Z = \\dfrac{\\hat{p} - p_0}{\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}}\\)', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Avec \\(\\hat{p} = 0.60\\), \\(p_0 = 0.50\\), \\(n = 200\\), l’erreur standard est environ 0.0346. Donc \\(z_{obs} = \\frac{0.60 - 0.50}{0.0346} \\approx 2.89\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant les hypothèses définies précédemment, calculez la statistique de test (z_obs). On rappelle que (hatp = 0.60), (n = 200), et (p_0 = 0.50).&quot;, &quot;Utilisez la formule du test : (Z = dfrachatp - p_0sqrtfrachatp(1-hatp)n)&quot;, &quot;Avec (hatp = 0.60), (p_0 = 0.50), (n = 200), l’erreur standard est environ 0.0346. Donc (z_obs = frac0.60 - 0.500.0346 approx 2.89).&quot;, &quot;(Z approx 2.89)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -465,6 +498,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utilisez la formule : p-valeur = \\(2 \\times P(Z > |z_{obs}|)\\), avec \\(z_{obs} = 2.89\\), puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'La p-valeur se calcule comme \\(2 \\times P(Z > 2.89) \\approx 2 \\times 0.0019 = 0.0038\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).&quot;, &quot;Utilisez la formule : p-valeur = (2 times P(Z &gt; |z_obs|)), avec (z_obs = 2.89), puis consultez la table de la fonction cumulative de densité de la distribution standard normale.&quot;, &quot;La p-valeur se calcule comme (2 times P(Z &gt; 2.89) approx 2 times 0.0019 = 0.0038).&quot;, &quot;(0.0038)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -497,6 +533,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q9-hint', 'La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Une p-valeur de \\(0.0038\\) signifie que, si \\(H_0\\) était vraie, il serait très rare (\\(0.38\\%\\)) d’observer une telle distance entre \\(\\hat{p}\\) et \\(p_0\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est l’interprétation correcte d’une p-valeur de (0.0038) dans le contexte de ce test ?&quot;, &quot;La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.&quot;, &quot;Une p-valeur de (0.0038) signifie que, si (H_0) était vraie, il serait très rare ((0.38%)) d’observer une telle distance entre (hatp) et (p_0).&quot;, &quot;Il y a une faible probabilité d’observer une telle valeur de (hatp=0.60) si la vraie proportion était (0.50).&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -529,6 +568,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Puisque la p-valeur est plus petite que 0.05, on rejette \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;À un niveau de signification (alpha = 0.05), que concluez-vous du test précédent ?&quot;, &quot;Comparez la p-valeur à (alpha = 0.05).&quot;, &quot;Puisque la p-valeur est plus petite que 0.05, on rejette (H_0) au niveau de signification de (5%).&quot;, &quot;On rejette (H_0) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de (50%).&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -562,6 +604,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Utilisez la formule : p-valeur = \\(P(Z < z_{obs})\\), avec \\(z_{obs}\\) calculée précédement, puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'La statistique de test étant \\(z_{obs} = 2.89\\), la p-valeur se calcule comme \\(P(Z < 2.89) \\approx 0.9981\\). ', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Considérons maintenant un test unilatéral avec les hypothèses suivantes: (H_0: p=0.5) et (H_1: p&lt;0.5). Quelle est la p-valeur associée?&quot;, &quot;Utilisez la formule : p-valeur = (P(Z &lt; z_obs)), avec (z_obs) calculée précédement, puis consultez la table de la fonction cumulative de densité de la distribution standard normale.&quot;, &quot;La statistique de test étant (z_obs = 2.89), la p-valeur se calcule comme (P(Z &lt; 2.89) approx 0.9981).&quot;, &quot;(0.9981)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">
@@ -594,6 +639,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Puisque la p-valeur est plus grande que \\(0.05\\), on ne peut pas rejetter \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Que peut-on conclure de ce dernier test au niveau de signification (alpha = 0.05)?&quot;, &quot;Comparez la p-valeur à (alpha = 0.05).&quot;, &quot;Puisque la p-valeur est plus grande que (0.05), on ne peut pas rejetter (H_0) au niveau de signification de (5%).&quot;, &quot;On ne rejette pas (H_0) : il n’y a pas suffisamment de preuves.&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q12-hint" style="display: none;">

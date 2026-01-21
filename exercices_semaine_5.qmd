@@ -174,6 +174,18 @@ function toggleAlert(alertId, message, type) {
 .question-alerts .alert {
   margin-bottom: 8px;
 }
+/* AI Help button - light purple with dark icon, purple on hover */
+.custom-button.ai-help {
+  background: #E8E0F0;
+  border: 2px solid #5a3d8a;
+}
+
+.custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+  transform: scale(1.05);
+}
 </style>
 ```
 
@@ -207,6 +219,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), \\(\\Phi(0) = 0.5\\). La moyenne et à la médiane de la distribution correspondent à \\(0\\) et ainsi, la probabilité qu\'une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à \\(0\\) est de \\(0.5\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Pour la distribution standard normale (mathcalN(0,1)), combien vaut (Phi(0))?&quot;, &quot;Consultez la table de la fonction cumulative de densité de la distribution standard normale.&quot;, &quot;Pour la distribution standard normale (mathcalN(0,1)), (Phi(0) = 0.5). La moyenne et à la médiane de la distribution correspondent à (0) et ainsi, la probabilité qu\&#39;une variable aléatoire distribuée selon la distribution standard normale soit plus petite ou égale à (0) est de (0.5).&quot;, &quot;(0.50)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -248,6 +263,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>0) = 1- \\Phi(0) = 1- 0.5 = 0.5\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit (X sim mathcalN(0,1)), à quoi correspond (P(X&gt;0))?&quot;, &quot;Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.&quot;, &quot;Soit (X sim mathcalN(0,1)), (P(X&gt;0) = 1- Phi(0) = 1- 0.5 = 0.5).&quot;, &quot;(0.50)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -286,6 +304,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.5\\)', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q3-expl', '\\( \\Phi^{-1}(0.50)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.50\\). Ainsi, \\( \\Phi^{-1}(0.50) = 0\\)', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Pour la distribution standard normale (mathcalN(0,1)), combien vaut (Phi^-1(0.50))?&quot;, &quot;Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur (x text tel que P(X &lt; x) = 0.5)&quot;, &quot;( Phi^-1(0.50)) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint (0.50). Ainsi, ( Phi^-1(0.50) = 0)&quot;, &quot;(0)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -325,6 +346,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur \\(x \\text{ tel que } P(X < x) = 0.9\\)', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q4-expl', '\\( \\Phi^{-1}(0.90)\\) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint \\(0.90\\). Ainsi, \\( \\Phi^{-1}(0.90) \\approx 1.28\\)', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Pour la distribution standard normale (mathcalN(0,1)), combien vaut (Phi^-1(0.90))? Les valeurs sont arrondies au dixième le plus proche.&quot;, &quot;Consultez la table de la fonction cumulative de densité de la distribution standard normale trouver la valeur (x text tel que P(X &lt; x) = 0.9)&quot;, &quot;( Phi^-1(0.90)) correspond à la valeur pour laquelle la fonction de répartition de la loi normale standard atteint (0.90). Ainsi, ( Phi^-1(0.90) approx 1.28)&quot;, &quot;(1.28)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -359,6 +383,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Soit \\(X \\sim \\mathcal{N}(0,1)\\), \\(P(X>1) = 1- \\Phi(1) = 1- 0.8413447 = 0.1586553 \\approx 0.16\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit (X sim mathcalN(0,1)), à quoi correspond (P(X&gt;1))? Les probabilités sont arrondies au dixième le plus proche.&quot;, &quot;Consultez la table de la fonction cumulative de densité de la distribution standard normale et calculez le complément.&quot;, &quot;Soit (X sim mathcalN(0,1)), (P(X&gt;1) = 1- Phi(1) = 1- 0.8413447 = 0.1586553 approx 0.16).&quot;, &quot;(0.16)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -401,6 +428,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard et pensez à calculer la complémentaire.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'D’après la table de la loi normale standard, \\(P(Z > 1.4) = 1 - \\Phi(1.4) = 1 - 0.9192 = 0.0808\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Une pièce est considérée comme trop grande si son écart dépasse (1.4) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop grande ?&quot;, &quot;Utilisez la table de la distribution cumulative de la loi normale standard et pensez à calculer la complémentaire.&quot;, &quot;D’après la table de la loi normale standard, (P(Z &gt; 1.4) = 1 - Phi(1.4) = 1 - 0.9192 = 0.0808).&quot;, &quot;(0.0808)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -434,6 +464,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'On utilise la table de la loi normale standard : \\(P(Z < -1.1) = \\Phi(-1.1) = 0.1357\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Une pièce est considérée comme trop petite si son écart est inférieur à -(1.1) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop petite ?&quot;, &quot;Utilisez la table de la distribution cumulative de la loi normale standard.&quot;, &quot;On utilise la table de la loi normale standard : (P(Z &lt; -1.1) = Phi(-1.1) = 0.1357).&quot;, &quot;(0.1357)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -467,6 +500,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utilisez la table de la distribution cumulative de la loi normale standard et soustrayez deux probabilités.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'On utilise \\(P(a < Z < b) = \\Phi(b) - \\Phi(a)\\) avec \\(a = -0.9\\) et \\(b = 1.2\\). On trouve \\(P(-0.9 < Z < 1.2) = 0.8849 - 0.1841 = 0.7008\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Les pièces sont considérées comme conformes si leur écart est compris entre (-0.9) mm et (1.2) mm. Quelle est la probabilité qu’une pièce soit conforme ?&quot;, &quot;Utilisez la table de la distribution cumulative de la loi normale standard et soustrayez deux probabilités.&quot;, &quot;On utilise (P(a &lt; Z &lt; b) = Phi(b) - Phi(a)) avec (a = -0.9) et (b = 1.2). On trouve (P(-0.9 &lt; Z &lt; 1.2) = 0.8849 - 0.1841 = 0.7008).&quot;, &quot;(0.7008)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -499,6 +535,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Standardisez en calculant \\(Z = (X - \\mu) / \\sigma\\), puis utilisez la table de la distribution normale.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'On calcule \\(Z = (4 - 5.2) / \\sqrt{1.21} = -1.09\\). En utilisant la table, \\(P(Z < -1.09) = 0.1379\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Dans un pays, la durée moyenne d’un mandat politique est de (5.2) années avec une variance de (1.21) années carrées et suit une distribution normale. Quelle est la probabilité qu’un mandat dure moins de (4) années ?&quot;, &quot;Standardisez en calculant (Z = (X - mu) / sigma), puis utilisez la table de la distribution normale.&quot;, &quot;On calcule (Z = (4 - 5.2) / sqrt1.21 = -1.09). En utilisant la table, (P(Z &lt; -1.09) = 0.1379).&quot;, &quot;(0.1379)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -531,6 +570,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Standardisez les deux valeurs, puis utilisez la table et appliquez \\( P(a < Z < b) = \\Phi(b) - \\Phi(a) \\).', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'On calcule \\(Z_1 = (1 - 2.5) / 1.2 = -1.25\\) et \\(Z_2 = (4 - 2.5) / 1.2 = 1.25\\). Avec la table, \\(P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Le taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de (2.5%) et un écart-type de (1.2%). Quelle est la probabilité que la croissance soit comprise entre (1%) et (4%) ?&quot;, &quot;Standardisez les deux valeurs, puis utilisez la table et appliquez ( P(a &lt; Z &lt; b) = Phi(b) - Phi(a) ).&quot;, &quot;On calcule (Z_1 = (1 - 2.5) / 1.2 = -1.25) et (Z_2 = (4 - 2.5) / 1.2 = 1.25). Avec la table, (P(-1.25 &lt; Z &lt; 1.25) = 0.8944 - 0.1056 = 0.7888).&quot;, &quot;(0.7888)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -562,6 +604,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = 0.80\\), puis déstandardisez.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'Le 80e percentile correspond à \\(P(Z\\leq z_{80}) = 0.80\\), ce qui donne \\(z_{80} \\approx 0.84\\). On déstandardise avec \\(X = \\mu + \\sigma z_{80} = 70 + 10 \\times 0.84 = 78.4\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Le score d’un test d’admission suit une loi normale de moyenne (70) points et d’écart-type (10) points. L’admission est garantie pour les étudiants dépassant le (80)e percentile. Quel est le score minimum requis pour être admis ?&quot;, &quot;Recherchez dans la table de la loi normale standard la valeur de (z) telle que (P(Zleq z) = 0.80), puis déstandardisez.&quot;, &quot;Le 80e percentile correspond à (P(Zleq z_80) = 0.80), ce qui donne (z_80 approx 0.84). On déstandardise avec (X = mu + sigma z_80 = 70 + 10 times 0.84 = 78.4).&quot;, &quot;(78.4)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">
@@ -593,6 +638,9 @@ cat(longmcq2(opts))
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Recherchez dans la table de la loi normale standard la valeur de \\(z\\) telle que \\(P(Z\\leq z) = \\alpha\\) (quelle valeur pour \\(\\alpha\\) ?), puis déstandardisez.', 'hint')">❓ Indice</button>
 <button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Le 90e percentile correspond à \\(P(Z\\leq z_{90}) = 0.90\\), ce qui donne \\(z_{90} \\approx 1.28\\). On déstandardise avec \\(X = \\mu + \\sigma z_{90} = 0.75 + 0.10 \\times 1.28 = 0.878\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un institut international analyse l&#39;Indice de Développement Humain (IDH) des pays. On suppose que l&#39;IDH suit approximativement une loi normale de moyenne (0.75) et d&#39;écart-type (0.10). Un pays est considéré comme &quot;très développé&quot; s’il se situ&quot;, &quot;Recherchez dans la table de la loi normale standard la valeur de (z) telle que (P(Zleq z) = alpha) (quelle valeur pour (alpha) ?), puis déstandardisez.&quot;, &quot;Le 90e percentile correspond à (P(Zleq z_90) = 0.90), ce qui donne (z_90 approx 1.28). On déstandardise avec (X = mu + sigma z_90 = 0.75 + 0.10 times 1.28 = 0.878).&quot;, &quot;(0.878)&quot;, this)">
+  🤖 Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q12-hint" style="display: none;">
