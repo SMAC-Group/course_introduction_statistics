@@ -11,20 +11,20 @@ const slideCache = new Map();
 const SLIDE_CACHE_MAX_SIZE = 20;
 
 /**
- * Load the course index (metadata, summaries, keywords)
- * ~800 tokens instead of ~30,000
+ * Load the course index (lite version - titles only)
+ * ~3,900 tokens instead of ~37,000
  */
 async function loadIndex(baseUrl) {
   if (cachedIndex) return cachedIndex;
   try {
-    const response = await fetch(`${baseUrl}/content/index.json`);
+    const response = await fetch(`${baseUrl}/content/index-lite.json`);
     if (response.ok) {
       cachedIndex = await response.json();
     } else {
       cachedIndex = { semaines: {} };
     }
   } catch (e) {
-    console.error('Failed to load index.json:', e);
+    console.error('Failed to load index-lite.json:', e);
     cachedIndex = { semaines: {} };
   }
   return cachedIndex;
@@ -63,12 +63,13 @@ async function loadSlide(baseUrl, semaine, slideNum) {
 
 /**
  * Find which week contains a specific slide number
+ * Lite index format: week.s = [[n, "title"], ...]
  */
 function findSlideWeek(index, slideNum) {
   for (const [weekNum, week] of Object.entries(index.semaines)) {
-    const slide = week.slides.find(s => s.n === slideNum);
+    const slide = week.s.find(s => s[0] === slideNum);
     if (slide) {
-      return { weekNum, weekTitle: week.titre, slide };
+      return { weekNum, weekTitle: week.t, slideNum: slide[0], slideTitle: slide[1] };
     }
   }
   return null;
@@ -76,38 +77,49 @@ function findSlideWeek(index, slideNum) {
 
 /**
  * Find slides matching keywords from a question
+ * Lite index format: week.s = [[n, "title"], ...], week.t = "Week title"
  */
 function findRelevantSlides(index, question) {
   const questionLower = question.toLowerCase();
+  const questionWords = questionLower.split(/\s+/).filter(w => w.length > 3);
   const matches = [];
 
   for (const [weekNum, week] of Object.entries(index.semaines)) {
-    for (const slide of week.slides) {
-      let score = 0;
+    // Score based on week title
+    let weekTitleScore = 0;
+    const weekTitleLower = week.t.toLowerCase();
+    for (const word of questionWords) {
+      if (weekTitleLower.includes(word)) {
+        weekTitleScore += 2;
+      }
+    }
 
-      // Check keywords
-      for (const keyword of slide.k) {
-        if (questionLower.includes(keyword.toLowerCase())) {
-          score += 2;
+    for (const slide of week.s) {
+      const slideNum = slide[0];
+      const slideTitle = slide[1];
+      const titleLower = slideTitle.toLowerCase();
+      let score = weekTitleScore; // Inherit week score
+
+      // Check title words
+      for (const word of questionWords) {
+        if (titleLower.includes(word)) {
+          score += 3;
         }
       }
 
-      // Check title
-      if (questionLower.includes(slide.t.toLowerCase())) {
-        score += 3;
-      }
-
-      // Check summary
-      const summaryWords = slide.r.toLowerCase().split(/\s+/);
-      const questionWords = questionLower.split(/\s+/);
-      for (const qWord of questionWords) {
-        if (qWord.length > 3 && summaryWords.some(w => w.includes(qWord))) {
-          score += 1;
-        }
+      // Exact or partial title match
+      if (questionLower.includes(titleLower) || titleLower.includes(questionLower)) {
+        score += 5;
       }
 
       if (score > 0) {
-        matches.push({ weekNum, weekTitle: week.titre, slide, score });
+        matches.push({
+          weekNum,
+          weekTitle: week.t,
+          slideNum,
+          slideTitle,
+          score
+        });
       }
     }
   }
@@ -118,13 +130,14 @@ function findRelevantSlides(index, question) {
 
 /**
  * Build slide index string from index data
+ * Lite index format: week.s = [[n, "title"], ...], week.t = "Week title"
  */
 function buildSlideIndexFromIndex(index) {
   let result = '';
   for (const [weekNum, week] of Object.entries(index.semaines)) {
-    result += `\n### Semaine ${weekNum} - ${week.titre}\n`;
-    for (const slide of week.slides) {
-      result += `### SLIDE ${slide.n} : ${slide.t}\n`;
+    result += `\n### Semaine ${weekNum} - ${week.t}\n`;
+    for (const slide of week.s) {
+      result += `### SLIDE ${slide[0]} : ${slide[1]}\n`;
     }
   }
   return result;
@@ -553,7 +566,7 @@ exports.handler = async (event) => {
       if (requestedWeek) {
         const weekData = index.semaines[requestedWeek];
 
-        if (!weekData || !weekData.slides || weekData.slides.length === 0) {
+        if (!weekData || !weekData.s || weekData.s.length === 0) {
           // Find which weeks have content
           const weeksWithContent = Object.keys(index.semaines).join(', ');
 
@@ -568,8 +581,8 @@ exports.handler = async (event) => {
 
         // Check if requested slide exists in this week
         if (requestedSlide) {
-          const slideExists = weekData.slides.some(s => s.n === requestedSlide);
-          const maxSlide = Math.max(...weekData.slides.map(s => s.n));
+          const slideExists = weekData.s.some(s => s[0] === requestedSlide);
+          const maxSlide = Math.max(...weekData.s.map(s => s[0]));
 
           if (!slideExists) {
             return {
@@ -591,7 +604,7 @@ exports.handler = async (event) => {
           // Get max slide across all weeks
           let maxSlide = 0;
           for (const week of Object.values(index.semaines)) {
-            const weekMax = Math.max(...week.slides.map(s => s.n));
+            const weekMax = Math.max(...week.s.map(s => s[0]));
             if (weekMax > maxSlide) maxSlide = weekMax;
           }
 
@@ -637,20 +650,42 @@ exports.handler = async (event) => {
         if (slideMatch) {
           // User asked about a specific slide - load only that slide (~200 tokens)
           const requestedSlide = parseInt(slideMatch[1], 10);
-          const slideInfo = findSlideWeek(index, requestedSlide);
 
-          if (slideInfo) {
-            const slideData = await loadSlide(baseUrl, slideInfo.weekNum, requestedSlide);
+          // If week is also specified, use it directly (slide numbers are local per week)
+          // Otherwise, search globally with findSlideWeek
+          let targetWeekNum, targetWeekTitle, targetSlideTitle;
+
+          if (weekMatch) {
+            // User specified both slide and week - use directly
+            targetWeekNum = weekMatch[1];
+            const weekData = index.semaines[targetWeekNum];
+            if (weekData) {
+              targetWeekTitle = weekData.t;
+              const slide = weekData.s.find(s => s[0] === requestedSlide);
+              targetSlideTitle = slide ? slide[1] : `Slide ${requestedSlide}`;
+            }
+          } else {
+            // Only slide specified - search globally
+            const slideInfo = findSlideWeek(index, requestedSlide);
+            if (slideInfo) {
+              targetWeekNum = slideInfo.weekNum;
+              targetWeekTitle = slideInfo.weekTitle;
+              targetSlideTitle = slideInfo.slideTitle;
+            }
+          }
+
+          if (targetWeekNum) {
+            const slideData = await loadSlide(baseUrl, targetWeekNum, requestedSlide);
 
             if (slideData && slideData.c) {
               systemPrompt += `
 
-## CONTENU DE LA SLIDE ${requestedSlide} - ${slideInfo.slide.t} (Semaine ${slideInfo.weekNum}: ${slideInfo.weekTitle})
+## CONTENU DE LA SLIDE ${requestedSlide} - ${targetSlideTitle} (Semaine ${targetWeekNum}: ${targetWeekTitle})
 ${slideData.c}
 
 ## INSTRUCTIONS IMPORTANTES
 - Base ta réponse sur cette slide.
-- Mentionne toujours "**Slide ${requestedSlide}**" dans ta réponse pour référence.
+- Mentionne toujours "**Slide ${requestedSlide}, Semaine ${targetWeekNum}**" dans ta réponse pour référence.
 - Si la question dépasse le contenu de cette slide mais reste en statistique, indique que "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
 - Si la question est hors-sujet, redirige poliment l'étudiant.`;
             }
@@ -664,15 +699,15 @@ ${slideData.c}
           const slidesToLoad = relevantSlides.slice(0, 2);
 
           for (const match of slidesToLoad) {
-            const slideData = await loadSlide(baseUrl, match.weekNum, match.slide.n);
+            const slideData = await loadSlide(baseUrl, match.weekNum, match.slideNum);
             if (slideData && slideData.c) {
-              slidesContent += `\n### SLIDE ${match.slide.n} - ${match.slide.t} (Semaine ${match.weekNum})\n${slideData.c}\n`;
+              slidesContent += `\n### SLIDE ${match.slideNum} - ${match.slideTitle} (Semaine ${match.weekNum})\n${slideData.c}\n`;
             }
           }
 
           // Build compact course summary (just week titles, no slide list)
           const weeksList = Object.entries(index.semaines)
-            .map(([num, w]) => `Semaine ${num}: ${w.titre}`)
+            .map(([num, w]) => `Semaine ${num}: ${w.t}`)
             .join('\n');
 
           systemPrompt += `
@@ -697,17 +732,18 @@ ${slidesContent ? `\n## CONTENU PERTINENT\n${slidesContent}` : ''}
           const relevantSlides = findRelevantSlides(index, message)
             .filter(s => s.weekNum === weekNum);
 
-          let weekContent = `## SEMAINE ${weekNum}: ${weekData.titre}\n\n`;
+          let weekContent = `## SEMAINE ${weekNum}: ${weekData.t}\n\n`;
 
           // Load content of top 2 relevant slides only
+          // Default to first slide if no relevant matches
           const slidesToLoad = relevantSlides.length > 0
             ? relevantSlides.slice(0, 2)
-            : [{ slide: weekData.slides[0], weekNum }]; // Default to first slide
+            : [{ slideNum: weekData.s[0][0], slideTitle: weekData.s[0][1], weekNum }];
 
           for (const match of slidesToLoad) {
-            const slideData = await loadSlide(baseUrl, weekNum, match.slide.n);
+            const slideData = await loadSlide(baseUrl, weekNum, match.slideNum);
             if (slideData && slideData.c) {
-              weekContent += `### SLIDE ${match.slide.n}: ${match.slide.t}\n${slideData.c}\n\n`;
+              weekContent += `### SLIDE ${match.slideNum}: ${match.slideTitle}\n${slideData.c}\n\n`;
             }
           }
 
