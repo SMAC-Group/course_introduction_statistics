@@ -29,6 +29,7 @@
     slideContent: ''
   };
   let tokenInfo = null;
+  let styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
 
   // ============================================================================
   // DOM ELEMENTS
@@ -233,7 +234,8 @@
             weekTitle: currentSlideContext.weekTitle,
             slideTitle: currentSlideContext.slideTitle,
             content: currentSlideContext.slideContent
-          }
+          },
+          styleMode: styleMode
         })
       });
 
@@ -313,6 +315,18 @@
   }
 
   // ============================================================================
+  // STYLE MODE
+  // ============================================================================
+
+  function setStyleMode(mode) {
+    styleMode = mode;
+    // Update button states
+    document.querySelectorAll('.slides-style-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.style === mode);
+    });
+  }
+
+  // ============================================================================
   // EVENT BINDINGS
   // ============================================================================
 
@@ -336,6 +350,13 @@
 
     // Listen for slide changes
     window.addEventListener('slideChanged', onSlideChanged);
+
+    // Style selector buttons
+    document.querySelectorAll('.slides-style-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setStyleMode(btn.dataset.style);
+      });
+    });
   }
 
   // ============================================================================

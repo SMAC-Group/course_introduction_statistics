@@ -107,6 +107,20 @@ window.MathJax = {
     <div class="slides-chat-panel" id="chat-panel">
       <div class="slides-chat-header">
         <h3>Assistant Slides</h3>
+        <div class="slides-style-selector">
+          <button class="slides-style-btn active" data-style="classique" title="Style classique">
+            <span class="style-emoji">🧭</span>
+            <span class="style-label">Classique</span>
+          </button>
+          <button class="slides-style-btn" data-style="fun" title="Style fun">
+            <span class="style-emoji">🤩</span>
+            <span class="style-label">Fun</span>
+          </button>
+          <button class="slides-style-btn" data-style="sceptique" title="Style sceptique">
+            <span class="style-emoji">🤨</span>
+            <span class="style-label">Sceptique</span>
+          </button>
+        </div>
       </div>
 
       <!-- Context Banner -->

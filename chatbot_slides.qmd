@@ -55,11 +55,50 @@ main.content,
   background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
   color: white;
   padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .slides-chat-header h3 {
   margin: 0;
   font-size: 1.1rem;
+}
+
+/* Style Selector */
+.slides-style-selector {
+  display: flex;
+  gap: 4px;
+}
+
+.slides-style-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.slides-style-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.slides-style-btn.active {
+  background: rgba(255, 255, 255, 0.95);
+  color: #5a67d8;
+  font-weight: 600;
+}
+
+.slides-style-btn .style-emoji {
+  font-size: 0.9rem;
 }
 
 .slides-chat-messages {
@@ -222,6 +261,20 @@ main.content,
 <div class="slides-chat-container">
   <div class="slides-chat-header">
     <h3>Assistant IA - Questions sur les Slides</h3>
+    <div class="slides-style-selector">
+      <button class="slides-style-btn active" data-style="classique" title="Style classique">
+        <span class="style-emoji">🧭</span>
+        <span class="style-label">Classique</span>
+      </button>
+      <button class="slides-style-btn" data-style="fun" title="Style fun">
+        <span class="style-emoji">🤩</span>
+        <span class="style-label">Fun</span>
+      </button>
+      <button class="slides-style-btn" data-style="sceptique" title="Style sceptique">
+        <span class="style-emoji">🤨</span>
+        <span class="style-label">Sceptique</span>
+      </button>
+    </div>
   </div>
 
   <div class="ai-disclaimer-banner">
@@ -269,6 +322,15 @@ window.MathJax = {
 <script>
 (function() {
   var conversationHistory = [];
+  var styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
+
+  // Style mode setter
+  function setStyleMode(mode) {
+    styleMode = mode;
+    document.querySelectorAll('.slides-style-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.style === mode);
+    });
+  }
 
   // Token quota tracking - shared with chat.js via localStorage
   var TOKEN_STORAGE_KEY = 'aiChatTokenInfo';
@@ -378,7 +440,7 @@ window.MathJax = {
         conversationHistory: conversationHistory,
         context: {
           intent: 'OPEN_CHAT',
-          styleMode: 'classique',
+          styleMode: styleMode,
           source: 'global'
         }
       })
@@ -452,6 +514,13 @@ window.MathJax = {
     if (e.key === 'Enter') {
       sendMessage(this.value);
     }
+  });
+
+  // Style selector buttons
+  document.querySelectorAll('.slides-style-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setStyleMode(btn.dataset.style);
+    });
   });
 
   // Initialize token display
