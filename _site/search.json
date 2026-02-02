@@ -1,199 +1,661 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction à la Statistique",
+    "objectID": "slides_viewer.html",
+    "href": "slides_viewer.html",
+    "title": "Visionneuse de Slides",
     "section": "",
-    "text": "Plateforme d’exercices\n\n\nIntroduction à la Statistique\n\n\nCe site te permet de t’entraîner chaque semaine avec des exercices interactifs.Les supports de cours sont disponibles sur la plateforme officielle de l’université.\n\n\nAccéder aux exercices Supports de cours"
+    "text": "Semaine :\n    \n      Chargement...\n    \n  \n\n  \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        Page 1 / 1\n        \n          \n            \n          \n        \n        \n        \n          \n            \n          \n        \n        100%\n        \n          \n            \n          \n        \n      \n      \n        \n          \n          Chargement du PDF...\n        \n        \n      \n    \n\n    \n    \n\n    \n    \n      \n        Assistant Slides\n      \n\n      \n      \n        Semaine 1\n        Slide 1: Chargement...\n      \n\n      \n      \n        \n          Pose tes questions sur la slide affichée.\n          Je peux t'expliquer les concepts, les formules, ou te donner des exemples.\n        \n      \n\n      \n      \n        \n        \n          \n            \n          \n        \n      \n\n      \n      \n        \n          \n        \n        Tokens: -- / --"
   },
   {
-    "objectID": "index.html#exercices-par-semaine",
-    "href": "index.html#exercices-par-semaine",
-    "title": "Introduction à la Statistique",
-    "section": "Exercices par semaine",
-    "text": "Exercices par semaine\n\n\n\nSemaine 1\n\n\nProbabilités de base\n\n\nDisponible\n\n\n\n\nSemaine 2\n\n\nProbabilités conditionnelles\n\n\nDisponible\n\n\n\n\nSemaine 3\n\n\nVariables aléatoires\n\n\nDisponible\n\n\n\n\nSemaine 4\n\n\nLoi binomiale\n\n\nDisponible\n\n\n\n\nSemaine 5\n\n\nLoi normale\n\n\nDisponible\n\n\n\n\nSemaine 6\n\n\nStatistiques descriptives\n\n\nDisponible\n\n\n\n\nSemaine 7\n\n\nPas de cours\n\n\nVacances\n\n\n\n\nSemaine 8\n\n\nÉchantillonnage\n\n\nDisponible\n\n\n\n\nSemaine 9\n\n\nIntervalles de confiance\n\n\nDisponible\n\n\n\n\nSemaine 10\n\n\nExamen intermédiaire\n\n\nExamen\n\n\n\n\nSemaine 11\n\n\nIntervalles de confiance (suite)\n\n\nDisponible\n\n\n\n\nSemaine 12\n\n\nTests d’hypothèses\n\n\nDisponible\n\n\n\n\nSemaine 13\n\n\nExamen final\n\n\nExamen"
-  },
-  {
-    "objectID": "index.html#sentraîner-pour-les-examens",
-    "href": "index.html#sentraîner-pour-les-examens",
-    "title": "Introduction à la Statistique",
-    "section": "S’entraîner pour les examens",
-    "text": "S’entraîner pour les examens\n\n\n\n📝\n\n\nExamen intermédiaire\n\n\nEntraînement\n\n\nÀ venir\n\n\n\n\n📝\n\n\nExamen final\n\n\nEntraînement\n\n\nÀ venir"
-  },
-  {
-    "objectID": "exercices_semaine_8.html",
-    "href": "exercices_semaine_8.html",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html",
+    "href": "exercices_semaine_9.html",
+    "title": "Exercices Semaine 9",
     "section": "",
-    "text": "Les scores d’un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?\n\n \\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique \\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre \\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre \\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Dans une étude sur l’opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?\n\n \\(0.50\\) \\(0.60\\) \\(0.70\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-1",
-    "href": "exercices_semaine_8.html#question-1",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-1",
+    "href": "exercices_semaine_9.html#question-1",
+    "title": "Exercices Semaine 9",
     "section": "",
-    "text": "Les scores d’un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?\n\n \\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique \\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre \\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre \\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Dans une étude sur l’opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?\n\n \\(0.50\\) \\(0.60\\) \\(0.70\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-2",
-    "href": "exercices_semaine_8.html#question-2",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-2",
+    "href": "exercices_semaine_9.html#question-2",
+    "title": "Exercices Semaine 9",
     "section": "Question 2",
-    "text": "Question 2\nSi la taille de l’échantillon \\(n\\) augmente, quelle affirmation est correcte à propos de \\(\\bar{X}\\), l’estimateur de l’espérance \\(\\mu\\)?\n\n L'estimateur \\(\\bar{X}\\) devient plus variable L'estimateur \\(\\bar{X}\\) devient moins variable L'estimateur \\(\\bar{X}\\) devient plus grand L'estimateur \\(\\bar{X}\\) devient plus petit La variance de l'estimateur \\(\\bar{X}\\) n'est pas affectée\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 2\nEn considérant le même contexte que la question \\(1\\), quelle est l’erreur standard de la proportion estimée \\(\\hat{p}\\) ?\n\n \\( \\text{e.s.}(\\hat{p}) \\approx 0.0346\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.0462\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.513\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.0264\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-3",
-    "href": "exercices_semaine_8.html#question-3",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-3",
+    "href": "exercices_semaine_9.html#question-3",
+    "title": "Exercices Semaine 9",
     "section": "Question 3",
-    "text": "Question 3\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). On considère un échantillon de taille \\(n = 100\\). Quelle est la variance de \\(\\bar{X}\\), la moyenne de l’échantillon ?\n\n \\(0.75\\) \\(2.5\\) \\(25\\) \\(0.25\\) \\(100\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 3\nEn considérant le contexte de la question \\(1\\), vous souhaitez construire un intervalle de confiance pour \\(p\\) basé sur \\(\\hat{p}\\) à un niveau de confiance \\(\\alpha = 0.05\\). Quelle est la valeur du quantile que vous devez utiliser afin de construire cet intervalle de confiance?\n\n \\(1.28\\) \\(1.645\\) \\(1.96\\) \\(2.58\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-4",
-    "href": "exercices_semaine_8.html#question-4",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-4",
+    "href": "exercices_semaine_9.html#question-4",
+    "title": "Exercices Semaine 9",
     "section": "Question 4",
-    "text": "Question 4\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). Maintenant, on considère un échantillon de taille \\(n = 100\\). Quelle est la probabilité que la moyenne de l’échantillon \\(\\bar{X}\\) soit supérieure à 51 ?\n\n \\(0.1587\\) \\(0.0228\\) \\(0.3085\\) \\(0.5\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 4\nEn utilisant le contexte des questions précédentes, calculez l’intervalle de confiance à \\(95\\%\\) pour la proportion \\(p\\) de personnes favorables au traité, en utilisant la proportion estimée \\(\\hat{p}\\) et l’erreur standard \\(\\text{e.s.}(\\hat{p})\\).\n\n \\([0.543, 0.657]\\) \\([0.532, 0.668]\\) \\([0.556, 0.644]\\) \\([0.511, 0.689]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-5",
-    "href": "exercices_semaine_8.html#question-5",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-5",
+    "href": "exercices_semaine_9.html#question-5",
+    "title": "Exercices Semaine 9",
     "section": "Question 5",
-    "text": "Question 5\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 100\\) et une variance \\(\\sigma^2 = 16\\). Maintenant, on considère un échantillon de taille \\(n = 64\\). Quelle est la probabilité que la moyenne de l’échantillon \\(\\bar{X}\\) soit inférieure à 99 ?\n\n \\(0.0478\\) \\(0.1587\\) \\(0.3085\\) \\(0.5\\) \\(0.0228\\) \\(0.1237\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 5\nConsidérons maintenant un niveau de confiance de 99% (c’est-à-dire \\(\\alpha=0.01\\)) au lieu de \\(95\\%\\). Quel sera l’effet sur la longueur de l’intervalle de confiance pour la proportion \\(p\\) de personnes favorables au traité ? La longueur de l’intervalle de confiance est donnée par la différence entre la borne supérieure et la borne inférieure de l’intervalle.\n\n La longueur de l'intervalle de confiance augmentera La longueur de l'intervalle de confiance diminuera La longueur de l'intervalle de confiance restera la même\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-6",
-    "href": "exercices_semaine_8.html#question-6",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-6",
+    "href": "exercices_semaine_9.html#question-6",
+    "title": "Exercices Semaine 9",
     "section": "Question 6",
-    "text": "Question 6\nOn considère l’échantillon suivant: \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\). Calculez la moyenne \\(\\bar{X}\\) et l’écart type \\(s\\) de cet ensemble de données.\n\n \\(\\bar{X} = 4.825, s \\approx 2.66 \\) \\(\\bar{X} = 2.825, s \\approx 4.66 \\) \\(\\bar{X} = 10.925, s \\approx 3.56 \\) \\(\\bar{X} = 1.525, s \\approx 2.21 \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 6\nVous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de \\(50\\%\\). Quelle est la formulation correcte des hypothèses statistique pour ce test ?\n\n \\(H_0: p = 0.60\\), \\(H_1: p ≠ 0.60\\) \\(H_0: p = 0.50\\), \\(H_1: p ≠ 0.50\\) \\(H_0: p = 0.50\\), \\(H_1: p &gt; 0.60\\) \\(H_0: p ≥ 0.50\\), \\(H_1: p &lt; 0.50\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-7",
-    "href": "exercices_semaine_8.html#question-7",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-7",
+    "href": "exercices_semaine_9.html#question-7",
+    "title": "Exercices Semaine 9",
     "section": "Question 7",
-    "text": "Question 7\nEn utilisant la moyenne \\(\\bar{X}\\) et l’écart type \\(s\\) que vous avez calculés dans l’exercice précédent, déterminez l’erreur standard de la moyenne \\(\\frac{s}{\\sqrt{n}}\\) pour l’échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\).\n\n \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 0.0478\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 1.084109\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 2.05219\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 3.12643\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nTir à 3 points de Stephen Curry\nOn a les données suivantes sur les réussites au tir à trois points de Stephen Curry (données réelles avril 2025) :\n\n\n\n\n\n\n\n\n\nDate\nAdversaire\nTentatives à 3 points\nRéussites à 3 points\n\n\n\n\n1er avril 2025\nMemphis Grizzlies\n20\n12\n\n\n3 avril 2025\nLos Angeles Lakers\n11\n4\n\n\n4 avril 2025\nDenver Nuggets\n15\n7\n\n\n6 avril 2025\nHouston Rockets\n8\n1"
+    "text": "Question 7\nEn utilisant les hypothèses définies précédemment, calculez la statistique de test \\(z_{obs}\\). On rappelle que \\(\\hat{p} = 0.60\\), \\(n = 200\\), et \\(p_0 = 0.50\\).\n\n \\(Z \\approx 2.89\\) \\(Z \\approx 1.96\\) \\(Z \\approx 1.28\\) \\(Z \\approx 0.60\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-8",
-    "href": "exercices_semaine_8.html#question-8",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-8",
+    "href": "exercices_semaine_9.html#question-8",
+    "title": "Exercices Semaine 9",
     "section": "Question 8",
-    "text": "Question 8\nBasé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?\n\n \\(0.3790\\) \\(0.4444\\) \\(0.3890\\) \\(24\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 8\nÀ partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).\n\n \\(0.028\\) \\(0.0196\\) \\(0.0038\\) \\(0.001\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-9",
-    "href": "exercices_semaine_8.html#question-9",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-9",
+    "href": "exercices_semaine_9.html#question-9",
+    "title": "Exercices Semaine 9",
     "section": "Question 9",
-    "text": "Question 9\nBasé sur ces données, quelle est l'erreur standard de la proportion de réussites à 3 points de Stephen Curry ?\n\n \\(0.0046\\) \\(0.4969\\) \\(0.0676\\) \\(0.0663\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 9\nQuelle est l’interprétation correcte d’une p-valeur de \\(0.0038\\) dans le contexte de ce test ?\n\n Il y a une faible probabilité d’observer une telle valeur de \\(\\hat{p}=0.60\\) si la vraie proportion était \\(0.50\\). La proportion estimée est trop éloignée de \\(50\\%\\), donc \\(H_0\\) est forcément fausse. Cela signifie que \\(0.38\\%\\) des personnes interrogées sont favorables au traité. La probabilité que \\(H_0\\) soit vraie est de 0.0038.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-10",
-    "href": "exercices_semaine_8.html#question-10",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-10",
+    "href": "exercices_semaine_9.html#question-10",
+    "title": "Exercices Semaine 9",
     "section": "Question 10",
-    "text": "Question 10\nQuelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?\n\n Le TCL s’applique car les pourcentages proviennent d’un joueur professionnel, donc ils suivent une loi normale. Le TCL ne peut pas s’appliquer ici car les tirs à 3 points ne suivent pas une loi normale. Le TCL s’applique dès qu’on connaît la moyenne et la variance des taux de réussite, quelle que soit la taille de l’échantillon. Le TCL s’applique car l'échantillon est suffisamment grand pour justifier l’approximation normale. Le TCL permet de conclure que la proportion est égale à la probabilité de réussite à 3 points.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 10\nÀ un niveau de signification \\(\\alpha = 0.05\\), que concluez-vous du test précédent ?\n\n On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\). On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\). On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves. On ne peut pas conclure : l’échantillon est trop petit.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_8.html#question-11",
-    "href": "exercices_semaine_8.html#question-11",
-    "title": "Exercices Semaine 8",
+    "objectID": "exercices_semaine_9.html#question-11",
+    "href": "exercices_semaine_9.html#question-11",
+    "title": "Exercices Semaine 9",
     "section": "Question 11",
-    "text": "Question 11\nSupposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de \\(p=0.397\\). En supposant que le TCL s’applique, quelle est la distribution approximative de \\(\\hat{p}\\) ?\n\n \\(\\hat{p}\\sim\\mathcal{N}(0.4444, 0.0676^2)\\) \\(\\hat{p}\\sim\\text{Bin}(54, 0.397)\\) \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.397^2)\\) \\(\\hat{p}\\sim\\mathcal{U}(0, 1)\\) \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 11\nConsidérons maintenant un test unilatéral avec les hypothèses suivantes: \\(H_0: p=0.5\\) et \\(H_1: p&lt;0.5\\). Quelle est la p-valeur associée?\n\n \\(0.0001\\) \\(0.9981\\) \\(0.499\\) \\(0.028\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_5.html",
-    "href": "exercices_semaine_5.html",
-    "title": "Exercices Semaine 5",
-    "section": "",
-    "text": "Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi(0)\\)?\n\n \\(0\\) \\(1\\) \\(0.50\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-1",
-    "href": "exercices_semaine_5.html#question-1",
-    "title": "Exercices Semaine 5",
-    "section": "",
-    "text": "Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi(0)\\)?\n\n \\(0\\) \\(1\\) \\(0.50\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-2",
-    "href": "exercices_semaine_5.html#question-2",
-    "title": "Exercices Semaine 5",
-    "section": "Question 2",
-    "text": "Question 2\nSoit \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X&gt;0)\\)?\n\n \\(0\\) \\(0.50\\) \\(1\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-3",
-    "href": "exercices_semaine_5.html#question-3",
-    "title": "Exercices Semaine 5",
-    "section": "Question 3",
-    "text": "Question 3\nPour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.50)\\)?\n\n \\(0\\) \\(0.50\\) \\(1\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-4",
-    "href": "exercices_semaine_5.html#question-4",
-    "title": "Exercices Semaine 5",
-    "section": "Question 4",
-    "text": "Question 4\nPour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.90)\\)? Les valeurs sont arrondies au dixième le plus proche.\n\n \\(1\\) \\(-0.50\\) \\(-1.28\\) \\(1.28\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-5",
-    "href": "exercices_semaine_5.html#question-5",
-    "title": "Exercices Semaine 5",
-    "section": "Question 5",
-    "text": "Question 5\nSoit \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X&gt;1)\\)? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.16\\) \\(0.22\\) \\(0.84\\) \\(0.75\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nAnalyse des écarts dans la production d’une usine\nUne usine de fabrication produit des pièces mécaniques dont la dimension doit être exactement de \\(0\\) mm par rapport à une référence. Cependant, des variations autour de cette valeur existent en raison du processus de fabrication. L’écart par rapport à la référence suit une loi normale standard \\(\\mathcal{N}(0,1)\\) (espérance de \\(0\\) et écart-type de \\(1\\)), où les valeurs négatives indiquent des pièces plus petites que prévu, et les valeurs positives indiquent des pièces plus grandes."
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-6",
-    "href": "exercices_semaine_5.html#question-6",
-    "title": "Exercices Semaine 5",
-    "section": "Question 6",
-    "text": "Question 6\nUne pièce est considérée comme trop grande si son écart dépasse \\(1.4\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop grande ?\n\n \\(0.9192\\) \\(0.4032\\) \\(0.0808\\) \\(0.5000\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-7",
-    "href": "exercices_semaine_5.html#question-7",
-    "title": "Exercices Semaine 5",
-    "section": "Question 7",
-    "text": "Question 7\nUne pièce est considérée comme trop petite si son écart est inférieur à -\\(1.1\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop petite ?\n\n \\(0.1357\\) \\(0.5000\\) \\(0.8849\\) \\(0.2119\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-8",
-    "href": "exercices_semaine_5.html#question-8",
-    "title": "Exercices Semaine 5",
-    "section": "Question 8",
-    "text": "Question 8\nLes pièces sont considérées comme conformes si leur écart est compris entre \\(-0.9\\) mm et \\(1.2\\) mm. Quelle est la probabilité qu’une pièce soit conforme ?\n\n \\(0.5000\\) \\(0.7008\\) \\(0.2876\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-9",
-    "href": "exercices_semaine_5.html#question-9",
-    "title": "Exercices Semaine 5",
-    "section": "Question 9",
-    "text": "Question 9\nDans un pays, la durée moyenne d’un mandat politique est de \\(5.2\\) années avec une variance de \\(1.21\\) années carrées et suit une distribution normale. Quelle est la probabilité qu’un mandat dure moins de \\(4\\) années ?\n\n \\(0.2319\\) \\(0.3085\\) \\(0.1379\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-10",
-    "href": "exercices_semaine_5.html#question-10",
-    "title": "Exercices Semaine 5",
-    "section": "Question 10",
-    "text": "Question 10\nLe taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de \\(2.5\\%\\) et un écart-type de \\(1.2\\%\\). Quelle est la probabilité que la croissance soit comprise entre \\(1\\%\\) et \\(4\\%\\) ?\n\n \\(0.7888\\) \\(0.5000\\) \\(0.2319\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-11",
-    "href": "exercices_semaine_5.html#question-11",
-    "title": "Exercices Semaine 5",
-    "section": "Question 11",
-    "text": "Question 11\nLe score d’un test d’admission suit une loi normale de moyenne \\(70\\) points et d’écart-type \\(10\\) points. L’admission est garantie pour les étudiants dépassant le \\(80\\)e percentile. Quel est le score minimum requis pour être admis ?\n\n \\(73.8\\) \\(78.4\\) \\(85.2\\) \\(90.0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_5.html#question-12",
-    "href": "exercices_semaine_5.html#question-12",
-    "title": "Exercices Semaine 5",
+    "objectID": "exercices_semaine_9.html#question-12",
+    "href": "exercices_semaine_9.html#question-12",
+    "title": "Exercices Semaine 9",
     "section": "Question 12",
-    "text": "Question 12\nUn institut international analyse l’Indice de Développement Humain (IDH) des pays. On suppose que l’IDH suit approximativement une loi normale de moyenne \\(0.75\\) et d’écart-type \\(0.10\\). Un pays est considéré comme “très développé” s’il se situe dans le top \\(10\\%\\) des IDH. Quel est ce seuil ?\n\n \\(0.355\\) \\(1.154\\) \\(0.878\\) \\(0.622\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 12\nQue peut-on conclure de ce dernier test au niveau de signification \\(\\alpha = 0.05\\)?\n\n On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\). On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\). On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves. On ne peut pas conclure : l’échantillon est trop grand.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html",
+    "href": "exercices_semaine_6.html",
+    "title": "Exercices Semaine 6",
+    "section": "",
+    "text": "Il y a plus de variabilité dans les données si :\n\n L’écart-type diminue La variance diminue L’IQR est identique à l’écart-type La variance est différente de l’IQR L’IQR et/ou l’écart-type augmentent On ajoute une constante aux données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-1",
+    "href": "exercices_semaine_6.html#question-1",
+    "title": "Exercices Semaine 6",
+    "section": "",
+    "text": "Il y a plus de variabilité dans les données si :\n\n L’écart-type diminue La variance diminue L’IQR est identique à l’écart-type La variance est différente de l’IQR L’IQR et/ou l’écart-type augmentent On ajoute une constante aux données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-2",
+    "href": "exercices_semaine_6.html#question-2",
+    "title": "Exercices Semaine 6",
+    "section": "Question 2",
+    "text": "Question 2\nSoit l’échantillon composé des nombres suivants : \\(\\{4,8,6,5,9\\}\\). Calculez la moyenne de l’échantillon \\(\\bar{x}\\) et la variance de l’échantillon \\(s^2\\).\n\n \\(\\bar{x} = 6.4, \\quad s^2 = 4.3 \\) \\(\\bar{x} = 6.4, \\quad s^2 = 4.6 \\) \\(\\bar{x} = 6.4, \\quad s^2 = 2.95 \\) \\(\\bar{x} = 8.4, \\quad s^2 = 4.4 \\) \\(\\bar{x} = 8.4, \\quad s^2 = 4.6 \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-3",
+    "href": "exercices_semaine_6.html#question-3",
+    "title": "Exercices Semaine 6",
+    "section": "Question 3",
+    "text": "Question 3\nSoit la distribution suivante. Quelle affirmation est correcte?\n\n\n\n\n\n\n\n\n\n\n La distribution est assymétrique à gauche La distribution est assymétrique à droite La distribution est symétrique La moyenne est inférieure à la médiane L'IQR est égal à l'écart-type\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-4",
+    "href": "exercices_semaine_6.html#question-4",
+    "title": "Exercices Semaine 6",
+    "section": "Question 4",
+    "text": "Question 4\nOn considère l’échantillon de \\(10\\) valeurs suivant :\n\\(\\{3,7,10,12,16,21,25,30,38,50\\}\\)\nQuelle suite de valeurs est entièrement comprise entre la médiane et le troisième quartile \\(Q3\\) ?\n\n \\(17, 22, 29\\) \\(18, 24, 32\\) \\(19, 23, 35\\) \\(20, 23, 26\\) \\(15, 22, 27\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-5",
+    "href": "exercices_semaine_6.html#question-5",
+    "title": "Exercices Semaine 6",
+    "section": "Question 5",
+    "text": "Question 5\nDans une organisation internationale, un pays peut avoir le statut de “Membre”, “Observateur” ou “Non-membre”. À quel type de variable ce statut correspond-il ?\n\n Variable quantitative continue Variable quantitative discrète Variable catégorielle nominale Variable catégorielle ordinale\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-6",
+    "href": "exercices_semaine_6.html#question-6",
+    "title": "Exercices Semaine 6",
+    "section": "Question 6",
+    "text": "Question 6\nVoici l’histogramme d’un échantillon de données discrètes :\n\n\n\n\n\n\n\n\n\nQuel jeu de données correspond à cet histogramme ?\n\n \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6,6, 7,7, 8\\}\\) \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6,6, 7,8, 9\\}\\) \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6, 7, 8, 9, 10\\}\\) \\(\\{1,2,3,4,5,6,7,8,9,10,10,10,10,10,10\\}\\) \\(\\{1,1, 3,3, 4,4, 5,5, 6,6, 7,7, 8, 9\\}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-7",
+    "href": "exercices_semaine_6.html#question-7",
+    "title": "Exercices Semaine 6",
+    "section": "Question 7",
+    "text": "Question 7\nSupposez que vous avez autant de données que vous le souhaitez qui proviennent d’une variable aléatoire normale centrée en \\(10\\) et d’écart-type \\(5\\). Quelle est la valeur maximale de la moustache supérieure d’un boxplot sur de telles données ?\n\n \\(23.4\\) \\(13.35\\) \\(6.7\\) -\\(3.4\\) \\(26.6\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-8",
+    "href": "exercices_semaine_6.html#question-8",
+    "title": "Exercices Semaine 6",
+    "section": "Question 8",
+    "text": "Question 8\nSupposez que vous avez autant de données que vous le souhaitez qui proviennent d’une variable aléatoire normale \\(\\mathcal{N}(10,5^2)\\). Quelle affirmation est correcte ?\n\n IQR &lt; Écart-type &lt; Variance Écart-type &lt; IQR &lt; Variance Écart-type &lt; Variance &lt; IQR Variance &lt; Écart-type &lt; IQR Variance &lt; IQR &lt; Écart-type\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-9",
+    "href": "exercices_semaine_6.html#question-9",
+    "title": "Exercices Semaine 6",
+    "section": "Question 9",
+    "text": "Question 9\nQuel boxplot a le plus grand IQR ?\n\n\n\n\n\n\n\n\n\n\n A B C D\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-10",
+    "href": "exercices_semaine_6.html#question-10",
+    "title": "Exercices Semaine 6",
+    "section": "Question 10",
+    "text": "Question 10\nQuelle affirmation est correcte pour ces boxplots ?\n\n\n\n\n\n\n\n\n\n\n Le salaire moyen des femmes est supérieur au salaire moyen des hommes. Le salaire minimum des femmes est supérieur au salaire minimum des hommes. L'IQR du salaire des hommes est plus grand que l'IQR du salaire des femmes. Le salaire médian des femmes est supérieur au salaire médian des hommes.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_6.html#question-11",
+    "href": "exercices_semaine_6.html#question-11",
+    "title": "Exercices Semaine 6",
+    "section": "Question 11",
+    "text": "Question 11\nSoit la distribution suivante. Quelle affirmation est correcte?\n\n\n\n\n\n\n\n\n\n\n La distribution est assymétrique à gauche La distribution est assymétrique à droite La distribution est plutôt symétrique et une loi uniforme semble être un modèle pertinent modéliser pour ces données La moyenne est inférieure à la médiane La distribution est plutôt symétrique et une loi normale semble être un modèle pertinent pour modéliser ces données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html",
+    "href": "exercices_semaine_4.html",
+    "title": "Exercices Semaine 4",
+    "section": "",
+    "text": "L’expression \\(\\frac{n!}{(n-2)!}\\) est équivalente à:\n\n \\(n^3 - n\\) \\(\\frac{1}{n^2 - n}\\) \\(n\\) \\(n^2 - n\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-1",
+    "href": "exercices_semaine_4.html#question-1",
+    "title": "Exercices Semaine 4",
+    "section": "",
+    "text": "L’expression \\(\\frac{n!}{(n-2)!}\\) est équivalente à:\n\n \\(n^3 - n\\) \\(\\frac{1}{n^2 - n}\\) \\(n\\) \\(n^2 - n\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-2",
+    "href": "exercices_semaine_4.html#question-2",
+    "title": "Exercices Semaine 4",
+    "section": "Question 2",
+    "text": "Question 2\nSi \\( X \\sim \\text{Bin}(10, 0.5)\\), quelles sont respectivement \\(\\mathbb{E}(X)\\) et \\(\\text{Var}(X)\\) ?\n\n \\( \\mathbb{E}(X) = 5\\) et \\( \\text{Var}(X) = 2.5\\) \\( \\mathbb{E}(X) = 3\\) et \\( \\text{Var}(X) = -2\\) \\( \\mathbb{E}(X) = 2\\) et \\( \\text{Var}(X) = 5\\) \\( \\mathbb{E}(X) = 3\\) et \\( \\text{Var}(X) = 0\\) \\(\\mathbb{E}(X) = 5\\) et \\( \\text{Var}(X) = 2.5\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-3",
+    "href": "exercices_semaine_4.html#question-3",
+    "title": "Exercices Semaine 4",
+    "section": "Question 3",
+    "text": "Question 3\nSoit \\(X\\) le temps d’attente en seconde lors d’un appel à un centre téléphonique. On considère que \\(X \\sim U(0,120)\\). Quelle est la probabilité que vous attendiez moins de \\(40\\) secondes?\n\n \\(\\frac{1}{3}\\) \\(\\frac{3}{5}\\) \\(\\frac{1}{5}\\) \\(\\frac{1}{2}\\) \\(\\frac{2}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-4",
+    "href": "exercices_semaine_4.html#question-4",
+    "title": "Exercices Semaine 4",
+    "section": "Question 4",
+    "text": "Question 4\nÉtant donné le même contexte que la question \\(3\\), quelle est la probabilité que vous attendiez plus d’une minute?\n\n \\(\\frac{1}{3}\\) \\(\\frac{2}{3}\\) \\(\\frac{2}{5}\\) \\(\\frac{1}{2}\\) \\(\\frac{3}{5}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-5",
+    "href": "exercices_semaine_4.html#question-5",
+    "title": "Exercices Semaine 4",
+    "section": "Question 5",
+    "text": "Question 5\nÉtant donné le même contexte que la question \\(3\\), quelle est la probabilité que vous attendiez entre une minute et une minute et trente seconde?\n\n \\(\\frac{1}{3}\\) \\(\\frac{2}{3}\\) \\(\\frac{1}{4}\\) \\(\\frac{2}{5}\\) \\(\\frac{3}{4}\\) \\(\\frac{3}{5}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-6",
+    "href": "exercices_semaine_4.html#question-6",
+    "title": "Exercices Semaine 4",
+    "section": "Question 6",
+    "text": "Question 6\nÉtant donné le même contexte que la question \\(3\\), quelle est l’espérance et la variance de \\(X\\)?\n\n \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 1500\\) \\(\\mathbb{E}(X) = 30\\) et \\(\\text{Var}(X) = 600\\) \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 600\\) \\(\\mathbb{E}(X) = 120\\) et \\(\\text{Var}(X) = 1200\\) \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 1200\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nSurveillance d’un traité de désarmement\nUn traité de désarmement impose des restrictions sur la production d’armes dans un pays. Un organisme international mène des inspections surprises. On estime que la probabilité qu’une inspection détecte une violation est seulement de \\(2 \\%\\)."
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-7",
+    "href": "exercices_semaine_4.html#question-7",
+    "title": "Exercices Semaine 4",
+    "section": "Question 7",
+    "text": "Question 7\nSi l’organisme réalise \\(20\\) inspections indépendantes, quelle est la probabilité qu’au moins une inspection détecte une violation ? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.73\\) \\(0.06\\) \\(0.33\\) \\(0.94\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-8",
+    "href": "exercices_semaine_4.html#question-8",
+    "title": "Exercices Semaine 4",
+    "section": "Question 8",
+    "text": "Question 8\nCombien d’inspection (indépendantes) l’organisme devrait-il réaliser pour que la probabilité de détecter au moins une violation soit supérieure ou égale à \\(80 \\%\\) (avant d’arrondir) ?\n\n \\(20\\) \\(70\\) \\(79\\) \\(80\\) \\(90\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_4.html#question-9",
+    "href": "exercices_semaine_4.html#question-9",
+    "title": "Exercices Semaine 4",
+    "section": "Question 9",
+    "text": "Question 9\nSupposez maintenant que l’organisme réalise \\(100\\) inspections indépendantes, quelle est la probabilité de détecter deux violations ou plus ? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.60\\) \\(0.87\\) \\(0.40\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html",
+    "href": "exercices_semaine_2.html",
+    "title": "Exercices Semaine 2",
+    "section": "",
+    "text": "Quelle est la règle du complément en probabilité ?\n\n \\( P(A) = P(A^c) \\)  \\( P(A) = 1 - P(A^c) \\) \\( P(A^c) = P(A) \\) \\( P(A^c) = P(A) + P(B) \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-1",
+    "href": "exercices_semaine_2.html#question-1",
+    "title": "Exercices Semaine 2",
+    "section": "",
+    "text": "Quelle est la règle du complément en probabilité ?\n\n \\( P(A) = P(A^c) \\)  \\( P(A) = 1 - P(A^c) \\) \\( P(A^c) = P(A) \\) \\( P(A^c) = P(A) + P(B) \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-2",
+    "href": "exercices_semaine_2.html#question-2",
+    "title": "Exercices Semaine 2",
+    "section": "Question 2",
+    "text": "Question 2\nSi deux événements \\( A \\) et \\( B \\) sont mutuellement exclusifs, alors:\n\n \\(P(A) + P(B) - P(A \\cap B) &gt; 1\\) \\(P(A|B) = 0\\) \\(P(B|A) = P(B)\\) \\(P(A \\cap B) &gt; 0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-3",
+    "href": "exercices_semaine_2.html#question-3",
+    "title": "Exercices Semaine 2",
+    "section": "Question 3",
+    "text": "Question 3\nUn joueur lance deux dés. Quelle est la probabilité d’obtenir au moins un \\(6\\) sachant que la somme est \\(8\\) ?\n\n \\( \\frac{1}{3} \\)  \\( \\frac{2}{5} \\) \\( \\frac{2}{3} \\) \\( \\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-4",
+    "href": "exercices_semaine_2.html#question-4",
+    "title": "Exercices Semaine 2",
+    "section": "Question 4",
+    "text": "Question 4\nOn considère un univers où \\(100\\) personnes ont été interrogées sur leur consommation de café et de thé. \\(60\\) boivent du café, \\(40\\) boivent du thé et \\(20\\) boivent les deux. Quelle est la probabilité qu’une personne choisie au hasard boive du café ou du thé ?\n\n \\( \\frac{70}{100} \\) \\( \\frac{80}{100} \\) \\( \\frac{60}{100} \\) \\( \\frac{90}{100} \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-5",
+    "href": "exercices_semaine_2.html#question-5",
+    "title": "Exercices Semaine 2",
+    "section": "Question 5",
+    "text": "Question 5\nConsidérez la série suivante:\n\\(S_n = \\sum_{k=1}^{n} \\frac{ (-1)^k }{ k^2 }\\)\nQuelle est la valeur de \\(S_5\\)?\n\n \\( - \\frac{3000}{3650} \\) \\( \\frac{25}{450} \\) \\( - \\frac{125}{865} \\) \\( - \\frac{3019}{3600} \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nJeu avec probabilités\nUn jeu de société propose une épreuve où un joueur doit tirer au hasard une boule d’un sac.\nLe sac contient 5 types de boules, chacune ayant une valeur de points différente et une probabilité spécifique d’être tirée :\n\n\n\nType de boule\nValeur (points)\nProbabilité\n\n\n\n\n\\(A\\)\n\\(2\\) points\n\\(0.1\\)\n\n\n\\(B\\)\n\\(4\\) points\n\\(0.2\\)\n\n\n\\(C\\)\n\\(6\\) points\n\\(0.3\\)\n\n\n\\(D\\)\n\\(8\\) points\n\\(0.25\\)\n\n\n\\(E\\)\n\\(10\\) points\n\\(0.15\\)"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-6",
+    "href": "exercices_semaine_2.html#question-6",
+    "title": "Exercices Semaine 2",
+    "section": "Question 6",
+    "text": "Question 6\nQuelle est l’espérance du nombre de points obtenus en tirant une boule au hasard ?\n\n \\(5.3\\) \\(6.2\\) \\(6.5\\) \\(6.3\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-7",
+    "href": "exercices_semaine_2.html#question-7",
+    "title": "Exercices Semaine 2",
+    "section": "Question 7",
+    "text": "Question 7\nQuelle est la probabilité d’obtenir une boule valant \\(6\\) points ou plus ?\n\n \\(0.3\\) \\(0.6\\) \\(0.7\\) \\(1.0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nProbabilités et organisations internationales\nUne étude a été réalisée sur la participation des pays membres à différentes organisations internationales. On considère qu’un pays peut appartenir à plusieurs organisations à la fois. Un échantillon de \\(200\\) pays a donné les résultats suivants (données fictives) :\n\n\\(120\\) pays sont membres de l’ONU.\n\\(90\\) pays sont membres de l’OMC.\n\\(60\\) pays sont membres de l’Union Africaine.\n\\(50\\) pays sont membres à la fois de l’ONU et de l’OMC.\n\\(30\\) pays sont membres à la fois de l’ONU et de l’Union Africaine.\n\\(20\\) pays sont membres à la fois de l’OMC et de l’Union Africaine.\n\\(10\\) pays sont membres des trois organisations."
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-8",
+    "href": "exercices_semaine_2.html#question-8",
+    "title": "Exercices Semaine 2",
+    "section": "Question 8",
+    "text": "Question 8\nQuelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU ou de l’OMC ?\n\n \\(0.75\\) \\(0.85\\) \\(1.10\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-9",
+    "href": "exercices_semaine_2.html#question-9",
+    "title": "Exercices Semaine 2",
+    "section": "Question 9",
+    "text": "Question 9\nQuelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU mais pas de l’OMC ni de l’Union Africaine ?\n\n \\(0.20\\) \\(0.25\\) \\(0.30\\) \\(0.60\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-10",
+    "href": "exercices_semaine_2.html#question-10",
+    "title": "Exercices Semaine 2",
+    "section": "Question 10",
+    "text": "Question 10\nQuelle est la probabilité qu’un pays choisi au hasard soit membre d’au moins deux organisations ?\n\n \\(0.45\\) \\(0.55\\) \\(0.50\\) \\(0.40\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-11",
+    "href": "exercices_semaine_2.html#question-11",
+    "title": "Exercices Semaine 2",
+    "section": "Question 11",
+    "text": "Question 11\nUn pays est sélectionné au hasard. Sachant qu’il est membre de l’ONU, quelle est la probabilité qu’il soit également membre de l’Union Africaine ?\n\n \\(0.50\\) \\(0.33\\) \\(0.25\\) \\(0.55\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-12",
+    "href": "exercices_semaine_2.html#question-12",
+    "title": "Exercices Semaine 2",
+    "section": "Question 12",
+    "text": "Question 12\nL’appartenance à l’ONU et à l’Union Africaine sont-elles des événements indépendants ?\n\n Oui, car \\( P(A \\cap B) = P(A) P(B) \\) Non, car \\( P(A \\cap B) \\neq P(A) P(B) \\) Oui, car les effectifs sont proportionnels Non, car un pays ne peut appartenir qu'à une seule organisation\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nParticipation aux votations fédérales"
+  },
+  {
+    "objectID": "exercices_semaine_2.html#question-13",
+    "href": "exercices_semaine_2.html#question-13",
+    "title": "Exercices Semaine 2",
+    "section": "Question 13",
+    "text": "Question 13\nLors des votations fédérales, la participation électorale varie d’un canton à l’autre. Supposons que la probabilité qu’une personne du canton de Genève participe à une votation soit de \\(55\\%\\), tandis que dans le canton de Zurich, cette probabilité est de \\(50\\%\\) (données fictives). On sélectionne une personne au hasard dans chacun de ces deux cantons. En supposant que les décisions de participation des personnes des deux cantons sont indépendantes, quelle est la probabilité que les deux personnes participent à la votation ?\n\n \\(0.275\\) \\(0.90\\) \\(0.50\\) \\(1.10\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html",
+    "href": "exercices_semaine_11.html",
+    "title": "Exercices Semaine 11",
+    "section": "",
+    "text": "Dans le cadre d’une étude sur les dépenses militaires par pays, on collecte le montant des dépenses militaires (en milliards de dollars) pour \\(14\\) pays et on obtient les données suivantes:\n\\(\\{50,65,45,70,55,60,48,72,52,68,58,62,47,75 \\}\\)"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-1",
+    "href": "exercices_semaine_11.html#question-1",
+    "title": "Exercices Semaine 11",
+    "section": "Question 1",
+    "text": "Question 1\nCalculez \\(\\bar{X}\\)\n\n \\( \\bar{X} = 59.07143\\) \\(\\bar{X} = 57.6451\\) \\(\\bar{X} = 53.3476\\) \\(\\bar{X} = 58.1253\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-2",
+    "href": "exercices_semaine_11.html#question-2",
+    "title": "Exercices Semaine 11",
+    "section": "Question 2",
+    "text": "Question 2\nBasé sur une précédente étude, on sait que les dépenses militaires ont une variance de \\(100\\) milliards carrés et sont indépendantes. Vous souhaitez calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\). Quel est le quantile que vous devez utiliser ?\n\n \\(1.64\\) \\(1.96\\) \\(1.28\\) \\(1.04\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-3",
+    "href": "exercices_semaine_11.html#question-3",
+    "title": "Exercices Semaine 11",
+    "section": "Question 3",
+    "text": "Question 3\nCalculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\) et en considérant la variance des dépenses militaires donnée dans la question \\(2\\).\n\n \\([55.64634, 62.49652]\\) \\([56.82210, 61.32076]\\) \\([53.83311, 64.30975]\\) \\([57.89653, 60.24633]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-4",
+    "href": "exercices_semaine_11.html#question-4",
+    "title": "Exercices Semaine 11",
+    "section": "Question 4",
+    "text": "Question 4\nSuposons maitenant que nous ne connaissions pas l’écart-type des dépenses militaires par pays (pour la population), et que nous souhaitions construire un intervalle de confiance à un niveau de confiance de \\(95\\%\\) en utilisant l’écart-type calculé sur l’échantillon. Suposez que les données sont normalement distribuées. Quel est le quantile que vous devez utiliser ?\n\n \\(1.64\\) \\(1.76\\) \\(2.14\\) \\(2.16\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-5",
+    "href": "exercices_semaine_11.html#question-5",
+    "title": "Exercices Semaine 11",
+    "section": "Question 5",
+    "text": "Question 5\nCalculez l’intervalle de confiance à un niveau de confiance de \\(95\\%\\) pour la moyenne de la population des dépenses militaires par pays en utilisant l’écart-type calculé sur l’échantillon \\(s\\) et en supposant que les données sont normalement distribuée et indépendantes.\n\n \\([53.34011, 64.80275]\\) \\([54.33841, 63.80445]\\) \\([ 55.46295, 62.67991]\\) \\([53.83321, 64.30965]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-6",
+    "href": "exercices_semaine_11.html#question-6",
+    "title": "Exercices Semaine 11",
+    "section": "Question 6",
+    "text": "Question 6\nQuelle est l'interprétation correcte de cet intervalle de confiance dans ce contexte ?\n\n La moyenne de la population se trouve dans cet intervalle avec une probabilité de \\(95\\%\\). \\(95 \\%\\) des données de l'échantillon se trouvent dans cet intervalle. Si l'on construit plusieurs intervalles de confiance de la même manière, alors environ \\(95\\%\\) des intervalles de confiance contiendront la moyenne de la population. L'intervalle contient \\(95\\%\\) de la population Il y a \\(95\\%\\) de chance que la moyenne de la population soit dans l'intervalle calculé sur cet échantillon.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nDans une usine de production de cosmétiques, une certaine crème doit contenir en moyenne \\(50\\) mg d’un principe actif par dose. Pour vérifier si le processus de production respecte cette norme, un échantillon de \\(20\\) doses a été prélevé, et la quantité de principe actif dans chaque dose a été mesurée. La moyenne de principe actif contenu dans les \\(20\\) échantillons est de \\(50.3\\).\nOn sait également que la variance de la population est \\(\\sigma^2 = 4\\) et que la quantité de principe actif par dose est distributée normalement."
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-7",
+    "href": "exercices_semaine_11.html#question-7",
+    "title": "Exercices Semaine 11",
+    "section": "Question 7",
+    "text": "Question 7\nVous souhaitez effectuer un test d’hypothèse pour déterminer si l’espérance du principe actif par dose est significativement différente de \\(50\\) mg. Déterminez l’hypothèse nulle et l’hypothèse alternative du test que vous vous souhaitez effectuer.\n\n \\(H_0: \\mu = 50, H_{\\alpha}: \\mu &gt; 50\\) \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\) \\(H_0: \\mu \\neq 50 , H_{\\alpha}: \\mu = 50\\) \\(H_0: \\mu &gt; 50, H_{\\alpha}: \\mu = 50 \\) \\(H_0: \\mu = 50, H_{\\alpha}: \\mu &lt; 50\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-8",
+    "href": "exercices_semaine_11.html#question-8",
+    "title": "Exercices Semaine 11",
+    "section": "Question 8",
+    "text": "Question 8\nCalculez la statistique de test associé.\n\n \\(z_{obs} = 0.67\\) \\(z_{obs} = 1.34\\) \\(z_{obs} = 2.12\\) \\(z_{obs} = 1.50\\) \\(z_{obs} = 3\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-9",
+    "href": "exercices_semaine_11.html#question-9",
+    "title": "Exercices Semaine 11",
+    "section": "Question 9",
+    "text": "Question 9\nCalculez la p-valeur associée à ce test.\n\n \\(0.045\\) \\(0.125\\) \\(0.455\\) \\(0.502\\) \\(0.752\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-10",
+    "href": "exercices_semaine_11.html#question-10",
+    "title": "Exercices Semaine 11",
+    "section": "Question 10",
+    "text": "Question 10\nPeut-on rejeter l’hypothèse nulle au niveau de signification de \\(5\\%\\), en se basant sur la statistique de test calculée précédement ?\n\n Oui, car la p-valeur est supérieure à \\(0.05\\) Non, car la p-valeur est supérieure à \\(0.05\\) Oui, car la p-valeur est inférieure à \\(0.05\\) Non, car la p-valeur est inférieure à \\(0.05\\) Impossible de conclure sans connaître la moyenne\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-11",
+    "href": "exercices_semaine_11.html#question-11",
+    "title": "Exercices Semaine 11",
+    "section": "Question 11",
+    "text": "Question 11\nOn souhaite estimer une moyenne avec une marge d’erreur de \\(0.5\\), un niveau de confiance de \\(95 \\%\\), et un écart-type \\(\\sigma\\) de \\(2\\). Quelle taille minimale d’échantillon faut-il ?\n\n \\(8\\) \\(16\\) \\(31\\) \\(62\\) \\(246\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_11.html#question-12",
+    "href": "exercices_semaine_11.html#question-12",
+    "title": "Exercices Semaine 11",
+    "section": "Question 12",
+    "text": "Question 12\nUn test-t unilatéral à droite est mené sur un échantillon de \\(15\\) observations, avec une statistique de test \\(t_{\\text{obs}}=2.5\\). Le niveau de signification est \\(\\alpha=0.05\\). Faut-il rejeter l'hypothèse nulle ?\n\n Non, car \\(2.5&lt;t_{0.95,14}\\). Oui, car \\(2.5&gt;t_{0.95,14}\\). Non, car \\(2.5&lt;t_{0.05,14}\\). Oui, car \\(2.5&gt;z_{0.95}\\). Impossible de conclure sans connaître la moyenne.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "demo_q_a.html",
+    "href": "demo_q_a.html",
+    "title": "Demo Q&A env",
+    "section": "",
+    "text": "Question 1\nThis is a question\n\n \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\) \\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &gt; \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &lt; \\mu_{CC} \\)\n\n\n\n\n\n❓ Hint\n\n\n:"
+  },
+  {
+    "objectID": "chatbot_slides.html",
+    "href": "chatbot_slides.html",
+    "title": "Chatbot Slides",
+    "section": "",
+    "text": "Assistant IA - Questions sur les Slides\n  \n\n  \n    \n      Pose tes questions sur le contenu des cours.\n      Exemple : \"Explique-moi la slide 15\" ou \"C'est quoi la probabilite conditionnelle ?\"\n    \n  \n\n  \n    \n    \n      \n        \n      \n    \n  \n  \n    \n      \n    \n    Tokens: -- / --"
+  },
+  {
+    "objectID": "exercices_semaine_1.html",
+    "href": "exercices_semaine_1.html",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-1",
+    "href": "exercices_semaine_1.html#question-1",
+    "title": "Exercices Semaine 1",
+    "section": "",
+    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-2",
+    "href": "exercices_semaine_1.html#question-2",
+    "title": "Exercices Semaine 1",
+    "section": "Question 2",
+    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-3",
+    "href": "exercices_semaine_1.html#question-3",
+    "title": "Exercices Semaine 1",
+    "section": "Question 3",
+    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-4",
+    "href": "exercices_semaine_1.html#question-4",
+    "title": "Exercices Semaine 1",
+    "section": "Question 4",
+    "text": "Question 4\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\) \\(\\frac{3}{8}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-5",
+    "href": "exercices_semaine_1.html#question-5",
+    "title": "Exercices Semaine 1",
+    "section": "Question 5",
+    "text": "Question 5\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Quelle est la probabilité que ce soit un roi?\n\n \\(\\frac{4}{52}\\) \\(\\frac{2}{52}\\) \\( \\frac{1}{52}\\) \\(\\frac{8}{52}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-6",
+    "href": "exercices_semaine_1.html#question-6",
+    "title": "Exercices Semaine 1",
+    "section": "Question 6",
+    "text": "Question 6\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Sachant que c’est un roi, quelle est la probabilité que ce soit une carte rouge ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{2}{3}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-7",
+    "href": "exercices_semaine_1.html#question-7",
+    "title": "Exercices Semaine 1",
+    "section": "Question 7",
+    "text": "Question 7\nDans une famille avec deux enfants, sachant que l’aîné est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-8",
+    "href": "exercices_semaine_1.html#question-8",
+    "title": "Exercices Semaine 1",
+    "section": "Question 8",
+    "text": "Question 8\nDans une famille avec deux enfants, sachant qu’au moins l’un des deux est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-9-le-dilemme-de-monty-hall",
+    "href": "exercices_semaine_1.html#question-9-le-dilemme-de-monty-hall",
+    "title": "Exercices Semaine 1",
+    "section": "Question 9 (Le dilemme de Monty Hall)",
+    "text": "Question 9 (Le dilemme de Monty Hall)\nUn jeu télévisé propose aux candidats de choisir une porte parmi trois. Derrière l’une d’elles se trouve une voiture (le gain), et derrière les deux autres, des chèvres (perte).\nLe candidat choisit une porte au hasard. L’animateur (qui sait où est la voiture) ouvre ensuite une des deux autres portes pour révéler une chèvre. Le candidat a alors la possibilité de changer de porte ou de conserver son choix initial.\nAvant que l’animateur ouvre une porte, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{2}{3}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-10",
+    "href": "exercices_semaine_1.html#question-10",
+    "title": "Exercices Semaine 1",
+    "section": "Question 10",
+    "text": "Question 10\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{2}\\) \\(\\frac{1}{3}\\) \\( \\frac{2}{3}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-11",
+    "href": "exercices_semaine_1.html#question-11",
+    "title": "Exercices Semaine 1",
+    "section": "Question 11",
+    "text": "Question 11\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière l’autre porte encore fermée ?\n\n \\(\\frac{2}{3}\\) \\(\\frac{1}{3}\\) \\( \\frac{1}{4}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\n\n\nProbabilité dans le jeu du Yahtzee\nLe jeu de Yahtzee utilise \\(5\\) dés à six faces. Après chaque lancer, le joueur choisit de conserver certains dés et de relancer les autres pour maximiser le score selon les catégories (par exemple, les suites, les brelans, le Yahtzee, etc.).\nLe joueur lance \\(5\\) dés. Après le premier lancer, les résultats sont les suivants : \\((2, 4, 4, 3, 5)\\). Le joueur décide de conserver les deux dés “\\(4\\)” et de relancer les trois autres dés \\((2, 3, \\text{ et } 5)\\)."
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-12",
+    "href": "exercices_semaine_1.html#question-12",
+    "title": "Exercices Semaine 1",
+    "section": "Question 12",
+    "text": "Question 12\nQuelle est la probabilité d’obtenir au moins un autre “\\(4\\)” lors du second lancer ? (Le joueur relance \\(3\\) dés.)\n\n \\(\\frac{1}{6}\\) \\(\\frac{1}{2}\\) \\( \\frac{91}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{56}{216}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_1.html#question-13",
+    "href": "exercices_semaine_1.html#question-13",
+    "title": "Exercices Semaine 1",
+    "section": "Question 13",
+    "text": "Question 13\nQuelle est la probabilité d’obtenir un “Yahtzee” (cinq dés identiques) lors d’un premier lancer ?\n\n \\(\\frac{1}{36}\\) \\(\\frac{1}{1296}\\) \\( \\frac{1}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{6}{1296}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html",
+    "href": "exercices_semaine_12.html",
+    "title": "Exercices Semaine 12",
+    "section": "",
+    "text": "Dans une étude sur le temps moyen passé par les étudiants à faire leurs devoirs quotidiens, on a collecté des données pour un échantillon de \\(40\\) étudiants. On souhaite tester si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour."
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-1",
+    "href": "exercices_semaine_12.html#question-1",
+    "title": "Exercices Semaine 12",
+    "section": "Question 1",
+    "text": "Question 1\nQuelles sont les hypothèses nulle et alternative pour ce test ?\n\n \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &gt; 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &lt; 2\\) \\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-2",
+    "href": "exercices_semaine_12.html#question-2",
+    "title": "Exercices Semaine 12",
+    "section": "Question 2",
+    "text": "Question 2\nLa moyenne de l’échantillon est de \\(2.5\\) et la variance de l’échantillon \\(s^2\\) est de \\(s^2=4\\). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour.\n\n \\(z_{\\text{obs}} \\approx 2.5\\) \\(z_{\\text{obs}} \\approx 1.581\\) \\(z_{\\text{obs}} \\approx 1.118\\) \\(z_{\\text{obs}} \\approx 0.791\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-3",
+    "href": "exercices_semaine_12.html#question-3",
+    "title": "Exercices Semaine 12",
+    "section": "Question 3",
+    "text": "Question 3\nCalculez la \\(p\\)-valeur associée à ce test en fonction de \\(z_{\\text{obs}}\\) et de \\(H_{\\alpha}\\)\n\n \\(p \\approx 0.114\\) \\(p \\approx 0.057\\) \\(p \\approx 0.061\\) \\(p \\approx 0.228\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-4",
+    "href": "exercices_semaine_12.html#question-4",
+    "title": "Exercices Semaine 12",
+    "section": "Question 4",
+    "text": "Question 4\nQuelle est la conclusion du test en considérant les hypothèses formulées dans la question \\(1\\), un seuil de signification de \\(\\alpha = 5\\%\\), et les résultats obtenus précédemment ?\n\n On ne rejette pas \\(H_0\\) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de \\(2\\) heures. On rejette \\(H_0\\) : le temps moyen est significativement supérieur à \\(2\\) heures. On rejette \\(H_0\\) : le temps moyen est significativement différent de \\(2\\) heures. On ne peut pas conclure sans connaître la moyenne théorique sous \\(H_0\\).\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nUne entreprise de production de thé veut s’assurer que ses sachets de thé ne contiennent pas moins que la quantité annoncée de \\(2.0\\) grammes de thé par sachet. Elle suspecte que la machine sous-remplit légèrement les sachets. Pour en avoir le coeur net, elle effectue un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes.\nUn échantillon de \\(15\\) sachets est prélevé. On observe une moyenne calculée sur l’échantillon de \\(1.92\\) grammes, et un écart-type de l’échantillon \\(s\\) de \\(0.1\\) gramme."
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-5",
+    "href": "exercices_semaine_12.html#question-5",
+    "title": "Exercices Semaine 12",
+    "section": "Question 5",
+    "text": "Question 5\nDéterminez l’hypothèse nulle est l’hypothèse alternative du test à effectuer.\n\n \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &gt; 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &lt; 2\\) \\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\) \\(H_0: \\mu &lt; 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-6",
+    "href": "exercices_semaine_12.html#question-6",
+    "title": "Exercices Semaine 12",
+    "section": "Question 6",
+    "text": "Question 6\nCalculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à \\(2.0\\) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.\n\n \\(t_{\\text{obs}} \\approx -0.980\\) \\(t_{\\text{obs}} \\approx 3.098\\) \\(t_{\\text{obs}} \\approx -3.098\\) \\(t_{\\text{obs}} \\approx 1.96\\) \\(t_{\\text{obs}} \\approx 1.64\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-7",
+    "href": "exercices_semaine_12.html#question-7",
+    "title": "Exercices Semaine 12",
+    "section": "Question 7",
+    "text": "Question 7\nQuelle est la valeur critique à considérer dans la table de la loi de Student si l’on souhaite effectuer un test à un niveau de confiance de \\(90\\%\\)?\n\n \\(t_{0.95, 15} \\approx 1.75\\) \\(t_{0.9, 14} \\approx 1.35\\) \\(t_{0.05, 14} \\approx -1.761\\) \\(t_{0.2, 15} \\approx -0.866\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-8",
+    "href": "exercices_semaine_12.html#question-8",
+    "title": "Exercices Semaine 12",
+    "section": "Question 8",
+    "text": "Question 8\nQuelle est la conclusion du test à un niveau de confiance de \\(90\\%\\)?\n\n Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\). Puisque \\(t_{\\text{obs}} &gt; -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\). Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on ne rejette pas l'hypothèse nulle. Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on accepte l'hypothèse nulle. Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), le test est inconclusif.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-9",
+    "href": "exercices_semaine_12.html#question-9",
+    "title": "Exercices Semaine 12",
+    "section": "Question 9",
+    "text": "Question 9\nPour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \\(10 \\%\\), quel était la valeur de la statistique de test ?\n\n \\(1.96\\) \\(-1.96\\) \\(\\{-1.96, 1.96\\}\\) \\(1.64\\) \\(\\{-1.64, 1.64\\}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nOn veut comparer le taux moyen d’approbation d’une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\\(n_A=200, n_B=250\\)). On veut tester si le taux d’approbation est supérieur pour le pays A."
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-10",
+    "href": "exercices_semaine_12.html#question-10",
+    "title": "Exercices Semaine 12",
+    "section": "Question 10",
+    "text": "Question 10\nQuelle est la formulation correcte des hypothèses de test ?\n\n \\(H_0: \\mu_A&gt;\\mu_B, H_{\\alpha}: \\mu_A\\neq\\mu_B\\) \\(H_0: \\mu_A\\neq\\mu_B, H_{\\alpha}: \\mu_A&gt;\\mu_B\\) \\(H_0: \\mu_A-\\mu_B = 0, H_{\\alpha}: \\mu_A-\\mu_B&gt;0\\) \\(H_0: \\mu_A-\\mu_B\\neq0, H_{\\alpha}: \\mu_B-\\mu_A&gt;0\\) \\(H_0: \\mu_B-\\mu_A&lt;0, H_{\\alpha}: \\mu_A-\\mu_B&lt;0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-11",
+    "href": "exercices_semaine_12.html#question-11",
+    "title": "Exercices Semaine 12",
+    "section": "Question 11",
+    "text": "Question 11\nOn connaît \\(s_A=5\\%, s_B=6\\%\\), les écarts-types des populations. Les échantillons donnent \\(\\bar{X}_A=48\\%, \\bar{X}_B=45\\%\\). Calculez la statistique de test :\n\n \\(5.78\\) \\(1.36\\) \\(5.67\\) \\(1.96\\) \\(1.64\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-12",
+    "href": "exercices_semaine_12.html#question-12",
+    "title": "Exercices Semaine 12",
+    "section": "Question 12",
+    "text": "Question 12\nVous recevez l'output suivant (calculé avec le logiciel R) pour ce test:\n\n    Two-sample z-Test\n\ndata:  xbar1 and xbar2\nz = 3.420, p-value = 0.0006\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n 1.523 4.477\nsample estimates:\ndifference in means \n                 3 \n\nQuelle décision prend-on au niveau \\(\\alpha=1\\%\\)?\n\n On rejette \\(H_0\\) car la p-valeur est supérieure à \\(0.05\\). On ne peut pas conclure ce test au niveau de \\(1\\%\\). On rejette \\(H_0\\) car la p-valeur est inférieure à \\(1\\%\\). On rejette \\(H_{\\alpha}\\) car la statistique de test est plus grande que le quantile de la loi normale \\(z_{\\alpha}\\). On devrait diminuer le niveau \\(\\alpha\\) pour pouvoir rejetter \\(H_0\\).\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-13",
+    "href": "exercices_semaine_12.html#question-13",
+    "title": "Exercices Semaine 12",
+    "section": "Question 13",
+    "text": "Question 13\nUn chercheur effectue un test d’hypothèse avec \\(\\alpha = 5\\%\\), et obtient une \\(p\\)-valeur de \\(0.08\\), donc un résultat non significatif. Il décide alors d’augmenter \\(\\alpha\\) à \\(10\\%\\) pour conclure que le test est significatif. Êtes-vous d’accord avec cette approche ?\n\n Non, ce n'est pas une bonne pratique. Oui, tant que cela permet d'obtenir une conclusion. Oui, si le test est correctement justifié ensuite. Cela dépend du contexte. Cela est acceptable en recherche exploratoire.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+  },
+  {
+    "objectID": "exercices_semaine_12.html#question-14",
+    "href": "exercices_semaine_12.html#question-14",
+    "title": "Exercices Semaine 12",
+    "section": "Question 14",
+    "text": "Question 14\nUn étudiant teste \\(20\\) relations différentes entre des variables économiques dans un jeu de données. Seuls \\(2\\) tests donnent une \\(p\\)-valeur inférieure à \\(5\\%\\), et ce sont les seuls qu’il retient pour rédiger son rapport. Que pensez-vous de cette approche ?\n\n Ce n'est pas acceptable : il s'agit de p-hacking. C'est une bonne stratégie pour trouver des résultats intéressants. C'est acceptable si les résultats sont publiés. Il aurait dû conserver les \\(5\\%\\) de résultats avec les plus petites \\(p\\)-valeurs. Cela montre que les deux relations sont significatives.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
     "objectID": "exercices_semaine_3.html",
@@ -308,654 +770,199 @@
     "text": "Question 15 (Exercice facultatif 😱)\nMontrez que pour une variable aléatoire \\(X\\), \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\} = \\mathbb{E}(X^2) - \\{\\mathbb{E}(X)\\}^2 \\).\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html",
-    "href": "exercices_semaine_12.html",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html",
+    "href": "exercices_semaine_5.html",
+    "title": "Exercices Semaine 5",
     "section": "",
-    "text": "Dans une étude sur le temps moyen passé par les étudiants à faire leurs devoirs quotidiens, on a collecté des données pour un échantillon de \\(40\\) étudiants. On souhaite tester si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour."
+    "text": "Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi(0)\\)?\n\n \\(0\\) \\(1\\) \\(0.50\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-1",
-    "href": "exercices_semaine_12.html#question-1",
-    "title": "Exercices Semaine 12",
-    "section": "Question 1",
-    "text": "Question 1\nQuelles sont les hypothèses nulle et alternative pour ce test ?\n\n \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &gt; 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &lt; 2\\) \\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "objectID": "exercices_semaine_5.html#question-1",
+    "href": "exercices_semaine_5.html#question-1",
+    "title": "Exercices Semaine 5",
+    "section": "",
+    "text": "Pour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi(0)\\)?\n\n \\(0\\) \\(1\\) \\(0.50\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-2",
-    "href": "exercices_semaine_12.html#question-2",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-2",
+    "href": "exercices_semaine_5.html#question-2",
+    "title": "Exercices Semaine 5",
     "section": "Question 2",
-    "text": "Question 2\nLa moyenne de l’échantillon est de \\(2.5\\) et la variance de l’échantillon \\(s^2\\) est de \\(s^2=4\\). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour.\n\n \\(z_{\\text{obs}} \\approx 2.5\\) \\(z_{\\text{obs}} \\approx 1.581\\) \\(z_{\\text{obs}} \\approx 1.118\\) \\(z_{\\text{obs}} \\approx 0.791\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 2\nSoit \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X&gt;0)\\)?\n\n \\(0\\) \\(0.50\\) \\(1\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-3",
-    "href": "exercices_semaine_12.html#question-3",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-3",
+    "href": "exercices_semaine_5.html#question-3",
+    "title": "Exercices Semaine 5",
     "section": "Question 3",
-    "text": "Question 3\nCalculez la \\(p\\)-valeur associée à ce test en fonction de \\(z_{\\text{obs}}\\) et de \\(H_{\\alpha}\\)\n\n \\(p \\approx 0.114\\) \\(p \\approx 0.057\\) \\(p \\approx 0.061\\) \\(p \\approx 0.228\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 3\nPour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.50)\\)?\n\n \\(0\\) \\(0.50\\) \\(1\\) \\(-1\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-4",
-    "href": "exercices_semaine_12.html#question-4",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-4",
+    "href": "exercices_semaine_5.html#question-4",
+    "title": "Exercices Semaine 5",
     "section": "Question 4",
-    "text": "Question 4\nQuelle est la conclusion du test en considérant les hypothèses formulées dans la question \\(1\\), un seuil de signification de \\(\\alpha = 5\\%\\), et les résultats obtenus précédemment ?\n\n On ne rejette pas \\(H_0\\) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de \\(2\\) heures. On rejette \\(H_0\\) : le temps moyen est significativement supérieur à \\(2\\) heures. On rejette \\(H_0\\) : le temps moyen est significativement différent de \\(2\\) heures. On ne peut pas conclure sans connaître la moyenne théorique sous \\(H_0\\).\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nUne entreprise de production de thé veut s’assurer que ses sachets de thé ne contiennent pas moins que la quantité annoncée de \\(2.0\\) grammes de thé par sachet. Elle suspecte que la machine sous-remplit légèrement les sachets. Pour en avoir le coeur net, elle effectue un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes.\nUn échantillon de \\(15\\) sachets est prélevé. On observe une moyenne calculée sur l’échantillon de \\(1.92\\) grammes, et un écart-type de l’échantillon \\(s\\) de \\(0.1\\) gramme."
+    "text": "Question 4\nPour la distribution standard normale \\(\\mathcal{N}(0,1)\\), combien vaut \\(\\Phi^{-1}(0.90)\\)? Les valeurs sont arrondies au dixième le plus proche.\n\n \\(1\\) \\(-0.50\\) \\(-1.28\\) \\(1.28\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-5",
-    "href": "exercices_semaine_12.html#question-5",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-5",
+    "href": "exercices_semaine_5.html#question-5",
+    "title": "Exercices Semaine 5",
     "section": "Question 5",
-    "text": "Question 5\nDéterminez l’hypothèse nulle est l’hypothèse alternative du test à effectuer.\n\n \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &gt; 2\\) \\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu &lt; 2\\) \\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\) \\(H_0: \\mu &lt; 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 5\nSoit \\(X \\sim \\mathcal{N}(0,1)\\), à quoi correspond \\(P(X&gt;1)\\)? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.16\\) \\(0.22\\) \\(0.84\\) \\(0.75\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nAnalyse des écarts dans la production d’une usine\nUne usine de fabrication produit des pièces mécaniques dont la dimension doit être exactement de \\(0\\) mm par rapport à une référence. Cependant, des variations autour de cette valeur existent en raison du processus de fabrication. L’écart par rapport à la référence suit une loi normale standard \\(\\mathcal{N}(0,1)\\) (espérance de \\(0\\) et écart-type de \\(1\\)), où les valeurs négatives indiquent des pièces plus petites que prévu, et les valeurs positives indiquent des pièces plus grandes."
   },
   {
-    "objectID": "exercices_semaine_12.html#question-6",
-    "href": "exercices_semaine_12.html#question-6",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-6",
+    "href": "exercices_semaine_5.html#question-6",
+    "title": "Exercices Semaine 5",
     "section": "Question 6",
-    "text": "Question 6\nCalculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à \\(2.0\\) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.\n\n \\(t_{\\text{obs}} \\approx -0.980\\) \\(t_{\\text{obs}} \\approx 3.098\\) \\(t_{\\text{obs}} \\approx -3.098\\) \\(t_{\\text{obs}} \\approx 1.96\\) \\(t_{\\text{obs}} \\approx 1.64\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 6\nUne pièce est considérée comme trop grande si son écart dépasse \\(1.4\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop grande ?\n\n \\(0.9192\\) \\(0.4032\\) \\(0.0808\\) \\(0.5000\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-7",
-    "href": "exercices_semaine_12.html#question-7",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-7",
+    "href": "exercices_semaine_5.html#question-7",
+    "title": "Exercices Semaine 5",
     "section": "Question 7",
-    "text": "Question 7\nQuelle est la valeur critique à considérer dans la table de la loi de Student si l’on souhaite effectuer un test à un niveau de confiance de \\(90\\%\\)?\n\n \\(t_{0.95, 15} \\approx 1.75\\) \\(t_{0.9, 14} \\approx 1.35\\) \\(t_{0.05, 14} \\approx -1.761\\) \\(t_{0.2, 15} \\approx -0.866\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 7\nUne pièce est considérée comme trop petite si son écart est inférieur à -\\(1.1\\) mm. Quelle est la probabilité qu’une pièce sélectionnée au hasard soit trop petite ?\n\n \\(0.1357\\) \\(0.5000\\) \\(0.8849\\) \\(0.2119\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-8",
-    "href": "exercices_semaine_12.html#question-8",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-8",
+    "href": "exercices_semaine_5.html#question-8",
+    "title": "Exercices Semaine 5",
     "section": "Question 8",
-    "text": "Question 8\nQuelle est la conclusion du test à un niveau de confiance de \\(90\\%\\)?\n\n Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\). Puisque \\(t_{\\text{obs}} &gt; -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\). Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on ne rejette pas l'hypothèse nulle. Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), on accepte l'hypothèse nulle. Puisque \\(t_{\\text{obs}} &lt; -t_{1-\\alpha, df}\\), le test est inconclusif.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 8\nLes pièces sont considérées comme conformes si leur écart est compris entre \\(-0.9\\) mm et \\(1.2\\) mm. Quelle est la probabilité qu’une pièce soit conforme ?\n\n \\(0.5000\\) \\(0.7008\\) \\(0.2876\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-9",
-    "href": "exercices_semaine_12.html#question-9",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-9",
+    "href": "exercices_semaine_5.html#question-9",
+    "title": "Exercices Semaine 5",
     "section": "Question 9",
-    "text": "Question 9\nPour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \\(10 \\%\\), quel était la valeur de la statistique de test ?\n\n \\(1.96\\) \\(-1.96\\) \\(\\{-1.96, 1.96\\}\\) \\(1.64\\) \\(\\{-1.64, 1.64\\}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nOn veut comparer le taux moyen d’approbation d’une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\\(n_A=200, n_B=250\\)). On veut tester si le taux d’approbation est supérieur pour le pays A."
+    "text": "Question 9\nDans un pays, la durée moyenne d’un mandat politique est de \\(5.2\\) années avec une variance de \\(1.21\\) années carrées et suit une distribution normale. Quelle est la probabilité qu’un mandat dure moins de \\(4\\) années ?\n\n \\(0.2319\\) \\(0.3085\\) \\(0.1379\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-10",
-    "href": "exercices_semaine_12.html#question-10",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-10",
+    "href": "exercices_semaine_5.html#question-10",
+    "title": "Exercices Semaine 5",
     "section": "Question 10",
-    "text": "Question 10\nQuelle est la formulation correcte des hypothèses de test ?\n\n \\(H_0: \\mu_A&gt;\\mu_B, H_{\\alpha}: \\mu_A\\neq\\mu_B\\) \\(H_0: \\mu_A\\neq\\mu_B, H_{\\alpha}: \\mu_A&gt;\\mu_B\\) \\(H_0: \\mu_A-\\mu_B = 0, H_{\\alpha}: \\mu_A-\\mu_B&gt;0\\) \\(H_0: \\mu_A-\\mu_B\\neq0, H_{\\alpha}: \\mu_B-\\mu_A&gt;0\\) \\(H_0: \\mu_B-\\mu_A&lt;0, H_{\\alpha}: \\mu_A-\\mu_B&lt;0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 10\nLe taux de croissance annuel du PIB d’un pays suit une distribution normale avec une moyenne de \\(2.5\\%\\) et un écart-type de \\(1.2\\%\\). Quelle est la probabilité que la croissance soit comprise entre \\(1\\%\\) et \\(4\\%\\) ?\n\n \\(0.7888\\) \\(0.5000\\) \\(0.2319\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-11",
-    "href": "exercices_semaine_12.html#question-11",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-11",
+    "href": "exercices_semaine_5.html#question-11",
+    "title": "Exercices Semaine 5",
     "section": "Question 11",
-    "text": "Question 11\nOn connaît \\(s_A=5\\%, s_B=6\\%\\), les écarts-types des populations. Les échantillons donnent \\(\\bar{X}_A=48\\%, \\bar{X}_B=45\\%\\). Calculez la statistique de test :\n\n \\(5.78\\) \\(1.36\\) \\(5.67\\) \\(1.96\\) \\(1.64\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 11\nLe score d’un test d’admission suit une loi normale de moyenne \\(70\\) points et d’écart-type \\(10\\) points. L’admission est garantie pour les étudiants dépassant le \\(80\\)e percentile. Quel est le score minimum requis pour être admis ?\n\n \\(73.8\\) \\(78.4\\) \\(85.2\\) \\(90.0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-12",
-    "href": "exercices_semaine_12.html#question-12",
-    "title": "Exercices Semaine 12",
+    "objectID": "exercices_semaine_5.html#question-12",
+    "href": "exercices_semaine_5.html#question-12",
+    "title": "Exercices Semaine 5",
     "section": "Question 12",
-    "text": "Question 12\nVous recevez l'output suivant (calculé avec le logiciel R) pour ce test:\n\n    Two-sample z-Test\n\ndata:  xbar1 and xbar2\nz = 3.420, p-value = 0.0006\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n 1.523 4.477\nsample estimates:\ndifference in means \n                 3 \n\nQuelle décision prend-on au niveau \\(\\alpha=1\\%\\)?\n\n On rejette \\(H_0\\) car la p-valeur est supérieure à \\(0.05\\). On ne peut pas conclure ce test au niveau de \\(1\\%\\). On rejette \\(H_0\\) car la p-valeur est inférieure à \\(1\\%\\). On rejette \\(H_{\\alpha}\\) car la statistique de test est plus grande que le quantile de la loi normale \\(z_{\\alpha}\\). On devrait diminuer le niveau \\(\\alpha\\) pour pouvoir rejetter \\(H_0\\).\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 12\nUn institut international analyse l’Indice de Développement Humain (IDH) des pays. On suppose que l’IDH suit approximativement une loi normale de moyenne \\(0.75\\) et d’écart-type \\(0.10\\). Un pays est considéré comme “très développé” s’il se situe dans le top \\(10\\%\\) des IDH. Quel est ce seuil ?\n\n \\(0.355\\) \\(1.154\\) \\(0.878\\) \\(0.622\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_12.html#question-13",
-    "href": "exercices_semaine_12.html#question-13",
-    "title": "Exercices Semaine 12",
-    "section": "Question 13",
-    "text": "Question 13\nUn chercheur effectue un test d’hypothèse avec \\(\\alpha = 5\\%\\), et obtient une \\(p\\)-valeur de \\(0.08\\), donc un résultat non significatif. Il décide alors d’augmenter \\(\\alpha\\) à \\(10\\%\\) pour conclure que le test est significatif. Êtes-vous d’accord avec cette approche ?\n\n Non, ce n'est pas une bonne pratique. Oui, tant que cela permet d'obtenir une conclusion. Oui, si le test est correctement justifié ensuite. Cela dépend du contexte. Cela est acceptable en recherche exploratoire.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_12.html#question-14",
-    "href": "exercices_semaine_12.html#question-14",
-    "title": "Exercices Semaine 12",
-    "section": "Question 14",
-    "text": "Question 14\nUn étudiant teste \\(20\\) relations différentes entre des variables économiques dans un jeu de données. Seuls \\(2\\) tests donnent une \\(p\\)-valeur inférieure à \\(5\\%\\), et ce sont les seuls qu’il retient pour rédiger son rapport. Que pensez-vous de cette approche ?\n\n Ce n'est pas acceptable : il s'agit de p-hacking. C'est une bonne stratégie pour trouver des résultats intéressants. C'est acceptable si les résultats sont publiés. Il aurait dû conserver les \\(5\\%\\) de résultats avec les plus petites \\(p\\)-valeurs. Cela montre que les deux relations sont significatives.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html",
-    "href": "exercices_semaine_1.html",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html",
+    "href": "exercices_semaine_8.html",
+    "title": "Exercices Semaine 8",
     "section": "",
-    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Les scores d’un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?\n\n \\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique \\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre \\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre \\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-1",
-    "href": "exercices_semaine_1.html#question-1",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-1",
+    "href": "exercices_semaine_8.html#question-1",
+    "title": "Exercices Semaine 8",
     "section": "",
-    "text": "Dans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules avec remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{52}{100}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Les scores d’un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?\n\n \\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique \\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre \\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre \\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-2",
-    "href": "exercices_semaine_1.html#question-2",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-2",
+    "href": "exercices_semaine_8.html#question-2",
+    "title": "Exercices Semaine 8",
     "section": "Question 2",
-    "text": "Question 2\nDans une urne contenant \\(3\\) boules rouges et \\(2\\) boules bleues, on tire deux boules sans remise. Quelle est la probabilité d’obtenir deux boules de la même couleur?\n\n \\(\\frac{1}{10}\\) \\(\\frac{3}{10}\\) \\(\\frac{2}{5}\\) \\( \\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 2\nSi la taille de l’échantillon \\(n\\) augmente, quelle affirmation est correcte à propos de \\(\\bar{X}\\), l’estimateur de l’espérance \\(\\mu\\)?\n\n L'estimateur \\(\\bar{X}\\) devient plus variable L'estimateur \\(\\bar{X}\\) devient moins variable L'estimateur \\(\\bar{X}\\) devient plus grand L'estimateur \\(\\bar{X}\\) devient plus petit La variance de l'estimateur \\(\\bar{X}\\) n'est pas affectée\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-3",
-    "href": "exercices_semaine_1.html#question-3",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-3",
+    "href": "exercices_semaine_8.html#question-3",
+    "title": "Exercices Semaine 8",
     "section": "Question 3",
-    "text": "Question 3\nSi \\( P(A) = \\frac{3}{10}\\) et \\(P(B|A) = \\frac{4}{10}\\), quelle est la probabilité \\( P(A \\text{ et } B) ? \\)\n\n \\(\\frac{7}{10}\\) \\(\\frac{12}{100}\\) \\(\\frac{3}{10}\\) \\( \\frac{4}{10}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 3\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). On considère un échantillon de taille \\(n = 100\\). Quelle est la variance de \\(\\bar{X}\\), la moyenne de l’échantillon ?\n\n \\(0.75\\) \\(2.5\\) \\(25\\) \\(0.25\\) \\(100\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-4",
-    "href": "exercices_semaine_1.html#question-4",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-4",
+    "href": "exercices_semaine_8.html#question-4",
+    "title": "Exercices Semaine 8",
     "section": "Question 4",
-    "text": "Question 4\nDans une famille ayant trois enfants, quelle est la probabilité d’avoir exactement deux filles ?\n\n \\(\\frac{1}{8}\\) \\(\\frac{1}{2}\\) \\( \\frac{5}{8}\\) \\(\\frac{3}{8}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 4\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). Maintenant, on considère un échantillon de taille \\(n = 100\\). Quelle est la probabilité que la moyenne de l’échantillon \\(\\bar{X}\\) soit supérieure à 51 ?\n\n \\(0.1587\\) \\(0.0228\\) \\(0.3085\\) \\(0.5\\) \\(0.8413\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-5",
-    "href": "exercices_semaine_1.html#question-5",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-5",
+    "href": "exercices_semaine_8.html#question-5",
+    "title": "Exercices Semaine 8",
     "section": "Question 5",
-    "text": "Question 5\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Quelle est la probabilité que ce soit un roi?\n\n \\(\\frac{4}{52}\\) \\(\\frac{2}{52}\\) \\( \\frac{1}{52}\\) \\(\\frac{8}{52}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 5\nOn considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 100\\) et une variance \\(\\sigma^2 = 16\\). Maintenant, on considère un échantillon de taille \\(n = 64\\). Quelle est la probabilité que la moyenne de l’échantillon \\(\\bar{X}\\) soit inférieure à 99 ?\n\n \\(0.0478\\) \\(0.1587\\) \\(0.3085\\) \\(0.5\\) \\(0.0228\\) \\(0.1237\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-6",
-    "href": "exercices_semaine_1.html#question-6",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-6",
+    "href": "exercices_semaine_8.html#question-6",
+    "title": "Exercices Semaine 8",
     "section": "Question 6",
-    "text": "Question 6\nLors d’un jeu de cartes avec un paquet classique contenant \\(52\\) cartes, vous tirez une carte au hasard. Sachant que c’est un roi, quelle est la probabilité que ce soit une carte rouge ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{2}{3}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{2}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 6\nOn considère l’échantillon suivant: \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\). Calculez la moyenne \\(\\bar{X}\\) et l’écart type \\(s\\) de cet ensemble de données.\n\n \\(\\bar{X} = 4.825, s \\approx 2.66 \\) \\(\\bar{X} = 2.825, s \\approx 4.66 \\) \\(\\bar{X} = 10.925, s \\approx 3.56 \\) \\(\\bar{X} = 1.525, s \\approx 2.21 \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-7",
-    "href": "exercices_semaine_1.html#question-7",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-7",
+    "href": "exercices_semaine_8.html#question-7",
+    "title": "Exercices Semaine 8",
     "section": "Question 7",
-    "text": "Question 7\nDans une famille avec deux enfants, sachant que l’aîné est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{4}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 7\nEn utilisant la moyenne \\(\\bar{X}\\) et l’écart type \\(s\\) que vous avez calculés dans l’exercice précédent, déterminez l’erreur standard de la moyenne \\(\\frac{s}{\\sqrt{n}}\\) pour l’échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\).\n\n \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 0.0478\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 1.084109\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 2.05219\\) \\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 3.12643\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nTir à 3 points de Stephen Curry\nOn a les données suivantes sur les réussites au tir à trois points de Stephen Curry (données réelles avril 2025) :\n\n\n\n\n\n\n\n\n\nDate\nAdversaire\nTentatives à 3 points\nRéussites à 3 points\n\n\n\n\n1er avril 2025\nMemphis Grizzlies\n20\n12\n\n\n3 avril 2025\nLos Angeles Lakers\n11\n4\n\n\n4 avril 2025\nDenver Nuggets\n15\n7\n\n\n6 avril 2025\nHouston Rockets\n8\n1"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-8",
-    "href": "exercices_semaine_1.html#question-8",
-    "title": "Exercices Semaine 1",
+    "objectID": "exercices_semaine_8.html#question-8",
+    "href": "exercices_semaine_8.html#question-8",
+    "title": "Exercices Semaine 8",
     "section": "Question 8",
-    "text": "Question 8\nDans une famille avec deux enfants, sachant qu’au moins l’un des deux est un garçon, quelle est la probabilité que les deux enfants soient des garçons ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{3}{4}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 8\nBasé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?\n\n \\(0.3790\\) \\(0.4444\\) \\(0.3890\\) \\(24\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_1.html#question-9-le-dilemme-de-monty-hall",
-    "href": "exercices_semaine_1.html#question-9-le-dilemme-de-monty-hall",
-    "title": "Exercices Semaine 1",
-    "section": "Question 9 (Le dilemme de Monty Hall)",
-    "text": "Question 9 (Le dilemme de Monty Hall)\nUn jeu télévisé propose aux candidats de choisir une porte parmi trois. Derrière l’une d’elles se trouve une voiture (le gain), et derrière les deux autres, des chèvres (perte).\nLe candidat choisit une porte au hasard. L’animateur (qui sait où est la voiture) ouvre ensuite une des deux autres portes pour révéler une chèvre. Le candidat a alors la possibilité de changer de porte ou de conserver son choix initial.\nAvant que l’animateur ouvre une porte, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{3}\\) \\(\\frac{1}{2}\\) \\( \\frac{2}{3}\\) \\(\\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-10",
-    "href": "exercices_semaine_1.html#question-10",
-    "title": "Exercices Semaine 1",
-    "section": "Question 10",
-    "text": "Question 10\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière la porte initialement choisie par le candidat ?\n\n \\(\\frac{1}{2}\\) \\(\\frac{1}{3}\\) \\( \\frac{2}{3}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-11",
-    "href": "exercices_semaine_1.html#question-11",
-    "title": "Exercices Semaine 1",
-    "section": "Question 11",
-    "text": "Question 11\nAprès que l’animateur a ouvert une porte contenant une chèvre, quelle est la probabilité que la voiture soit derrière l’autre porte encore fermée ?\n\n \\(\\frac{2}{3}\\) \\(\\frac{1}{3}\\) \\( \\frac{1}{4}\\) \\(\\frac{3}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\n\n\nProbabilité dans le jeu du Yahtzee\nLe jeu de Yahtzee utilise \\(5\\) dés à six faces. Après chaque lancer, le joueur choisit de conserver certains dés et de relancer les autres pour maximiser le score selon les catégories (par exemple, les suites, les brelans, le Yahtzee, etc.).\nLe joueur lance \\(5\\) dés. Après le premier lancer, les résultats sont les suivants : \\((2, 4, 4, 3, 5)\\). Le joueur décide de conserver les deux dés “\\(4\\)” et de relancer les trois autres dés \\((2, 3, \\text{ et } 5)\\)."
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-12",
-    "href": "exercices_semaine_1.html#question-12",
-    "title": "Exercices Semaine 1",
-    "section": "Question 12",
-    "text": "Question 12\nQuelle est la probabilité d’obtenir au moins un autre “\\(4\\)” lors du second lancer ? (Le joueur relance \\(3\\) dés.)\n\n \\(\\frac{1}{6}\\) \\(\\frac{1}{2}\\) \\( \\frac{91}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{56}{216}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_1.html#question-13",
-    "href": "exercices_semaine_1.html#question-13",
-    "title": "Exercices Semaine 1",
-    "section": "Question 13",
-    "text": "Question 13\nQuelle est la probabilité d’obtenir un “Yahtzee” (cinq dés identiques) lors d’un premier lancer ?\n\n \\(\\frac{1}{36}\\) \\(\\frac{1}{1296}\\) \\( \\frac{1}{216}\\) \\(\\frac{1}{3}\\) \\(\\frac{6}{1296}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "chatbot_slides.html",
-    "href": "chatbot_slides.html",
-    "title": "Chatbot Slides",
-    "section": "",
-    "text": "Assistant IA - Questions sur les Slides\n  \n\n  \n    \n      Pose tes questions sur le contenu des cours.\n      Exemple : \"Explique-moi la slide 15\" ou \"C'est quoi la probabilite conditionnelle ?\"\n    \n  \n\n  \n    \n    \n      \n        \n      \n    \n  \n  \n    \n      \n    \n    Tokens: -- / --"
-  },
-  {
-    "objectID": "demo_q_a.html",
-    "href": "demo_q_a.html",
-    "title": "Demo Q&A env",
-    "section": "",
-    "text": "Question 1\nThis is a question\n\n \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} \\neq \\mu_{CC} \\) \\( H_0: \\mu_{OG} \\neq \\mu_{CC} \\), \\( H_a: \\mu_{OG}= \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &gt; \\mu_{CC} \\) \\( H_0: \\mu_{OG} = \\mu_{CC} \\), \\( H_a: \\mu_{OG} &lt; \\mu_{CC} \\)\n\n\n\n\n\n❓ Hint\n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html",
-    "href": "exercices_semaine_11.html",
-    "title": "Exercices Semaine 11",
-    "section": "",
-    "text": "Dans le cadre d’une étude sur les dépenses militaires par pays, on collecte le montant des dépenses militaires (en milliards de dollars) pour \\(14\\) pays et on obtient les données suivantes:\n\\(\\{50,65,45,70,55,60,48,72,52,68,58,62,47,75 \\}\\)"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-1",
-    "href": "exercices_semaine_11.html#question-1",
-    "title": "Exercices Semaine 11",
-    "section": "Question 1",
-    "text": "Question 1\nCalculez \\(\\bar{X}\\)\n\n \\( \\bar{X} = 59.07143\\) \\(\\bar{X} = 57.6451\\) \\(\\bar{X} = 53.3476\\) \\(\\bar{X} = 58.1253\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-2",
-    "href": "exercices_semaine_11.html#question-2",
-    "title": "Exercices Semaine 11",
-    "section": "Question 2",
-    "text": "Question 2\nBasé sur une précédente étude, on sait que les dépenses militaires ont une variance de \\(100\\) milliards carrés et sont indépendantes. Vous souhaitez calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\). Quel est le quantile que vous devez utiliser ?\n\n \\(1.64\\) \\(1.96\\) \\(1.28\\) \\(1.04\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-3",
-    "href": "exercices_semaine_11.html#question-3",
-    "title": "Exercices Semaine 11",
-    "section": "Question 3",
-    "text": "Question 3\nCalculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de \\(95\\%\\) et en considérant la variance des dépenses militaires donnée dans la question \\(2\\).\n\n \\([55.64634, 62.49652]\\) \\([56.82210, 61.32076]\\) \\([53.83311, 64.30975]\\) \\([57.89653, 60.24633]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-4",
-    "href": "exercices_semaine_11.html#question-4",
-    "title": "Exercices Semaine 11",
-    "section": "Question 4",
-    "text": "Question 4\nSuposons maitenant que nous ne connaissions pas l’écart-type des dépenses militaires par pays (pour la population), et que nous souhaitions construire un intervalle de confiance à un niveau de confiance de \\(95\\%\\) en utilisant l’écart-type calculé sur l’échantillon. Suposez que les données sont normalement distribuées. Quel est le quantile que vous devez utiliser ?\n\n \\(1.64\\) \\(1.76\\) \\(2.14\\) \\(2.16\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-5",
-    "href": "exercices_semaine_11.html#question-5",
-    "title": "Exercices Semaine 11",
-    "section": "Question 5",
-    "text": "Question 5\nCalculez l’intervalle de confiance à un niveau de confiance de \\(95\\%\\) pour la moyenne de la population des dépenses militaires par pays en utilisant l’écart-type calculé sur l’échantillon \\(s\\) et en supposant que les données sont normalement distribuée et indépendantes.\n\n \\([53.34011, 64.80275]\\) \\([54.33841, 63.80445]\\) \\([ 55.46295, 62.67991]\\) \\([53.83321, 64.30965]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-6",
-    "href": "exercices_semaine_11.html#question-6",
-    "title": "Exercices Semaine 11",
-    "section": "Question 6",
-    "text": "Question 6\nQuelle est l'interprétation correcte de cet intervalle de confiance dans ce contexte ?\n\n La moyenne de la population se trouve dans cet intervalle avec une probabilité de \\(95\\%\\). \\(95 \\%\\) des données de l'échantillon se trouvent dans cet intervalle. Si l'on construit plusieurs intervalles de confiance de la même manière, alors environ \\(95\\%\\) des intervalles de confiance contiendront la moyenne de la population. L'intervalle contient \\(95\\%\\) de la population Il y a \\(95\\%\\) de chance que la moyenne de la population soit dans l'intervalle calculé sur cet échantillon.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nDans une usine de production de cosmétiques, une certaine crème doit contenir en moyenne \\(50\\) mg d’un principe actif par dose. Pour vérifier si le processus de production respecte cette norme, un échantillon de \\(20\\) doses a été prélevé, et la quantité de principe actif dans chaque dose a été mesurée. La moyenne de principe actif contenu dans les \\(20\\) échantillons est de \\(50.3\\).\nOn sait également que la variance de la population est \\(\\sigma^2 = 4\\) et que la quantité de principe actif par dose est distributée normalement."
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-7",
-    "href": "exercices_semaine_11.html#question-7",
-    "title": "Exercices Semaine 11",
-    "section": "Question 7",
-    "text": "Question 7\nVous souhaitez effectuer un test d’hypothèse pour déterminer si l’espérance du principe actif par dose est significativement différente de \\(50\\) mg. Déterminez l’hypothèse nulle et l’hypothèse alternative du test que vous vous souhaitez effectuer.\n\n \\(H_0: \\mu = 50, H_{\\alpha}: \\mu &gt; 50\\) \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\) \\(H_0: \\mu \\neq 50 , H_{\\alpha}: \\mu = 50\\) \\(H_0: \\mu &gt; 50, H_{\\alpha}: \\mu = 50 \\) \\(H_0: \\mu = 50, H_{\\alpha}: \\mu &lt; 50\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-8",
-    "href": "exercices_semaine_11.html#question-8",
-    "title": "Exercices Semaine 11",
-    "section": "Question 8",
-    "text": "Question 8\nCalculez la statistique de test associé.\n\n \\(z_{obs} = 0.67\\) \\(z_{obs} = 1.34\\) \\(z_{obs} = 2.12\\) \\(z_{obs} = 1.50\\) \\(z_{obs} = 3\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_11.html#question-9",
-    "href": "exercices_semaine_11.html#question-9",
-    "title": "Exercices Semaine 11",
+    "objectID": "exercices_semaine_8.html#question-9",
+    "href": "exercices_semaine_8.html#question-9",
+    "title": "Exercices Semaine 8",
     "section": "Question 9",
-    "text": "Question 9\nCalculez la p-valeur associée à ce test.\n\n \\(0.045\\) \\(0.125\\) \\(0.455\\) \\(0.502\\) \\(0.752\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 9\nBasé sur ces données, quelle est l'erreur standard de la proportion de réussites à 3 points de Stephen Curry ?\n\n \\(0.0046\\) \\(0.4969\\) \\(0.0676\\) \\(0.0663\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_11.html#question-10",
-    "href": "exercices_semaine_11.html#question-10",
-    "title": "Exercices Semaine 11",
+    "objectID": "exercices_semaine_8.html#question-10",
+    "href": "exercices_semaine_8.html#question-10",
+    "title": "Exercices Semaine 8",
     "section": "Question 10",
-    "text": "Question 10\nPeut-on rejeter l’hypothèse nulle au niveau de signification de \\(5\\%\\), en se basant sur la statistique de test calculée précédement ?\n\n Oui, car la p-valeur est supérieure à \\(0.05\\) Non, car la p-valeur est supérieure à \\(0.05\\) Oui, car la p-valeur est inférieure à \\(0.05\\) Non, car la p-valeur est inférieure à \\(0.05\\) Impossible de conclure sans connaître la moyenne\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 10\nQuelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?\n\n Le TCL s’applique car les pourcentages proviennent d’un joueur professionnel, donc ils suivent une loi normale. Le TCL ne peut pas s’appliquer ici car les tirs à 3 points ne suivent pas une loi normale. Le TCL s’applique dès qu’on connaît la moyenne et la variance des taux de réussite, quelle que soit la taille de l’échantillon. Le TCL s’applique car l'échantillon est suffisamment grand pour justifier l’approximation normale. Le TCL permet de conclure que la proportion est égale à la probabilité de réussite à 3 points.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_11.html#question-11",
-    "href": "exercices_semaine_11.html#question-11",
-    "title": "Exercices Semaine 11",
+    "objectID": "exercices_semaine_8.html#question-11",
+    "href": "exercices_semaine_8.html#question-11",
+    "title": "Exercices Semaine 8",
     "section": "Question 11",
-    "text": "Question 11\nOn souhaite estimer une moyenne avec une marge d’erreur de \\(0.5\\), un niveau de confiance de \\(95 \\%\\), et un écart-type \\(\\sigma\\) de \\(2\\). Quelle taille minimale d’échantillon faut-il ?\n\n \\(8\\) \\(16\\) \\(31\\) \\(62\\) \\(246\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Question 11\nSupposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de \\(p=0.397\\). En supposant que le TCL s’applique, quelle est la distribution approximative de \\(\\hat{p}\\) ?\n\n \\(\\hat{p}\\sim\\mathcal{N}(0.4444, 0.0676^2)\\) \\(\\hat{p}\\sim\\text{Bin}(54, 0.397)\\) \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.397^2)\\) \\(\\hat{p}\\sim\\mathcal{U}(0, 1)\\) \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
   },
   {
-    "objectID": "exercices_semaine_11.html#question-12",
-    "href": "exercices_semaine_11.html#question-12",
-    "title": "Exercices Semaine 11",
-    "section": "Question 12",
-    "text": "Question 12\nUn test-t unilatéral à droite est mené sur un échantillon de \\(15\\) observations, avec une statistique de test \\(t_{\\text{obs}}=2.5\\). Le niveau de signification est \\(\\alpha=0.05\\). Faut-il rejeter l'hypothèse nulle ?\n\n Non, car \\(2.5&lt;t_{0.95,14}\\). Oui, car \\(2.5&gt;t_{0.95,14}\\). Non, car \\(2.5&lt;t_{0.05,14}\\). Oui, car \\(2.5&gt;z_{0.95}\\). Impossible de conclure sans connaître la moyenne.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html",
-    "href": "exercices_semaine_2.html",
-    "title": "Exercices Semaine 2",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction à la Statistique",
     "section": "",
-    "text": "Quelle est la règle du complément en probabilité ?\n\n \\( P(A) = P(A^c) \\)  \\( P(A) = 1 - P(A^c) \\) \\( P(A^c) = P(A) \\) \\( P(A^c) = P(A) + P(B) \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "text": "Plateforme d’exercices\n\n\nIntroduction à la Statistique\n\n\nCe site te permet de t’entraîner chaque semaine avec des exercices interactifs.Les supports de cours sont disponibles sur la plateforme officielle de l’université.\n\n\nAccéder aux exercices Supports de cours"
   },
   {
-    "objectID": "exercices_semaine_2.html#question-1",
-    "href": "exercices_semaine_2.html#question-1",
-    "title": "Exercices Semaine 2",
-    "section": "",
-    "text": "Quelle est la règle du complément en probabilité ?\n\n \\( P(A) = P(A^c) \\)  \\( P(A) = 1 - P(A^c) \\) \\( P(A^c) = P(A) \\) \\( P(A^c) = P(A) + P(B) \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "objectID": "index.html#exercices-par-semaine",
+    "href": "index.html#exercices-par-semaine",
+    "title": "Introduction à la Statistique",
+    "section": "Exercices par semaine",
+    "text": "Exercices par semaine\n\n\n\nSemaine 1\n\n\nProbabilités de base\n\n\nDisponible\n\n\n\n\nSemaine 2\n\n\nProbabilités conditionnelles\n\n\nDisponible\n\n\n\n\nSemaine 3\n\n\nVariables aléatoires\n\n\nDisponible\n\n\n\n\nSemaine 4\n\n\nLoi binomiale\n\n\nDisponible\n\n\n\n\nSemaine 5\n\n\nLoi normale\n\n\nDisponible\n\n\n\n\nSemaine 6\n\n\nStatistiques descriptives\n\n\nDisponible\n\n\n\n\nSemaine 7\n\n\nPas de cours\n\n\nVacances\n\n\n\n\nSemaine 8\n\n\nÉchantillonnage\n\n\nDisponible\n\n\n\n\nSemaine 9\n\n\nIntervalles de confiance\n\n\nDisponible\n\n\n\n\nSemaine 10\n\n\nExamen intermédiaire\n\n\nExamen\n\n\n\n\nSemaine 11\n\n\nIntervalles de confiance (suite)\n\n\nDisponible\n\n\n\n\nSemaine 12\n\n\nTests d’hypothèses\n\n\nDisponible\n\n\n\n\nSemaine 13\n\n\nExamen final\n\n\nExamen"
   },
   {
-    "objectID": "exercices_semaine_2.html#question-2",
-    "href": "exercices_semaine_2.html#question-2",
-    "title": "Exercices Semaine 2",
-    "section": "Question 2",
-    "text": "Question 2\nSi deux événements \\( A \\) et \\( B \\) sont mutuellement exclusifs, alors:\n\n \\(P(A) + P(B) - P(A \\cap B) &gt; 1\\) \\(P(A|B) = 0\\) \\(P(B|A) = P(B)\\) \\(P(A \\cap B) &gt; 0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-3",
-    "href": "exercices_semaine_2.html#question-3",
-    "title": "Exercices Semaine 2",
-    "section": "Question 3",
-    "text": "Question 3\nUn joueur lance deux dés. Quelle est la probabilité d’obtenir au moins un \\(6\\) sachant que la somme est \\(8\\) ?\n\n \\( \\frac{1}{3} \\)  \\( \\frac{2}{5} \\) \\( \\frac{2}{3} \\) \\( \\frac{1}{4}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-4",
-    "href": "exercices_semaine_2.html#question-4",
-    "title": "Exercices Semaine 2",
-    "section": "Question 4",
-    "text": "Question 4\nOn considère un univers où \\(100\\) personnes ont été interrogées sur leur consommation de café et de thé. \\(60\\) boivent du café, \\(40\\) boivent du thé et \\(20\\) boivent les deux. Quelle est la probabilité qu’une personne choisie au hasard boive du café ou du thé ?\n\n \\( \\frac{70}{100} \\) \\( \\frac{80}{100} \\) \\( \\frac{60}{100} \\) \\( \\frac{90}{100} \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-5",
-    "href": "exercices_semaine_2.html#question-5",
-    "title": "Exercices Semaine 2",
-    "section": "Question 5",
-    "text": "Question 5\nConsidérez la série suivante:\n\\(S_n = \\sum_{k=1}^{n} \\frac{ (-1)^k }{ k^2 }\\)\nQuelle est la valeur de \\(S_5\\)?\n\n \\( - \\frac{3000}{3650} \\) \\( \\frac{25}{450} \\) \\( - \\frac{125}{865} \\) \\( - \\frac{3019}{3600} \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nJeu avec probabilités\nUn jeu de société propose une épreuve où un joueur doit tirer au hasard une boule d’un sac.\nLe sac contient 5 types de boules, chacune ayant une valeur de points différente et une probabilité spécifique d’être tirée :\n\n\n\nType de boule\nValeur (points)\nProbabilité\n\n\n\n\n\\(A\\)\n\\(2\\) points\n\\(0.1\\)\n\n\n\\(B\\)\n\\(4\\) points\n\\(0.2\\)\n\n\n\\(C\\)\n\\(6\\) points\n\\(0.3\\)\n\n\n\\(D\\)\n\\(8\\) points\n\\(0.25\\)\n\n\n\\(E\\)\n\\(10\\) points\n\\(0.15\\)"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-6",
-    "href": "exercices_semaine_2.html#question-6",
-    "title": "Exercices Semaine 2",
-    "section": "Question 6",
-    "text": "Question 6\nQuelle est l’espérance du nombre de points obtenus en tirant une boule au hasard ?\n\n \\(5.3\\) \\(6.2\\) \\(6.5\\) \\(6.3\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-7",
-    "href": "exercices_semaine_2.html#question-7",
-    "title": "Exercices Semaine 2",
-    "section": "Question 7",
-    "text": "Question 7\nQuelle est la probabilité d’obtenir une boule valant \\(6\\) points ou plus ?\n\n \\(0.3\\) \\(0.6\\) \\(0.7\\) \\(1.0\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nProbabilités et organisations internationales\nUne étude a été réalisée sur la participation des pays membres à différentes organisations internationales. On considère qu’un pays peut appartenir à plusieurs organisations à la fois. Un échantillon de \\(200\\) pays a donné les résultats suivants (données fictives) :\n\n\\(120\\) pays sont membres de l’ONU.\n\\(90\\) pays sont membres de l’OMC.\n\\(60\\) pays sont membres de l’Union Africaine.\n\\(50\\) pays sont membres à la fois de l’ONU et de l’OMC.\n\\(30\\) pays sont membres à la fois de l’ONU et de l’Union Africaine.\n\\(20\\) pays sont membres à la fois de l’OMC et de l’Union Africaine.\n\\(10\\) pays sont membres des trois organisations."
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-8",
-    "href": "exercices_semaine_2.html#question-8",
-    "title": "Exercices Semaine 2",
-    "section": "Question 8",
-    "text": "Question 8\nQuelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU ou de l’OMC ?\n\n \\(0.75\\) \\(0.85\\) \\(1.10\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-9",
-    "href": "exercices_semaine_2.html#question-9",
-    "title": "Exercices Semaine 2",
-    "section": "Question 9",
-    "text": "Question 9\nQuelle est la probabilité qu’un pays choisi au hasard soit membre de l’ONU mais pas de l’OMC ni de l’Union Africaine ?\n\n \\(0.20\\) \\(0.25\\) \\(0.30\\) \\(0.60\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-10",
-    "href": "exercices_semaine_2.html#question-10",
-    "title": "Exercices Semaine 2",
-    "section": "Question 10",
-    "text": "Question 10\nQuelle est la probabilité qu’un pays choisi au hasard soit membre d’au moins deux organisations ?\n\n \\(0.45\\) \\(0.55\\) \\(0.50\\) \\(0.40\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-11",
-    "href": "exercices_semaine_2.html#question-11",
-    "title": "Exercices Semaine 2",
-    "section": "Question 11",
-    "text": "Question 11\nUn pays est sélectionné au hasard. Sachant qu’il est membre de l’ONU, quelle est la probabilité qu’il soit également membre de l’Union Africaine ?\n\n \\(0.50\\) \\(0.33\\) \\(0.25\\) \\(0.55\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-12",
-    "href": "exercices_semaine_2.html#question-12",
-    "title": "Exercices Semaine 2",
-    "section": "Question 12",
-    "text": "Question 12\nL’appartenance à l’ONU et à l’Union Africaine sont-elles des événements indépendants ?\n\n Oui, car \\( P(A \\cap B) = P(A) P(B) \\) Non, car \\( P(A \\cap B) \\neq P(A) P(B) \\) Oui, car les effectifs sont proportionnels Non, car un pays ne peut appartenir qu'à une seule organisation\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nParticipation aux votations fédérales"
-  },
-  {
-    "objectID": "exercices_semaine_2.html#question-13",
-    "href": "exercices_semaine_2.html#question-13",
-    "title": "Exercices Semaine 2",
-    "section": "Question 13",
-    "text": "Question 13\nLors des votations fédérales, la participation électorale varie d’un canton à l’autre. Supposons que la probabilité qu’une personne du canton de Genève participe à une votation soit de \\(55\\%\\), tandis que dans le canton de Zurich, cette probabilité est de \\(50\\%\\) (données fictives). On sélectionne une personne au hasard dans chacun de ces deux cantons. En supposant que les décisions de participation des personnes des deux cantons sont indépendantes, quelle est la probabilité que les deux personnes participent à la votation ?\n\n \\(0.275\\) \\(0.90\\) \\(0.50\\) \\(1.10\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html",
-    "href": "exercices_semaine_4.html",
-    "title": "Exercices Semaine 4",
-    "section": "",
-    "text": "L’expression \\(\\frac{n!}{(n-2)!}\\) est équivalente à:\n\n \\(n^3 - n\\) \\(\\frac{1}{n^2 - n}\\) \\(n\\) \\(n^2 - n\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-1",
-    "href": "exercices_semaine_4.html#question-1",
-    "title": "Exercices Semaine 4",
-    "section": "",
-    "text": "L’expression \\(\\frac{n!}{(n-2)!}\\) est équivalente à:\n\n \\(n^3 - n\\) \\(\\frac{1}{n^2 - n}\\) \\(n\\) \\(n^2 - n\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-2",
-    "href": "exercices_semaine_4.html#question-2",
-    "title": "Exercices Semaine 4",
-    "section": "Question 2",
-    "text": "Question 2\nSi \\( X \\sim \\text{Bin}(10, 0.5)\\), quelles sont respectivement \\(\\mathbb{E}(X)\\) et \\(\\text{Var}(X)\\) ?\n\n \\( \\mathbb{E}(X) = 5\\) et \\( \\text{Var}(X) = 2.5\\) \\( \\mathbb{E}(X) = 3\\) et \\( \\text{Var}(X) = -2\\) \\( \\mathbb{E}(X) = 2\\) et \\( \\text{Var}(X) = 5\\) \\( \\mathbb{E}(X) = 3\\) et \\( \\text{Var}(X) = 0\\) \\(\\mathbb{E}(X) = 5\\) et \\( \\text{Var}(X) = 2.5\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-3",
-    "href": "exercices_semaine_4.html#question-3",
-    "title": "Exercices Semaine 4",
-    "section": "Question 3",
-    "text": "Question 3\nSoit \\(X\\) le temps d’attente en seconde lors d’un appel à un centre téléphonique. On considère que \\(X \\sim U(0,120)\\). Quelle est la probabilité que vous attendiez moins de \\(40\\) secondes?\n\n \\(\\frac{1}{3}\\) \\(\\frac{3}{5}\\) \\(\\frac{1}{5}\\) \\(\\frac{1}{2}\\) \\(\\frac{2}{3}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-4",
-    "href": "exercices_semaine_4.html#question-4",
-    "title": "Exercices Semaine 4",
-    "section": "Question 4",
-    "text": "Question 4\nÉtant donné le même contexte que la question \\(3\\), quelle est la probabilité que vous attendiez plus d’une minute?\n\n \\(\\frac{1}{3}\\) \\(\\frac{2}{3}\\) \\(\\frac{2}{5}\\) \\(\\frac{1}{2}\\) \\(\\frac{3}{5}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-5",
-    "href": "exercices_semaine_4.html#question-5",
-    "title": "Exercices Semaine 4",
-    "section": "Question 5",
-    "text": "Question 5\nÉtant donné le même contexte que la question \\(3\\), quelle est la probabilité que vous attendiez entre une minute et une minute et trente seconde?\n\n \\(\\frac{1}{3}\\) \\(\\frac{2}{3}\\) \\(\\frac{1}{4}\\) \\(\\frac{2}{5}\\) \\(\\frac{3}{4}\\) \\(\\frac{3}{5}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-6",
-    "href": "exercices_semaine_4.html#question-6",
-    "title": "Exercices Semaine 4",
-    "section": "Question 6",
-    "text": "Question 6\nÉtant donné le même contexte que la question \\(3\\), quelle est l’espérance et la variance de \\(X\\)?\n\n \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 1500\\) \\(\\mathbb{E}(X) = 30\\) et \\(\\text{Var}(X) = 600\\) \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 600\\) \\(\\mathbb{E}(X) = 120\\) et \\(\\text{Var}(X) = 1200\\) \\(\\mathbb{E}(X) = 60\\) et \\(\\text{Var}(X) = 1200\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n: \n\n\n\nSurveillance d’un traité de désarmement\nUn traité de désarmement impose des restrictions sur la production d’armes dans un pays. Un organisme international mène des inspections surprises. On estime que la probabilité qu’une inspection détecte une violation est seulement de \\(2 \\%\\)."
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-7",
-    "href": "exercices_semaine_4.html#question-7",
-    "title": "Exercices Semaine 4",
-    "section": "Question 7",
-    "text": "Question 7\nSi l’organisme réalise \\(20\\) inspections indépendantes, quelle est la probabilité qu’au moins une inspection détecte une violation ? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.73\\) \\(0.06\\) \\(0.33\\) \\(0.94\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-8",
-    "href": "exercices_semaine_4.html#question-8",
-    "title": "Exercices Semaine 4",
-    "section": "Question 8",
-    "text": "Question 8\nCombien d’inspection (indépendantes) l’organisme devrait-il réaliser pour que la probabilité de détecter au moins une violation soit supérieure ou égale à \\(80 \\%\\) (avant d’arrondir) ?\n\n \\(20\\) \\(70\\) \\(79\\) \\(80\\) \\(90\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_4.html#question-9",
-    "href": "exercices_semaine_4.html#question-9",
-    "title": "Exercices Semaine 4",
-    "section": "Question 9",
-    "text": "Question 9\nSupposez maintenant que l’organisme réalise \\(100\\) inspections indépendantes, quelle est la probabilité de détecter deux violations ou plus ? Les probabilités sont arrondies au dixième le plus proche.\n\n \\(0.60\\) \\(0.87\\) \\(0.40\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html",
-    "href": "exercices_semaine_6.html",
-    "title": "Exercices Semaine 6",
-    "section": "",
-    "text": "Il y a plus de variabilité dans les données si :\n\n L’écart-type diminue La variance diminue L’IQR est identique à l’écart-type La variance est différente de l’IQR L’IQR et/ou l’écart-type augmentent On ajoute une constante aux données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-1",
-    "href": "exercices_semaine_6.html#question-1",
-    "title": "Exercices Semaine 6",
-    "section": "",
-    "text": "Il y a plus de variabilité dans les données si :\n\n L’écart-type diminue La variance diminue L’IQR est identique à l’écart-type La variance est différente de l’IQR L’IQR et/ou l’écart-type augmentent On ajoute une constante aux données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-2",
-    "href": "exercices_semaine_6.html#question-2",
-    "title": "Exercices Semaine 6",
-    "section": "Question 2",
-    "text": "Question 2\nSoit l’échantillon composé des nombres suivants : \\(\\{4,8,6,5,9\\}\\). Calculez la moyenne de l’échantillon \\(\\bar{x}\\) et la variance de l’échantillon \\(s^2\\).\n\n \\(\\bar{x} = 6.4, \\quad s^2 = 4.3 \\) \\(\\bar{x} = 6.4, \\quad s^2 = 4.6 \\) \\(\\bar{x} = 6.4, \\quad s^2 = 2.95 \\) \\(\\bar{x} = 8.4, \\quad s^2 = 4.4 \\) \\(\\bar{x} = 8.4, \\quad s^2 = 4.6 \\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-3",
-    "href": "exercices_semaine_6.html#question-3",
-    "title": "Exercices Semaine 6",
-    "section": "Question 3",
-    "text": "Question 3\nSoit la distribution suivante. Quelle affirmation est correcte?\n\n\n\n\n\n\n\n\n\n\n La distribution est assymétrique à gauche La distribution est assymétrique à droite La distribution est symétrique La moyenne est inférieure à la médiane L'IQR est égal à l'écart-type\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-4",
-    "href": "exercices_semaine_6.html#question-4",
-    "title": "Exercices Semaine 6",
-    "section": "Question 4",
-    "text": "Question 4\nOn considère l’échantillon de \\(10\\) valeurs suivant :\n\\(\\{3,7,10,12,16,21,25,30,38,50\\}\\)\nQuelle suite de valeurs est entièrement comprise entre la médiane et le troisième quartile \\(Q3\\) ?\n\n \\(17, 22, 29\\) \\(18, 24, 32\\) \\(19, 23, 35\\) \\(20, 23, 26\\) \\(15, 22, 27\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-5",
-    "href": "exercices_semaine_6.html#question-5",
-    "title": "Exercices Semaine 6",
-    "section": "Question 5",
-    "text": "Question 5\nDans une organisation internationale, un pays peut avoir le statut de “Membre”, “Observateur” ou “Non-membre”. À quel type de variable ce statut correspond-il ?\n\n Variable quantitative continue Variable quantitative discrète Variable catégorielle nominale Variable catégorielle ordinale\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-6",
-    "href": "exercices_semaine_6.html#question-6",
-    "title": "Exercices Semaine 6",
-    "section": "Question 6",
-    "text": "Question 6\nVoici l’histogramme d’un échantillon de données discrètes :\n\n\n\n\n\n\n\n\n\nQuel jeu de données correspond à cet histogramme ?\n\n \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6,6, 7,7, 8\\}\\) \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6,6, 7,8, 9\\}\\) \\(\\{1,1, 2,2, 3,3, 4,4, 5,5, 6, 7, 8, 9, 10\\}\\) \\(\\{1,2,3,4,5,6,7,8,9,10,10,10,10,10,10\\}\\) \\(\\{1,1, 3,3, 4,4, 5,5, 6,6, 7,7, 8, 9\\}\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-7",
-    "href": "exercices_semaine_6.html#question-7",
-    "title": "Exercices Semaine 6",
-    "section": "Question 7",
-    "text": "Question 7\nSupposez que vous avez autant de données que vous le souhaitez qui proviennent d’une variable aléatoire normale centrée en \\(10\\) et d’écart-type \\(5\\). Quelle est la valeur maximale de la moustache supérieure d’un boxplot sur de telles données ?\n\n \\(23.4\\) \\(13.35\\) \\(6.7\\) -\\(3.4\\) \\(26.6\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-8",
-    "href": "exercices_semaine_6.html#question-8",
-    "title": "Exercices Semaine 6",
-    "section": "Question 8",
-    "text": "Question 8\nSupposez que vous avez autant de données que vous le souhaitez qui proviennent d’une variable aléatoire normale \\(\\mathcal{N}(10,5^2)\\). Quelle affirmation est correcte ?\n\n IQR &lt; Écart-type &lt; Variance Écart-type &lt; IQR &lt; Variance Écart-type &lt; Variance &lt; IQR Variance &lt; Écart-type &lt; IQR Variance &lt; IQR &lt; Écart-type\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-9",
-    "href": "exercices_semaine_6.html#question-9",
-    "title": "Exercices Semaine 6",
-    "section": "Question 9",
-    "text": "Question 9\nQuel boxplot a le plus grand IQR ?\n\n\n\n\n\n\n\n\n\n\n A B C D\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-10",
-    "href": "exercices_semaine_6.html#question-10",
-    "title": "Exercices Semaine 6",
-    "section": "Question 10",
-    "text": "Question 10\nQuelle affirmation est correcte pour ces boxplots ?\n\n\n\n\n\n\n\n\n\n\n Le salaire moyen des femmes est supérieur au salaire moyen des hommes. Le salaire minimum des femmes est supérieur au salaire minimum des hommes. L'IQR du salaire des hommes est plus grand que l'IQR du salaire des femmes. Le salaire médian des femmes est supérieur au salaire médian des hommes.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_6.html#question-11",
-    "href": "exercices_semaine_6.html#question-11",
-    "title": "Exercices Semaine 6",
-    "section": "Question 11",
-    "text": "Question 11\nSoit la distribution suivante. Quelle affirmation est correcte?\n\n\n\n\n\n\n\n\n\n\n La distribution est assymétrique à gauche La distribution est assymétrique à droite La distribution est plutôt symétrique et une loi uniforme semble être un modèle pertinent modéliser pour ces données La moyenne est inférieure à la médiane La distribution est plutôt symétrique et une loi normale semble être un modèle pertinent pour modéliser ces données\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html",
-    "href": "exercices_semaine_9.html",
-    "title": "Exercices Semaine 9",
-    "section": "",
-    "text": "Dans une étude sur l’opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?\n\n \\(0.50\\) \\(0.60\\) \\(0.70\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-1",
-    "href": "exercices_semaine_9.html#question-1",
-    "title": "Exercices Semaine 9",
-    "section": "",
-    "text": "Dans une étude sur l’opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?\n\n \\(0.50\\) \\(0.60\\) \\(0.70\\) \\(0.80\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-2",
-    "href": "exercices_semaine_9.html#question-2",
-    "title": "Exercices Semaine 9",
-    "section": "Question 2",
-    "text": "Question 2\nEn considérant le même contexte que la question \\(1\\), quelle est l’erreur standard de la proportion estimée \\(\\hat{p}\\) ?\n\n \\( \\text{e.s.}(\\hat{p}) \\approx 0.0346\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.0462\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.513\\) \\(\\text{e.s.}(\\hat{p}) \\approx 0.0264\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-3",
-    "href": "exercices_semaine_9.html#question-3",
-    "title": "Exercices Semaine 9",
-    "section": "Question 3",
-    "text": "Question 3\nEn considérant le contexte de la question \\(1\\), vous souhaitez construire un intervalle de confiance pour \\(p\\) basé sur \\(\\hat{p}\\) à un niveau de confiance \\(\\alpha = 0.05\\). Quelle est la valeur du quantile que vous devez utiliser afin de construire cet intervalle de confiance?\n\n \\(1.28\\) \\(1.645\\) \\(1.96\\) \\(2.58\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-4",
-    "href": "exercices_semaine_9.html#question-4",
-    "title": "Exercices Semaine 9",
-    "section": "Question 4",
-    "text": "Question 4\nEn utilisant le contexte des questions précédentes, calculez l’intervalle de confiance à \\(95\\%\\) pour la proportion \\(p\\) de personnes favorables au traité, en utilisant la proportion estimée \\(\\hat{p}\\) et l’erreur standard \\(\\text{e.s.}(\\hat{p})\\).\n\n \\([0.543, 0.657]\\) \\([0.532, 0.668]\\) \\([0.556, 0.644]\\) \\([0.511, 0.689]\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-5",
-    "href": "exercices_semaine_9.html#question-5",
-    "title": "Exercices Semaine 9",
-    "section": "Question 5",
-    "text": "Question 5\nConsidérons maintenant un niveau de confiance de 99% (c’est-à-dire \\(\\alpha=0.01\\)) au lieu de \\(95\\%\\). Quel sera l’effet sur la longueur de l’intervalle de confiance pour la proportion \\(p\\) de personnes favorables au traité ? La longueur de l’intervalle de confiance est donnée par la différence entre la borne supérieure et la borne inférieure de l’intervalle.\n\n La longueur de l'intervalle de confiance augmentera La longueur de l'intervalle de confiance diminuera La longueur de l'intervalle de confiance restera la même\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-6",
-    "href": "exercices_semaine_9.html#question-6",
-    "title": "Exercices Semaine 9",
-    "section": "Question 6",
-    "text": "Question 6\nVous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de \\(50\\%\\). Quelle est la formulation correcte des hypothèses statistique pour ce test ?\n\n \\(H_0: p = 0.60\\), \\(H_1: p ≠ 0.60\\) \\(H_0: p = 0.50\\), \\(H_1: p ≠ 0.50\\) \\(H_0: p = 0.50\\), \\(H_1: p &gt; 0.60\\) \\(H_0: p ≥ 0.50\\), \\(H_1: p &lt; 0.50\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-7",
-    "href": "exercices_semaine_9.html#question-7",
-    "title": "Exercices Semaine 9",
-    "section": "Question 7",
-    "text": "Question 7\nEn utilisant les hypothèses définies précédemment, calculez la statistique de test \\(z_{obs}\\). On rappelle que \\(\\hat{p} = 0.60\\), \\(n = 200\\), et \\(p_0 = 0.50\\).\n\n \\(Z \\approx 2.89\\) \\(Z \\approx 1.96\\) \\(Z \\approx 1.28\\) \\(Z \\approx 0.60\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-8",
-    "href": "exercices_semaine_9.html#question-8",
-    "title": "Exercices Semaine 9",
-    "section": "Question 8",
-    "text": "Question 8\nÀ partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).\n\n \\(0.028\\) \\(0.0196\\) \\(0.0038\\) \\(0.001\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-9",
-    "href": "exercices_semaine_9.html#question-9",
-    "title": "Exercices Semaine 9",
-    "section": "Question 9",
-    "text": "Question 9\nQuelle est l’interprétation correcte d’une p-valeur de \\(0.0038\\) dans le contexte de ce test ?\n\n Il y a une faible probabilité d’observer une telle valeur de \\(\\hat{p}=0.60\\) si la vraie proportion était \\(0.50\\). La proportion estimée est trop éloignée de \\(50\\%\\), donc \\(H_0\\) est forcément fausse. Cela signifie que \\(0.38\\%\\) des personnes interrogées sont favorables au traité. La probabilité que \\(H_0\\) soit vraie est de 0.0038.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-10",
-    "href": "exercices_semaine_9.html#question-10",
-    "title": "Exercices Semaine 9",
-    "section": "Question 10",
-    "text": "Question 10\nÀ un niveau de signification \\(\\alpha = 0.05\\), que concluez-vous du test précédent ?\n\n On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\). On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\). On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves. On ne peut pas conclure : l’échantillon est trop petit.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-11",
-    "href": "exercices_semaine_9.html#question-11",
-    "title": "Exercices Semaine 9",
-    "section": "Question 11",
-    "text": "Question 11\nConsidérons maintenant un test unilatéral avec les hypothèses suivantes: \\(H_0: p=0.5\\) et \\(H_1: p&lt;0.5\\). Quelle est la p-valeur associée?\n\n \\(0.0001\\) \\(0.9981\\) \\(0.499\\) \\(0.028\\)\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
-  },
-  {
-    "objectID": "exercices_semaine_9.html#question-12",
-    "href": "exercices_semaine_9.html#question-12",
-    "title": "Exercices Semaine 9",
-    "section": "Question 12",
-    "text": "Question 12\nQue peut-on conclure de ce dernier test au niveau de signification \\(\\alpha = 0.05\\)?\n\n On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\). On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\). On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves. On ne peut pas conclure : l’échantillon est trop grand.\n\n\n\n❓ Indice\n\n\n💡 Explication\n\n\n🤖 Aide IA\n\n\n\n\n: \n\n\n:"
+    "objectID": "index.html#sentraîner-pour-les-examens",
+    "href": "index.html#sentraîner-pour-les-examens",
+    "title": "Introduction à la Statistique",
+    "section": "S’entraîner pour les examens",
+    "text": "S’entraîner pour les examens\n\n\n\n📝\n\n\nExamen intermédiaire\n\n\nEntraînement\n\n\nÀ venir\n\n\n\n\n📝\n\n\nExamen final\n\n\nEntraînement\n\n\nÀ venir"
   }
 ]

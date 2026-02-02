@@ -1,0 +1,152 @@
+---
+title: "Visionneuse de Slides"
+toc: false
+---
+
+```{=html}
+<style>
+/* Prevent page scroll - only panels scroll */
+html, body {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Hide page title */
+#title-block-header {
+  display: none !important;
+}
+
+/* Full width overrides for Quarto */
+#quarto-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#quarto-content.page-columns {
+  display: block !important;
+}
+
+main.content,
+#quarto-document-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+</style>
+
+<!-- Load PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- Load MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+<div class="slides-page-container">
+  <!-- Week Selector Bar -->
+  <div class="slides-week-selector">
+    <label for="week-select">Semaine :</label>
+    <select id="week-select">
+      <option value="">Chargement...</option>
+    </select>
+  </div>
+
+  <!-- Split Panel Layout -->
+  <div class="slides-split-panel">
+    <!-- PDF Viewer Panel (Left) -->
+    <div class="slides-pdf-panel">
+      <div class="slides-pdf-toolbar">
+        <button id="prev-page" class="slides-nav-btn" title="Page précédente">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <span id="page-info" class="slides-page-info">Page 1 / 1</span>
+        <button id="next-page" class="slides-nav-btn" title="Page suivante">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+          </svg>
+        </button>
+        <div class="slides-toolbar-separator"></div>
+        <button id="zoom-out" class="slides-nav-btn" title="Zoom arrière">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 13H5v-2h14v2z"/>
+          </svg>
+        </button>
+        <span id="zoom-level" class="slides-zoom-info">100%</span>
+        <button id="zoom-in" class="slides-nav-btn" title="Zoom avant">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slides-pdf-canvas-container" id="pdf-container">
+        <div class="slides-pdf-loading" id="pdf-loading">
+          <div class="slides-loading-spinner"></div>
+          <span>Chargement du PDF...</span>
+        </div>
+        <canvas id="pdf-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Resize Handle -->
+    <div class="slides-resize-handle" id="resize-handle"></div>
+
+    <!-- Chat Panel (Right) -->
+    <div class="slides-chat-panel" id="chat-panel">
+      <div class="slides-chat-header">
+        <h3>Assistant Slides</h3>
+      </div>
+
+      <!-- Context Banner -->
+      <div class="slides-context-banner" id="context-banner">
+        <div class="slides-context-week" id="context-week">Semaine 1</div>
+        <div class="slides-context-slide" id="context-slide">Slide 1: Chargement...</div>
+      </div>
+
+      <!-- Messages Area -->
+      <div class="slides-chat-messages" id="chat-messages">
+        <div class="slides-chat-welcome">
+          Pose tes questions sur la slide affichée.<br>
+          Je peux t'expliquer les concepts, les formules, ou te donner des exemples.
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="slides-chat-input-area">
+        <input type="text" id="chat-input" placeholder="Pose ta question sur cette slide..." autocomplete="off">
+        <button class="slides-chat-send" id="chat-send">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Token Display -->
+      <div class="slides-token-info">
+        <div class="slides-token-bar-container">
+          <div class="slides-token-bar" id="token-bar"></div>
+        </div>
+        <span class="slides-token-text" id="token-text">Tokens: -- / --</span>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+```{=html}
+<link rel="stylesheet" href="include/slides-viewer.css">
+<script src="include/slides-viewer.js"></script>
+<script src="include/slides-chat-panel.js"></script>
+```

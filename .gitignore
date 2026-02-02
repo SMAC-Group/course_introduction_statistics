@@ -72,3 +72,6 @@ deno.lock
 
 # Scripts (development only)
 scripts/
+
+# Windows special files
+nul

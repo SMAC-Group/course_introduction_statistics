@@ -10,6 +10,7 @@ project:
     - "!cours_semaine_1.qmd"
   resources:
     - content/
+    - slides/
 website:
   page-navigation: true
   title: "Introduction à la Statistique"
@@ -26,6 +27,8 @@ website:
       text: Accueil
     - href: demo_q_a.qmd
       text: Demo
+    - href: slides_viewer.qmd
+      text: Slides
     - href: chatbot_slides.qmd
       text: Chatbot Slides
     - text: Exercices
