@@ -36,24 +36,23 @@ main.content,
 
 .slides-chat-container {
   position: fixed;
-  top: 60px; /* navbar height */
+  top: 60px;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   max-width: 100%;
   margin: 0;
-  background: #fff;
-  border-radius: 0;
-  box-shadow: none;
+  background: var(--color-bg, #fff);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
 .slides-chat-header {
-  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
-  color: white;
+  background: var(--color-bg-subtle, #f8fafc);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #0f172a);
   padding: 16px 20px;
   display: flex;
   align-items: center;
@@ -64,12 +63,13 @@ main.content,
 .slides-chat-header h3 {
   margin: 0;
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 /* Style Selector */
 .slides-style-selector {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
 .slides-style-btn {
@@ -77,23 +77,24 @@ main.content,
   align-items: center;
   gap: 4px;
   padding: 6px 12px;
-  border: none;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  background: var(--color-bg, #fff);
+  color: var(--color-text-secondary, #64748b);
   cursor: pointer;
   font-size: 0.8rem;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 
 .slides-style-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  background: var(--color-bg-muted, #f1f5f9);
+  border-color: var(--color-text-muted, #94a3b8);
 }
 
 .slides-style-btn.active {
-  background: rgba(255, 255, 255, 0.95);
-  color: #5a67d8;
+  background: var(--color-primary, #3b82f6);
+  color: #fff;
+  border-color: var(--color-primary, #3b82f6);
   font-weight: 600;
 }
 
@@ -108,22 +109,22 @@ main.content,
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #f8f9fa;
+  background: var(--color-bg-subtle, #f8fafc);
 }
 
 .slides-chat-welcome {
   text-align: center;
-  color: #666;
-  padding: 30px 20px;
+  color: var(--color-text-secondary, #64748b);
+  padding: 40px 20px;
   line-height: 1.6;
 }
 
 .ai-disclaimer-banner {
-  background: rgba(255, 193, 7, 0.15);
-  border-bottom: 1px solid rgba(255, 193, 7, 0.4);
+  background: var(--color-accent-soft, #ffedd5);
+  border-bottom: 1px solid var(--color-accent, #f97316);
   padding: 10px 20px;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--color-text, #0f172a);
   text-align: center;
   flex-shrink: 0;
 }
@@ -131,7 +132,7 @@ main.content,
 .slides-chat-message {
   max-width: 85%;
   padding: 12px 16px;
-  border-radius: 16px;
+  border-radius: 12px;
   line-height: 1.5;
   overflow: visible;
   overflow-wrap: break-word;
@@ -140,23 +141,23 @@ main.content,
 }
 
 .slides-chat-message.user {
-  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  background: var(--color-primary, #3b82f6);
   color: white;
   margin-left: auto;
   border-bottom-right-radius: 4px;
 }
 
 .slides-chat-message.assistant {
-  background: white;
-  color: #333;
+  background: var(--color-bg, #fff);
+  color: var(--color-text, #0f172a);
   margin-right: auto;
   border-bottom-left-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--color-border, #e2e8f0);
 }
 
 .slides-chat-message.error {
-  background: #fee2e2;
-  color: #dc2626;
+  background: var(--color-error-soft, #fee2e2);
+  color: var(--color-error, #ef4444);
   margin: 0 auto;
 }
 
@@ -164,15 +165,16 @@ main.content,
   display: flex;
   gap: 4px;
   padding: 12px 16px;
-  background: white;
-  border-radius: 16px;
+  background: var(--color-bg, #fff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 12px;
   width: fit-content;
 }
 
 .slides-typing-indicator span {
   width: 8px;
   height: 8px;
-  background: #9f7aea;
+  background: var(--color-primary, #3b82f6);
   border-radius: 50%;
   animation: typing 1.4s infinite ease-in-out;
 }
@@ -189,44 +191,47 @@ main.content,
   display: flex;
   gap: 10px;
   padding: 16px;
-  background: white;
-  border-top: 1px solid #eee;
+  background: var(--color-bg, #fff);
+  border-top: 1px solid var(--color-border, #e2e8f0);
 }
 
 #slides-chat-input {
   flex: 1;
   padding: 12px 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 25px;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
   font-size: 1rem;
+  background: var(--color-bg, #fff);
+  color: var(--color-text, #0f172a);
 }
 
 #slides-chat-input:focus {
   outline: none;
-  border-color: #9f7aea;
+  border-color: var(--color-primary, #3b82f6);
 }
 
 .slides-chat-send {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: none;
-  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  background: var(--color-primary, #3b82f6);
   color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.15s;
 }
 
 .slides-chat-send:hover {
-  transform: scale(1.05);
+  background: var(--color-primary-hover, #2563eb);
 }
 
 /* Token Info Display */
 .slides-token-info {
-  background: #f8f9fa;
-  border-top: 1px solid #eee;
+  background: var(--color-bg-subtle, #f8fafc);
+  border-top: 1px solid var(--color-border, #e2e8f0);
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -236,31 +241,54 @@ main.content,
 .slides-token-bar-container {
   flex: 1;
   height: 6px;
-  background: #e2e8f0;
-  border-radius: 3px;
+  background: var(--color-bg-muted, #f1f5f9);
+  border-radius: 100px;
   overflow: hidden;
 }
 
 .slides-token-bar {
   height: 100%;
   width: 100%;
-  background: #28a745;
-  border-radius: 3px;
+  background: var(--color-success, #22c55e);
+  border-radius: 100px;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .slides-token-text {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-muted, #94a3b8);
   white-space: nowrap;
   min-width: 130px;
   text-align: right;
+}
+
+/* Dark mode */
+[data-theme="dark"] .slides-chat-container {
+  background: var(--color-bg);
+}
+
+[data-theme="dark"] .slides-chat-header {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .slides-chat-messages {
+  background: var(--color-bg);
+}
+
+[data-theme="dark"] .slides-chat-input-area {
+  background: var(--color-bg-subtle);
+}
+
+[data-theme="dark"] #slides-chat-input {
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 </style>
 
 <div class="slides-chat-container">
   <div class="slides-chat-header">
-    <h3>Assistant IA - Questions sur les Slides</h3>
+    <h3>Assistant IA - Questions sur le cours</h3>
     <div class="slides-style-selector">
       <button class="slides-style-btn active" data-style="classique" title="Style classique">
         <span class="style-emoji">🧭</span>
@@ -278,7 +306,7 @@ main.content,
   </div>
 
   <div class="ai-disclaimer-banner">
-    ⚠️ Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.
+    Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.
   </div>
 
   <div class="slides-chat-messages" id="slides-chat-messages">
@@ -322,9 +350,8 @@ window.MathJax = {
 <script>
 (function() {
   var conversationHistory = [];
-  var styleMode = 'classique'; // 'classique', 'fun', or 'sceptique'
+  var styleMode = 'classique';
 
-  // Style mode setter
   function setStyleMode(mode) {
     styleMode = mode;
     document.querySelectorAll('.slides-style-btn').forEach(function(btn) {
@@ -332,16 +359,14 @@ window.MathJax = {
     });
   }
 
-  // Token quota tracking - shared with chat.js via localStorage
   var TOKEN_STORAGE_KEY = 'aiChatTokenInfo';
-  var TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+  var TOKEN_QUOTA_WINDOW_MS = 24 * 60 * 60 * 1000;
 
   function loadTokenInfo() {
     try {
       var stored = localStorage.getItem(TOKEN_STORAGE_KEY);
       if (stored) {
         var data = JSON.parse(stored);
-        // Check if quota should be reset (24h passed)
         if (data.resetTime && Date.now() > data.resetTime) {
           return { used: 0, remaining: 50000, max: 50000, resetTime: Date.now() + TOKEN_QUOTA_WINDOW_MS };
         }
@@ -365,8 +390,6 @@ window.MathJax = {
 
   function updateTokenDisplay(tokens) {
     if (tokens && tokens.total > 0) {
-      // Client is source of truth - ADD tokens used to cumulative total
-      // (Server Map is ephemeral and resets on cold start)
       var tokensUsedThisRequest = tokens.total || 0;
       var newUsed = tokenInfo.used + tokensUsedThisRequest;
       var newRemaining = Math.max(0, tokenInfo.max - newUsed);
@@ -389,11 +412,11 @@ window.MathJax = {
       tokenBar.style.width = percentage + '%';
 
       if (percentage > 50) {
-        tokenBar.style.backgroundColor = '#28a745';
+        tokenBar.style.backgroundColor = '#22c55e';
       } else if (percentage > 20) {
-        tokenBar.style.backgroundColor = '#ffc107';
+        tokenBar.style.backgroundColor = '#f59e0b';
       } else {
-        tokenBar.style.backgroundColor = '#dc3545';
+        tokenBar.style.backgroundColor = '#ef4444';
       }
 
       var formatNum = function(n) { return n.toLocaleString('fr-FR'); };
@@ -449,7 +472,6 @@ window.MathJax = {
     .then(function(data) {
       typing.remove();
 
-      // Update token display
       if (data.tokens) {
         updateTokenDisplay(data.tokens);
       }
@@ -459,7 +481,6 @@ window.MathJax = {
         errMsg.className = 'slides-chat-message error';
         errMsg.textContent = data.error;
         messagesDiv.appendChild(errMsg);
-        // Update tokens from error response (quota exceeded)
         if (data.tokensUsed !== undefined) {
           updateTokenDisplay({
             used: data.tokensUsed,
@@ -480,13 +501,11 @@ window.MathJax = {
         assistantMsg.innerHTML = parseMarkdown(data.response);
         messagesDiv.appendChild(assistantMsg);
 
-        // Render MathJax after content is added
         if (window.MathJax && window.MathJax.typesetPromise) {
           MathJax.typesetPromise([assistantMsg]).catch(function(err) {
             console.log('MathJax error:', err);
           });
         } else {
-          // MathJax not ready yet, wait and retry
           setTimeout(function() {
             if (window.MathJax && window.MathJax.typesetPromise) {
               MathJax.typesetPromise([assistantMsg]);
@@ -500,7 +519,7 @@ window.MathJax = {
       typing.remove();
       var errMsg = document.createElement('div');
       errMsg.className = 'slides-chat-message error';
-      errMsg.textContent = 'Erreur de connexion. Reessayez.';
+      errMsg.textContent = 'Erreur de connexion. Réessayez.';
       messagesDiv.appendChild(errMsg);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     });
@@ -516,14 +535,12 @@ window.MathJax = {
     }
   });
 
-  // Style selector buttons
   document.querySelectorAll('.slides-style-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       setStyleMode(btn.dataset.style);
     });
   });
 
-  // Initialize token display
   updateTokenDisplay();
 })();
 </script>

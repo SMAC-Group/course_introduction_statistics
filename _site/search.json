@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Introduction à la Statistique",
     "section": "",
-    "text": "Plateforme d’exercices\n\n\nIntroduction à la Statistique\n\n\nCe site te permet de t’entraîner chaque semaine avec des exercices interactifs.Les supports de cours sont disponibles sur la plateforme officielle de l’université.\n\n\nAccéder aux exercices Supports de cours"
+    "text": "Cours universitaire\n\n\nIntroduction à la Statistique\n\n\nPlateforme d’exercices interactifs\n\n\nEntraîne-toi chaque semaine avec des exercices interactifs et des feedbacks immédiats pour maîtriser les concepts statistiques.\n\n\nVoir les exercices Supports de cours"
   },
   {
     "objectID": "index.html#exercices-par-semaine",
@@ -21,11 +21,11 @@
     "text": "Exercices par semaine\n\n\n\nSemaine 1\n\n\nProbabilités de base\n\n\nDisponible\n\n\n\n\nSemaine 2\n\n\nProbabilités conditionnelles\n\n\nDisponible\n\n\n\n\nSemaine 3\n\n\nVariables aléatoires\n\n\nDisponible\n\n\n\n\nSemaine 4\n\n\nLoi binomiale\n\n\nDisponible\n\n\n\n\nSemaine 5\n\n\nLoi normale\n\n\nDisponible\n\n\n\n\nSemaine 6\n\n\nStatistiques descriptives\n\n\nDisponible\n\n\n\n\nSemaine 7\n\n\nPas de cours\n\n\nVacances\n\n\n\n\nSemaine 8\n\n\nÉchantillonnage\n\n\nDisponible\n\n\n\n\nSemaine 9\n\n\nIntervalles de confiance\n\n\nDisponible\n\n\n\n\nSemaine 10\n\n\nExamen intermédiaire\n\n\nExamen\n\n\n\n\nSemaine 11\n\n\nIntervalles de confiance (suite)\n\n\nDisponible\n\n\n\n\nSemaine 12\n\n\nTests d’hypothèses\n\n\nDisponible\n\n\n\n\nSemaine 13\n\n\nExamen final\n\n\nExamen"
   },
   {
-    "objectID": "index.html#sentraîner-pour-les-examens",
-    "href": "index.html#sentraîner-pour-les-examens",
+    "objectID": "index.html#préparation-aux-examens",
+    "href": "index.html#préparation-aux-examens",
     "title": "Introduction à la Statistique",
-    "section": "S’entraîner pour les examens",
-    "text": "S’entraîner pour les examens\n\n\n\n📝\n\n\nExamen intermédiaire\n\n\nEntraînement\n\n\nÀ venir\n\n\n\n\n📝\n\n\nExamen final\n\n\nEntraînement\n\n\nÀ venir"
+    "section": "Préparation aux examens",
+    "text": "Préparation aux examens\n\n\n\n📝\n\n\nExamen intermédiaire\n\n\nEntrainement\n\n\nÀ venir\n\n \n\n📝\n\n\nExamen final\n\n\nEntrainement\n\n\nÀ venir"
   },
   {
     "objectID": "exercices_semaine_8.html",
@@ -522,7 +522,7 @@
     "href": "chatbot_slides.html",
     "title": "Chatbot Slides",
     "section": "",
-    "text": "Assistant IA - Questions sur les Slides\n    \n      \n        🧭\n        Classique\n      \n      \n        🤩\n        Fun\n      \n      \n        🤨\n        Sceptique\n      \n    \n  \n\n  \n    ⚠️ Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.\n  \n\n  \n    \n      Pose tes questions sur le contenu des cours.\n      Exemple : \"Explique-moi la slide 15\" ou \"C'est quoi la probabilité conditionnelle ?\"\n    \n  \n\n  \n    \n    \n      \n        \n      \n    \n  \n  \n    \n      \n    \n    Tokens: -- / --"
+    "text": "Assistant IA - Questions sur le cours\n    \n      \n        🧭\n        Classique\n      \n      \n        🤩\n        Fun\n      \n      \n        🤨\n        Sceptique\n      \n    \n  \n\n  \n    Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.\n  \n\n  \n    \n      Pose tes questions sur le contenu des cours.\n      Exemple : \"Explique-moi la slide 15\" ou \"C'est quoi la probabilité conditionnelle ?\"\n    \n  \n\n  \n    \n    \n      \n        \n      \n    \n  \n  \n    \n      \n    \n    Tokens: -- / --"
   },
   {
     "objectID": "demo_q_a.html",
@@ -970,6 +970,6 @@
     "href": "question_slides.html",
     "title": "Introduction à la Statistique",
     "section": "",
-    "text": "Questions Slides\n\n\nBesoin d’aide pour comprendre le cours ?\n\n\nChoisis l’option qui correspond le mieux à ta question.\n\n\n⚠️ Les réponses de l’IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.\n\n\n\n\n\n\n\n💬\n\n\nJ’ai une question générale\n\n\nPose une question sur n’importe quel concept du cours : probabilités, lois, formules, définitions…\n\n\nExemples :“C’est quoi la probabilité conditionnelle ?”“Comment calculer une variance ?”\n\n\nAccéder au chat\n\n\n\n📑\n\n\nJ’ai une question sur un slide\n\n\nConsulte les slides du cours et pose des questions sur une slide spécifique.\n\n\nExemples :“Explique-moi cette formule”“Je ne comprends pas ce graphique”\n\n\nVoir les slides"
+    "text": "Aide IA\n\n\nQuestions Slides\n\n\nBesoin d’aide pour comprendre le cours ?\n\n\nChoisis l’option qui correspond le mieux à ta question.\n\n\nLes réponses de l’IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.\n\n\n\n\n\n\n\n💬\n\n\nQuestion générale\n\n\nPose une question sur n’importe quel concept du cours : probabilités, lois, formules, définitions…\n\n\nExemples : “C’est quoi la probabilité conditionnelle ?” “Comment calculer une variance ?”\n\n\nAccéder au chat\n\n\n\n\n📑\n\n\nQuestion sur un slide\n\n\nConsulte les slides du cours et pose des questions sur une slide spécifique.\n\n\nExemples : “Explique-moi cette formule” “Je ne comprends pas ce graphique”\n\n\nVoir les slides"
   }
 ]

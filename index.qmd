@@ -2,16 +2,18 @@
 title: ""
 css: styles.css
 toc: false
+page-layout: full
 ---
 
 ::: {.hero-section}
 <div class="hero-content">
-<div class="hero-title">Plateforme d'exercices</div>
-<p class="hero-subtitle">Introduction à la Statistique</p>
-<p class="hero-description">Ce site te permet de t'entraîner chaque semaine avec des exercices interactifs.<br>Les supports de cours sont disponibles sur la plateforme officielle de l'université.</p>
+<div class="hero-badge">Cours universitaire</div>
+<div class="hero-title">Introduction à la Statistique</div>
+<p class="hero-subtitle">Plateforme d'exercices interactifs</p>
+<p class="hero-description">Entraîne-toi chaque semaine avec des exercices interactifs et des feedbacks immédiats pour maîtriser les concepts statistiques.</p>
 <div class="hero-buttons">
-<a href="#exercices" class="hero-button primary">Accéder aux exercices</a>
-<a href="#" class="hero-button secondary" title="Lien Moodle à ajouter">Supports de cours</a>
+<a href="#exercices" class="hero-button primary">Voir les exercices</a>
+<a href="question_slides.html" class="hero-button secondary">Supports de cours</a>
 </div>
 </div>
 :::
@@ -104,38 +106,35 @@ toc: false
 
 </div>
 
-<div class="content-section exam-section">
+::: {.exam-section}
 
-## S'entraîner pour les examens
+## Préparation aux examens
 
 <div class="exam-grid">
-
-<a href="#" class="exam-card disabled" title="Contenu à venir">
+<a href="#" class="exam-card disabled" title="Contenu a venir">
 <div class="exam-icon">📝</div>
 <div class="exam-title">Examen intermédiaire</div>
-<div class="exam-subtitle">Entraînement</div>
+<div class="exam-subtitle">Entrainement</div>
 <div class="exam-status">À venir</div>
 </a>
-
-<a href="#" class="exam-card disabled" title="Contenu à venir">
+<a href="#" class="exam-card disabled" title="Contenu a venir">
 <div class="exam-icon">📝</div>
 <div class="exam-title">Examen final</div>
-<div class="exam-subtitle">Entraînement</div>
+<div class="exam-subtitle">Entrainement</div>
 <div class="exam-status">À venir</div>
 </a>
-
 </div>
 
-</div>
+:::
 
 ::: {.footer-section}
 <div class="footer-content">
 <p class="footer-about">Ce site est un support d'exercices pour le cours Introduction à la Statistique.<br>Il est conçu pour t'aider à pratiquer et à te préparer aux examens.</p>
 <div class="footer-disclaimer">
-<p><strong>⚠️ Avertissement IA</strong><br>
-Les réponses générées par l'assistant IA peuvent contenir des erreurs. Vérifie toujours les informations avec tes supports de cours officiels et n'hésite pas à consulter ton enseignant en cas de doute.</p>
+<p><strong>Avertissement IA</strong><br>
+Les réponses générées par l'assistant IA peuvent contenir des erreurs. Vérifie toujours les informations avec tes supports de cours officiels.</p>
 </div>
 <p class="footer-team">Développé par Stéphane Guerrier, Mucyo Karemera, Samuel Orso, Lionel Voirol et Sébastien Feser</p>
-<img src="img/licence.png" width="60px" alt="Copyright License">
+<img src="img/licence.png" width="50px" alt="Copyright License">
 </div>
 :::
