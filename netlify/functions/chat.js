@@ -159,25 +159,25 @@ const PREDEFINED_RESPONSES = {
   // Tests et messages sans contenu
   trivial: [
     { pattern: /^(test|testing|t|tt|ttt|ok|oui|non|yes|no|k|kk|kkk|\.+|\?+|!+)$/i,
-      response: "Je suis prêt à t'aider avec tes questions de statistiques ! Pose-moi une question sur le cours STAT 101." },
+      response: "Je suis prêt à t'aider ! Pose-moi une question sur le contenu des slides du cours STAT 101." },
     { pattern: /^[a-z]{1,3}$/i,
-      response: "Message trop court. Pose-moi une question sur les statistiques !" }
+      response: "Message trop court. Pose-moi une question sur le contenu des slides !" }
   ],
   // Salutations simples
   greetings: [
     { pattern: /^(bonjour|salut|hello|hi|hey|coucou|bonsoir|allô|allo)!*$/i,
-      response: "Bonjour ! Je suis l'assistant du cours STAT 101. Comment puis-je t'aider aujourd'hui ? Tu peux me poser des questions sur les probabilités, les statistiques descriptives, les tests d'hypothèse, etc." },
+      response: "Bonjour ! Je suis l'assistant du cours STAT 101. Je peux t'aider uniquement avec le contenu des slides du cours. Pose-moi une question !" },
     { pattern: /^(merci|thanks|thx|ty)!*$/i,
-      response: "De rien ! N'hésite pas si tu as d'autres questions sur les statistiques." },
+      response: "De rien ! N'hésite pas si tu as d'autres questions sur le contenu des slides." },
     { pattern: /^(bye|au revoir|à\+|a\+|ciao|tchao)!*$/i,
       response: "À bientôt ! Bonne révision !" }
   ],
   // Questions méta sur le bot
   meta: [
     { pattern: /^(qui es[- ]tu|tu es qui|c'est quoi|what are you|who are you)\??$/i,
-      response: "Je suis l'assistant IA du cours STAT 101. Mon rôle est de t'aider à comprendre les concepts statistiques, pas de te donner les réponses directement. Pose-moi une question sur le cours !" },
+      response: "Je suis l'assistant IA du cours STAT 101. Mon rôle est de t'aider à comprendre le contenu des slides, pas de te donner les réponses directement. Je ne réponds qu'aux questions couvertes par les slides du cours." },
     { pattern: /^(ça va|comment vas[- ]tu|how are you)\??$/i,
-      response: "Je suis prêt à t'aider ! Quelle est ta question sur les statistiques ?" }
+      response: "Je suis prêt à t'aider ! Quelle est ta question sur le contenu des slides ?" }
   ]
 };
 
@@ -251,13 +251,38 @@ const ALLOWED_ORIGINS = [
 // PROMPT BLOCKS - Modular system for pedagogical modes
 // ============================================================================
 
+// PROMPT POUR LE CONTEXTE D'EXERCICE - aide sur l'exercice en cours uniquement
+const SYSTEM_EXERCISE = `Tu es un assistant pédagogique IA pour un cours d'introduction à la statistique (STAT 101) de niveau universitaire.
+
+TOUTES tes réponses doivent être en FRANÇAIS.
+
+## RÈGLE FONDAMENTALE - CONTEXTE D'EXERCICE
+Tu es dans le contexte d'un EXERCICE. Tu dois aider l'étudiant UNIQUEMENT avec la question d'exercice en cours.
+- Si l'étudiant pose une question qui n'est PAS liée à l'exercice actuel, réponds: "Cette question n'est pas liée à l'exercice en cours. Pose-moi une question sur cet exercice !"
+- Ne réponds qu'aux questions en rapport avec l'exercice affiché.
+- Tu n'es PAS là pour répondre à des questions générales sur les statistiques ou sur d'autres sujets.
+
+## RÔLE PRINCIPAL
+Tu es là pour aider les étudiants à raisonner, construire leur intuition et comprendre le concept testé par CET EXERCICE.
+Tu n'es PAS là pour donner des réponses directement.
+
+## PRIORITÉS PÉDAGOGIQUES
+1. Privilégie la COMPRÉHENSION CONCEPTUELLE, pas les formules.
+2. Encourage un raisonnement statistique correct et une bonne interprétation.
+3. Aborde explicitement les erreurs de compréhension courantes.
+4. Utilise un langage simple adapté aux débutants.
+5. Sois encourageant, jamais condescendant.`;
+
 // PROMPT MINIMAL pour les questions générales/hors-sujet (~200 tokens au lieu de ~1500)
 const SYSTEM_MINIMAL = `Tu es l'assistant IA du cours STAT 101 (statistiques universitaires, introduction).
 
-RÈGLES:
+RÈGLE FONDAMENTALE:
+Tu ne réponds QU'AUX QUESTIONS dont la réponse se trouve dans le contenu des slides du cours.
+
+RÈGLES STRICTES:
 - Réponds en FRANÇAIS, de manière concise (2-4 phrases max).
-- Si la question concerne les stats → donne une réponse brève et utile.
-- Si hors-sujet → redirige poliment vers les statistiques.
+- Si la question porte sur un sujet NON COUVERT par les slides (même si c'est des statistiques), réponds: "Ce sujet n'est pas couvert dans les slides du cours STAT 101. Je ne peux t'aider qu'avec le contenu présenté dans les slides."
+- Si la question est HORS-SUJET (pas des statistiques), réponds: "Cette question est en dehors du cours STAT 101. Pose-moi une question sur le contenu des slides !"
 - Ne révèle jamais les réponses aux QCM.
 - Format: texte simple, LaTeX pour formules: \\( ... \\)`;
 
@@ -266,8 +291,14 @@ const SYSTEM_BASE = `Tu es un assistant pédagogique IA pour un cours d'introduc
 
 TOUTES tes réponses doivent être en FRANÇAIS.
 
+## RÈGLE FONDAMENTALE - TRÈS IMPORTANT
+Tu ne réponds QU'AUX QUESTIONS dont la réponse se trouve dans le CONTENU DES SLIDES du cours.
+- Si on te pose une question sur un sujet NON COUVERT par les slides (même si c'est des statistiques avancées ou connexes), tu dois répondre: "Ce sujet n'est pas couvert dans les slides du cours STAT 101. Je ne peux t'aider qu'avec le contenu présenté dans les slides du cours."
+- Si la question est complètement HORS-SUJET (pas des statistiques), réponds: "Cette question est en dehors du cours STAT 101. Pose-moi une question sur le contenu des slides !"
+- Tu dois te LIMITER STRICTEMENT au contenu fourni dans les slides. Ne donne pas d'informations qui vont au-delà.
+
 ## RÔLE PRINCIPAL
-Tu es là pour aider les étudiants à raisonner, construire leur intuition et comprendre les concepts statistiques.
+Tu es là pour aider les étudiants à raisonner, construire leur intuition et comprendre les concepts statistiques PRÉSENTÉS DANS LES SLIDES.
 Tu n'es PAS là pour donner des réponses directement.
 
 ## PRIORITÉS PÉDAGOGIQUES
@@ -277,17 +308,9 @@ Tu n'es PAS là pour donner des réponses directement.
 4. Utilise un langage simple adapté aux débutants.
 5. Sois encourageant, jamais condescendant.
 
-## CONTENU STAT 101 - LIMITES
-L'étudiant connaît uniquement les statistiques d'introduction :
-- Statistiques descriptives (moyenne, médiane, variance, écart-type)
-- Probabilités de base
-- Échantillonnage et populations
-- Intervalles de confiance
-- Tests d'hypothèses (z-test / t-test)
-- p-values (interprétation de base)
-- Corrélation vs causalité
-
-N'introduis PAS de sujets avancés sauf demande explicite.
+## CONTENU AUTORISÉ
+Tu ne peux parler QUE des sujets couverts dans les slides qui te sont fournis.
+Si une question porte sur un sujet statistique qui N'EST PAS dans les slides, dis que ce n'est pas couvert dans le cours.
 
 ## FORMAT DE RÉPONSE
 - Paragraphes courts
@@ -624,9 +647,10 @@ exports.handler = async (event) => {
     // =========================================================================
     let systemPrompt;
     let useMinimalPrompt = false;
+    const isExerciseContext = context && context.question;
 
     // Utiliser le prompt minimal pour les questions générales sans contexte de cours
-    if (requestType === 'general' && !source) {
+    if (requestType === 'general' && !source && !isExerciseContext) {
       systemPrompt = SYSTEM_MINIMAL;
       useMinimalPrompt = true;
     } else {
@@ -638,10 +662,18 @@ exports.handler = async (event) => {
         styleBlock = STYLE_SCEPTIQUE;
       }
 
-      // Assemble system prompt: BASE + ANTI_CHEATING + STYLE + INTENT
-      systemPrompt = SYSTEM_BASE + ANTI_CHEATING;
-      systemPrompt += styleBlock;
-      systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+      // Assemble system prompt based on context type
+      if (isExerciseContext) {
+        // EXERCICE: utiliser le prompt spécifique aux exercices
+        systemPrompt = SYSTEM_EXERCISE + ANTI_CHEATING;
+        systemPrompt += styleBlock;
+        systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+      } else {
+        // GLOBAL/SLIDES: utiliser le prompt pour les slides
+        systemPrompt = SYSTEM_BASE + ANTI_CHEATING;
+        systemPrompt += styleBlock;
+        systemPrompt += INTENT_BLOCKS[intent] || INTENT_BLOCKS['OPEN_CHAT'];
+      }
     }
 
     // OPTIMIZED: Load only necessary content based on request
@@ -684,10 +716,10 @@ exports.handler = async (event) => {
 ${slideData.c}
 
 ## INSTRUCTIONS IMPORTANTES
-- Base ta réponse sur cette slide.
+- Base ta réponse UNIQUEMENT sur le contenu de cette slide.
 - Mentionne toujours "**Slide ${requestedSlide}, Semaine ${targetWeekNum}**" dans ta réponse pour référence.
-- Si la question dépasse le contenu de cette slide mais reste en statistique, indique que "Pour approfondir ce sujet, tu peux consulter les **références complémentaires** (fichier en cours de construction)."
-- Si la question est hors-sujet, redirige poliment l'étudiant.`;
+- Si la question dépasse le contenu de cette slide, réponds: "Ce sujet n'est pas couvert dans cette slide. Je ne peux t'aider qu'avec le contenu présenté dans les slides du cours."
+- Si la question est hors-sujet (pas des statistiques), réponds: "Cette question est en dehors du cours STAT 101."`;
             }
           }
         } else {
@@ -716,11 +748,11 @@ ${slideData.c}
 ${weeksList}
 ${slidesContent ? `\n## CONTENU PERTINENT\n${slidesContent}` : ''}
 
-## INSTRUCTIONS
-- Réponds en te basant sur le contenu ci-dessus si disponible.
+## INSTRUCTIONS STRICTES
+- Réponds UNIQUEMENT en te basant sur le contenu des slides ci-dessus.
 - Mentionne la slide de référence: "Voir **Slide X de la semaine Y**."
-- Si la question dépasse le cours STAT 101, indique-le poliment.
-- Si hors-sujet, redirige vers le cours.`;
+- Si la question porte sur un sujet NON PRÉSENT dans les slides, réponds: "Ce sujet n'est pas couvert dans les slides du cours STAT 101. Je ne peux t'aider qu'avec le contenu présenté dans les slides."
+- Si la question est hors-sujet (pas des statistiques), réponds: "Cette question est en dehors du cours STAT 101."`;
         }
       } else if (source.startsWith('semaine_')) {
         // Specific week requested - load only relevant slides
@@ -751,7 +783,11 @@ ${slidesContent ? `\n## CONTENU PERTINENT\n${slidesContent}` : ''}
 
 ## CONTENU DU COURS
 ${weekContent}
-Réponds aux questions sur ce contenu. Si hors-sujet, redirige poliment.`;
+
+## INSTRUCTIONS STRICTES
+- Réponds UNIQUEMENT aux questions dont la réponse se trouve dans le contenu ci-dessus.
+- Si la question porte sur un sujet NON PRÉSENT dans ces slides, réponds: "Ce sujet n'est pas couvert dans les slides du cours STAT 101."
+- Si la question est hors-sujet (pas des statistiques), réponds: "Cette question est en dehors du cours STAT 101."`;
         }
       }
     }
