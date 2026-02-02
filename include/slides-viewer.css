@@ -239,6 +239,16 @@
   line-height: 1.6;
 }
 
+.ai-disclaimer-banner {
+  background: rgba(255, 193, 7, 0.15);
+  border-bottom: 1px solid rgba(255, 193, 7, 0.4);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  flex-shrink: 0;
+}
+
 /* Message Bubbles */
 .slides-chat-message {
   max-width: 85%;

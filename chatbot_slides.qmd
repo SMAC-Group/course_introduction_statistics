@@ -79,6 +79,16 @@ main.content,
   line-height: 1.6;
 }
 
+.ai-disclaimer-banner {
+  background: rgba(255, 193, 7, 0.15);
+  border-bottom: 1px solid rgba(255, 193, 7, 0.4);
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  flex-shrink: 0;
+}
+
 .slides-chat-message {
   max-width: 85%;
   padding: 12px 16px;
@@ -214,10 +224,14 @@ main.content,
     <h3>Assistant IA - Questions sur les Slides</h3>
   </div>
 
+  <div class="ai-disclaimer-banner">
+    ⚠️ Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.
+  </div>
+
   <div class="slides-chat-messages" id="slides-chat-messages">
     <div class="slides-chat-welcome">
       Pose tes questions sur le contenu des cours.<br>
-      Exemple : "Explique-moi la slide 15" ou "C'est quoi la probabilite conditionnelle ?"
+      Exemple : "Explique-moi la slide 15" ou "C'est quoi la probabilité conditionnelle ?"
     </div>
   </div>
 

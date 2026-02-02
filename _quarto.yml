@@ -27,10 +27,8 @@ website:
       text: Accueil
     - href: demo_q_a.qmd
       text: Demo
-    - href: slides_viewer.qmd
-      text: Slides
-    - href: chatbot_slides.qmd
-      text: Chatbot Slides
+    - href: question_slides.qmd
+      text: Questions Slides
     - text: Exercices
       menu:
       - href: exercices_semaine_1.qmd

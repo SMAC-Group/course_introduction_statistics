@@ -1,0 +1,18 @@
+---
+title: ""
+css: styles.css
+toc: false
+---
+
+::: {.question-slides-hero}
+<div class="hero-content">
+<div class="hero-title">Questions Slides</div>
+<p class="hero-subtitle">Besoin d'aide pour comprendre le cours ?</p>
+<p class="hero-description">Choisis l'option qui correspond le mieux à ta question.</p>
+<div class="ai-disclaimer-hero">
+⚠️ Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.
+</div>
+</div>
+:::
+
+<div class="question-slides-container"><div class="question-cards-grid"><a href="chatbot_slides.html" class="question-card"><div class="question-card-icon">💬</div><div class="question-card-title">J'ai une question générale</div><div class="question-card-description">Pose une question sur n'importe quel concept du cours : probabilités, lois, formules, définitions...</div><div class="question-card-examples"><strong>Exemples :</strong><br>"C'est quoi la probabilité conditionnelle ?"<br>"Comment calculer une variance ?"</div><div class="question-card-action">Accéder au chat</div></a><a href="slides_viewer.html" class="question-card"><div class="question-card-icon">📑</div><div class="question-card-title">J'ai une question sur un slide</div><div class="question-card-description">Consulte les slides du cours et pose des questions sur une slide spécifique.</div><div class="question-card-examples"><strong>Exemples :</strong><br>"Explique-moi cette formule"<br>"Je ne comprends pas ce graphique"</div><div class="question-card-action">Voir les slides</div></a></div></div>

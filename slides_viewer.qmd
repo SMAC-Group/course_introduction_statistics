@@ -115,6 +115,11 @@ window.MathJax = {
         <div class="slides-context-slide" id="context-slide">Slide 1: Chargement...</div>
       </div>
 
+      <!-- AI Disclaimer Banner -->
+      <div class="ai-disclaimer-banner">
+        ⚠️ Les réponses de l'IA peuvent contenir des erreurs. Vérifie toujours avec tes supports de cours.
+      </div>
+
       <!-- Messages Area -->
       <div class="slides-chat-messages" id="chat-messages">
         <div class="slides-chat-welcome">
