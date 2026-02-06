@@ -3,83 +3,25 @@ title: "Exercices Semaine 12"
 format:
   html:
     html-math-method: mathjax
-    includes:
-      in_header: |
-        <script type="text/javascript" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+    include-after-body: include/webex_2.js
+    css: include/webex_2.css
 toc: false
 editor: source
 ---
 
+
 ```{r, echo = FALSE, results='asis'}
 knitr::opts_chunk$set(echo = FALSE)
-
-# Uncomment to change widget colours:
-#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+source("include/q_a_env.R")
 ```
 
-```{r}
 
-add_backslashes <- function(input_string) {
-  # Use regular expressions to replace single backslashes with double backslashes
-  result <- gsub("\\\\", "\\\\\\\\", input_string)
-  return(result)
-}
-
-
-longmcq2 <- function(opts) {
-  
-  
-  
-  ix <- which(names(opts) == "answer")
-  if (length(ix) == 0) {
-    stop("The question has no correct answer")
-  }
-  
-  # Encode special characters
-  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
-  
-  # Add mathjax wrapper to LaTeX expressions (fix regex)
-  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
-  
-  # Generate a unique name for the radio buttons
-  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
-  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
-  
-  # HTML format for display
-  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
-                 paste(options, collapse = ""),
-                 "</div>\n")
-  
-  # PDF format (no changes here)
-  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
-  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
-  
-  # Check the output format and return the appropriate version
-  out_fmt <- knitr::opts_knit$get("out.format")
-  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  
-  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
-                            isTRUE(out_fmt == "html") ||
-                            isTRUE(pandoc_to == "html"),
-                          html, pdf))
-  
-  
- 
-}
-
-```
-
-<!-- JavaScript -->
-
-```{=html}
+<!-- JavaScript for legacy hint/explanation buttons -->
 <script type="text/javascript">
-function toggleAlert(alertId, message, type) {
+function toggleAlertLegacy(alertId, message, type) {
   var alertBox = document.getElementById(alertId);
   if (!alertBox) return;
 
-  // Close all other alerts in the same question-alerts container
   var alertsContainer = alertBox.closest('.question-alerts');
   if (alertsContainer) {
     var allAlerts = alertsContainer.querySelectorAll('.alert');
@@ -94,87 +36,28 @@ function toggleAlert(alertId, message, type) {
   var alertType = alertBox.querySelector(".alertType");
 
   if (alertBox.style.display === "block") {
-    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+    alertBox.style.display = "none";
   } else {
     alertMessage.innerHTML = message;
-    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+    alertType.innerHTML = (type === 'hint') ? '&#10067; Indice' : '&#128161; Explication';
 
-    // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
-    alertBox.style.display = "block";  // Show the alert
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    alertBox.style.backgroundColor = (type === 'hint')
+      ? (isDark ? '#3a3520' : '#FFEDA3')
+      : (isDark ? '#1a3a2a' : '#C0EDC2');
+    alertBox.style.borderColor = (type === 'hint')
+      ? (isDark ? '#d69e2e' : '#E5B800')
+      : (isDark ? '#68d391' : '#388E3C');
+    alertBox.style.color = isDark ? '#e2e8f0' : '#1a202c';
+    alertBox.style.display = "block";
 
-    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+    MathJax.typesetPromise([alertMessage]);
   }
 }
 </script>
-```
 
-<!-- CSS for Styling -->
-
-```{=html}
+<!-- CSS for AI Help button and alerts container -->
 <style>
-/* Custom styles for the buttons */
-.custom-button {
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: black;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
-}
-
-/* Green button for Explanation */
-.explanation {
-  background: #C0EDC2; /* Green */
-  border: 2px solid #388E3C; /* Slightly darker green */
-}
-
-.explanation:hover {
-  background: #388E3C; /* Darker green */
-  transform: scale(1.08);
-}
-
-/* Yellow button for Hint */
-.hint {
-  background: #FFEDA3; /* Yellow */
-  border: 2px solid #E5B800; /* Slightly darker yellow */
-}
-
-.hint:hover {
-  background: #E5B800; /* Darker yellow */
-  transform: scale(1.08);
-}
-
-/* Custom styles for the alert box */
-.alert {
-  padding: 15px;
-  color: black;
-  margin-top: 10px; /* Ensure spacing between button and alert */
-  border-radius: 10px;
-  border: 2px solid;
-  font-size: 16px;
-  width: fit-content; /* Prevent full-width alerts */
-}
-/* Horizontal button layout */
-.question-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 10px 0;
-  align-items: center;
-}
-
-/* Alerts container below buttons */
-.question-alerts {
-  margin-top: 8px;
-}
-
-.question-alerts .alert {
-  margin-bottom: 8px;
-}
-/* AI Help button - light purple with dark icon, purple on hover */
 .custom-button.ai-help {
   background: #E8E0F0;
   border: 2px solid #5a3d8a;
@@ -186,46 +69,61 @@ function toggleAlert(alertId, message, type) {
   color: white;
   transform: scale(1.05);
 }
+
+[data-theme="dark"] .custom-button.ai-help {
+  background: #2d2440;
+  border-color: #7c6aad;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
-```
 
 <!-- MathJax for Rendering Math -->
-
-```{=html}
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
 </script>
-```
 
 
+---
 
-Dans une étude sur le temps moyen passé par les étudiants à faire leurs devoirs quotidiens, on a collecté des données pour un échantillon de \\(40\\) étudiants. On souhaite tester si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour. 
+
+Dans une étude sur le temps moyen passé par les étudiants à faire leurs devoirs quotidiens, on a collecté des données pour un échantillon de \(40\) étudiants. On souhaite tester si le temps moyen passé à faire les devoirs est significativement différent de \(2\) heures par jour.
 
 
 
 ## Question 1
 Quelles sont les hypothèses nulle et alternative pour ce test ?
 
-```{r}
-opts <- c(
-  answer = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
-  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
-  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
-  "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)"
-)
-
-```
-
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
+       feedback = "Vrai"),
+  list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'Les hypothèses pour un test non orienté sont : \\(H_0: \\mu = 2\\) (le temps moyen est égal à 2 heures) contre \\(H_{\\alpha}: \\mu \\neq 2\\) (le temps moyen est différent de 2 heures).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelles sont les hypothèses nulle et alternative pour ce test ?&quot;, &quot;Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.&quot;, &quot;Les hypothèses pour un test non orienté sont : (H_0: mu = 2) (le temps moyen est égal à 2 heures) contre (H_alpha: mu neq 2) (le temps moyen est différent de 2 heures).&quot;, &quot;(H_0: mu = 2) contre (H_alpha: mu neq 2)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q1-hint', 'Pour une hypothèse alternative non orientée, on teste si la moyenne est différente de la valeur donnée.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q1-expl', 'Les hypothèses pour un test non orienté sont : \\(H_0: \\mu = 2\\) (le temps moyen est égal à 2 heures) contre \\(H_{\\alpha}: \\mu \\neq 2\\) (le temps moyen est différent de 2 heures).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -239,32 +137,26 @@ cat(longmcq2(opts))
 
 
 
-
-
 ## Question 2
-La moyenne de l'échantillon est de \\(2.5\\) et la variance de l'échantillon \\(s^2\\) est de \\(s^2=4\\). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de \\(2\\) heures par jour.
-
-```{r}
-opts <- c(
-
-  "\\(z_{\\text{obs}} \\approx 2.5\\)",
-    answer = "\\(z_{\\text{obs}} \\approx 1.581\\)",
-  "\\(z_{\\text{obs}} \\approx 1.118\\)",
-  "\\(z_{\\text{obs}} \\approx 0.791\\)"
-)
-
-```
+La moyenne de l'échantillon est de \(2.5\) et la variance de l'échantillon \(s^2\) est de \(s^2=4\). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de \(2\) heures par jour.
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(z_{\\text{obs}} \\approx 2.5\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(z_{\\text{obs}} \\approx 1.581\\)",
+       feedback = "Vrai"),
+  list(value = "\\(z_{\\text{obs}} \\approx 1.118\\)",
+       feedback = "Faux"),
+  list(value = "\\(z_{\\text{obs}} \\approx 0.791\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Utilisez la formule de la statistique de test z : \\(z_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'La statistique de test est calculée comme suit : \\(z_{\\text{obs}} = \\frac{2.5 - 2}{\\sqrt{4/40}} \\approx 1.581\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;La moyenne de l&#39;échantillon est de (2.5) et la variance de l&#39;échantillon (s^2) est de (s^2=4). Calculez la statistique de test pour déterminer si le temps moyen passé à faire les devoirs est significativement différent de (2) heures p&quot;, &quot;Utilisez la formule de la statistique de test z : (z_textobs = fracbarX - mu_0s/ sqrtn), où (barX) est la moyenne de l\&#39;échantillon, (mu_0) est la moyenne hypothétique sous (H_0), (s) est l\&#39;écart-type de l\&#39;échantillon, et (n) est la taille de l\&#39;échantillon.&quot;, &quot;La statistique de test est calculée comme suit : (z_textobs = frac2.5 - 2sqrt4/40 approx 1.581).&quot;, &quot;(z_textobs approx 1.581)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q2-hint', 'Utilisez la formule de la statistique de test z : \\(z_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q2-expl', 'La statistique de test est calculée comme suit : \\(z_{\\text{obs}} = \\frac{2.5 - 2}{\\sqrt{4/40}} \\approx 1.581\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -279,32 +171,28 @@ cat(longmcq2(opts))
 
 ## Question 3
 
-Calculez la \\(p\\)-valeur associée à ce test en fonction de \\(z_{\\text{obs}}\\) et de \\(H_{\\alpha}\\)
-
-```{r}
-opts <- c(
-
-  answer = "\\(p \\approx 0.114\\)",
-  "\\(p \\approx 0.057\\)",
-  "\\(p \\approx 0.061\\)",
-  "\\(p \\approx 0.228\\)"
-)
-
-```
+Calculez la \(p\)-valeur associée à ce test en fonction de \(z_{\text{obs}}\) et de \(H_{\alpha}\)
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "\\(p \\approx 0.114\\)",
+       feedback = "Vrai"),
+  list(value = "\\(p \\approx 0.057\\)",
+       feedback = "Faux"),
+  list(value = "\\(p \\approx 0.061\\)",
+       feedback = "Faux"),
+  list(value = "\\(p \\approx 0.228\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'La \\(p\\)-valeur pour un test bilatéral est calculée avec \\(2\\times \\mathbb{P}(Z > |z_{\\text{obs}}|)\\)', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La \\(p\\)-valeur est calculée comme suit : \\(p = 2 \\times P(Z > |1.581|) \\approx 2 \\times 0.057 \\approx 0.114\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez la (p)-valeur associée à ce test en fonction de (z_textobs) et de (H_alpha)&quot;, &quot;La (p)-valeur pour un test bilatéral est calculée avec (2times mathbbP(Z &gt; |z_textobs|))&quot;, &quot;La (p)-valeur est calculée comme suit : (p = 2 times P(Z &gt; |1.581|) approx 2 times 0.057 approx 0.114).&quot;, &quot;(p approx 0.114)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q3-hint', 'La \\(p\\)-valeur pour un test bilatéral est calculée avec \\(2\\times \\mathbb{P}(Z > |z_{\\text{obs}}|)\\)', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q3-expl', 'La \\(p\\)-valeur est calculée comme suit : \\(p = 2 \\times P(Z > |1.581|) \\approx 2 \\times 0.057 \\approx 0.114\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -321,30 +209,28 @@ cat(longmcq2(opts))
 
 ## Question 4
 
-Quelle est la conclusion du test en considérant les hypothèses formulées dans la question \\(1\\), un seuil de signification de \\(\\alpha = 5\\%\\), et les résultats obtenus précédemment ?
-
-```{r}
-opts <- c(
-  answer = "On ne rejette pas \\(H_0\\) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de \\(2\\) heures.",
-  "On rejette \\(H_0\\) : le temps moyen est significativement supérieur à \\(2\\) heures.",
-  "On rejette \\(H_0\\) : le temps moyen est significativement différent de \\(2\\) heures.",
-  "On ne peut pas conclure sans connaître la moyenne théorique sous \\(H_0\\)."
-)
-```
+Quelle est la conclusion du test en considérant les hypothèses formulées dans la question \(1\), un seuil de signification de \(\alpha = 5\%\), et les résultats obtenus précédemment ?
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "On ne rejette pas \\(H_0\\) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de \\(2\\) heures.",
+       feedback = "Vrai"),
+  list(value = "On rejette \\(H_0\\) : le temps moyen est significativement supérieur à \\(2\\) heures.",
+       feedback = "Faux"),
+  list(value = "On rejette \\(H_0\\) : le temps moyen est significativement différent de \\(2\\) heures.",
+       feedback = "Faux"),
+  list(value = "On ne peut pas conclure sans connaître la moyenne théorique sous \\(H_0\\).",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Comparez la \\(p\\)-valeur obtenue à \\(\\alpha = 0.05\\). Si \\(p > \\alpha\\), on ne rejette pas \\(H_0\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La \\(p\\)-valeur obtenue est \\(0.114\\), ce qui est supérieure au seuil de \\(5\\%\\). On ne rejette donc pas \\(H_0\\). Il n’y a pas de preuve suffisante pour conclure à une différence significative.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la conclusion du test en considérant les hypothèses formulées dans la question (1), un seuil de signification de (alpha = 5%), et les résultats obtenus précédemment ?&quot;, &quot;Comparez la (p)-valeur obtenue à (alpha = 0.05). Si (p &gt; alpha), on ne rejette pas (H_0).&quot;, &quot;La (p)-valeur obtenue est (0.114), ce qui est supérieure au seuil de (5%). On ne rejette donc pas (H_0). Il n’y a pas de preuve suffisante pour conclure à une différence significative.&quot;, &quot;On ne rejette pas (H_0) : les données ne fournissent pas suffisamment de preuves pour conclure que le temps moyen est différent de (2) heures.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q4-hint', 'Comparez la \\(p\\)-valeur obtenue à \\(\\alpha = 0.05\\). Si \\(p > \\alpha\\), on ne rejette pas \\(H_0\\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q4-expl', 'La \\(p\\)-valeur obtenue est \\(0.114\\), ce qui est supérieure au seuil de \\(5\\%\\). On ne rejette donc pas \\(H_0\\). Il n'y a pas de preuve suffisante pour conclure à une différence significative.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -359,36 +245,34 @@ cat(longmcq2(opts))
 
 ---
 
-Une entreprise de production de thé veut s’assurer que ses sachets de thé ne contiennent pas moins que la quantité annoncée de \\(2.0\\) grammes de thé par sachet. Elle suspecte que la machine sous-remplit légèrement les sachets. Pour en avoir le coeur net, elle effectue un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes.
+Une entreprise de production de thé veut s'assurer que ses sachets de thé ne contiennent pas moins que la quantité annoncée de \(2.0\) grammes de thé par sachet. Elle suspecte que la machine sous-remplit légèrement les sachets. Pour en avoir le coeur net, elle effectue un test unilatéral pour vérifier si la moyenne de la population est inférieure à \(2.0\) grammes.
 
-Un échantillon de \\(15\\) sachets est prélevé. On observe une moyenne calculée sur l'échantillon de \\(1.92\\) grammes, et un écart-type de l'échantillon \\(s\\) de \\(0.1\\) gramme.
+Un échantillon de \(15\) sachets est prélevé. On observe une moyenne calculée sur l'échantillon de \(1.92\) grammes, et un écart-type de l'échantillon \(s\) de \(0.1\) gramme.
 
 
 ## Question 5
 
 Déterminez l'hypothèse nulle est l'hypothèse alternative du test à effectuer.
 
-```{r}
-opts <- c(
-"\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
-  "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
-    answer = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
-  "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)",
-"\\(H_0: \\mu < 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)"
-)
-
-```
-
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu \\neq 2\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu > 2\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(H_0: \\mu = 2\\) contre \\(H_{\\alpha}: \\mu < 2\\)",
+       feedback = "Vrai"),
+  list(value = "\\(H_0: \\mu \\neq 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu < 2\\) contre \\(H_{\\alpha}: \\mu = 2\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur \\(\\mu_0\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Les hypothèses pour ce test  unilatéral sont : \\(H_0: \\mu = 2\\) (le poids moyen des sachets est de \\(2\\) grammes) contre \\(H_{\\alpha}: \\mu < 2\\) (le poids moyen des sachets est plus petit que  \\(2\\) grammes)', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Déterminez l&#39;hypothèse nulle est l&#39;hypothèse alternative du test à effectuer.&quot;, &quot;Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à (2.0) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur (mu_0).&quot;, &quot;Les hypothèses pour ce test unilatéral sont : (H_0: mu = 2) (le poids moyen des sachets est de (2) grammes) contre (H_alpha: mu &lt; 2) (le poids moyen des sachets est plus petit que (2) grammes)&quot;, &quot;(H_0: mu = 2) contre (H_alpha: mu &lt; 2)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q5-hint', 'Dans un test unilatéral pour vérifier si la moyenne de la population est inférieure à \\(2.0\\) grammes, on considère une hypothèse alternative orientée où la moyenne de la population est inférieure à la valeur \\(\\mu_0\\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q5-expl', 'Les hypothèses pour ce test  unilatéral sont : \\(H_0: \\mu = 2\\) (le poids moyen des sachets est de \\(2\\) grammes) contre \\(H_{\\alpha}: \\mu < 2\\) (le poids moyen des sachets est plus petit que  \\(2\\) grammes)', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -401,34 +285,31 @@ cat(longmcq2(opts))
 
 ## Question 6
 
-Calculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à \\(2.0\\) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.
+Calculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à \(2.0\) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.
 
 
-
-
-```{r}
-opts <- c(
- 
- "\\(t_{\\text{obs}} \\approx -0.980\\)",
- "\\(t_{\\text{obs}} \\approx 3.098\\)",
-   answer = "\\(t_{\\text{obs}} \\approx -3.098\\)",
- "\\(t_{\\text{obs}} \\approx 1.96\\)",
- "\\(t_{\\text{obs}} \\approx 1.64\\)"
-)
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(t_{\\text{obs}} \\approx -0.980\\)",
+       feedback = "Faux"),
+  list(value = "\\(t_{\\text{obs}} \\approx 3.098\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(t_{\\text{obs}} \\approx -3.098\\)",
+       feedback = "Vrai"),
+  list(value = "\\(t_{\\text{obs}} \\approx 1.96\\)",
+       feedback = "Faux"),
+  list(value = "\\(t_{\\text{obs}} \\approx 1.64\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Utilisez la formule de la statistique de test t : \\(t_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'La statistique de test est calculée comme suit : \\(t_{\\text{obs}} = \\frac{1.92 - 2}{0.1/\\sqrt{15}} \\approx -3.098\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez la statistique de test pour vérifier si le poids moyen de la population des sachets est inférieur à (2.0) grammes. On suppose que le poids suit une distribution normale et que les poids des sachets sont indépendants.&quot;, &quot;Utilisez la formule de la statistique de test t : (t_textobs = fracbarX - mu_0s/ sqrtn), où (barX) est la moyenne de l\&#39;échantillon, (mu_0) est la moyenne hypothétique sous (H_0), (s) est l\&#39;écart-type de l\&#39;échantillon, et (n) est la taille de l\&#39;échantillon.&quot;, &quot;La statistique de test est calculée comme suit : (t_textobs = frac1.92 - 20.1/sqrt15 approx -3.098).&quot;, &quot;(t_textobs approx -3.098)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q6-hint', 'Utilisez la formule de la statistique de test t : \\(t_{\\text{obs}} = \\frac{\\bar{X} - \\mu_0}{s/ \\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(\\mu_0\\) est la moyenne hypothétique sous \\(H_0\\), \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q6-expl', 'La statistique de test est calculée comme suit : \\(t_{\\text{obs}} = \\frac{1.92 - 2}{0.1/\\sqrt{15}} \\approx -3.098\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -441,31 +322,28 @@ cat(longmcq2(opts))
 
 
 ## Question 7
-Quelle est la valeur critique à considérer dans la table de la loi de Student si l'on souhaite effectuer un test à un niveau de confiance de \\(90\\%\\)?
+Quelle est la valeur critique à considérer dans la table de la loi de Student si l'on souhaite effectuer un test à un niveau de confiance de \(90\%\)?
 
 
-
-```{r}
-opts <- c(
- 
- "\\(t_{0.95, 15} \\approx 1.75\\)",
- answer = "\\(t_{0.9, 14} \\approx 1.35\\)",
-  "\\(t_{0.05, 14} \\approx -1.761\\)",
- "\\(t_{0.2, 15} \\approx -0.866\\)"
-)
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(t_{0.95, 15} \\approx 1.75\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(t_{0.9, 14} \\approx 1.35\\)",
+       feedback = "Vrai"),
+  list(value = "\\(t_{0.05, 14} \\approx -1.761\\)",
+       feedback = "Faux"),
+  list(value = "\\(t_{0.2, 15} \\approx -0.866\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%, (\\alpha = 0.1)\\) doit être trouvée sur la table de Student avec \\(n - 1\\) degrés de liberté.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la valeur critique à considérer dans la table de la loi de Student si l&#39;on souhaite effectuer un test à un niveau de confiance de (90%)?&quot;, &quot;La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de (90%, (alpha = 0.1)) doit être trouvée sur la table de Student avec (n - 1) degrés de liberté.&quot;, &quot;Pour un test unilatéral à gauche avec un niveau de confiance de (90%), la table de Student pour (n-1 = 14) degrés de liberté donne la valeur critique (t_1- alpha, n-1 = t_1- 0.1, 15-1= t_0.9, 14 approx 1.35).&quot;, &quot;(t_0.9, 14 approx 1.35)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q7-hint', 'La valeur critique pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%, (\\alpha = 0.1)\\) doit être trouvée sur la table de Student avec \\(n - 1\\) degrés de liberté.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q7-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -479,32 +357,30 @@ cat(longmcq2(opts))
 
 ## Question 8
 
-Quelle est la conclusion du test à un niveau de confiance de \\(90\\%\\)?
+Quelle est la conclusion du test à un niveau de confiance de \(90\%\)?
 
 
-
-```{r}
-opts <- c(
- 
-   answer =  "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
-   "Puisque \\(t_{\\text{obs}} > -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
-   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on ne rejette pas l'hypothèse nulle.",
-   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on accepte l'hypothèse nulle.",
-   "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), le test est inconclusif."
-)
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
+       feedback = "Vrai"),
+  list(value = "Puisque \\(t_{\\text{obs}} > -t_{1-\\alpha, df}\\), on rejette l'hypothèse nulle en faveur de \\(H_{\\alpha}\\).",
+       feedback = "Faux"),
+  list(value = "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on ne rejette pas l'hypothèse nulle.",
+       feedback = "Faux"),
+  list(value = "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), on accepte l'hypothèse nulle.",
+       feedback = "Faux"),
+  list(value = "Puisque \\(t_{\\text{obs}} < -t_{1-\\alpha, df}\\), le test est inconclusif.",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < -1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la conclusion du test à un niveau de confiance de (90%)?&quot;, &quot;Avec un test unilatéral à gauche, on rejette (H_0) si la statistique observée est plus petite que la valeur critique négative (-t_1-alpha, df).&quot;, &quot;Pour un test unilatéral à gauche avec un niveau de confiance de (90%), la table de Student pour (n-1 = 14) degrés de liberté donne la valeur critique (t_1- alpha, n-1 = t_1- 0.1, 15-1= t_0.9, 14 approx 1.35). Ainsi, puisque (-3.098 &lt; -1.35), on rejette l\&#39;hypothèse nulle (H_0=mu = 2).&quot;, &quot;Puisque (t_textobs &lt; -t_1-alpha, df), on rejette l&#39;hypothèse nulle en faveur de (H_alpha).&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q8-hint', 'Avec un test unilatéral à gauche, on rejette \\(H_0\\) si la statistique observée est plus petite que la valeur critique négative \\(-t_{1-\\alpha, df}\\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q8-expl', 'Pour un test unilatéral à gauche avec un niveau de confiance de \\(90\\%\\), la table de Student pour \\(n-1 = 14\\) degrés de liberté donne la valeur critique \\(t_{1- \\alpha, n-1} = t_{1- 0.1, 15-1}= t_{0.9, 14} \\approx 1.35\\). Ainsi, puisque \\(-3.098 < -1.35\\), on rejette l\'hypothèse nulle \\(H_0=\\mu = 2\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -520,32 +396,30 @@ cat(longmcq2(opts))
 
 
 
-Pour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \\(10 \\%\\), quel était la valeur de la statistique de test ?
+Pour un test-z non-orienté à deux échantillons, on trouve une p-valeur de \(10 \%\), quel était la valeur de la statistique de test ?
 
 
-
-```{r}
-opts <- c(
-          "\\(1.96\\)",
-          "\\(-1.96\\)",
-          "\\(\\{-1.96, 1.96\\}\\)",
-          "\\(1.64\\)",
-          answer = "\\(\\{-1.64, 1.64\\}\\)"
-)
-
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(1.96\\)",
+       feedback = "Faux"),
+  list(value = "\\(-1.96\\)",
+       feedback = "Faux"),
+  list(value = "\\(\\{-1.96, 1.96\\}\\)",
+       feedback = "Faux"),
+  list(value = "\\(1.64\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(\\{-1.64, 1.64\\}\\)",
+       feedback = "Vrai")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Revoir comment la p-valeur est calculée dans le cours.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'On a \\(\\text{p-val}=2P(Z\\geq\\lvert z_{\\text{obs}}\\rvert)=0.1\\). On déduit que \\(P(Z\\leq\\lvert z_{\\text{obs}}\\rvert)=0.95\\), ce qui implique que \\(\\lvert z_{\\text{obs}}\\rvert=1.64\\), donc la statistique de test est soit \\(-1.64\\), soit \\(1.64\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Pour un test-z non-orienté à deux échantillons, on trouve une p-valeur de (10 %), quel était la valeur de la statistique de test ?&quot;, &quot;Revoir comment la p-valeur est calculée dans le cours.&quot;, &quot;On a (textp-val=2P(Zgeqlvert z_textobsrvert)=0.1). On déduit que (P(Zleqlvert z_textobsrvert)=0.95), ce qui implique que (lvert z_textobsrvert=1.64), donc la statistique de test est soit (-1.64), soit (1.64).&quot;, &quot;(-1.64, 1.64)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q9-hint', 'Revoir comment la p-valeur est calculée dans le cours.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q9-expl', 'On a \\(\\text{p-val}=2P(Z\\geq\\lvert z_{\\text{obs}}\\rvert)=0.1\\). On déduit que \\(P(Z\\leq\\lvert z_{\\text{obs}}\\rvert)=0.95\\), ce qui implique que \\(\\lvert z_{\\text{obs}}\\rvert=1.64\\), donc la statistique de test est soit \\(-1.64\\), soit \\(1.64\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -557,35 +431,32 @@ cat(longmcq2(opts))
 </div>
 
 ---
-On veut comparer le taux moyen d'approbation d'une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\\(n_A=200, n_B=250\\)). On veut tester si le taux d'approbation est supérieur pour le pays A. 
+On veut comparer le taux moyen d'approbation d'une organisation internationale dans deux pays (A et B). On dispose de grands échantillons (\(n_A=200, n_B=250\)). On veut tester si le taux d'approbation est supérieur pour le pays A.
 
 ## Question 10
 
 Quelle est la formulation correcte des hypothèses de test ?
 
-```{r}
-opts <- c(
-          "\\(H_0: \\mu_A>\\mu_B, H_{\\alpha}: \\mu_A\\neq\\mu_B\\)",
-          "\\(H_0: \\mu_A\\neq\\mu_B, H_{\\alpha}: \\mu_A>\\mu_B\\)",
-          answer = "\\(H_0: \\mu_A-\\mu_B = 0, H_{\\alpha}: \\mu_A-\\mu_B>0\\)",
-          "\\(H_0: \\mu_A-\\mu_B\\neq0, H_{\\alpha}: \\mu_B-\\mu_A>0\\)",
-          "\\(H_0: \\mu_B-\\mu_A<0, H_{\\alpha}: \\mu_A-\\mu_B<0\\)"
-)
-
-
-```
-
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(H_0: \\mu_A>\\mu_B, H_{\\alpha}: \\mu_A\\neq\\mu_B\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu_A\\neq\\mu_B, H_{\\alpha}: \\mu_A>\\mu_B\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(H_0: \\mu_A-\\mu_B = 0, H_{\\alpha}: \\mu_A-\\mu_B>0\\)",
+       feedback = "Vrai"),
+  list(value = "\\(H_0: \\mu_A-\\mu_B\\neq0, H_{\\alpha}: \\mu_B-\\mu_A>0\\)",
+       feedback = "Faux"),
+  list(value = "\\(H_0: \\mu_B-\\mu_A<0, H_{\\alpha}: \\mu_A-\\mu_B<0\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'L\'hyopthèse nulle est l\'égalité des deux moyennes, ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B= 0\\). Pour l\'alternative, on cherche à savoir si \\(\\mu_A>\\mu_B\\), ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B>0\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la formulation correcte des hypothèses de test ?&quot;, &quot;Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.&quot;, &quot;L\&#39;hyopthèse nulle est l\&#39;égalité des deux moyennes, ce qui peut s\&#39;exprimer de manière équivalente comme (mu_A-mu_B= 0). Pour l\&#39;alternative, on cherche à savoir si (mu_A&gt;mu_B), ce qui peut s\&#39;exprimer de manière équivalente comme (mu_A-mu_B&gt;0).&quot;, &quot;(H_0: mu_A-mu_B = 0, H_alpha: mu_A-mu_B&gt;0)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q10-hint', 'Revoir les hypothèses de tests pour le test-z à deux échantillons dans le cours.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q10-expl', 'L\'hyopthèse nulle est l\'égalité des deux moyennes, ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B= 0\\). Pour l\'alternative, on cherche à savoir si \\(\\mu_A>\\mu_B\\), ce qui peut s\'exprimer de manière équivalente comme \\(\\mu_A-\\mu_B>0\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -599,29 +470,28 @@ cat(longmcq2(opts))
 
 ## Question 11
 
-On connaît \\(s_A=5\\%, s_B=6\\%\\), les écarts-types des populations. Les échantillons donnent \\(\\bar{X}_A=48\\%, \\bar{X}_B=45\\%\\). Calculez la statistique de test :
-
-```{r}
-opts <- c(
-    answer = "\\(5.78\\)",
-    "\\(1.36\\)",
-    "\\(5.67\\)",
-    "\\(1.96\\)",
-    "\\(1.64\\)"
-)
-```
+On connaît \(s_A=5\%, s_B=6\%\), les écarts-types des populations. Les échantillons donnent \(\bar{X}_A=48\%, \bar{X}_B=45\%\). Calculez la statistique de test :
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "\\(5.78\\)",
+       feedback = "Vrai"),
+  list(value = "\\(1.36\\)",
+       feedback = "Faux"),
+  list(value = "\\(5.67\\)",
+       feedback = "Faux"),
+  list(value = "\\(1.96\\)",
+       feedback = "Faux"),
+  list(value = "\\(1.64\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Revoir la statistique de test pour le test-z à deux échantillons dans le cours.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'On a \\(\\frac{\\bar{X}_A-\\bar{X}_B}{\\sqrt{\\frac{s_A^2}{n_A}+\\frac{s_B^2}{n_B}}}\\) ce qui donne approximativement \\(5.78\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;On connaît (s_A=5%, s_B=6%), les écarts-types des populations. Les échantillons donnent (barX_A=48%, barX_B=45%). Calculez la statistique de test :&quot;, &quot;Revoir la statistique de test pour le test-z à deux échantillons dans le cours.&quot;, &quot;On a (fracbarX_A-barX_Bsqrtfracs_A^2n_A+fracs_B^2n_B) ce qui donne approximativement (5.78).&quot;, &quot;(5.78)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q11-hint', 'Revoir la statistique de test pour le test-z à deux échantillons dans le cours.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q11-expl', 'On a \\(\\frac{\\bar{X}_A-\\bar{X}_B}{\\sqrt{\\frac{s_A^2}{n_A}+\\frac{s_B^2}{n_B}}}\\) ce qui donne approximativement \\(5.78\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">
@@ -645,32 +515,31 @@ alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  1.523 4.477
 sample estimates:
-difference in means 
-                 3 
+difference in means
+                 3
 ```
-Quelle décision prend-on au niveau \\(\\alpha=1\\%\\)?
-
-```{r}
-opts <- c(
-          "On rejette \\(H_0\\) car la p-valeur est supérieure à \\(0.05\\).",
-          "On ne peut pas conclure ce test au niveau de \\(1\\%\\).",
-          answer = "On rejette \\(H_0\\) car la p-valeur est inférieure à \\(1\\%\\).",
-          "On rejette \\(H_{\\alpha}\\) car la statistique de test est plus grande que le quantile de la loi normale \\(z_{\\alpha}\\).",
-          "On devrait diminuer le niveau \\(\\alpha\\) pour pouvoir rejetter \\(H_0\\)."
-)
-```
+Quelle décision prend-on au niveau \(\alpha=1\%\)?
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "On rejette \\(H_0\\) car la p-valeur est supérieure à \\(0.05\\).",
+       feedback = "Faux"),
+  list(value = "On ne peut pas conclure ce test au niveau de \\(1\\%\\).",
+       feedback = "Faux"),
+  answer = list(value = "On rejette \\(H_0\\) car la p-valeur est inférieure à \\(1\\%\\).",
+       feedback = "Vrai"),
+  list(value = "On rejette \\(H_{\\alpha}\\) car la statistique de test est plus grande que le quantile de la loi normale \\(z_{\\alpha}\\).",
+       feedback = "Faux"),
+  list(value = "On devrait diminuer le niveau \\(\\alpha\\) pour pouvoir rejetter \\(H_0\\).",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Essaie de trouver la p-valeur.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'On a \\(\\text{p-val}=0.006<0.01\\) donc on rejette \\(H_0\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Vous recevez l\&#39;output suivant (calculé avec le logiciel `R`) pour ce test:&quot;, &quot;Essaie de trouver la p-valeur.&quot;, &quot;On a (textp-val=0.006&lt;0.01) donc on rejette (H_0).&quot;, &quot;On rejette (H_0) car la p-valeur est inférieure à (1%).&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q12-hint', 'Essaie de trouver la p-valeur.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q12-expl', 'On a \\(\\text{p-val}=0.006<0.01\\) donc on rejette \\(H_0\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q12-hint" style="display: none;">
@@ -688,30 +557,29 @@ cat(longmcq2(opts))
 ## Question 13
 
 
-Un chercheur effectue un test d'hypothèse avec \\(\\alpha = 5\\%\\), et obtient une $p$-valeur de \\(0.08\\), donc un résultat non significatif. Il décide alors d'augmenter \\(\\alpha\\) à \\(10\\%\\) pour conclure que le test est significatif. Êtes-vous d'accord avec cette approche ?
+Un chercheur effectue un test d'hypothèse avec \(\alpha = 5\%\), et obtient une $p$-valeur de \(0.08\), donc un résultat non significatif. Il décide alors d'augmenter \(\alpha\) à \(10\%\) pour conclure que le test est significatif. Êtes-vous d'accord avec cette approche ?
 
-
-```{r}
-opts <- c(
-    answer = "Non, ce n'est pas une bonne pratique.",
-    "Oui, tant que cela permet d'obtenir une conclusion.",
-    "Oui, si le test est correctement justifié ensuite.",
-    "Cela dépend du contexte.",
-    "Cela est acceptable en recherche exploratoire."
-)
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "Non, ce n'est pas une bonne pratique.",
+       feedback = "Vrai"),
+  list(value = "Oui, tant que cela permet d'obtenir une conclusion.",
+       feedback = "Faux"),
+  list(value = "Oui, si le test est correctement justifié ensuite.",
+       feedback = "Faux"),
+  list(value = "Cela dépend du contexte.",
+       feedback = "Faux"),
+  list(value = "Cela est acceptable en recherche exploratoire.",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q13-hint', 'Pensez à la signification de la valeur \\(\\alpha\\) dans un test d\'hypothèse.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q13-expl', 'Changer \\(\\alpha\\) après coup fausse l\'interprétation du test. Le niveau \\(\\alpha\\) doit être fixé avant l\'analyse pour éviter le biais de confirmation.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un chercheur effectue un test d&#39;hypothèse avec (alpha = 5%), et obtient une $p$-valeur de (0.08), donc un résultat non significatif. Il décide alors d&#39;augmenter (alpha) à (10%) pour conclure que le test est significatif. Êtes-&quot;, &quot;Pensez à la signification de la valeur (alpha) dans un test d\&#39;hypothèse.&quot;, &quot;Changer (alpha) après coup fausse l\&#39;interprétation du test. Le niveau (alpha) doit être fixé avant l\&#39;analyse pour éviter le biais de confirmation.&quot;, &quot;Non, ce n&#39;est pas une bonne pratique.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q13-hint', 'Pensez à la signification de la valeur \\(\\alpha\\) dans un test d\'hypothèse.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q13-expl', 'Changer \\(\\alpha\\) après coup fausse l\'interprétation du test. Le niveau \\(\\alpha\\) doit être fixé avant l\'analyse pour éviter le biais de confirmation.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q13-hint" style="display: none;">
@@ -725,29 +593,28 @@ cat(longmcq2(opts))
 
 ## Question 14
 
-Un étudiant teste \\(20\\) relations différentes entre des variables économiques dans un jeu de données. Seuls \\(2\\) tests donnent une \\(p\\)-valeur inférieure à \\(5\\%\\), et ce sont les seuls qu’il retient pour rédiger son rapport. Que pensez-vous de cette approche ?
-
-```{r}
-opts <- c(
-    answer = "Ce n'est pas acceptable : il s'agit de p-hacking.",
-    "C'est une bonne stratégie pour trouver des résultats intéressants.",
-    "C'est acceptable si les résultats sont publiés.",
-    "Il aurait dû conserver les \\(5\\%\\) de résultats avec les plus petites \\(p\\)-valeurs.",
-    "Cela montre que les deux relations sont significatives."
-)
-```
+Un étudiant teste \(20\) relations différentes entre des variables économiques dans un jeu de données. Seuls \(2\) tests donnent une \(p\)-valeur inférieure à \(5\%\), et ce sont les seuls qu'il retient pour rédiger son rapport. Que pensez-vous de cette approche ?
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "Ce n'est pas acceptable : il s'agit de p-hacking.",
+       feedback = "Vrai"),
+  list(value = "C'est une bonne stratégie pour trouver des résultats intéressants.",
+       feedback = "Faux"),
+  list(value = "C'est acceptable si les résultats sont publiés.",
+       feedback = "Faux"),
+  list(value = "Il aurait dû conserver les \\(5\\%\\) de résultats avec les plus petites \\(p\\)-valeurs.",
+       feedback = "Faux"),
+  list(value = "Cela montre que les deux relations sont significatives.",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q14-hint', 'Pensez au risque d\'erreur de type I lorsqu\'on effectue de nombreux tests sans correction.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q14-expl', 'Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\'est du p-hacking.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un étudiant teste (20) relations différentes entre des variables économiques dans un jeu de données. Seuls (2) tests donnent une (p)-valeur inférieure à (5%), et ce sont les seuls qu’il retient pour rédiger son rapport. Que pensez-v&quot;, &quot;Pensez au risque d\&#39;erreur de type I lorsqu\&#39;on effectue de nombreux tests sans correction.&quot;, &quot;Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\&#39;est du p-hacking.&quot;, &quot;Ce n&#39;est pas acceptable : il s&#39;agit de p-hacking.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q14-hint', 'Pensez au risque d\'erreur de type I lorsqu\'on effectue de nombreux tests sans correction.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q14-expl', 'Effectuer plusieurs tests et ne rapporter que les résultats significatifs sans correction multiple augmente artificiellement le taux de fausses découvertes. C\'est du p-hacking.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q14-hint" style="display: none;">
@@ -757,6 +624,3 @@ cat(longmcq2(opts))
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
 </div>
-
-
-

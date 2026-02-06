@@ -3,84 +3,25 @@ title: "Exercices Semaine 3"
 format:
   html:
     html-math-method: mathjax
-    includes:
-      in_header: |
-        <script type="text/javascript" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+    include-after-body: include/webex_2.js
+    css: include/webex_2.css
 toc: false
-
 editor: source
 ---
 
+
 ```{r, echo = FALSE, results='asis'}
 knitr::opts_chunk$set(echo = FALSE)
-
-# Uncomment to change widget colours:
-#style_widgets(incorrect = "goldenrod", correct = "purple", highlight = "firebrick")
+source("include/q_a_env.R")
 ```
 
-```{r}
 
-add_backslashes <- function(input_string) {
-  # Use regular expressions to replace single backslashes with double backslashes
-  result <- gsub("\\\\", "\\\\\\\\", input_string)
-  return(result)
-}
-
-
-longmcq2 <- function(opts) {
-  
-  
-  
-  ix <- which(names(opts) == "answer")
-  if (length(ix) == 0) {
-    stop("The question has no correct answer")
-  }
-  
-  # Encode special characters
-  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
-  
-  # Add mathjax wrapper to LaTeX expressions (fix regex)
-  opts2 <- gsub("\\\\\\((.*?)\\\\\\)", "\\\\(\\1\\\\)", opts2)  # Wrap LaTeX expressions correctly
-  
-  # Generate a unique name for the radio buttons
-  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
-  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
-  
-  # HTML format for display
-  html <- paste0("<div class='webex-radiogroup' id='", qname, "'>",
-                 paste(options, collapse = ""),
-                 "</div>\n")
-  
-  # PDF format (no changes here)
-  pdf_opts <- sprintf("* (%s) %s  ", LETTERS[seq_along(opts2)], opts2)
-  pdf <- paste0("\n\n", paste(pdf_opts, collapse = "\n"), "\n\n")
-  
-  # Check the output format and return the appropriate version
-  out_fmt <- knitr::opts_knit$get("out.format")
-  pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  
-  add_backslashes( ifelse((is.null(out_fmt) & is.null(pandoc_to)) ||
-                            isTRUE(out_fmt == "html") ||
-                            isTRUE(pandoc_to == "html"),
-                          html, pdf))
-  
-  
- 
-}
-
-```
-
-<!-- JavaScript -->
-
-```{=html}
+<!-- JavaScript for legacy hint/explanation buttons -->
 <script type="text/javascript">
-function toggleAlert(alertId, message, type) {
+function toggleAlertLegacy(alertId, message, type) {
   var alertBox = document.getElementById(alertId);
   if (!alertBox) return;
 
-  // Close all other alerts in the same question-alerts container
   var alertsContainer = alertBox.closest('.question-alerts');
   if (alertsContainer) {
     var allAlerts = alertsContainer.querySelectorAll('.alert');
@@ -95,87 +36,28 @@ function toggleAlert(alertId, message, type) {
   var alertType = alertBox.querySelector(".alertType");
 
   if (alertBox.style.display === "block") {
-    alertBox.style.display = "none"; // Hide the alert box if it's already visible
+    alertBox.style.display = "none";
   } else {
     alertMessage.innerHTML = message;
-    alertType.innerHTML = (type === 'hint') ? '❓ Indice' : '💡 Explication';
+    alertType.innerHTML = (type === 'hint') ? '&#10067; Indice' : '&#128161; Explication';
 
-    // Change style based on type (yellow for hint, green for explanation)
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
-    alertBox.style.display = "block";  // Show the alert
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    alertBox.style.backgroundColor = (type === 'hint')
+      ? (isDark ? '#3a3520' : '#FFEDA3')
+      : (isDark ? '#1a3a2a' : '#C0EDC2');
+    alertBox.style.borderColor = (type === 'hint')
+      ? (isDark ? '#d69e2e' : '#E5B800')
+      : (isDark ? '#68d391' : '#388E3C');
+    alertBox.style.color = isDark ? '#e2e8f0' : '#1a202c';
+    alertBox.style.display = "block";
 
-    MathJax.typesetPromise([alertMessage]);  // Re-render math with MathJax v3
+    MathJax.typesetPromise([alertMessage]);
   }
 }
 </script>
-```
 
-<!-- CSS for Styling -->
-
-```{=html}
+<!-- CSS for AI Help button and alerts container -->
 <style>
-/* Custom styles for the buttons */
-.custom-button {
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: black;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
-}
-
-/* Green button for Explanation */
-.explanation {
-  background: #C0EDC2; /* Green */
-  border: 2px solid #388E3C; /* Slightly darker green */
-}
-
-.explanation:hover {
-  background: #388E3C; /* Darker green */
-  transform: scale(1.08);
-}
-
-/* Yellow button for Hint */
-.hint {
-  background: #FFEDA3; /* Yellow */
-  border: 2px solid #E5B800; /* Slightly darker yellow */
-}
-
-.hint:hover {
-  background: #E5B800; /* Darker yellow */
-  transform: scale(1.08);
-}
-
-/* Custom styles for the alert box */
-.alert {
-  padding: 15px;
-  color: black;
-  margin-top: 10px; /* Ensure spacing between button and alert */
-  border-radius: 10px;
-  border: 2px solid;
-  font-size: 16px;
-  width: fit-content; /* Prevent full-width alerts */
-}
-/* Horizontal button layout */
-.question-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 10px 0;
-  align-items: center;
-}
-
-/* Alerts container below buttons */
-.question-alerts {
-  margin-top: 8px;
-}
-
-.question-alerts .alert {
-  margin-bottom: 8px;
-}
-/* AI Help button - light purple with dark icon, purple on hover */
 .custom-button.ai-help {
   background: #E8E0F0;
   border: 2px solid #5a3d8a;
@@ -187,45 +69,60 @@ function toggleAlert(alertId, message, type) {
   color: white;
   transform: scale(1.05);
 }
+
+[data-theme="dark"] .custom-button.ai-help {
+  background: #2d2440;
+  border-color: #7c6aad;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.question-alerts {
+  margin-top: 8px;
+}
+
+.question-alerts .alert {
+  margin-bottom: 8px;
+}
 </style>
-```
 
 <!-- MathJax for Rendering Math -->
-
-```{=html}
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
 </script>
-```
 
 
-
+---
 
 
 ## Question 1
 
-Quelle est la définition vue en cours de l’espérance mathématique d’une variable aléatoire \\(X\\) ?
-
-```{r}
-opts <- c(
-   "La valeur maximale que peut prendre \\(X\\).",
-   "La somme des valeurs possibles de \\(X\\).",
-   "Une mesure de dispersion.",
-   answer = "Une moyenne pondérée des valeurs de \\(X\\) par leurs probabilités."
-)
-```
+Quelle est la définition vue en cours de l'espérance mathématique d'une variable aléatoire \\(X\\) ?
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "La valeur maximale que peut prendre \\(X\\).",
+       feedback = "Faux"),
+  list(value = "La somme des valeurs possibles de \\(X\\).",
+       feedback = "Faux"),
+  list(value = "Une mesure de dispersion.",
+       feedback = "Faux"),
+  answer = list(value = "Une moyenne pondérée des valeurs de \\(X\\) par leurs probabilités.",
+       feedback = "Vrai")
+)
+render_q_a_env(opts)
 ```
+
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Rappelez-vous que l’espérance est une moyenne pondérée des valeurs prises par la variable.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'L’espérance est définie par \\( E(X) = \\sum_{k} k P(X = k) \\), ce qui correspond à une moyenne pondérée.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la définition vue en cours de l’espérance mathématique d’une variable aléatoire (X) ?&quot;, &quot;Rappelez-vous que l’espérance est une moyenne pondérée des valeurs prises par la variable.&quot;, &quot;L’espérance est définie par ( E(X) = sum_k k P(X = k) ), ce qui correspond à une moyenne pondérée.&quot;, &quot;Une moyenne pondérée des valeurs de (X) par leurs probabilités.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q1-hint', 'Rappelez-vous que l'espérance est une moyenne pondérée des valeurs prises par la variable.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q1-expl', 'L'espérance est définie par \\( E(X) = \\sum_{k} k P(X = k) \\), ce qui correspond à une moyenne pondérée.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -238,16 +135,12 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
 ## Question 2
 
 On considère une variable aléatoire \\(X\\) prenant les valeurs suivantes :
 
 \\[
-X = \\begin{cases} 
+X = \\begin{cases}
 1 & \\text{avec probabilité } 0.2 \\\\
 3 & \\text{avec probabilité } 0.5 \\\\
 6 & \\text{avec probabilité } 0.3
@@ -256,25 +149,25 @@ X = \\begin{cases}
 
 Quelle est la variance de \\(X\\) ?
 
-```{r}
-opts <- c(
-   "\\(2.56\\)",
-   "\\(3.48\\)",
-   answer = "\\(3.25\\)",
-   "\\(4.12\\)"
+```{r, results='asis'}
+opts <- list(
+  list(value = "\\(2.56\\)",
+       feedback = "Faux"),
+  list(value = "\\(3.48\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(3.25\\)",
+       feedback = "Vrai"),
+  list(value = "\\(4.12\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Utilisez la formule de la variance : \\( \\text{Var}(X) = E(X^2) - (E(X))^2 \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'On calcule d’abord \\( E(X) = 1 \\times 0.2 + 3 \\times 0.5 + 6 \\times 0.3 = 3.5 \\), puis \\( E(X^2) = 1^2 \\times 0.2 + 3^2 \\times 0.5 + 6^2 \\times 0.3 = 15.5 \\). La variance est donc \\( \\text{Var}(X) = 15.5 - 3.5^2 = 3.25 \\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) prenant les valeurs suivantes : [ X = begincases 1 &amp; textavec probabilité 0.2 3 &amp; textavec probabilité 0.5 6 &amp; textavec probabilité 0.3 endcases ] Quelle est la variance&quot;, &quot;Utilisez la formule de la variance : ( textVar(X) = E(X^2) - (E(X))^2 ).&quot;, &quot;On calcule d’abord ( E(X) = 1 times 0.2 + 3 times 0.5 + 6 times 0.3 = 3.5 ), puis ( E(X^2) = 1^2 times 0.2 + 3^2 times 0.5 + 6^2 times 0.3 = 15.5 ). La variance est donc ( textVar(X) = 15.5 - 3.5^2 = 3.25 ).&quot;, &quot;(3.25)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q3-hint', 'Utilisez la formule de la variance : \\( \\text{Var}(X) = E(X^2) - (E(X))^2 \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q3-expl', 'On calcule d'abord \\( E(X) = 1 \\times 0.2 + 3 \\times 0.5 + 6 \\times 0.3 = 3.5 \\), puis \\( E(X^2) = 1^2 \\times 0.2 + 3^2 \\times 0.5 + 6^2 \\times 0.3 = 15.5 \\). La variance est donc \\( \\text{Var}(X) = 15.5 - 3.5^2 = 3.25 \\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -291,25 +184,25 @@ cat(longmcq2(opts))
 
 Un pari est-il équitable si vous payez \\(50\\) CHF pour jouer et pouvez gagner \\(120\\) CHF avec une probabilité de \\(0.3\\) ou perdre votre mise dans le cas contraire ?
 
-```{r}
-opts <- c(
-   "Oui, car le gain potentiel est supérieur à la mise.",
-   answer = "Non, car l’espérance est négative.",
-   "Oui, car la probabilité de gagner est non nulle.",
-   "Impossible à déterminer."
+```{r, results='asis'}
+opts <- list(
+  list(value = "Oui, car le gain potentiel est supérieur à la mise.",
+       feedback = "Faux"),
+  answer = list(value = "Non, car l'espérance est négative.",
+       feedback = "Vrai"),
+  list(value = "Oui, car la probabilité de gagner est non nulle.",
+       feedback = "Faux"),
+  list(value = "Impossible à déterminer.",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Calculez \\(E(X) = (120 - 50) \\times 0.3 + (-50) \\times 0.7 \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'L’espérance est \\( (120 - 50) \\times 0.3 + (-50) \\times 0.7 = -14 \\), donc le jeu n’est pas équitable.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un pari est-il équitable si vous payez (50) CHF pour jouer et pouvez gagner (120) CHF avec une probabilité de (0.3) ou perdre votre mise dans le cas contraire ?&quot;, &quot;Calculez (E(X) = (120 - 50) times 0.3 + (-50) times 0.7 ).&quot;, &quot;L’espérance est ( (120 - 50) times 0.3 + (-50) times 0.7 = -14 ), donc le jeu n’est pas équitable.&quot;, &quot;Non, car l’espérance est négative.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q4-hint', 'Calculez \\(E(X) = (120 - 50) \\times 0.3 + (-50) \\times 0.7 \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q4-expl', 'L'espérance est \\( (120 - 50) \\times 0.3 + (-50) \\times 0.7 = -14 \\), donc le jeu n'est pas équitable.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -326,25 +219,25 @@ cat(longmcq2(opts))
 
 À quoi correspond le symbole \\( C_7^6 \\) ?
 
-```{r}
-opts <- c(
-   "Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), sans ordre.",
-   answer = "Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), sans ordre.",
-   "Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), en tenant compte de l’ordre.",
-   "Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), en tenant compte de l’ordre."
+```{r, results='asis'}
+opts <- list(
+  list(value = "Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), sans ordre.",
+       feedback = "Faux"),
+  answer = list(value = "Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), sans ordre.",
+       feedback = "Vrai"),
+  list(value = "Le nombre de façons de choisir \\(7\\) éléments parmi \\(6\\), en tenant compte de l'ordre.",
+       feedback = "Faux"),
+  list(value = "Le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\), en tenant compte de l'ordre.",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Rappelez-vous que \\( C_n^k \\) correspond au nombre de combinaisons de \\(k\\) éléments parmi \\(n\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Le coefficient binomial \\( C_n^k = \\frac{n!}{k!(n-k)!} \\) donne le nombre de façons de choisir \\(k\\) éléments parmi \\(n\\) sans ordre particulier, ici \\( C_7^6 \\) signifie choisir \\(6\\) parmi \\(7\\) sans ordre.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;À quoi correspond le symbole ( C_7^6 ) ?&quot;, &quot;Rappelez-vous que ( C_n^k ) correspond au nombre de combinaisons de (k) éléments parmi (n).&quot;, &quot;Le coefficient binomial ( C_n^k = fracn!k!(n-k)! ) donne le nombre de façons de choisir (k) éléments parmi (n) sans ordre particulier, ici ( C_7^6 ) signifie choisir (6) parmi (7) sans ordre.&quot;, &quot;Le nombre de façons de choisir (6) éléments parmi (7), sans ordre.&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q5-hint', 'Rappelez-vous que \\( C_n^k \\) correspond au nombre de combinaisons de \\(k\\) éléments parmi \\(n\\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q5-expl', 'Le coefficient binomial \\( C_n^k = \\frac{n!}{k!(n-k)!} \\) donne le nombre de façons de choisir \\(k\\) éléments parmi \\(n\\) sans ordre particulier, ici \\( C_7^6 \\) signifie choisir \\(6\\) parmi \\(7\\) sans ordre.', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -362,25 +255,25 @@ cat(longmcq2(opts))
 
 Quelle est la bonne expression pour \\( C_7^6 \\) ?
 
-```{r}
-opts <- c(
-   answer = "\\( \\frac{7!}{6!(7-6)!} \\)",
-   "\\( \\frac{6!}{7!(6-7)!} \\)",
-   "\\( \\frac{6!}{7!(7-6)!} \\)",
-   "\\( \\frac{7!}{7!(6-7)!} \\)"
+```{r, results='asis'}
+opts <- list(
+  answer = list(value = "\\( \\frac{7!}{6!(7-6)!} \\)",
+       feedback = "Vrai"),
+  list(value = "\\( \\frac{6!}{7!(6-7)!} \\)",
+       feedback = "Faux"),
+  list(value = "\\( \\frac{6!}{7!(7-6)!} \\)",
+       feedback = "Faux"),
+  list(value = "\\( \\frac{7!}{7!(6-7)!} \\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Rappelez-vous que la formule des combinaisons est \\( C_n^k = \\frac{n!}{k!(n-k)!} \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'On applique \\( C_7^6 = \\frac{7!}{6!(7-6)!} \\), qui donne le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est la bonne expression pour ( C_7^6 ) ?&quot;, &quot;Rappelez-vous que la formule des combinaisons est ( C_n^k = fracn!k!(n-k)! ).&quot;, &quot;On applique ( C_7^6 = frac7!6!(7-6)! ), qui donne le nombre de façons de choisir (6) éléments parmi (7).&quot;, &quot;( frac7!6!(7-6)! )&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q6-hint', 'Rappelez-vous que la formule des combinaisons est \\( C_n^k = \\frac{n!}{k!(n-k)!} \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q6-expl', 'On applique \\( C_7^6 = \\frac{7!}{6!(7-6)!} \\), qui donne le nombre de façons de choisir \\(6\\) éléments parmi \\(7\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -398,25 +291,25 @@ cat(longmcq2(opts))
 
 Combien de façons différentes un comité de \\(5\\) membres peut-il être choisi parmi \\(12\\) candidats ?
 
-```{r}
-opts <- c(
-   answer = "\\(792\\)",
-   "\\(120\\)",
-   "\\(252\\)",
-   "\\(924\\)"
+```{r, results='asis'}
+opts <- list(
+  answer = list(value = "\\(792\\)",
+       feedback = "Vrai"),
+  list(value = "\\(120\\)",
+       feedback = "Faux"),
+  list(value = "\\(252\\)",
+       feedback = "Faux"),
+  list(value = "\\(924\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la formule des combinaisons \\( C_n^k = \\frac{n!}{k!(n-k)!} \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'On applique \\( C_{12}^{5} = \\frac{12!}{5!(7!)} = 792 \\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Combien de façons différentes un comité de (5) membres peut-il être choisi parmi (12) candidats ?&quot;, &quot;Utilisez la formule des combinaisons ( C_n^k = fracn!k!(n-k)! ).&quot;, &quot;On applique ( C_12^5 = frac12!5!(7!) = 792 ).&quot;, &quot;(792)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q7-hint', 'Utilisez la formule des combinaisons \\( C_n^k = \\frac{n!}{k!(n-k)!} \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q7-expl', 'On applique \\( C_{12}^{5} = \\frac{12!}{5!(7!)} = 792 \\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -434,25 +327,25 @@ cat(longmcq2(opts))
 
 Un comité de \\(10\\) ONG vote une décision où chaque organisation a \\(40\\%\\) de chances de voter « pour », de façon indépendante. Quelle est la probabilité que \\(4\\) ONG votent en faveur ?
 
-```{r}
-opts <- c(
-   "\\(0.20\\)",
-   answer = "\\(0.25\\)",
-   "\\(0.30\\)",
-   "\\(0.35\\)"
+```{r, results='asis'}
+opts <- list(
+  list(value = "\\(0.20\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(0.25\\)",
+       feedback = "Vrai"),
+  list(value = "\\(0.30\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.35\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Utilisez la formule binomiale \\( P(X = k) = C_n^k p^k (1-p)^{n-k} \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'La distribution binomiale donne \\( P(X=4) = C_{10}^{4} (0.4)^4 (0.6)^6 = 0.25 \\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un comité de (10) ONG vote une décision où chaque organisation a (40%) de chances de voter « pour », de façon indépendante. Quelle est la probabilité que (4) ONG votent en faveur ?&quot;, &quot;Utilisez la formule binomiale ( P(X = k) = C_n^k p^k (1-p)^n-k ).&quot;, &quot;La distribution binomiale donne ( P(X=4) = C_10^4 (0.4)^4 (0.6)^6 = 0.25 ).&quot;, &quot;(0.25)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q2-hint', 'Utilisez la formule binomiale \\( P(X = k) = C_n^k p^k (1-p)^{n-k} \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q2-expl', 'La distribution binomiale donne \\( P(X=4) = C_{10}^{4} (0.4)^4 (0.6)^6 = 0.25 \\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -470,25 +363,25 @@ cat(longmcq2(opts))
 
 Dans une organisation internationale, \\(20\\%\\) des propositions de réforme sont acceptées après un premier examen. Quelle est la probabilité que parmi \\(8\\) propositions, au moins \\(2\\) soient acceptées ?
 
-```{r}
-opts <- c(
-   "\\(0.567\\)",
-   answer = "\\(0.497\\)",
-   "\\(0.852\\)",
-   "\\(0.912\\)"
+```{r, results='asis'}
+opts <- list(
+  list(value = "\\(0.567\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(0.497\\)",
+       feedback = "Vrai"),
+  list(value = "\\(0.852\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.912\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Calculez \\( 1 - P(X=0) - P(X=1) \\) avec la loi binomiale.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'On applique \\( P(X\\geq2) = 1 - P(X=0) - P(X=1) \\) avec la distribution binomiale pour obtenir environ \\(0.497\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Dans une organisation internationale, (20%) des propositions de réforme sont acceptées après un premier examen. Quelle est la probabilité que parmi (8) propositions, au moins (2) soient acceptées ?&quot;, &quot;Calculez ( 1 - P(X=0) - P(X=1) ) avec la loi binomiale.&quot;, &quot;On applique ( P(Xgeq2) = 1 - P(X=0) - P(X=1) ) avec la distribution binomiale pour obtenir environ (0.497).&quot;, &quot;(0.497)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q8-hint', 'Calculez \\( 1 - P(X=0) - P(X=1) \\) avec la loi binomiale.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q8-expl', 'On applique \\( P(X\\geq2) = 1 - P(X=0) - P(X=1) \\) avec la distribution binomiale pour obtenir environ \\(0.497\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -504,25 +397,25 @@ cat(longmcq2(opts))
 
 Un organisme international organise une élection avec \\(3\\) candidats. Chaque votant choisit indépendamment un candidat avec une probabilité de \\(0.4\\) pour le premier candidat, \\(0.25\\) pour le deuxième et \\(0.35\\) pour le troisème candidat. Quelle est la probabilité que le premier candidat obtienne exactement \\(5\\) votes sur \\(10\\) ?
 
-```{r}
-opts <- c(
-   "\\(0.15\\)",
-   "\\(0.25\\)",
-   answer = "\\(0.20\\)",
-   "\\(0.30\\)"
+```{r, results='asis'}
+opts <- list(
+  list(value = "\\(0.15\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.25\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(0.20\\)",
+       feedback = "Vrai"),
+  list(value = "\\(0.30\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Utilisez la loi binomiale avec \\( n = 10, k = 5, p = 0.4 \\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'On applique \\( P(X=5) = C_{10}^{5} (0.4)^5 (0.25+0.35)^5 \\) qui donne environ \\(0.20\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un organisme international organise une élection avec (3) candidats. Chaque votant choisit indépendamment un candidat avec une probabilité de (0.4) pour le premier candidat, (0.25) pour le deuxième et (0.35) pour le troisème candidat.&quot;, &quot;Utilisez la loi binomiale avec ( n = 10, k = 5, p = 0.4 ).&quot;, &quot;On applique ( P(X=5) = C_10^5 (0.4)^5 (0.25+0.35)^5 ) qui donne environ (0.20).&quot;, &quot;(0.20)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q9-hint', 'Utilisez la loi binomiale avec \\( n = 10, k = 5, p = 0.4 \\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q9-expl', 'On applique \\( P(X=5) = C_{10}^{5} (0.4)^5 (0.25+0.35)^5 \\) qui donne environ \\(0.20\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -539,25 +432,25 @@ cat(longmcq2(opts))
 
 Soit \\(X\\) une variable aléatoire avec \\(\\mathbb{E}(X) = 2\\), que vaut \\(\\mathbb{E}(2X+1)\\)?
 
-```{r}
-opts <- c(
-   "\\(2\\)",
-   answer = "\\(5\\)",
-   "\\(4\\)",
-   "\\(3\\)"
+```{r, results='asis'}
+opts <- list(
+  list(value = "\\(2\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(5\\)",
+       feedback = "Vrai"),
+  list(value = "\\(4\\)",
+       feedback = "Faux"),
+  list(value = "\\(3\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
+
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Pensez aux propriétés de l\'espérance.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q10-expl', '\\(\\mathbb{E}(2X+1) = 2\\mathbb{E}(X) + \\mathbb{E}(1) = 2\\times 2 + 1 = 5  \\)', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit (X) une variable aléatoire avec (mathbbE(X) = 2), que vaut (mathbbE(2X+1))?&quot;, &quot;Pensez aux propriétés de l\&#39;espérance.&quot;, &quot;(mathbbE(2X+1) = 2mathbbE(X) + mathbbE(1) = 2times 2 + 1 = 5 )&quot;, &quot;(5)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q10-hint', 'Pensez aux propriétés de l\'espérance.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q10-expl', '\\(\\mathbb{E}(2X+1) = 2\\mathbb{E}(X) + \\mathbb{E}(1) = 2\\times 2 + 1 = 5  \\)', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -570,38 +463,31 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
-
 ## Question 11
 
 Soit \\(X\\) une variable aléatoire. Si \\(\\mathbb{E}(X)=0\\) et \\(\\text{Var}(X)=1\\), quelle est l'espérance et la variance de \\(3X+1\\) ?
 
-```{r}
-opts <- c(
-              "\\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 1\\)",
-               answer=  "\\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 9\\)",
-           "\\(\\mathbb{E}(3X + 1) = 0\\) et \\(\\text{Var}(3X + 1) = 9\\)",
-              "\\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 3\\)",
-              "\\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 3\\)"
-)
-```
-
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 1\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 9\\)",
+       feedback = "Vrai"),
+  list(value = "\\(\\mathbb{E}(3X + 1) = 0\\) et \\(\\text{Var}(3X + 1) = 9\\)",
+       feedback = "Faux"),
+  list(value = "\\(\\mathbb{E}(3X + 1) = 1\\) et \\(\\text{Var}(3X + 1) = 3\\)",
+       feedback = "Faux"),
+  list(value = "\\(\\mathbb{E}(3X + 1) = 3\\) et \\(\\text{Var}(3X + 1) = 3\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
-
 
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Pensez aux propriétés de l\'espérance et de la variance pour une transformation linéaire d\'une variable aléatoire.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q11-expl', '\\(\\mathbb{E}(3X+1) = 3\\mathbb{E}(X) + 1 = 3\\times 0 + 1 = 1\\) et \\(\\text{Var}(3X+1) = 3^2 \\text{Var}(X) = 9\\times 1 = 9\\)', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit (X) une variable aléatoire. Si (mathbbE(X)=0) et (textVar(X)=1), quelle est l&#39;espérance et la variance de (3X+1) ?&quot;, &quot;Pensez aux propriétés de l\&#39;espérance et de la variance pour une transformation linéaire d\&#39;une variable aléatoire.&quot;, &quot;(mathbbE(3X+1) = 3mathbbE(X) + 1 = 3times 0 + 1 = 1) et (textVar(3X+1) = 3^2 textVar(X) = 9times 1 = 9)&quot;, &quot;(mathbbE(3X + 1) = 1) et (textVar(3X + 1) = 9)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q11-hint', 'Pensez aux propriétés de l\'espérance et de la variance pour une transformation linéaire d\'une variable aléatoire.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q11-expl', '\\(\\mathbb{E}(3X+1) = 3\\mathbb{E}(X) + 1 = 3\\times 0 + 1 = 1\\) et \\(\\text{Var}(3X+1) = 3^2 \\text{Var}(X) = 9\\times 1 = 9\\)', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">
@@ -614,45 +500,33 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Question 12
 
 
 Mme Smith a \\(3 \\) jupes, \\(5\\)  chemisiers et \\(2\\) vestes. Combien de tenues différentes peut-elle porter ?
 
 
-```{r}
-opts <- c(
-            answer = "\\(30\\)",
-            "\\(5\\)",
-            "\\(10\\)",
-            "\\(15\\)",
-            "\\(25\\)"
+```{r, results='asis'}
+opts <- list(
+  answer = list(value = "\\(30\\)",
+       feedback = "Vrai"),
+  list(value = "\\(5\\)",
+       feedback = "Faux"),
+  list(value = "\\(10\\)",
+       feedback = "Faux"),
+  list(value = "\\(15\\)",
+       feedback = "Faux"),
+  list(value = "\\(25\\)",
+       feedback = "Faux")
 )
+render_q_a_env(opts)
 ```
 
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Pensez à multiplier le nombre de jupes, de chemisiers et de vestes pour obtenir le nombre total de combinaisons possibles.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Le nombre total de tenues différentes est donné par la multiplication des options disponibles pour chaque type de vêtement : \\(3 \\times 5 \\times 2 = 30\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Mme Smith a (3 ) jupes, (5) chemisiers et (2) vestes. Combien de tenues différentes peut-elle porter ?&quot;, &quot;Pensez à multiplier le nombre de jupes, de chemisiers et de vestes pour obtenir le nombre total de combinaisons possibles.&quot;, &quot;Le nombre total de tenues différentes est donné par la multiplication des options disponibles pour chaque type de vêtement : (3 times 5 times 2 = 30).&quot;, &quot;(30)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q12-hint', 'Pensez à multiplier le nombre de jupes, de chemisiers et de vestes pour obtenir le nombre total de combinaisons possibles.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q12-expl', 'Le nombre total de tenues différentes est donné par la multiplication des options disponibles pour chaque type de vêtement : \\(3 \\times 5 \\times 2 = 30\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q12-hint" style="display: none;">
@@ -661,36 +535,36 @@ cat(longmcq2(opts))
 <div class="alert alert-info" id="q12-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-</div> 
- 
- 
- 
- 
+</div>
+
+
+
+
 ## Question 13
 
-Un professeur donne un QCM de \\(10\\) questions à ses étudiants. La probabilité qu'un étudiant réponde correctement à une question est de \\(0.7\\). Quelle est la probabilité qu'un étudiant réponde correctement à exactement \\(8\\) questions? 
-
-```{r}
-opts <- c(
-       "\\(0.8506917\\)",
-              answer =    "\\(0.2334744\\)",
-            "\\(0.5289564\\)",
-            "\\(0.3589652\\)",
-            "\\(0.1248964\\)"
-)
-```
+Un professeur donne un QCM de \\(10\\) questions à ses étudiants. La probabilité qu'un étudiant réponde correctement à une question est de \\(0.7\\). Quelle est la probabilité qu'un étudiant réponde correctement à exactement \\(8\\) questions?
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  list(value = "\\(0.8506917\\)",
+       feedback = "Faux"),
+  answer = list(value = "\\(0.2334744\\)",
+       feedback = "Vrai"),
+  list(value = "\\(0.5289564\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.3589652\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.1248964\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
+
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q13-hint', 'Évaluez la probabilité \\(P(X=8)\\) à l\'aide de la formule de la probabilité binomiale: \\( P(X = k) = C^k_n p^{k} (1-p)^{n-k}\\)', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q13-expl', 'Pour calculer la probabilité de répondre correctement à exactement \\(8\\) questions, utilisez la formule de la distribution binomiale : \\(P(X = k) = C^k_n p^{k} (1-p)^{n-k} \\). En remplacant avec \\(k=8, n=10 \\text{ et } p=0.7\\), on obtient: \\( C^{8}_{10} \\times  0.7^{8} \\times   0.3^{2} = \\frac{10!}{8! 2!}  \\times  0.7^{8} \\times   0.3^{2} = 0.2334744\\)', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un professeur donne un QCM de (10) questions à ses étudiants. La probabilité qu&#39;un étudiant réponde correctement à une question est de (0.7). Quelle est la probabilité qu&#39;un étudiant réponde correctement à exactement (8) questions?&quot;, &quot;Évaluez la probabilité (P(X=8)) à l\&#39;aide de la formule de la probabilité binomiale: ( P(X = k) = C^k_n p^k (1-p)^n-k)&quot;, &quot;Pour calculer la probabilité de répondre correctement à exactement (8) questions, utilisez la formule de la distribution binomiale : (P(X = k) = C^k_n p^k (1-p)^n-k ). En remplacant avec (k=8, n=10 text et p=0.7), on obtient: ( C^8_10 times 0.7^8 times 0.3^2 = frac10!8! 2! times 0.7^8 times 0.3^2 = 0.2334744)&quot;, &quot;(0.2334744)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q13-hint', 'Évaluez la probabilité \\(P(X=8)\\) à l\'aide de la formule de la probabilité binomiale: \\( P(X = k) = C^k_n p^{k} (1-p)^{n-k}\\)', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q13-expl', 'Pour calculer la probabilité de répondre correctement à exactement \\(8\\) questions, utilisez la formule de la distribution binomiale : \\(P(X = k) = C^k_n p^{k} (1-p)^{n-k} \\). En remplacant avec \\(k=8, n=10 \\text{ et } p=0.7\\), on obtient: \\( C^{8}_{10} \\times  0.7^{8} \\times   0.3^{2} = \\frac{10!}{8! 2!}  \\times  0.7^{8} \\times   0.3^{2} = 0.2334744\\)', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q13-hint" style="display: none;">
@@ -703,41 +577,31 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
-
-
-
-
 ## Question 14
 
 Un professeur donne un QCM de \\(10\\) questions à ses étudiants. La probabilité qu'un étudiant réponde correctement à une question est de \\(0.7\\). Quelle est la probabilité qu'un étudiant réponde correctement à entre \\(6\\) et \\(8\\) questions inclusivement ?
-  
-  
-  
-  
-```{r}
-opts <- c(
-  answer = "\\(0.7004233\\)",
-  "\\(0.3492134\\)",
-  "\\(0.6516539\\)",
-  "\\(0.4740934\\)",
-  "\\(0.1797624\\)"
-)
-```
 
 ```{r, results='asis'}
-cat(longmcq2(opts))
+opts <- list(
+  answer = list(value = "\\(0.7004233\\)",
+       feedback = "Vrai"),
+  list(value = "\\(0.3492134\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.6516539\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.4740934\\)",
+       feedback = "Faux"),
+  list(value = "\\(0.1797624\\)",
+       feedback = "Faux")
+)
+render_q_a_env(opts)
 ```
 
+
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q14-hint', 'Pour trouver la probabilité de répondre correctement à entre \\(6\\) et \\(8\\) questions, il faut additioner \\(P(X=8), P(X=7) \\text{ et } P(X=6)\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q14-expl', 'Pour calculer la probabilité de répondre correctement à entre \\(6\\) et \\(8\\) questions, utilisez la formule de la distribution binomiale : \\(P(X = k) = C^k_n p^{k} (1-p)^{n-k} \\). On calcule d\'abord \\( P(X=8) = C^{8}_{10} \\times  0.7^{8} \\times   0.3^{2} =  0.2334744 \\), puis on calcule \\( P(X=7) = C^{7}_{10} \\times  0.7^{7} \\times   0.3^{3}  =  0.2668279 \\) et on calcule finalement \\( P(X=6) = C^{6}_{10} \\times  0.7^{6} \\times   0.3^{4} =  0.2001209\\). La somme de ces trois probabilité correspond à \\(0.7004232\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un professeur donne un QCM de (10) questions à ses étudiants. La probabilité qu&#39;un étudiant réponde correctement à une question est de (0.7). Quelle est la probabilité qu&#39;un étudiant réponde correctement à entre (6) et (8) questions i&quot;, &quot;Pour trouver la probabilité de répondre correctement à entre (6) et (8) questions, il faut additioner (P(X=8), P(X=7) text et P(X=6)).&quot;, &quot;Pour calculer la probabilité de répondre correctement à entre (6) et (8) questions, utilisez la formule de la distribution binomiale : (P(X = k) = C^k_n p^k (1-p)^n-k ). On calcule d\&#39;abord ( P(X=8) = C^8_10 times 0.7^8 times 0.3^2 = 0.2334744 ), puis on calcule ( P(X=7) = C^7_10 times 0.7^7 times 0.3^3 = 0.2668279 ) et on calcule finalement ( P(X=6) = C^6_10 times 0.7^6 times 0.3^4 = 0.2001209). La somme de ces trois probabilité correspond à (0.7004232).&quot;, &quot;(0.7004233)&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q14-hint', 'Pour trouver la probabilité de répondre correctement à entre \\(6\\) et \\(8\\) questions, il faut additioner \\(P(X=8), P(X=7) \\text{ et } P(X=6)\\).', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q14-expl', 'Pour calculer la probabilité de répondre correctement à entre \\(6\\) et \\(8\\) questions, utilisez la formule de la distribution binomiale : \\(P(X = k) = C^k_n p^{k} (1-p)^{n-k} \\). On calcule d\'abord \\( P(X=8) = C^{8}_{10} \\times  0.7^{8} \\times   0.3^{2} =  0.2334744 \\), puis on calcule \\( P(X=7) = C^{7}_{10} \\times  0.7^{7} \\times   0.3^{3}  =  0.2668279 \\) et on calcule finalement \\( P(X=6) = C^{6}_{10} \\times  0.7^{6} \\times   0.3^{4} =  0.2001209\\). La somme de ces trois probabilité correspond à \\(0.7004232\\).', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q14-hint" style="display: none;">
@@ -750,20 +614,13 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
 ## Question 15 (Exercice facultatif 😱)
 
 Montrez que pour une variable aléatoire \\(X\\), \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\} = \\mathbb{E}(X^2) - \\{\\mathbb{E}(X)\\}^2  \\).
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q15-hint', 'Développez l\'expression \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\} \\) et utilisez les propriétés de l\'espérance.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q15-expl', 'On pose \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\}\\). On développe ensuite pour obtenir: \\(\\mathbb{E}\\{X^2 + (\\mathbb{E}[X])^2 - 2X\\mathbb{E}(X)\\} \\). Par la linéarité de l\'espérance, on peut développer et obtenir: \\( \\mathbb{E}(X^2) + \\mathbb{E}\\{(\\mathbb{E}[X])^2\\} - \\mathbb{E}\\{2X\\mathbb{E}(X) \\}  =   \\mathbb{E}(X^2) + \\mathbb{E}\\{(\\mathbb{E}[X])^2\\} - 2\\mathbb{E}(X) \\mathbb{E}(X)     \\). Puisque \\(\\mathbb{E}(X)\\) est une constante par rapport à l\'espérance, \\(\\mathbb{E}\\{ (\\mathbb{E}[X])^2\\} = \\{\\mathbb{E}(X)\\}^2 \\), on obtient ainsi: \\( \\mathbb{E}(X^2) + \\{\\mathbb{E}(X)\\}^2 - 2\\mathbb{E}(X) \\mathbb{E}(X)  =  \\mathbb{E}(X^2) - \\{\\mathbb{E}(X)\\}^2  \\)', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un professeur donne un QCM de (10) questions à ses étudiants. La probabilité qu&#39;un étudiant réponde correctement à une question est de (0.7). Quelle est la probabilité qu&#39;un étudiant réponde correctement à entre (6) et (8) questions i&quot;, &quot;Développez l\&#39;expression (textVar(X) = mathbbE (X - mathbbE[X] )^2 ) et utilisez les propriétés de l\&#39;espérance.&quot;, &quot;On pose (textVar(X) = mathbbE (X - mathbbE[X] )^2 ). On développe ensuite pour obtenir: (mathbbEX^2 + (mathbbE[X])^2 - 2XmathbbE(X) ). Par la linéarité de l\&#39;espérance, on peut développer et obtenir: ( mathbbE(X^2) + mathbbE(mathbbE[X])^2 - mathbbE2XmathbbE(X) = mathbbE(X^2) + mathbbE(mathbbE[X])^2 - 2mathbbE(X) mathbbE(X) ). Puisque (mathbbE(X)) est une constante par rapport à l\&#39;espérance, (mathbbE (mathbbE[X])^2 = mathbbE(X)^2 ), on obtient ainsi: ( mathbbE(X^2) + mathbbE(X)^2 - 2mathbbE(X) mathbbE(X) = mathbbE(X^2) - mathbbE(X)^2 )&quot;, &quot;&quot;, this)">
-  🤖 Aide IA
-</button>
+<button class="custom-button hint" onclick="toggleAlertLegacy('q15-hint', 'Développez l\'expression \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\} \\) et utilisez les propriétés de l\'espérance.', 'hint')">&#10067; Indice</button>
+<button class="custom-button explanation" onclick="toggleAlertLegacy('q15-expl', 'On pose \\(\\text{Var}(X) = \\mathbb{E} \\{(X - \\mathbb{E}[X] )^2 \\}\\). On développe ensuite pour obtenir: \\(\\mathbb{E}\\{X^2 + (\\mathbb{E}[X])^2 - 2X\\mathbb{E}(X)\\} \\). Par la linéarité de l\'espérance, on peut développer et obtenir: \\( \\mathbb{E}(X^2) + \\mathbb{E}\\{(\\mathbb{E}[X])^2\\} - \\mathbb{E}\\{2X\\mathbb{E}(X) \\}  =   \\mathbb{E}(X^2) + \\mathbb{E}\\{(\\mathbb{E}[X])^2\\} - 2\\mathbb{E}(X) \\mathbb{E}(X)     \\). Puisque \\(\\mathbb{E}(X)\\) est une constante par rapport à l\'espérance, \\(\\mathbb{E}\\{ (\\mathbb{E}[X])^2\\} = \\{\\mathbb{E}(X)\\}^2 \\), on obtient ainsi: \\( \\mathbb{E}(X^2) + \\{\\mathbb{E}(X)\\}^2 - 2\\mathbb{E}(X) \\mathbb{E}(X)  =  \\mathbb{E}(X^2) - \\{\\mathbb{E}(X)\\}^2  \\)', 'explanation')">&#128161; Explication</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q15-hint" style="display: none;">
@@ -773,8 +630,3 @@ Montrez que pour une variable aléatoire \\(X\\), \\(\\text{Var}(X) = \\mathbb{E
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
 </div>
-
-
-
-
-  
