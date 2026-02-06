@@ -42,8 +42,14 @@ function toggleAlertLegacy(alertId, message, type) {
     alertMessage.innerHTML = message;
     alertType.innerHTML = (type === 'hint') ? '&#10067; Indice' : '&#128161; Explication';
 
-    alertBox.style.backgroundColor = (type === 'hint') ? '#FFEDA3' : '#C0EDC2';
-    alertBox.style.borderColor = (type === 'hint') ? '#E5B800' : '#388E3C';
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    alertBox.style.backgroundColor = (type === 'hint')
+      ? (isDark ? '#3a3520' : '#FFEDA3')
+      : (isDark ? '#1a3a2a' : '#C0EDC2');
+    alertBox.style.borderColor = (type === 'hint')
+      ? (isDark ? '#d69e2e' : '#E5B800')
+      : (isDark ? '#68d391' : '#388E3C');
+    alertBox.style.color = isDark ? '#e2e8f0' : '#1a202c';
     alertBox.style.display = "block";
 
     MathJax.typesetPromise([alertMessage]);
@@ -64,6 +70,18 @@ function toggleAlertLegacy(alertId, message, type) {
   border-color: transparent;
   color: white;
   transform: scale(1.05);
+}
+
+[data-theme="dark"] .custom-button.ai-help {
+  background: #2d2440;
+  border-color: #7c6aad;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .custom-button.ai-help:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #9f7aea 100%);
+  border-color: transparent;
+  color: white;
 }
 
 /* Alerts container below buttons */

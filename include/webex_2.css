@@ -13,13 +13,57 @@
   /* Primary accent for interactive elements */
   --primary: #5a67d8;
   --primary-light: #7c85e0;
+
+  /* Radio group */
+  --radio-bg: #f7fafc;
+  --radio-border: #e2e8f0;
+  --radio-label-bg: white;
+  --radio-hover-bg: #f0f4ff;
+  --radio-selected-bg: #f0f4ff;
+  --radio-text: inherit;
+
+  /* Buttons */
+  --button-text: #2d3748;
+
+  /* Alerts */
+  --alert-text: black;
+
+  /* Feedback box */
+  --feedback-text: black;
 }
-  
-  
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --incorrect: #fc8181;
+  --incorrect_alpha: #3b1a1a;
+
+  --correct: #68d391;
+  --correct_alpha: #1a3a2a;
+
+  --hint-bg: #3a3520;
+  --hint-border: #d69e2e;
+
+  --primary: #7c85e0;
+  --primary-light: #a3b1ff;
+
+  --radio-bg: #1e2433;
+  --radio-border: #3a4556;
+  --radio-label-bg: #2d3748;
+  --radio-hover-bg: #2a3350;
+  --radio-selected-bg: #2a3350;
+  --radio-text: #e2e8f0;
+
+  --button-text: #e2e8f0;
+
+  --alert-text: #e2e8f0;
+
+  --feedback-text: #e2e8f0;
+}
+
 
 .webex-correct {
 
-   border: 2px solid var(--correct); 
+   border: 2px solid var(--correct);
   background-color: var(--correct_alpha);
   border-radius: 0.25em;
   position: relative;
@@ -27,7 +71,7 @@
 
 .webex-incorrect {
 
- border: 2px dotted var(--incorrect); 
+ border: 2px dotted var(--incorrect);
   background-color: var(--incorrect_alpha);
   border-radius: 0.25em;
   position: relative;
@@ -52,11 +96,12 @@
 
 /* Radio labels - card style */
 .webex-radiogroup {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--radio-border);
   border-radius: 12px;
   padding: 1em;
   margin-bottom: 1.5em;
-  background-color: #f7fafc;
+  background-color: var(--radio-bg);
+  color: var(--radio-text);
   display: block;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -71,7 +116,8 @@
   cursor: pointer;
   margin-bottom: 0.5em;
   transition: all 0.2s ease;
-  background: white;
+  background: var(--radio-label-bg);
+  color: var(--radio-text);
 }
 
 .webex-radiogroup label:last-child {
@@ -81,14 +127,14 @@
 /* Hover effect for labels */
 .webex-radiogroup label:hover {
   border-color: var(--primary-light);
-  background-color: #f0f4ff;
+  background-color: var(--radio-hover-bg);
   transform: translateX(4px);
 }
 
 /* Selected state */
 .webex-radiogroup label:has(input:checked) {
   border-color: var(--primary);
-  background-color: #f0f4ff;
+  background-color: var(--radio-selected-bg);
 }
 
 /* Custom radio button styling */
@@ -121,6 +167,7 @@
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   animation: slideIn 0.3s ease;
+  color: var(--feedback-text);
 }
 
 @keyframes slideIn {
@@ -151,14 +198,14 @@
 .correct-feedback {
   background-color: var(--correct_alpha);
   border: 2px solid var(--correct);
-  color: black;
+  color: var(--feedback-text);
 }
 
 /* Incorrect feedback = red/purple */
 .incorrect-feedback {
   background-color: var(--incorrect_alpha);
   border: 2px solid var(--incorrect);
-  color: black;
+  color: var(--feedback-text);
 }
 /* Custom styles for the buttons */
 .custom-button {
@@ -166,7 +213,7 @@
   padding: 12px 24px;
   font-size: 15px;
   font-weight: 500;
-  color: #2d3748;
+  color: var(--button-text);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -217,7 +264,7 @@
 /* Custom styles for the alert box */
 .alert {
   padding: 15px;
-  color: black;
+  color: var(--alert-text);
   margin-top: 10px; /* Ensure spacing between button and alert */
   border-radius: 10px;
   border: 2px solid;
@@ -255,4 +302,3 @@
     height: 24px;
   }
 }
-
