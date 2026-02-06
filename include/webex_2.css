@@ -61,18 +61,20 @@
 }
 
 
-.webex-correct {
-
-   border: 2px solid var(--correct);
+.webex-correct,
+.webex-radiogroup label.webex-correct {
+  border: 2px solid var(--correct);
   background-color: var(--correct_alpha);
+  color: var(--radio-text);
   border-radius: 0.25em;
   position: relative;
 }
 
-.webex-incorrect {
-
- border: 2px dotted var(--incorrect);
+.webex-incorrect,
+.webex-radiogroup label.webex-incorrect {
+  border: 2px dotted var(--incorrect);
   background-color: var(--incorrect_alpha);
+  color: var(--radio-text);
   border-radius: 0.25em;
   position: relative;
 }
