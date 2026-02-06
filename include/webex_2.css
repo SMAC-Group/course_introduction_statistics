@@ -77,22 +77,6 @@
   position: relative;
 }
 
-/* Check / cross icons */
-.webex-correct::after {
-  content: " ✅";
-  font-size: 1.2em;
-  margin-left: 0.5em;
-  color: var(--correct);
-}
-
-
-
-.webex-incorrect::after {
-  content: " ❌";
-  font-size: 1.2em;
-  margin-left: 0.5em;
-  color: var(--incorrect);
-}
 
 /* Radio labels - card style */
 .webex-radiogroup {
