@@ -53,7 +53,7 @@
 
   let canvas, ctx, pdfContainer, loadingEl;
   let weekSelect, pageInfo, zoomLevel;
-  let prevBtn, nextBtn, zoomInBtn, zoomOutBtn;
+  let prevBtn, nextBtn, zoomInBtn, zoomOutBtn, downloadBtn;
   let resizeHandle, pdfPanel, chatPanel;
 
   function initElements() {
@@ -70,6 +70,7 @@
     nextBtn = document.getElementById('next-page');
     zoomInBtn = document.getElementById('zoom-in');
     zoomOutBtn = document.getElementById('zoom-out');
+    downloadBtn = document.getElementById('download-pdf');
 
     resizeHandle = document.getElementById('resize-handle');
     pdfPanel = document.querySelector('.slides-pdf-panel');
@@ -486,6 +487,29 @@
   }
 
   // ============================================================================
+  // DOWNLOAD
+  // ============================================================================
+
+  function downloadPdf() {
+    const weekNum = ViewerState.currentWeek;
+    if (!weekNum) return;
+
+    const pdfConfig = WEEK_TO_PDF[weekNum];
+    if (!pdfConfig) return;
+
+    const pdfFiles = Array.isArray(pdfConfig) ? pdfConfig : [pdfConfig];
+
+    for (const pdfFile of pdfFiles) {
+      const link = document.createElement('a');
+      link.href = PDF_BASE_PATH + pdfFile;
+      link.download = pdfFile;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+
+  // ============================================================================
   // EVENT BINDINGS
   // ============================================================================
 
@@ -497,6 +521,9 @@
     // Zoom buttons
     if (zoomInBtn) zoomInBtn.addEventListener('click', zoomIn);
     if (zoomOutBtn) zoomOutBtn.addEventListener('click', zoomOut);
+
+    // Download button
+    if (downloadBtn) downloadBtn.addEventListener('click', downloadPdf);
 
     // Week selector
     if (weekSelect) {

@@ -90,6 +90,12 @@ window.MathJax = {
             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
           </svg>
         </button>
+        <div class="slides-toolbar-separator"></div>
+        <button id="download-pdf" class="slides-nav-btn" title="Télécharger le PDF">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+        </button>
       </div>
       <div class="slides-pdf-canvas-container" id="pdf-container">
         <div class="slides-pdf-loading" id="pdf-loading">
