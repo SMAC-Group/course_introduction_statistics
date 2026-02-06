@@ -25,8 +25,6 @@ website:
     left:
     - href: index.qmd
       text: Accueil
-    - href: demo_q_a.qmd
-      text: Demo
     - href: question_slides.qmd
       text: Questions Slides
     - text: Exercices
