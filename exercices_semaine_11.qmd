@@ -128,6 +128,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q1-hint', 'Pour calculer la moyenne \\(\\bar{X}\\), additionnez toutes les valeurs et divisez par le nombre total de valeurs.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q1-expl', 'La moyenne \\(\\bar{X}\\) est calculée comme suit : \\(\\bar{X} = \\frac{50+65+45+70+55+60+48+72+52+68+58+62+47+75}{14} = 59.07143\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez (barX)&quot;, &quot;Pour calculer la moyenne (barX), additionnez toutes les valeurs et divisez par le nombre total de valeurs.&quot;, &quot;La moyenne (barX) est calculée comme suit : (barX = frac50+65+45+70+55+60+48+72+52+68+58+62+47+7514 = 59.07143).&quot;, &quot;( barX = 59.07143)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -165,6 +168,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q2-hint', 'Puisque la variance de la population est connue et que les données sont indépendantes, nous utilisons le quantile de la distribution standard normale.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q2-expl', 'Le quantile de la loi normale standard correspondant à un niveau de confiance est donné par \\(z_{1-\\frac{\\alpha}{2}} = z_{0.975} \\approx 1.959964 \\approx 1.96\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Basé sur une précédente étude, on sait que les dépenses militaires ont une variance de (100) milliards carrés et sont indépendantes. Vous souhaitez calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un&quot;, &quot;Puisque la variance de la population est connue et que les données sont indépendantes, nous utilisons le quantile de la distribution standard normale.&quot;, &quot;Le quantile de la loi normale standard correspondant à un niveau de confiance est donné par (z_1-fracalpha2 = z_0.975 approx 1.959964 approx 1.96).&quot;, &quot;(1.96)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -199,6 +205,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q3-hint', 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm z_{1-\\frac{\\alpha}{2}} \\cdot \\frac{\\sigma}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard, \\(\\sigma\\) est l\'écart-type de la population, et \\(n\\) est la taille de l\'échantillon.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q3-expl', 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, z = 1.96, \\sigma = 10\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 1.96 \\cdot \\frac{10}{\\sqrt{14}} = 59.07143 \\pm 5.238224\\), ce qui donne \\([53.83311,  64.30975]\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez un intervalle de confiance pour la moyenne de la population des dépenses militaires à un niveau de confiance de (95%) et en considérant la variance des dépenses militaires donnée dans la question (2).&quot;, &quot;Utilisez la formule de l\&#39;intervalle de confiance : (barX pm z_1-fracalpha2 cdot fracsigmasqrtn), où (barX) est la moyenne de l\&#39;échantillon, (z_1-fracalpha2) est le quantile de la distribution normale standard, (sigma) est l\&#39;écart-type de la population, et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;intervalle de confiance est calculé comme suit : (barX = 59.07143, z = 1.96, sigma = 10), et (n = 14). Donc, l\&#39;intervalle de confiance est (59.07143 pm 1.96 cdot frac10sqrt14 = 59.07143 pm 5.238224), ce qui donne ([53.83311, 64.30975]).&quot;, &quot;([53.83311, 64.30975])&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -234,6 +243,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q4-hint', 'Puisque la variance de la population est inconnue et que l\'échantillon est petit, vous devez utiliser le quantile de la distribution t de Student avec \\(n-1\\) degrés de liberté.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q4-expl', 'Le quantile de la distribution t de Student pour un intervalle de confiance à \\(95\\%\\) avec \\(13\\) degrés de liberté (puisque \\(n = 14\\)) est approximativement \\(2.16\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Suposons maitenant que nous ne connaissions pas l&#39;écart-type des dépenses militaires par pays (pour la population), et que nous souhaitions construire un intervalle de confiance à un niveau de confiance de (95%) en utilisant l&#39;écart-type calcul&quot;, &quot;Puisque la variance de la population est inconnue et que l\&#39;échantillon est petit, vous devez utiliser le quantile de la distribution t de Student avec (n-1) degrés de liberté.&quot;, &quot;Le quantile de la distribution t de Student pour un intervalle de confiance à (95%) avec (13) degrés de liberté (puisque (n = 14)) est approximativement (2.16).&quot;, &quot;(2.16)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -267,6 +279,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q5-hint', 'Utilisez la formule de l\'intervalle de confiance : \\(\\bar{X} \\pm t_{1-\\frac{\\alpha}{2}} \\cdot \\frac{s}{\\sqrt{n}}\\), où \\(\\bar{X}\\) est la moyenne de l\'échantillon, \\(t_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution de Student, \\(s\\) est l\'écart-type de l\'échantillon, et \\(n\\) est la taille de l\'échantillon.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q5-expl', 'L\'intervalle de confiance est calculé comme suit : \\(\\bar{X} = 59.07143, t_{1-\\frac{\\alpha}{2}} = 2.16, s = 9.926377\\), et \\(n = 14\\). Donc, l\'intervalle de confiance est \\(59.07143 \\pm 2.16 \\cdot \\frac{9.926377}{\\sqrt{14}} = 59.07143 \\pm 5.73132\\), ce qui donne \\([ 53.34011, 64.80275]\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez l&#39;intervalle de confiance à un niveau de confiance de (95%) pour la moyenne de la population des dépenses militaires par pays en utilisant l&#39;écart-type calculé sur l&#39;échantillon (s) et en supposant que les données sont normalement&quot;, &quot;Utilisez la formule de l\&#39;intervalle de confiance : (barX pm t_1-fracalpha2 cdot fracssqrtn), où (barX) est la moyenne de l\&#39;échantillon, (t_1-fracalpha2) est le quantile de la distribution de Student, (s) est l\&#39;écart-type de l\&#39;échantillon, et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;intervalle de confiance est calculé comme suit : (barX = 59.07143, t_1-fracalpha2 = 2.16, s = 9.926377), et (n = 14). Donc, l\&#39;intervalle de confiance est (59.07143 pm 2.16 cdot frac9.926377sqrt14 = 59.07143 pm 5.73132), ce qui donne ([ 53.34011, 64.80275]).&quot;, &quot;([53.34011, 64.80275])&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -300,6 +315,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q6-hint', 'Un paramètre est ou n\'est pas inclus dans un intervalle de confiance.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q6-expl', 'L\'idée est que si l\'on répète l\'échantillonnage (et donc le calcul de l\'intervalle de confiance) un grand nombre de fois, environ \\(95 \\%\\) de ces intervalles contiendront la moyenne de la population, d\'où la troisième proposition. L'incertitude porte sur la méthode et non sur le paramètre (la moyenne de la population), qui est fixe, donc la première propostion est fausse. Une subtilité est que dans ce contexte, l\'intervalle de confiance est observé et donc fixé, plus rien n\'est aléatoire, donc la dernière propostion est fausse.', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est l\&#39;interprétation correcte de cet intervalle de confiance dans ce contexte ?&quot;, &quot;Un paramètre est ou n\&#39;est pas inclus dans un intervalle de confiance.&quot;, &quot;L\&#39;idée est que si l\&#39;on répète l\&#39;échantillonnage (et donc le calcul de l\&#39;intervalle de confiance) un grand nombre de fois, environ (95 %) de ces intervalles contiendront la moyenne de la population, d\&#39;où la troisième proposition. L'incertitude porte sur la méthode et non sur le paramètre (la moyenne de la population), qui est fixe, donc la première propostion est fausse. Une subtilité est que dans ce contexte, l\&#39;intervalle de confiance est observé et donc fixé, plus rien n\&#39;est aléatoire, donc la dernière propostion est fausse.&quot;, &quot;Si l\&#39;on construit plusieurs intervalles de confiance de la même manière, alors environ (95%) des intervalles de confiance contiendront la moyenne de la population.&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -343,6 +361,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q7-hint', 'L\'hypothèse nulle (\\(H_0\\)) suppose que l\'espérance du principe actif par dose est de \\(50\\) mg. L\'hypothèse alternative (\\(H_{\\alpha}\\)) suggère que l\'espérance du principe actif par dose est différente de \\(50\\) mg.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q7-expl', 'Les hypothèses sont formulées comme suit : \\(H_0: \\mu = 50, H_{\\alpha}: \\mu \\neq 50\\)', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Vous souhaitez effectuer un test d&#39;hypothèse pour déterminer si l&#39;espérance du principe actif par dose est significativement différente de (50) mg. Déterminez l&#39;hypothèse nulle et l&#39;hypothèse alternative du test que vous vous souhaitez effectuer.&quot;, &quot;L\&#39;hypothèse nulle ((H_0)) suppose que l\&#39;espérance du principe actif par dose est de (50) mg. L\&#39;hypothèse alternative ((H_alpha)) suggère que l\&#39;espérance du principe actif par dose est différente de (50) mg.&quot;, &quot;Les hypothèses sont formulées comme suit : (H_0: mu = 50, H_alpha: mu neq 50)&quot;, &quot;(H_0: mu = 50, H_alpha: mu neq 50)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -378,6 +399,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q8-hint', 'Utiliser la formule \\(z_{obs} = \\frac{\\bar{X} - \\mu_0}{\\sigma / \\sqrt{n}}\\)', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q8-expl', 'On a \\(z_{obs} = \\frac{50.3 - 50}{2 / \\sqrt{20}} = \\frac{0.3}{0.447} \\approx 0.67\\). La statistique de test est donc \\(z_{obs} = 0.67\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Vous souhaitez effectuer un test d&#39;hypothèse pour déterminer si l&#39;espérance du principe actif par dose est significativement différente de (50) mg. Déterminez l&#39;hypothèse nulle et l&#39;hypothèse alternative du test que vous vous souhaitez effectuer.&quot;, &quot;Utiliser la formule (z_obs = fracbarX - mu_0sigma / sqrtn)&quot;, &quot;On a (z_obs = frac50.3 - 502 / sqrt20 = frac0.30.447 approx 0.67). La statistique de test est donc (z_obs = 0.67).&quot;, &quot;(z_obs = 0.67)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -414,6 +438,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q9-hint', 'Calculez la p-valeur d'un test bilatéral pour \\(z_{obs} = 0.67\\).', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q9-expl', 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Calculez la p-valeur associée à ce test.&quot;, &quot;Calculez la p-valeur d'un test bilatéral pour (z_obs = 0.67).&quot;, &quot;Pour un test bilatéral, la p-valeur est (2 cdot P(Z &gt; |0.67|) = 2 cdot (1 - 0.7486) = 0.5028).&quot;, &quot;(0.502)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
@@ -449,6 +476,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q10-hint', 'Calculez la p-valeur d'un test bilatéral pour \\(z_{obs} = 0.67\\) et comparer la p-valeur au niveau de signification \\(\\alpha\\).', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q10-expl', 'Pour un test bilatéral, la p-valeur est \\(2 \\cdot P(Z > |0.67|) = 2 \\cdot (1 - 0.7486) = 0.5028\\). Comme \\(0.5028 > 0.05\\), on ne rejette pas \\(H_0\\) au niveau de signification de 5 %.', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Peut-on rejeter l'hypothèse nulle au niveau de signification de (5%), en se basant sur la statistique de test calculée précédement ?&quot;, &quot;Calculez la p-valeur d'un test bilatéral pour (z_obs = 0.67) et comparer la p-valeur au niveau de signification (alpha).&quot;, &quot;Pour un test bilatéral, la p-valeur est (2 cdot P(Z &gt; |0.67|) = 2 cdot (1 - 0.7486) = 0.5028). Comme (0.5028 &gt; 0.05), on ne rejette pas (H_0) au niveau de signification de 5 %.&quot;, &quot;Non, car la p-valeur est supérieure à (0.05)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q10-hint" style="display: none;">
@@ -483,6 +513,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q11-hint', 'Utiliser la formule pour la taille d\'échantillon \\(n\\) donnée dans les slides et le bon quantile.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q11-expl', 'La formule a utilisé est \\(n=(z_{1-\\alpha/2}\\sigma/E)^2\\) avec \\(z_{1-\\alpha/2}=z_{0.975}\\approx 1.96\\), \\(E=0.5\\) et \\(\\sigma=2\\). On obtient \\(n=(1.96\\cdot2\\cdot2)^2\\approx 61.47\\Rightarrow62.\\)', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On souhaite estimer une moyenne avec une marge d'erreur de (0.5), un niveau de confiance de (95 %), et un écart-type (sigma) de (2). Quelle taille minimale d'échantillon faut-il ?&quot;, &quot;Utiliser la formule pour la taille d\&#39;échantillon (n) donnée dans les slides et le bon quantile.&quot;, &quot;La formule a utilisé est (n=(z_1-alpha/2sigma/E)^2) avec (z_1-alpha/2=z_0.975approx 1.96), (E=0.5) et (sigma=2). On obtient (n=(1.96cdot2cdot2)^2approx 61.47Rightarrow62.)&quot;, &quot;(62)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q11-hint" style="display: none;">
@@ -516,6 +549,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q12-hint', 'Calculez la bonne valeur critique.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q12-expl', 'On rejette \\(H_0\\) si \\(t_{\\text{obs}}>t_{1-\\alpha,\\text{df}}\\). Ici \\(\\alpha=0.05\\), \\(\\text{df}=n-1=14\\) et \\(t_{1-\\alpha, \\text{df}}=1.7613\\) selon la table dans les slides. Donc on rejette \\(H_0\\) car \\(2.5>1.7613\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Un test-t unilatéral à droite est mené sur un échantillon de (15) observations, avec une statistique de test (t_textobs=2.5). Le niveau de signification est (alpha=0.05). Faut-il rejeter l\&#39;hypothèse nulle ?&quot;, &quot;Calculez la bonne valeur critique.&quot;, &quot;On rejette (H_0) si (t_textobs&gt;t_1-alpha,textdf). Ici (alpha=0.05), (textdf=n-1=14) et (t_1-alpha, textdf=1.7613) selon la table dans les slides. Donc on rejette (H_0) car (2.5&gt;1.7613).&quot;, &quot;Oui, car (2.5&gt;t_0.95,14).&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q12-hint" style="display: none;">

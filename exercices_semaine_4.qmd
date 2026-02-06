@@ -122,6 +122,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q1-hint', 'Simplifiez le terme \\(\\frac{n!}{(n-2)!}\\).', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q1-expl', 'L&apos;expression \\(\\frac{n!}{(n-2)!}\\) se simplifie en \\(n \\times (n-1)\\), ce qui donne \\(n^2 - n\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;L&#39;expression (fracn!(n-2)!) est équivalente à:&quot;, &quot;Simplifiez le terme (fracn!(n-2)!).&quot;, &quot;L'expression (fracn!(n-2)!) se simplifie en (n times (n-1)), ce qui donne (n^2 - n).&quot;, &quot;(n^2 - n)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q1-hint" style="display: none;">
@@ -160,6 +163,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q2-hint', 'Rappelez-vous que pour une distribution binomiale \\(X \\sim \\text{Bin}(n, p)\\), l&apos;espérance \\(\\mathbb{E}(X)\\) est \\(np\\) et la variance \\(\\text{Var}(X)\\) est \\(np(1-p)\\).', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q2-expl', 'Pour une distribution binomiale \\(X \\sim \\text{Bin}(10, 0.5)\\), l&apos;espérance \\(\\mathbb{E}(X)\\) est \\(10 \\times 0.5 = 5\\) et la variance \\(\\text{Var}(X)\\) est \\(10 \\times 0.5 \\times (1-0.5) = 2.5\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Si ( X sim textBin(10, 0.5)), quelles sont respectivement (mathbbE(X)) et (textVar(X)) ?&quot;, &quot;Rappelez-vous que pour une distribution binomiale (X sim textBin(n, p)), l'espérance (mathbbE(X)) est (np) et la variance (textVar(X)) est (np(1-p)).&quot;, &quot;Pour une distribution binomiale (X sim textBin(10, 0.5)), l'espérance (mathbbE(X)) est (10 times 0.5 = 5) et la variance (textVar(X)) est (10 times 0.5 times (1-0.5) = 2.5).&quot;, &quot;(mathbbE(X) = 5) et ( textVar(X) = 2.5)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q2-hint" style="display: none;">
@@ -197,6 +203,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q3-hint', 'Rappelez-vous que pour une distribution uniforme \\(U(a, b)\\), la probabilité qu&apos;une valeur soit inférieure à un certain seuil est donnée par la proportion de l&apos;intervalle couvert par ce seuil.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q3-expl', 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), la probabilité que \\(X\\) soit inférieur à \\(40\\) secondes est de \\(40 \\times \\frac{1}{120 - 0} = \\frac{1}{3}\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Soit (X) le temps d&#39;attente en seconde lors d&#39;un appel à un centre téléphonique. On considère que (X sim U(0,120)). Quelle est la probabilité que vous attendiez moins de (40) secondes?&quot;, &quot;Rappelez-vous que pour une distribution uniforme (U(a, b)), la probabilité qu'une valeur soit inférieure à un certain seuil est donnée par la proportion de l'intervalle couvert par ce seuil.&quot;, &quot;Pour une distribution uniforme (X sim U(0, 120)), la probabilité que (X) soit inférieur à (40) secondes est de (40 times frac1120 - 0 = frac13).&quot;, &quot;(frac13)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q3-hint" style="display: none;">
@@ -237,6 +246,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q4-hint', 'Rappelez-vous que pour une distribution uniforme \\(U(a,b)\\), la probabilité qu\'une valeur soit supérieure à un certain seuil est donnée par la proportion de l\'intervalle restant après ce seuil. Dans ce cas, calculez la proportion du temps restant après \\(60\\) secondes dans l\'intervalle total de \\(120\\) secondes.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q4-expl', 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), la probabilité que \\(X\\) soit supérieur à \\(60\\) secondes est de \\( 1 - 60  \\times \\frac{1}{120 - 0} = \\frac{1}{2}\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Étant donné le même contexte que la question (3), quelle est la probabilité que vous attendiez plus d&#39;une minute?&quot;, &quot;Rappelez-vous que pour une distribution uniforme (U(a,b)), la probabilité qu\&#39;une valeur soit supérieure à un certain seuil est donnée par la proportion de l\&#39;intervalle restant après ce seuil. Dans ce cas, calculez la proportion du temps restant après (60) secondes dans l\&#39;intervalle total de (120) secondes.&quot;, &quot;Pour une distribution uniforme (X sim U(0, 120)), la probabilité que (X) soit supérieur à (60) secondes est de ( 1 - 60 times frac1120 - 0 = frac12).&quot;, &quot;(frac12)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q4-hint" style="display: none;">
@@ -274,6 +286,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q5-hint', 'Rappelez-vous que pour une distribution uniforme \\(U(a,b)\\), la probabilité qu\'une valeur se situe entre deux seuils est donnée par la proportion de l\'intervalle entre ces deux seuils. Dans ce cas, calculez la proportion du temps entre \\(60\\) secondes (\\(1\\) minute) et \\(90\\) secondes (\\(1\\) minute et \\(30\\) secondes) dans l\'intervalle total de \\(120\\) secondes.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q5-expl', 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), la probabilité que \\(X\\) soit entre \\(90\\) secondes et \\(60\\) secondes est de \\( 90  \\times \\frac{1}{120 - 0}  - 60  \\times \\frac{1}{120 - 0} =  30  \\times \\frac{1}{120 - 0} = \\frac{1}{4} \\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Étant donné le même contexte que la question (3), quelle est la probabilité que vous attendiez entre une minute et une minute et trente seconde?&quot;, &quot;Rappelez-vous que pour une distribution uniforme (U(a,b)), la probabilité qu\&#39;une valeur se situe entre deux seuils est donnée par la proportion de l\&#39;intervalle entre ces deux seuils. Dans ce cas, calculez la proportion du temps entre (60) secondes ((1) minute) et (90) secondes ((1) minute et (30) secondes) dans l\&#39;intervalle total de (120) secondes.&quot;, &quot;Pour une distribution uniforme (X sim U(0, 120)), la probabilité que (X) soit entre (90) secondes et (60) secondes est de ( 90 times frac1120 - 0 - 60 times frac1120 - 0 = 30 times frac1120 - 0 = frac14 ).&quot;, &quot;(frac14)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q5-hint" style="display: none;">
@@ -310,6 +325,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q6-hint', 'Rappelez-vous que pour une distribution uniforme \\(U(a, b)\\), l&apos;espérance est \\(\\mathbb{E}(X) = \\frac{a + b}{2}\\) et la variance est \\(\\text{Var}(X) = \\frac{(b - a)^2}{12}\\).', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q6-expl', 'Pour une distribution uniforme \\(X \\sim U(0, 120)\\), l&apos;espérance est \\(\\mathbb{E}(X) = \\frac{0 + 120}{2} = 60\\) et la variance est \\(\\text{Var}(X) = \\frac{(120 - 0)^2}{12} = 1200\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Étant donné le même contexte que la question (3), quelle est l&#39;espérance et la variance de (X)?&quot;, &quot;Rappelez-vous que pour une distribution uniforme (U(a, b)), l'espérance est (mathbbE(X) = fraca + b2) et la variance est (textVar(X) = frac(b - a)^212).&quot;, &quot;Pour une distribution uniforme (X sim U(0, 120)), l'espérance est (mathbbE(X) = frac0 + 1202 = 60) et la variance est (textVar(X) = frac(120 - 0)^212 = 1200).&quot;, &quot;(mathbbE(X) = 60) et (textVar(X) = 1200)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q6-hint" style="display: none;">
@@ -348,6 +366,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q7-hint', 'Pensez à  \'\'prendre la route la plus courte\'\'.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q7-expl', '\\(P(X\\geq 1) = 1- P(X=0) = 1 - C^0_{20}(0.02)^0(0.98)^{20} = 1-0.98^{20}=1-0.67=0.33\\). Revoir diapositives du cours \\(4\\), page \\(15\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Si l'organisme réalise (20) inspections indépendantes, quelle est la probabilité qu'au moins une inspection détecte une violation ? Les probabilités sont arrondies au dixième le plus proche.&quot;, &quot;Pensez à \&#39;\&#39;prendre la route la plus courte\&#39;\&#39;.&quot;, &quot;(P(Xgeq 1) = 1- P(X=0) = 1 - C^0_20(0.02)^0(0.98)^20 = 1-0.98^20=1-0.67=0.33). Revoir diapositives du cours (4), page (15).&quot;, &quot;(0.33)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q7-hint" style="display: none;">
@@ -382,6 +403,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q8-hint', 'Ici il s\'agit de tester les différentes valeurs. Pensez à \'\'prendre la route la plus courte\'\' comme dans l\'exercice précédent.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q8-expl', 'On dénote par \\(X_n\\) une variable aléatoire binomiale avec \\(n\\) essais et probabilité de succès \\(2\\%\\). On sait de l\'exercice précédent que \\(P(X_{20}\\geq 1) = 1 - (0.98)^{20}=0.33<0.80\\). On fait le même calcul pour les autres valeurs de \\(n\\) proposées. On obtient \\( P(X_{70}\\geq 1)=1 - 0.98^{70}\\approx 0.75 \\), \\( P(X_{79}\\geq 1) = 1- 0.98^{79}\\approx 0.797\\), \\(P(X_{80}\\geq1) = 1-0.98^{80}\\approx0.801\\) et (pour le plaisir) \\(P(X_{90}\\geq1)=1-0.98^{90}\\approx0.838\\). Donc l\'organisme devrait réaliser \\(80\\) inspections pour que la probabilité de détecter au moins une violation soit supérieure ou égale à \\(0.8\\). Si on arrondit avant de comparer à \\(0.80\\), alors on pourrait penser que \\(79\\) inspections sont suffisantes. Mais la probabilité avec ce nombre d\'inspections est inférieure à \\(80 \\%\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Combien d&#39;inspection (indépendantes) l'organisme devrait-il réaliser pour que la probabilité de détecter au moins une violation soit supérieure ou égale à (80 %) (avant d&#39;arrondir) ?&quot;, &quot;Ici il s\&#39;agit de tester les différentes valeurs. Pensez à \&#39;\&#39;prendre la route la plus courte\&#39;\&#39; comme dans l\&#39;exercice précédent.&quot;, &quot;On dénote par (X_n) une variable aléatoire binomiale avec (n) essais et probabilité de succès (2%). On sait de l\&#39;exercice précédent que (P(X_20geq 1) = 1 - (0.98)^20=0.33&lt;0.80). On fait le même calcul pour les autres valeurs de (n) proposées. On obtient ( P(X_70geq 1)=1 - 0.98^70approx 0.75 ), ( P(X_79geq 1) = 1- 0.98^79approx 0.797), (P(X_80geq1) = 1-0.98^80approx0.801) et (pour le plaisir) (P(X_90geq1)=1-0.98^90approx0.838). Donc l\&#39;organisme devrait réaliser (80) inspections pour que la probabilité de détecter au moins une violation soit supérieure ou égale à (0.8). Si on arrondit avant de comparer à (0.80), alors on pourrait penser que (79) inspections sont suffisantes. Mais la probabilité avec ce nombre d\&#39;inspections est inférieure à (80 %).&quot;, &quot;(80)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q8-hint" style="display: none;">
@@ -413,6 +437,9 @@ render_q_a_env(opts)
 <div class="question-buttons">
 <button class="custom-button hint" onclick="toggleAlertLegacy('q9-hint', 'Pensez à  \'\'prendre la route la plus courte\'\'.', 'hint')">&#10067; Indice</button>
 <button class="custom-button explanation" onclick="toggleAlertLegacy('q9-expl', '\\(P(X\\geq 2) = 1- P(X=0)-P(X=1) = 1 - C^0_{100}(0.02)^0(0.98)^{100} - C^1_{100}(0.02)(0.98)^{99}\\) \\(= 1 - 0.98^{100} - 100\\cdot 0.02\\cdot 0.98^{99} \\approx 1 - 0.13 - 0.27 = 0.6\\). Revoir diapositives du cours \\(4\\), page \\(15\\).', 'explanation')">&#128161; Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Supposez maintenant que l'organisme réalise (100) inspections indépendantes, quelle est la probabilité de détecter deux violations ou plus ? Les probabilités sont arrondies au dixième le plus proche.&quot;, &quot;Pensez à \&#39;\&#39;prendre la route la plus courte\&#39;\&#39;.&quot;, &quot;(P(Xgeq 2) = 1- P(X=0)-P(X=1) = 1 - C^0_100(0.02)^0(0.98)^100 - C^1_100(0.02)(0.98)^99) (= 1 - 0.98^100 - 100cdot 0.02cdot 0.98^99 approx 1 - 0.13 - 0.27 = 0.6). Revoir diapositives du cours (4), page (15).&quot;, &quot;(0.60)&quot;, this)">
+  &#129302; Aide IA
+</button>
 </div>
 <div class="question-alerts">
 <div class="alert alert-info" id="q9-hint" style="display: none;">
