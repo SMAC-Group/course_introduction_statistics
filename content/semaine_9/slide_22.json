@@ -1,3 +1,1 @@
-{
-  "c": "Théorème central limite : exemple\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nLa distribution d'échantillonnage est superposée avec la courbe de la loi normale théorique. On observe un excellent ajustement, confirmant le théorème central limite.\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Remarque\n\nX̄ est une variable aléatoire.\n\nElle a une distribution, que nous appellerons \"distribution d'échantillonnage\".\n\nExemple:\nSupposons que plusieurs chercheurs collectent des EAS de foyers (tous avec la même taille d'échantillon n).\n\nEnsuite, chaque chercheur va calculer une moyenne d'échantillon X̄ différente:\n\nChercheur 1 → X̄₁\nChercheur 2 → X̄₂\n...\n\nLa distribution de ces X̄ est la distribution d'échantillonnage."}

@@ -1,0 +1,3 @@
+{
+  "c": "Estimation d'une proportion\n\nSupposons que nous demandons à n électeurs pour quel candidat ils ont l'intention de voter afin d'estimer la proportion d'électeurs pour Biden.\n\nPour cela, nous définissons les variables aléatoires X₁, ..., Xₙ où Xᵢ est défini comme suit :\n\nXᵢ = 1 si l'électeur i a l'intention de voter pour Biden\nXᵢ = 0 sinon\n\nLes variables aléatoires X₁, ..., Xₙ composent un échantillon aléatoire et nous désignons n comme la taille de l'échantillon. Soit p la (vraie) proportion d'électeurs pour Biden (qui dans ce cas est de 51,3%), nous écrivons :\n\nPr(Xᵢ = 1) = p\n\noù Pr(A) désigne la probabilité de l'événement A."
+}

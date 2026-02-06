@@ -1,1 +1,0 @@
-{"c": "Distribution d'échantillonnage de p̂\n\nRappelons que:\np̂ = X/n = (Σᵢ₌₁ⁿ Zᵢ)/n\n\noù E(Zᵢ) = p et Var(Zᵢ) = p(1-p).\n\nEspérance:\nE(p̂) = p\n\nÉcart-type:\nσ_p̂ = √[p(1-p)/n]\n\nErreur standard:\ne.s.(p̂) = √[p̂(1-p̂)/n]"}

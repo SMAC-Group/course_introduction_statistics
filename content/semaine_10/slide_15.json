@@ -1,0 +1,3 @@
+{
+  "c": "Distribution asymptotique de p̂\n\nDans le cas d'une proportion, la moyenne de l'échantillon est dénotée par p̂ et par le TCL, la distribution de l'estimateur tend vers :\n\np̂ ≈ N(p, √(p(1-p)/n))\n\nCette distribution asymptotique permet de quantifier l'incertitude autour de notre estimation de la proportion."
+}

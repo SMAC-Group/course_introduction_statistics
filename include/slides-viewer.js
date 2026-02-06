@@ -25,8 +25,8 @@
     4: 'cours_4.pdf',
     5: 'cours_5.pdf',
     6: 'cours_6.pdf',
-    8: 'cours_8.pdf',
-    9: ['cours_9_part1.pdf', 'cours_9_part2.pdf'],
+    9: 'cours_9.pdf',
+    10: ['cours_10_part1.pdf', 'cours_10_part2.pdf'],
     11: 'cours_11.pdf',
     12: 'cours_12.pdf'
   };

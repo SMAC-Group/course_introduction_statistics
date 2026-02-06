@@ -1,0 +1,3 @@
+{
+  "c": "Incertitude et prise de décision\n\nDans notre exemple, nous souhaitons savoir si p, une quantité au niveau de la population, est supérieure ou inférieure à 50%.\n\nMalheureusement, p est généralement inconnu car nous ne pouvons pas accéder à l'ensemble de la population. Nous utilisons donc p̂ à la place, une quantité dépendante de l'échantillon.\n\nCependant, comme nous pouvons le voir, p̂ est aléatoire puisque c'est une fonction de l'échantillon collecté.\n\nPour résoudre ce problème, nous devons évaluer l'incertitude de p̂ (c'est-à-dire évaluer à quel point p̂ et p peuvent être différents).\n\nLes statistiques nous fournissent de nombreux outils permettant de déterminer l'incertitude ainsi que les risques associés à la prise de décision."
+}

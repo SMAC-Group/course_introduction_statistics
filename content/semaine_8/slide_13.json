@@ -1,1 +1,0 @@
-{"c": "Distribution de X̄\n\nRègle:\n\nLorsque X₁, X₂, ..., Xₙ sont indépendantes et suivent une distribution normale avec une moyenne μ et un écart-type σ (c'est-à-dire que chaque Xᵢ ~ N(μ, σ²)), alors:\n\nX̄ ~ N(μ, σ²/n)\n\nLa moyenne de l'échantillon suit aussi une distribution normale."}

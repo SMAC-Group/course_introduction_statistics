@@ -1,1 +1,0 @@
-{"c": "Écart-type de X̄\n\nσ_X̄ = √Var(X̄) = σ/√n\n\nL'erreur dans X̄ diminue avec n (plus l'échantillon est grand, plus l'estimation est précise).\n\nDépend de σ, l'écart-type des données, qui est inconnu."}

@@ -1,3 +1,1 @@
-{
-  "c": "Test d'hypothèse\n\nVisualisation de la population complète.\n\nPopulation :\n- Biden: 51.3%\n- Trump: 46.8%\n- Indep: 1.9%\n\nLe graphique représente l'ensemble de la population sous forme de points colorés :\n- Points bleus : électeurs de Biden\n- Points rouges : électeurs de Trump\n- Points gris : électeurs indépendants\n\nCette représentation visuelle montre la répartition réelle des votes dans la population totale."
-}
+{"c": "Quand pouvons-nous utiliser cette approximation?\n\nRègle:\n\n- Une population avec une proportion fixe\n- Échantillon aléatoire\n- Indépendant\n- Probabilité égale (chance égale)\n- Taille de l'échantillon suffisamment grande:\n  - np > 10\n  - n(1-p) > 10\n\nCes conditions garantissent que l'approximation normale est valide pour la proportion d'échantillon."}

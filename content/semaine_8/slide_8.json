@@ -1,1 +1,0 @@
-{"c": "X̄ en tant que variable aléatoire\n\nDonnées: X₁, X₂, X₃, ..., Xₙ\n\nÉchantillon Aléatoire Simple (EAS)\n\nObservations Indépendantes et Identiquement Distribuées (iid)\n\nPar exemple, chaque Xᵢ ~ N(μ, σ²), pour i = 1, ..., n\n\nMalheureusement, μ et σ sont inconnus."}

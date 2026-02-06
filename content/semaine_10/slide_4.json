@@ -1,0 +1,3 @@
+{
+  "c": "Exemple : Élections américaines\n\nNous faisons les hypothèses suivantes pour simplifier :\n\n- La population américaine d'électeurs est composée de 1 200 individus (616 pour Biden, 561 pour Trump et 23 indépendants)\n- Nous pouvons échantillonner parfaitement la population (tout le monde est disponible, pas de double échantillonnage, et l'échantillonnage est aléatoire)\n- Les gens ne changent pas d'avis et ils ne mentent pas.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%"
+}

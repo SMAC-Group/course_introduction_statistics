@@ -1,3 +1,1 @@
-{
-  "c": "Théorème central limite : exemple\n\nIllustration du TCL avec la population d'électeurs.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nUn premier échantillon est prélevé et la proportion estimée de votes pour Biden est affichée sur un graphique (axe horizontal de 40% à 60%).\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Exemple: Nombre moyen de voitures dans les foyers américains\n\nOn considère le nombre de voitures dans chaque foyer aux États-Unis.\n\nPopulation: Tous les foyers américains\nTaille de la population: N = 324,227,000\n\nJeu de données: x₁, ..., xₙ, où x₁ serait le nombre de voitures dans le 1er foyer de la population, etc.\n\nMoyenne de la population:\nμ = (x₁ + x₂ + ... + xₙ)/N\n\nÉcart-type de la population:\nσ = √[(1/(N-1)) Σ(x - μ)²]"}

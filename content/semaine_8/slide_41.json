@@ -1,1 +1,0 @@
-{"c": "Théorème central limite (pour les proportions)\n\nSi n est suffisamment grand, la proportion d'échantillon p̂ se comporte approximativement comme une variable aléatoire normale avec:\n\nMoyenne: μ = p\nÉcart-type: σ_p̂ = √[p(1-p)/n]\n\nAutrement dit, si n est suffisamment grand:\n\nZ ≈ (p̂ - p)/√[p(1-p)/n] ≈ (p̂ - p)/√[p̂(1-p̂)/n]\n\nZ ~ N(0, 1)"}

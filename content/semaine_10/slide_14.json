@@ -1,0 +1,3 @@
+{
+  "c": "Comment mesurer l'incertitude ?\n\nL'incertitude peut être mesurée de nombreuses façons différentes. Une approche courante consiste à utiliser des intervalles de confiance, qui reposent sur le théorème central limite (TCL) qui stipule :\n\n\"La distribution d'échantillonnage de la moyenne d'échantillon se rapproche d'une distribution normale à mesure que la taille de l'échantillon augmente\"\n\nEn termes simples, nous pouvons traduire le TCL par :\n\nX̄ = (1/n) Σᵢ₌₁ⁿ Xᵢ ≈ N(μ, σ²)\n\noù N(μ, σ²) désigne une distribution normale avec une moyenne μ et une variance σ² (généralement calculée à partir des données). Ici, X̄ désigne la moyenne d'échantillon et ≈ représente \"approximativement distribué comme\"."
+}

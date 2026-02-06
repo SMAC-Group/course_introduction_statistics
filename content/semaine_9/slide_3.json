@@ -1,3 +1,1 @@
-{
-  "c": "Exemple : Élections américaines\n\nL'élection présidentielle américaine de 2020 était la 59e élection présidentielle quadriennale, tenue le 3 novembre 2020.\n\nL'équipe de Biden a reçu 51.3 % des voix tandis que celle de Trump en a reçu 46.8 %. Le résultat des élections américaines n'est pas déterminé par le vote populaire, mais supposons que nous sommes intéressés à collecter des données avant le vote pour évaluer si l'équipe de Biden recevrait plus de 50 % des voix."
-}
+{"c": "Statistiques descriptives et inférentielles (diagramme)\n\nPopulation → Paramètres (Espérance, Variance, Médiane, Proportion)\n\nÉchantillon → Statistiques descriptives → Statistiques (Moyenne de l'échantillon, Variance de l'échantillon, Médiane de l'échantillon, Proportion de l'échantillon)\n\nStatistiques inférentielles: permettent de remonter des statistiques de l'échantillon vers les paramètres de la population."}

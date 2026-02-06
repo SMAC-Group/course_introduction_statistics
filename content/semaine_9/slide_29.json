@@ -1,3 +1,1 @@
-{
-  "c": "Intervalles de confiance avec α = 0.20\n\nCette slide montre la population complète sans échantillon visible.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nLa visualisation montre l'ensemble de la population avec les proportions réelles de votes. Cette image sert de référence pour comparer avec les différents échantillons et leurs intervalles de confiance."
-}
+{"c": "Proportion d'échantillon\n\nX ~ Binomial(n, p)\n\np est un paramètre de la population (généralement inconnu)\n\nSi nous avons X mais pas p:\n\nProportion de l'échantillon:\np̂ = X/n\n\nLa proportion de l'échantillon ≈ la proportion de la population\n\np̂ est un estimateur de p."}

@@ -1,3 +1,1 @@
-{
-  "c": "Intervalles de confiance avec α = 0.05\n\nCette slide montre la population complète sans échantillon visible.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nLa visualisation montre l'ensemble de la population avec les proportions réelles de votes. Cette image sert de référence pour comparer avec les différents échantillons et leurs intervalles de confiance calculés avec un niveau de confiance de 95% (α = 0.05)."
-}
+{"c": "Enquête\n\nÉchantillon aléatoire simple\n\n55% sont en faveur d'une déclaration\n\nRépéter l'enquête:\n- 56% sont en faveur\n- 52% sont en faveur\n- ...\n\nL'échantillon est aléatoire, donc les résultats varient.\n\nExemple: Référendum\n- 55% soutiennent le Brexit\n- 56% soutiennent le Brexit\n- 52% soutiennent le Brexit\n- ...\n\nLa proportion d'échantillon varie d'un échantillon à l'autre."}

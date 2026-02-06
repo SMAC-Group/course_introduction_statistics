@@ -1,1 +1,0 @@
-{"c": "Propriétés de X̄\n\nQuestion: Est-ce que X̄ est un \"bon\" estimateur pour μ?\n\nCela dépend de comment l'échantillon X₁, ..., Xₙ est choisi.\n\nSi X₁, ..., Xₙ sont iid, c'est-à-dire si nous avons un échantillon aléatoire simple (EAS), alors la moyenne de l'échantillon X̄ possède certaines propriétés très intéressantes."}

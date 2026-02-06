@@ -202,15 +202,17 @@ function toggleAlert(alertId, message, type) {
 
 ## Question 1
 
-Dans une étude sur l'opinion publique concernant un traité international, un échantillon aléatoire de \\(200\\) personnes a été interrogé. Parmi ces personnes, \\(120\\) ont déclaré être en faveur du traité. Quelle est la proportion estimée de personnes favorables au traité dénotée \\(\\hat{p}\\)?
+Les scores d'un examen de physique sont distribués normalement avec une espérance de \\(80\\) et un écart-type de \\(5\\). Si nous sélectionnons aléatoirement \\(20\\) étudiants de la classe, leur score moyen est de \\(75\\). Laquelle de ces propositions est correcte?
 
 ```{r}
 opts <- c(
-  "\\(0.50\\)",
-   answer = "\\(0.60\\)",
-  "\\(0.70\\)",
-  "\\(0.80\\)"
+ 	answer =   "\\(80\\) et \\(5\\) sont des paramètres. \\(75\\) est une statistique",
+    "\\(80\\) et \\(5\\) sont des statistiques, \\(75\\) est un paramètre",
+"\\(80\\) et \\(75\\) sont des statistiques, \\(5\\) est un paramètre",
+"\\(5\\) et \\(75\\) sont des statistiques, \\(80\\) est un paramètre"
+
 )
+
 
 ```
 
@@ -220,10 +222,12 @@ cat(longmcq2(opts))
 
 
 
+
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Utilisez la formule de l\'estimateur d\'une proportion : \\(\\hat{p} = \\frac{m}{n}\\), où \\(m\\) est le nombre de personnes favorables et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q1-expl', 'L\'estimateur \\(\\hat{p}\\) est calculé comme suit : \\(\\hat{p} = \\frac{120}{200} = 0.60\\). Donc, la proportion estimée de personnes favorables au traité est \\(0.60\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Dans une étude sur l&#39;opinion publique concernant un traité international, un échantillon aléatoire de (200) personnes a été interrogé. Parmi ces personnes, (120) ont déclaré être en faveur du traité. Quelle est la proportion estimée de person&quot;, &quot;Utilisez la formule de l\&#39;estimateur d\&#39;une proportion : (hatp = fracmn), où (m) est le nombre de personnes favorables et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;estimateur (hatp) est calculé comme suit : (hatp = frac120200 = 0.60). Donc, la proportion estimée de personnes favorables au traité est (0.60).&quot;, &quot;(0.60)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q1-hint', 'Relisez la notion de statistique et de paramètres dans les slides de la semaine \\(8\\).', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q1-expl', '\\(80\\) et \\(5\\) sont respectivement l\'espérance et l\'écart type de la distribution des scores et sont donc des paramètres. \\(75\\) est la moyenne empirique (aussi notée \\(\\bar{X}\\)) de l\'échantillon et est ainsi une statistique', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Les scores d&#39;un examen de physique sont distribués normalement avec une espérance de (80) et un écart-type de (5). Si nous sélectionnons aléatoirement (20) étudiants de la classe, leur score moyen est de (75). Laquelle de ces proposit&quot;, &quot;Relisez la notion de statistique et de paramètres dans les slides de la semaine (8).&quot;, &quot;(80) et (5) sont respectivement l\&#39;espérance et l\&#39;écart type de la distribution des scores et sont donc des paramètres. (75) est la moyenne empirique (aussi notée (barX)) de l\&#39;échantillon et est ainsi une statistique&quot;, &quot;(80) et (5) sont des paramètres. (75) est une statistique&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -234,25 +238,24 @@ cat(longmcq2(opts))
 <div class="alert alert-info" id="q1-expl" style="display: none;">
   <strong class="alertType"></strong>: <span class="alertMessage"></span>
 </div>
-</div> 
-
-
+</div>
 
 
 ## Question 2
 
-En considérant le même contexte que la question \\(1\\), quelle est l'erreur standard de la proportion estimée \\(\\hat{p}\\) ?
-
-
+Si la taille de l'échantillon \\(n\\) augmente, quelle affirmation est correcte à propos de \\(\\bar{X}\\), l'estimateur de l'espérance \\(\\mu\\)?
 
 
 ```{r}
 opts <- c(
-    answer = "\\( \\text{e.s.}(\\hat{p}) \\approx  0.0346\\)",
-            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.0462\\)",
-            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.513\\)",
-            "\\(\\text{e.s.}(\\hat{p}) \\approx 0.0264\\)"
+ "L'estimateur \\(\\bar{X}\\) devient plus variable",
+       	answer =     "L'estimateur \\(\\bar{X}\\)  devient moins variable",
+           "L'estimateur \\(\\bar{X}\\) devient plus grand",
+           "L'estimateur \\(\\bar{X}\\) devient plus petit",
+ "La variance de l'estimateur \\(\\bar{X}\\) n'est pas affectée"
+
 )
+
 
 ```
 
@@ -261,9 +264,9 @@ cat(longmcq2(opts))
 ```
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Utilisez la formule de l\'erreur standard pour une proportion : \\(\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\), où \\(\\hat{p}\\) est la proportion estimée et \\(n\\) est la taille de l\'échantillon.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'L\'erreur standard est calculée comme suit : \\(\\text{e.s.}(\\hat{p})  \\sqrt{\\frac{0.60 \\times 0.40}{200}} = 0.03464102 \\approx 0.0346\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;En considérant le même contexte que la question (1), quelle est l&#39;erreur standard de la proportion estimée (hatp) ?&quot;, &quot;Utilisez la formule de l\&#39;erreur standard pour une proportion : (sqrtfrachatp(1-hatp)n), où (hatp) est la proportion estimée et (n) est la taille de l\&#39;échantillon.&quot;, &quot;L\&#39;erreur standard est calculée comme suit : (texte.s.(hatp) sqrtfrac0.60 times 0.40200 = 0.03464102 approx 0.0346).&quot;, &quot;( texte.s.(hatp) approx 0.0346)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q2-hint', 'Quelle est la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q2-expl', 'Si la taille de l\'échantillon \\(n\\) augmente, la variance de l\'estimateur \\(\\bar{X}\\), donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\), diminue. Cela signifie que \\(\\bar{X}\\) devient plus précis (moins variable) car les valeurs de \\(\\bar{X}\\) sont plus concentrées autour de la vraie valeur de l\'espérance \\(\\mu\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Si la taille de l&#39;échantillon (n) augmente, quelle affirmation est correcte à propos de (barX), l&#39;estimateur de l&#39;espérance (mu)?&quot;, &quot;Quelle est la variance de (barX)?&quot;, &quot;Si la taille de l\&#39;échantillon (n) augmente, la variance de l\&#39;estimateur (barX), donnée par (textVar(barX) = fracsigma^2n), diminue. Cela signifie que (barX) devient plus précis (moins variable) car les valeurs de (barX) sont plus concentrées autour de la vraie valeur de l\&#39;espérance (mu).&quot;, &quot;L&#39;estimateur (barX) devient moins variable&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -277,23 +280,19 @@ cat(longmcq2(opts))
 </div>
 
 
-
-
-
 ## Question 3
 
-
-En considérant le contexte de la question \\(1\\), vous souhaitez construire un intervalle de confiance pour \\(p\\) basé sur \\(\\hat{p}\\) à un niveau de confiance \\(\\alpha = 0.05\\). Quelle est la valeur du quantile que vous devez utiliser afin de construire cet intervalle de confiance?
-
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). On considère un échantillon de taille \\(n = 100\\). Quelle est la variance de \\(\\bar{X}\\), la moyenne de l'échantillon ?
 
 ```{r}
 opts <- c(
-    "\\(1.28\\)",
-    "\\(1.645\\)",
-    answer = "\\(1.96\\)",
-    "\\(2.58\\)"
-)
+  "\\(0.75\\)",
 
+  "\\(2.5\\)",
+  "\\(25\\)",
+    answer = "\\(0.25\\)",
+  "\\(100\\)"
+)
 ```
 
 ```{r, results='asis'}
@@ -302,9 +301,9 @@ cat(longmcq2(opts))
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Pour un intervalle de confiance à \\(95\\%\\), on utilise le quantile de la distribution normale standard correspondant à \\(1 - \\frac{\\alpha}{2}\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q3-expl', ' Ici, \\(\\alpha = 0.05\\), donc on cherche le quantile pour \\(1 - \\frac{0.05}{2} = 0.975\\). Le quantile pour un niveau de confiance de \\(95\\%\\) est ainsi \\(Z_{1-\\frac{\\alpha}{2}} = Z_{0.975} = 1.96\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;En considérant le contexte de la question (1), vous souhaitez construire un intervalle de confiance pour (p) basé sur (hatp) à un niveau de confiance (alpha = 0.05). Quelle est la valeur du quantile que vous devez utiliser afin&quot;, &quot;Pour un intervalle de confiance à (95%), on utilise le quantile de la distribution normale standard correspondant à (1 - fracalpha2).&quot;, &quot;Ici, (alpha = 0.05), donc on cherche le quantile pour (1 - frac0.052 = 0.975). Le quantile pour un niveau de confiance de (95%) est ainsi (Z_1-fracalpha2 = Z_0.975 = 1.96).&quot;, &quot;(1.96)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q3-hint', 'Quelle est la formule de la variance de \\(\\bar{X}\\)?', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q3-expl', 'La variance de \\(\\bar{X}\\) est donnée par \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\). Dans ce cas, \\(\\sigma^2 = 25\\) et \\(n = 100\\), donc \\(\\text{Var}(\\bar{X}) = \\frac{25}{100} = 0.25\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 50) et une variance (sigma^2 = 25). On considère un échantillon de taille (n = 100). Quelle est la variance de (barX), la moyenne de l&quot;, &quot;Quelle est la formule de la variance de (barX)?&quot;, &quot;La variance de (barX) est donnée par (textVar(barX) = fracsigma^2n). Dans ce cas, (sigma^2 = 25) et (n = 100), donc (textVar(barX) = frac25100 = 0.25).&quot;, &quot;(0.25)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -323,23 +322,18 @@ cat(longmcq2(opts))
 
 
 
-
-
-
-
 ## Question 4
 
-
-En utilisant le contexte des questions précédentes, calculez l'intervalle de confiance à \\(95\\%\\) pour la proportion \\(p\\) de personnes favorables au traité, en utilisant la proportion estimée \\(\\hat{p}\\) et l'erreur standard \\(\\text{e.s.}(\\hat{p})\\).
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 50\\) et une variance \\(\\sigma^2 = 25\\). Maintenant, on considère un échantillon de taille \\(n = 100\\). Quelle est la probabilité que la moyenne de l'échantillon \\(\\bar{X}\\) soit supérieure à 51 ?
 
 ```{r}
 opts <- c(
-  "\\([0.543,  0.657]\\)",
-  answer = "\\([0.532,  0.668]\\)",
-  "\\([0.556,  0.644]\\)",
-  "\\([0.511,  0.689]\\)"
+  "\\(0.1587\\)",
+  answer = "\\(0.0228\\)",
+  "\\(0.3085\\)",
+  "\\(0.5\\)",
+  "\\(0.8413\\)"
 )
-
 ```
 
 ```{r, results='asis'}
@@ -347,12 +341,10 @@ cat(longmcq2(opts))
 ```
 
 
-
-
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Utilisez la formule de l\'intervalle de confiance pour une proportion : \\(\\hat{p} \\pm Z_{1-\\frac{\\alpha}{2}} \\times \\text{e.s.}(\\hat{p})\\), où \\(Z_{1-\\frac{\\alpha}{2}}\\) est le quantile de la distribution normale standard correspondant au niveau de confiance souhaité.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'L\'intervalle de confiance à \\(95\\%\\) est calculé comme suit : \\(\\hat{p} \\pm 1.96 \\times \\text{e.s.}(\\hat{p}) = 0.60 \\pm 1.96 \\times 0.0346\\). Cela donne \\([0.532 0.668]\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant le contexte des questions précédentes, calculez l&#39;intervalle de confiance à (95%) pour la proportion (p) de personnes favorables au traité, en utilisant la proportion estimée (hatp) et l&#39;erreur standard (texte.s.(&quot;, &quot;Utilisez la formule de l\&#39;intervalle de confiance pour une proportion : (hatp pm Z_1-fracalpha2 times texte.s.(hatp)), où (Z_1-fracalpha2) est le quantile de la distribution normale standard correspondant au niveau de confiance souhaité.&quot;, &quot;L\&#39;intervalle de confiance à (95%) est calculé comme suit : (hatp pm 1.96 times texte.s.(hatp) = 0.60 pm 1.96 times 0.0346). Cela donne ([0.532 0.668]).&quot;, &quot;([0.532, 0.668])&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q4-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q4-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 50\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{25}{100} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit supérieure à 51 est donnée par \\(P(\\bar{X} > 51) = P\\left(Z > \\frac{51 - 50}{0.5}\\right) = P(Z > 2) = 1- \\Phi(2) \\approx 0.0228\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 50) et une variance (sigma^2 = 25). Maintenant, on considère un échantillon de taille (n = 100). Quelle est la probabilité que la moyenne de l&quot;, &quot;Utilisez la distribution normale de (barX) et calculez la probabilité en standardisant la variable.&quot;, &quot;La moyenne de l\&#39;échantillon (barX) suit une distribution normale avec une espérance (mu = 50) et une variance (textVar(barX) = fracsigma^2n = frac25100 = 0.25). L\&#39;écart-type de (barX) est donc (sqrt0.25 = 0.5). La probabilité que (barX) soit supérieure à 51 est donnée par (P(barX &gt; 51) = Pleft(Z &gt; frac51 - 500.5right) = P(Z &gt; 2) = 1- Phi(2) approx 0.0228).&quot;, &quot;(0.0228)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -368,17 +360,20 @@ cat(longmcq2(opts))
 
 
 
+
 ## Question 5
 
-Considérons maintenant un niveau de confiance de 99% (c'est-à-dire \\(\\alpha=0.01\\)) au lieu de \\(95\\%\\). Quel sera l'effet sur la longueur de l'intervalle de confiance pour la proportion \\(p\\) de personnes favorables au traité ? La longueur de l'intervalle de confiance est donnée par la différence entre la borne supérieure et la borne inférieure de l'intervalle.
+On considère une variable aléatoire \\(X\\) distribuée normalement avec une espérance \\(\\mu = 100\\) et une variance \\(\\sigma^2 = 16\\). Maintenant, on considère un échantillon de taille \\(n = 64\\). Quelle est la probabilité que la moyenne de l'échantillon \\(\\bar{X}\\) soit inférieure à 99 ?
 
 ```{r}
 opts <- c(
-   answer =  "La longueur de l'intervalle de confiance augmentera",
-  "La longueur de l'intervalle de confiance diminuera",
-  "La longueur de l'intervalle de confiance restera la même"
+  "\\(0.0478\\)",
+  "\\(0.1587\\)",
+  "\\(0.3085\\)",
+  "\\(0.5\\)",
+    answer = "\\(0.0228\\)",
+  "\\(0.1237\\)"
 )
-
 ```
 
 ```{r, results='asis'}
@@ -386,10 +381,11 @@ cat(longmcq2(opts))
 ```
 
 
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Revoyez comment calculer l\'intervalle de confiance et l\'impact sur la valeur du quantile considéré dans le calcul de l\'intervalle de confiance lorsque \\(\\alpha\\) diminue.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'Lorsque le niveau de confiance augmente, le quantile utilisé dans le calcul de l\'intervalle de confiance augmente également. Cela entraîne ainsi une augmentation de la longueur de l\'intervalle de confiance.', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Considérons maintenant un niveau de confiance de 99% (c&#39;est-à-dire (alpha=0.01)) au lieu de (95%). Quel sera l&#39;effet sur la longueur de l&#39;intervalle de confiance pour la proportion (p) de personnes favorables au traité ? La longueur d&quot;, &quot;Revoyez comment calculer l\&#39;intervalle de confiance et l\&#39;impact sur la valeur du quantile considéré dans le calcul de l\&#39;intervalle de confiance lorsque (alpha) diminue.&quot;, &quot;Lorsque le niveau de confiance augmente, le quantile utilisé dans le calcul de l\&#39;intervalle de confiance augmente également. Cela entraîne ainsi une augmentation de la longueur de l\&#39;intervalle de confiance.&quot;, &quot;La longueur de l&#39;intervalle de confiance augmentera&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q5-hint', 'Utilisez la distribution normale de \\(\\bar{X}\\) et calculez la probabilité en standardisant la variable.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q5-expl', 'La moyenne de l\'échantillon \\(\\bar{X}\\) suit une distribution normale avec une espérance \\(\\mu = 100\\) et une variance \\(\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{16}{64} = 0.25\\). L\'écart-type de \\(\\bar{X}\\) est donc \\(\\sqrt{0.25} = 0.5\\). La probabilité que \\(\\bar{X}\\) soit inférieure à \\(99\\) est donnée par \\(P(\\bar{X} < 99) = P\\left(Z < \\frac{99 - 100}{0.5}\\right) = P(Z < -2) = 0.0228\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère une variable aléatoire (X) distribuée normalement avec une espérance (mu = 100) et une variance (sigma^2 = 16). Maintenant, on considère un échantillon de taille (n = 64). Quelle est la probabilité que la moyenne de l&quot;, &quot;Utilisez la distribution normale de (barX) et calculez la probabilité en standardisant la variable.&quot;, &quot;La moyenne de l\&#39;échantillon (barX) suit une distribution normale avec une espérance (mu = 100) et une variance (textVar(barX) = fracsigma^2n = frac1664 = 0.25). L\&#39;écart-type de (barX) est donc (sqrt0.25 = 0.5). La probabilité que (barX) soit inférieure à (99) est donnée par (P(barX &lt; 99) = Pleft(Z &lt; frac99 - 1000.5right) = P(Z &lt; -2) = 0.0228).&quot;, &quot;(0.0228)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -406,14 +402,15 @@ cat(longmcq2(opts))
 
 ## Question 6
 
-Vous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de \\(50\\%\\). Quelle est la formulation correcte des hypothèses statistique pour ce test ?
+On considère l'échantillon suivant: \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\). Calculez la moyenne \\(\\bar{X}\\) et l'écart type \\(s\\) de cet ensemble de données.
 
 ```{r}
 opts <- c(
-  "\\(H_0: p = 0.60\\), \\(H_1: p ≠ 0.60\\)",
-  answer = "\\(H_0: p = 0.50\\), \\(H_1: p ≠ 0.50\\)",
-  "\\(H_0: p = 0.50\\), \\(H_1: p > 0.60\\)",
-  "\\(H_0: p ≥ 0.50\\), \\(H_1: p < 0.50\\)"
+   answer =  "\\(\\bar{X} = 4.825, s \\approx 2.66 \\)",
+    "\\(\\bar{X} = 2.825, s \\approx 4.66 \\)",
+    "\\(\\bar{X} = 10.925, s \\approx 3.56 \\)",
+   "\\(\\bar{X} = 1.525, s \\approx 2.21 \\)"
+
 )
 
 ```
@@ -424,9 +421,9 @@ cat(longmcq2(opts))
 
 
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Rappelez-vous que l’hypothèse nulle \\(H_0\\) correspond à l’hypothèse de base, et l’hypothèse alternative \\(H_1\\) est celle que vous cherchez à tester.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'Nous cherchons à tester si la proportion diffère de \\(50\\%\\), donc \\(H_0: p = 0.50\\) et \\(H_1: p ≠ 0.50\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Vous souhaitez désormais tester l’hypothèse selon laquelle la proportion réelle de personnes favorables au traité est de (50%). Quelle est la formulation correcte des hypothèses statistique pour ce test ?&quot;, &quot;Rappelez-vous que l’hypothèse nulle (H_0) correspond à l’hypothèse de base, et l’hypothèse alternative (H_1) est celle que vous cherchez à tester.&quot;, &quot;Nous cherchons à tester si la proportion diffère de (50%), donc (H_0: p = 0.50) et (H_1: p ≠ 0.50).&quot;, &quot;(H_0: p = 0.50), (H_1: p ≠ 0.50)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q6-hint', 'Calculez \\(\\bar{X}\\) et \\(s\\) à l\'aide de leur définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q6-expl', 'Pour calculer la moyenne \\(\\bar{X}\\), nous additionnons toutes les valeurs de l\'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\) et les divisons par le nombre total de valeurs, soit \\(6\\), ce qui donne \\(\\bar{X} = \\frac{28.95}{6} = 4.825\\). Pour l\'écart type \\(s\\), nous calculons d\'abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit \\((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + \\ldots + (8.35 - 4.825)^2 = 35.25875\\), puis nous divisons cette somme par \\(n-1 = 5\\) et prenons la racine carrée du résultat, ce qui donne \\(s = \\sqrt{\\frac{35.25875}{5}} = 2.655513 \\approx 2.656\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;On considère l&#39;échantillon suivant: (1.5, 2.6, 3.9, 5.4,7.2, 8.35). Calculez la moyenne (barX) et l&#39;écart type (s) de cet ensemble de données.&quot;, &quot;Calculez (barX) et (s) à l\&#39;aide de leur définition.&quot;, &quot;Pour calculer la moyenne (barX), nous additionnons toutes les valeurs de l\&#39;échantillon (1.5, 2.6, 3.9, 5.4,7.2, 8.35) et les divisons par le nombre total de valeurs, soit (6), ce qui donne (barX = frac28.956 = 4.825). Pour l\&#39;écart type (s), nous calculons d\&#39;abord la somme des carrés des écarts entre chaque valeur et la moyenne, soit ((1.5 - 4.825)^2 + (2.6 - 4.825)^2 + ldots + (8.35 - 4.825)^2 = 35.25875), puis nous divisons cette somme par (n-1 = 5) et prenons la racine carrée du résultat, ce qui donne (s = sqrtfrac35.258755 = 2.655513 approx 2.656).&quot;, &quot;(barX = 4.825, s approx 2.66 )&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -442,15 +439,16 @@ cat(longmcq2(opts))
 
 ## Question 7
 
-En utilisant les hypothèses définies précédemment, calculez la statistique de test \\(z_{obs}\\). On rappelle que \\(\\hat{p} = 0.60\\), \\(n = 200\\), et \\(p_0 = 0.50\\).
+En utilisant la moyenne \\(\\bar{X}\\) et l'écart type \\(s\\) que vous avez calculés dans l'exercice précédent, déterminez l'erreur standard de la moyenne \\(\\frac{s}{\\sqrt{n}}\\) pour l'échantillon \\(\\{1.5, 2.6, 3.9, 5.4,7.2, 8.35\\}\\).
 
 ```{r}
 opts <- c(
-  answer = "\\(Z \\approx 2.89\\)",
-  "\\(Z \\approx 1.96\\)",
-  "\\(Z \\approx 1.28\\)",
-  "\\(Z \\approx 0.60\\)"
+  "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 0.0478\\)",
+   answer = "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 1.084109\\)",
+ "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 2.05219\\)",
+ "\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = 3.12643\\)"
 )
+
 
 ```
 
@@ -459,10 +457,11 @@ cat(longmcq2(opts))
 ```
 
 
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Utilisez la formule du test : \\(Z = \\dfrac{\\hat{p} - p_0}{\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}}\\)', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q7-expl', 'Avec \\(\\hat{p} = 0.60\\), \\(p_0 = 0.50\\), \\(n = 200\\), l’erreur standard est environ 0.0346. Donc \\(z_{obs} = \\frac{0.60 - 0.50}{0.0346} \\approx 2.89\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant les hypothèses définies précédemment, calculez la statistique de test (z_obs). On rappelle que (hatp = 0.60), (n = 200), et (p_0 = 0.50).&quot;, &quot;Utilisez la formule du test : (Z = dfrachatp - p_0sqrtfrachatp(1-hatp)n)&quot;, &quot;Avec (hatp = 0.60), (p_0 = 0.50), (n = 200), l’erreur standard est environ 0.0346. Donc (z_obs = frac0.60 - 0.500.0346 approx 2.89).&quot;, &quot;(Z approx 2.89)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q7-hint', 'Calculez \\(e.s.(\\bar{X})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q7-expl', '\\(e.s.(\\bar{X}) = \\frac{s}{\\sqrt{n}} = \\frac{2.655513}{\\sqrt{6}} =  1.084109\\)', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;En utilisant la moyenne (barX) et l&#39;écart type (s) que vous avez calculés dans l&#39;exercice précédent, déterminez l&#39;erreur standard de la moyenne (fracssqrtn) pour l&#39;échantillon (1.5, 2.6, 3.9, 5.4,7.2, 8.35).&quot;, &quot;Calculez (e.s.(barX)) à l\&#39;aide de sa définition.&quot;, &quot;(e.s.(barX) = fracssqrtn = frac2.655513sqrt6 = 1.084109)&quot;, &quot;(e.s.(barX) = fracssqrtn = 1.084109)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -475,18 +474,32 @@ cat(longmcq2(opts))
 </div>
 </div>
 
+---
+
+**Tir à 3 points de Stephen Curry**
+
+On a les données suivantes sur les réussites au tir à trois points de Stephen Curry (données réelles avril 2025) :
+
+| Date             | Adversaire             | Tentatives à 3 points  | Réussites à 3 points |
+|------------------|------------------------|------------------------|-----------------------|
+| 1er avril 2025   | Memphis Grizzlies    | 20                     | 12                    |
+| 3 avril 2025     | Los Angeles Lakers   | 11                     | 4                     |
+| 4 avril 2025     | Denver Nuggets      | 15                     | 7                     |
+| 6 avril 2025     | Houston Rockets     | 8                      | 1                     |
+
 
 ## Question 8
 
-À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).
+Basé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?
 
 ```{r}
 opts <- c(
-  "\\(0.028\\)",
-  "\\(0.0196\\)",
-  answer = "\\(0.0038\\)",
-  "\\(0.001\\)"
+  "\\(0.3790\\)",
+   answer = "\\(0.4444\\)",
+ "\\(0.3890\\)",
+ "\\(24\\)"
 )
+
 
 ```
 
@@ -495,10 +508,11 @@ cat(longmcq2(opts))
 ```
 
 
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Utilisez la formule : p-valeur = \\(2 \\times P(Z > |z_{obs}|)\\), avec \\(z_{obs} = 2.89\\), puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'La p-valeur se calcule comme \\(2 \\times P(Z > 2.89) \\approx 2 \\times 0.0019 = 0.0038\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;À partir de la statistique de test calculée précédemment, déterminez la p-valeur associée au test (bilatéral).&quot;, &quot;Utilisez la formule : p-valeur = (2 times P(Z &gt; |z_obs|)), avec (z_obs = 2.89), puis consultez la table de la fonction cumulative de densité de la distribution standard normale.&quot;, &quot;La p-valeur se calcule comme (2 times P(Z &gt; 2.89) approx 2 times 0.0019 = 0.0038).&quot;, &quot;(0.0038)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q8-hint', 'Calculez \\(\\hat{p}\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q8-expl', 'Ici on a \\(X=24\\) paniers à trois points réussis pour \\(n=54\\) tentatives, soit une propotion de \\(\\hat{p}=X/n\\approx0.4444\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Basé sur ces données, quelle est la proportion de réussites à 3 points de Stephen Curry ?&quot;, &quot;Calculez (hatp) à l\&#39;aide de sa définition.&quot;, &quot;Ici on a (X=24) paniers à trois points réussis pour (n=54) tentatives, soit une propotion de (hatp=X/napprox0.4444).&quot;, &quot;(0.4444)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -511,18 +525,19 @@ cat(longmcq2(opts))
 </div>
 </div>
 
+## Question 9
 
-## Question 9 
-
-Quelle est l’interprétation correcte d’une p-valeur de \\(0.0038\\) dans le contexte de ce test ?
+Basé sur ces données, quelle est l\'erreur standard de la proportion de réussites à 3 points de Stephen Curry ?
 
 ```{r}
 opts <- c(
-  answer = "Il y a une faible probabilité d’observer une telle valeur de \\(\\hat{p}=0.60\\) si la vraie proportion était \\(0.50\\).",
-  "La proportion estimée est trop éloignée de \\(50\\%\\), donc \\(H_0\\) est forcément fausse.",
-  "Cela signifie que \\(0.38\\%\\) des personnes interrogées sont favorables au traité.",
-  "La probabilité que \\(H_0\\) soit vraie est de 0.0038."
+  "\\(0.0046\\)",
+   "\\(0.4969\\)",
+ answer = "\\(0.0676\\)",
+ "\\(0.0663\\)"
 )
+
+
 ```
 
 ```{r, results='asis'}
@@ -530,10 +545,11 @@ cat(longmcq2(opts))
 ```
 
 
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Une p-valeur de \\(0.0038\\) signifie que, si \\(H_0\\) était vraie, il serait très rare (\\(0.38\\%\\)) d’observer une telle distance entre \\(\\hat{p}\\) et \\(p_0\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle est l’interprétation correcte d’une p-valeur de (0.0038) dans le contexte de ce test ?&quot;, &quot;La p-valeur mesure la compatibilité entre les données observées et l’hypothèse nulle.&quot;, &quot;Une p-valeur de (0.0038) signifie que, si (H_0) était vraie, il serait très rare ((0.38%)) d’observer une telle distance entre (hatp) et (p_0).&quot;, &quot;Il y a une faible probabilité d’observer une telle valeur de (hatp=0.60) si la vraie proportion était (0.50).&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q9-hint', 'Calculez \\(e.s.(\\hat{p})\\) à l\'aide de sa définition.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q9-expl', 'Ici on a \\(\\hat{p}=0.4444\\) (Question 8) et \\(n=54\\), donc \\(e.s.(\\hat{p})=\\sqrt{\\hat{p}(1-\\hat{p})/n}\\approx0.0676\\).', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Basé sur ces données, quelle est l\&#39;erreur standard de la proportion de réussites à 3 points de Stephen Curry ?&quot;, &quot;Calculez (e.s.(hatp)) à l\&#39;aide de sa définition.&quot;, &quot;Ici on a (hatp=0.4444) (Question 8) et (n=54), donc (e.s.(hatp)=sqrthatp(1-hatp)/napprox0.0676).&quot;, &quot;(0.0676)&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -546,18 +562,20 @@ cat(longmcq2(opts))
 </div>
 </div>
 
+## Question 10
 
-## Question 10 
-
-À un niveau de signification \\(\\alpha = 0.05\\), que concluez-vous du test précédent ?
+Quelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?
 
 ```{r}
 opts <- c(
-  answer = "On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\).",
-  "On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\).",
-  "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves.",
-  "On ne peut pas conclure : l’échantillon est trop petit."
+  "Le TCL s’applique car les pourcentages proviennent d’un joueur professionnel, donc ils suivent une loi normale.",
+   "Le TCL ne peut pas s’appliquer ici car les tirs à 3 points ne suivent pas une loi normale.",
+  "Le TCL s’applique dès qu’on connaît la moyenne et la variance des taux de réussite, quelle que soit la taille de l’échantillon.",
+ answer = "Le TCL s’applique car l'échantillon est suffisamment grand pour justifier l’approximation normale.",
+ "Le TCL permet de conclure que la proportion est égale à la probabilité de réussite à 3 points."
 )
+
+
 ```
 
 ```{r, results='asis'}
@@ -565,10 +583,11 @@ cat(longmcq2(opts))
 ```
 
 
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Puisque la p-valeur est plus petite que 0.05, on rejette \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;À un niveau de signification (alpha = 0.05), que concluez-vous du test précédent ?&quot;, &quot;Comparez la p-valeur à (alpha = 0.05).&quot;, &quot;Puisque la p-valeur est plus petite que 0.05, on rejette (H_0) au niveau de signification de (5%).&quot;, &quot;On rejette (H_0) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de (50%).&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q10-hint', 'Revoir les conditions d\'application du TCL dans les slides.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q10-expl', 'Ici on a \\(n=54\\). Bien que \\(p\\) (le paramètre) ne soit pas connu,on a \\(n\\hat{p}=24>10\\) et \\(n(1-\\hat{p}=30>10\\) qui sont les deux indications que la taille d\'échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Quelle affirmation est correcte à propose du Théorème Centrale Limite (TCL) dans ce cas ?&quot;, &quot;Revoir les conditions d\&#39;application du TCL dans les slides.&quot;, &quot;Ici on a (n=54). Bien que (p) (le paramètre) ne soit pas connu,on a (nhatp=24&gt;10) et (n(1-hatp=30&gt;10) qui sont les deux indications que la taille d\&#39;échantillon est suffisamment grande. Les autres affirmations sont clairement fausses.&quot;, &quot;Le TCL s’applique car l&#39;échantillon est suffisamment grand pour justifier l’approximation normale.&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -582,29 +601,32 @@ cat(longmcq2(opts))
 </div>
 
 
+## Question 11
 
-## Question 11 
-
-Considérons maintenant un test unilatéral avec les hypothèses suivantes: \\(H_0: p=0.5\\) et \\(H_1: p<0.5\\). 
-Quelle est la p-valeur associée? 
+Supposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de \\(p=0.397\\). En supposant que le TCL s'applique, quelle est la distribution approximative de \\(\\hat{p}\\) ? 
 
 ```{r}
 opts <- c(
-   "\\(0.0001\\)",
-   answer = "\\(0.9981\\)",
-  "\\(0.499\\)",
-  "\\(0.028\\)"
+  "\\(\\hat{p}\\sim\\mathcal{N}(0.4444, 0.0676^2)\\)",
+  "\\(\\hat{p}\\sim\\text{Bin}(54, 0.397)\\)",
+  "\\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.397^2)\\)",
+  "\\(\\hat{p}\\sim\\mathcal{U}(0, 1)\\)",
+  answer = "\\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\)"
 )
+
+
 ```
 
 ```{r, results='asis'}
 cat(longmcq2(opts))
 ```
 
+
+
 <div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Utilisez la formule : p-valeur = \\(P(Z < z_{obs})\\), avec \\(z_{obs}\\) calculée précédement, puis consultez  la table de la fonction cumulative de densité de la distribution standard normale.', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'La statistique de test étant \\(z_{obs} = 2.89\\), la p-valeur se calcule comme \\(P(Z < 2.89) \\approx 0.9981\\). ', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Considérons maintenant un test unilatéral avec les hypothèses suivantes: (H_0: p=0.5) et (H_1: p&lt;0.5). Quelle est la p-valeur associée?&quot;, &quot;Utilisez la formule : p-valeur = (P(Z &lt; z_obs)), avec (z_obs) calculée précédement, puis consultez la table de la fonction cumulative de densité de la distribution standard normale.&quot;, &quot;La statistique de test étant (z_obs = 2.89), la p-valeur se calcule comme (P(Z &lt; 2.89) approx 0.9981).&quot;, &quot;(0.9981)&quot;, this)">
+<button class="custom-button hint" onclick="toggleAlert('q11-hint', 'Revoir l\'approximation donnée par le TCL dans les slides.', 'hint')">❓ Indice</button>
+<button class="custom-button explanation" onclick="toggleAlert('q11-expl', 'Par hypothèse on a \\(p=0.397\\). Ici on \\(n=54\\). Donc on déduit que \\(\\sqrt{p(1-p)/n}\\approx0.0666\\). On conclut que \\(\\hat{p}\\sim\\mathcal{N}(0.397, 0.0666^2)\\) grâce au TCL.', 'explanation')">💡 Explication</button>
+<button class="custom-button ai-help" onclick="openAIHelp(&quot;Supposez que chaque tir à trois points de Stephen Curry ait une probabilité de succès de (p=0.397). En supposant que le TCL s&#39;applique, quelle est la distribution approximative de (hatp) ?&quot;, &quot;Revoir l\&#39;approximation donnée par le TCL dans les slides.&quot;, &quot;Par hypothèse on a (p=0.397). Ici on (n=54). Donc on déduit que (sqrtp(1-p)/napprox0.0666). On conclut que (hatpsimmathcalN(0.397, 0.0666^2)) grâce au TCL.&quot;, &quot;(hatpsimmathcalN(0.397, 0.0666^2))&quot;, this)">
   🤖 Aide IA
 </button>
 </div>
@@ -618,36 +640,3 @@ cat(longmcq2(opts))
 </div>
 
 
-## Question 12
-
-Que peut-on conclure de ce dernier test au niveau de signification \\(\\alpha = 0.05\\)? 
-
-```{r}
-opts <- c(
-  "On rejette \\(H_0\\) : il y a suffisamment de preuves pour conclure que la proportion réelle est différente de \\(50\\%\\).",
-  "On accepte \\(H_0\\) : la proportion réelle est exactement de \\(50\\%\\).",
-  answer = "On ne rejette pas \\(H_0\\) : il n’y a pas suffisamment de preuves.",
-  "On ne peut pas conclure : l’échantillon est trop grand."
-)
-```
-
-```{r, results='asis'}
-cat(longmcq2(opts))
-```
-
-
-<div class="question-buttons">
-<button class="custom-button hint" onclick="toggleAlert('q12-hint', 'Comparez la p-valeur à \\(\\alpha = 0.05\\).', 'hint')">❓ Indice</button>
-<button class="custom-button explanation" onclick="toggleAlert('q12-expl', 'Puisque la p-valeur est plus grande que \\(0.05\\), on ne peut pas rejetter \\(H_0\\) au niveau de signification de \\(5\\%\\).', 'explanation')">💡 Explication</button>
-<button class="custom-button ai-help" onclick="openAIHelp(&quot;Que peut-on conclure de ce dernier test au niveau de signification (alpha = 0.05)?&quot;, &quot;Comparez la p-valeur à (alpha = 0.05).&quot;, &quot;Puisque la p-valeur est plus grande que (0.05), on ne peut pas rejetter (H_0) au niveau de signification de (5%).&quot;, &quot;On ne rejette pas (H_0) : il n’y a pas suffisamment de preuves.&quot;, this)">
-  🤖 Aide IA
-</button>
-</div>
-<div class="question-alerts">
-<div class="alert alert-info" id="q12-hint" style="display: none;">
-  <strong class="alertType"></strong>: <span class="alertMessage"></span>
-</div>
-<div class="alert alert-info" id="q12-expl" style="display: none;">
-  <strong class="alertType"></strong>: <span class="alertMessage"></span>
-</div>
-</div>

@@ -1,3 +1,1 @@
-{
-  "c": "Théorème central limite : exemple\n\nIllustration finale du TCL.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nLa distribution d'échantillonnage des proportions estimées est maintenant clairement visible et suit une distribution normale (courbe en cloche) centrée autour de la vraie proportion p = 51.3%.\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Espérance et écart-type de X̄\n\nE(X̄) = μ\n\nσ_X̄ = √Var(X̄) = σ/√n\n\nqui est remplacé par:\n\ne.s.(X̄) = s/√n\n\npuisque nous ne connaissons pas σ.\n\nL'erreur standard utilise s (estimateur de σ) à la place de σ."}

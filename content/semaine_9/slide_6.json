@@ -1,3 +1,1 @@
-{
-  "c": "Estimation d'une proportion\n\nEn utilisant les variables aléatoires X₁, ..., Xₙ, nous pouvons définir un estimateur de p, souvent noté p̂, donné par :\n\np̂ = (1/n) Σᵢ₌₁ⁿ Xᵢ = m/n\n\noù m représente le nombre d'électeurs dans notre échantillon en faveur de Biden, et n est la taille de l'échantillon.\n\nUn estimateur est une fonction des données (c'est-à-dire X₁, ..., Xₙ).\n\nThéoriquement, toute fonction de X₁, ..., Xₙ peut être un estimateur. Cependant, dans ce cas, p̂ est le meilleur estimateur possible de p, il n'est donc pas utile de chercher de meilleurs estimateurs."
-}
+{"c": "Statistiques vs. paramètres (notation)\n\nStatistiques: sont calculées à partir de l'échantillon\n- X̄: moyenne de l'échantillon\n- s: écart-type de l'échantillon\n- p̂: proportion de l'échantillon\n\nParamètres: inconnus\n- μ: moyenne de la population\n- σ: écart-type de la population\n- p: proportion de la population"}

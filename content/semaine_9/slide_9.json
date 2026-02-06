@@ -1,3 +1,1 @@
-{
-  "c": "Population et échantillon : exemple\n\nVisualisation de la population complète.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nLa population est représentée par des points colorés : bleu pour Biden, rouge pour Trump, gris pour les indépendants."
-}
+{"c": "Espérance de X̄\n\nE(X̄) = (1/n) Σᵢ₌₁ⁿ E(Xᵢ) = μ\n\nPourquoi?\n\nE(X̄) = E((1/n) Σᵢ₌₁ⁿ Xᵢ)\n     = (1/n) Σᵢ₌₁ⁿ E(Xᵢ)\n     = (1/n) Σᵢ₌₁ⁿ μ\n     = (1/n) · n · μ = μ\n\nL'espérance de la moyenne de l'échantillon est égale à la moyenne de la population."}

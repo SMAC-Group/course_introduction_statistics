@@ -1,3 +1,1 @@
-{
-  "c": "Intervalles de confiance avec α = 0.20\n\nExemple avec un petit échantillon (3% de la population).\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nSample (3% of pop.) : Biden: 33.3%, Trump: 60%, Indep: 6.7%\n\nL'intervalle de confiance à 80% est représenté sur le graphique. Avec un petit échantillon, l'estimation est très éloignée de la vraie proportion et l'intervalle est large.\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Exemple: scores d'examen\n\nLes résultats des étudiants au dernier examen final du cours \"Introduction à la statistique\" des années précédentes suivent une distribution avec une moyenne 74 et un écart type 14.\n\nLe professeur a donné un examen final cette année dans une classe de 64 étudiants.\n\nNous nous intéressons à estimer la probabilité que la moyenne des scores de cette année dépasse 80.\n\nRemarque: Dans le problème, il n'est pas mentionné que les scores d'examen suivent une distribution normale!"}

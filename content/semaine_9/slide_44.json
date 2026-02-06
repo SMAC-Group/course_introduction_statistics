@@ -1,3 +1,1 @@
-{
-  "c": "Test d'hypothèse\n\nGraphique préparatoire : Relation entre la taille d'échantillon et la p-value.\n\nAxes du graphique :\n- Axe Y : Pvalue % (de 0 à 100%)\n- Axe X : Sample size (taille d'échantillon, de 0 à 600)\n\nCe graphique vide sera utilisé pour illustrer comment la p-value évolue en fonction de la taille de l'échantillon lors des tests d'hypothèse. Plus l'échantillon est grand, plus le test statistique devient précis et capable de détecter des différences significatives."
-}
+{"c": "Exemple: lancer une pièce n fois (vérification)\n\nX = # de Faces dans les 50 lancers\n\n- Nous avons un nombre fixe de lancers (n = 50). ✓\n- Chaque lancer est indépendant des autres. ✓\n- Il y a deux issues possibles (Face, Pile). ✓\n- P(\"Succès\") = P(\"Face\") = 0.25\n\nIl s'agit d'une expérience binomiale!\n\nVérifiez aussi:\nnp = 50 × 0.25 = 12.5 > 10 ✓\nn(1-p) = 50 × 0.75 = 37.5 > 10 ✓\n\n(Cela garantit que la taille de l'échantillon est suffisamment grande.)"}

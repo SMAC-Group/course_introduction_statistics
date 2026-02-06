@@ -1,3 +1,1 @@
-{
-  "c": "Test d'hypothèse\n\nExemple avec un échantillon de 7% de la population.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nÉchantillon (7% de pop.) : Biden: 52.5%, Trump: 45%, Indep: 2.5%\n\nParamètres du test :\n- α = 5%\n- H₀ : p_Biden = 50%\n- H₁ : p_Biden > 50%\n\nRésultat : P-value = 36.88%\n\nComme P-value > α, nous ne pouvons pas rejeter que p_Biden est égal à 50%.\n\nMême avec un échantillon plus représentatif (52.5% pour Biden), la p-valeur reste trop élevée pour conclure significativement."
-}
+{"c": "Distribution Binomiale: n = 100, p = 0.05\n\nGraphique montrant la distribution binomiale avec n = 100 et p = 0.05.\n\nLa distribution se rapproche d'une distribution normale.\n\nCentrée autour de np = 5.\n\nMême avec p petit, si n est assez grand, la distribution converge vers la normale (TCL)."}

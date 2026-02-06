@@ -1,3 +1,1 @@
-{
-  "c": "Comment tester une hypothèse scientifique ?\n\nUne autre mesure résumée de l'incertitude est fournie par les p-valeurs, qui prennent des valeurs entre 0 % et 100 %. Les p-valeurs sont généralement préférées aux intervalles de confiance lorsque nous voulons évaluer la validité d'une affirmation.\n\nCependant, les p-valeurs ont souvent été mal utilisées car comprendre ce qu'elles signifient n'est pas intuitif.\n\nSi vous souhaitez en savoir plus, consultez cet article (vidéo : \"So, what's a P-Value?\")."
-}
+{"c": "Distribution Binomiale: n = 20, p = 0.5\n\nGraphique montrant la distribution binomiale avec n = 20 et p = 0.5.\n\nLa distribution devient plus lisse et se rapproche d'une courbe normale.\n\nCentrée autour de np = 10."}

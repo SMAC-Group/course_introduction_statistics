@@ -1,1 +1,0 @@
-{"c": "Exemple: lancer une pièce n fois\n\nSupposons que nous lançons une pièce 50 fois (chaque lancer est supposé indépendant des autres) avec P(\"Face\") = 0.25.\n\nQuelle est la distribution de la proportion d'échantillon?\n\nQuelle est la probabilité d'obtenir plus de 50% de Faces parmi les 50 lancers?"}

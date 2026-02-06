@@ -1,3 +1,1 @@
-{
-  "c": "Distribution asymptotique de p̂\n\nDans le cas d'une proportion, la moyenne de l'échantillon est dénotée par p̂ et par le TCL, la distribution de l'estimateur tend vers :\n\np̂ ≈ N(p, √(p(1-p)/n))\n\nCette distribution asymptotique permet de quantifier l'incertitude autour de notre estimation de la proportion."
-}
+{"c": "Population et échantillon (diagramme récapitulatif)\n\nPopulation → Paramètres (Espérance, Variance, Médiane, Proportion)\n\nÉchantillon → Statistiques descriptives → Statistiques (Moyenne de l'échantillon, Variance de l'échantillon, Médiane de l'échantillon, Proportion de l'échantillon)\n\nLes statistiques inférentielles permettent de remonter des statistiques de l'échantillon vers les paramètres de la population."}

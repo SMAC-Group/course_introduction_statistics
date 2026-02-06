@@ -1,3 +1,1 @@
-{
-  "c": "Population et échantillon : exemple\n\nComparaison entre la population et un échantillon de 200 électeurs.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nSample (200 voters) : Biden: 47.5%, Trump: 51%, Indep: 1.5%\n\nAvec un échantillon plus grand, les proportions se rapprochent de la population mais restent différentes."
-}
+{"c": "Erreur standard de X̄\n\ne.s.(X̄) = s/√n\n\nQuelle est la différence entre σ_X̄ et e.s.(X̄)?\n\nσ est généralement inconnu.\n\nNous remplaçons σ par la statistique s (écart-type de l'échantillon).\n\nL'erreur standard est une estimation de l'écart-type de X̄."}

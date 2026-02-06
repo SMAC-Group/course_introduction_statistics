@@ -1,3 +1,1 @@
-{
-  "c": "Intervalles de confiance avec α = 0.20\n\nExemple avec un échantillon plus grand (8% de la population).\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nSample (8% of pop.) : Biden: 51%, Trump: 47%, Indep: 2%\n\nL'intervalle de confiance à 80% est représenté sur le graphique. Avec un échantillon plus grand, l'estimation se rapproche de la vraie proportion et l'intervalle est plus étroit.\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Exemple: scores d'examen (calcul)\n\nXᵢ = score de l'examen du i-ème étudiant dans la classe de 64 étudiants, i = 1, ..., 64.\n\nMoyenne des scores d'examen: X̄ = (X₁ + ... + X₆₄)/64\n\nHypothèses du TCL? (iid, moyenne et variance finies, n > 30) ✓\n\nP(X̄ > 80) = P(Z > (80 - 74)/(14/√64))\n          = P(Z > 3.429)\n          = 1 - P(Z ≤ 3.429)\n          = 1 - 0.9997 = 0.0003\n\nLa probabilité est très faible (0.03%)."}

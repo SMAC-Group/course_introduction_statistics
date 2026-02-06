@@ -2883,7 +2883,7 @@
         }
       ]
     },
-    "8": {
+    "9": {
       "titre": "Inférence statistique: estimateurs",
       "slides": [
         {
@@ -3158,7 +3158,7 @@
         }
       ]
     },
-    "9": {
+    "10": {
       "titre": "Inférence statistique: intervalles de confiance et test d'hypothèse pour une proportion",
       "slides": [
         {

@@ -1,3 +1,1 @@
-{
-  "c": "Test d'hypothèse\n\nVisualisation de la population complète avec séparation par candidat.\n\nPopulation :\n- Biden: 51.3%\n- Trump: 46.8%\n- Indep: 1.9%\n\nLe graphique montre :\n1. Un diagramme à barres en haut comparant les trois catégories (B, T, I)\n2. Une grille de points représentant la population totale :\n   - Points bleus : électeurs de Biden (partie supérieure)\n   - Points rouges : électeurs de Trump (partie inférieure)\n   - Points gris : électeurs indépendants (visibles dans la barre du haut)\n\nCette visualisation permet de voir clairement la répartition majoritaire de Biden dans la population réelle."
-}
+{"c": "Exemple: lancer une pièce n fois\n\nSupposons que nous lançons une pièce 50 fois (chaque lancer est supposé indépendant des autres) avec P(\"Face\") = 0.25.\n\nQuelle est la distribution de la proportion d'échantillon?\n\nQuelle est la probabilité d'obtenir plus de 50% de Faces parmi les 50 lancers?"}

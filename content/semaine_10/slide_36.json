@@ -1,0 +1,3 @@
+{
+  "c": "Test d'hypothèse\n\nInformellement, une p-valeur peut être comprise comme une mesure de la plausibilité de l'hypothèse nulle étant donné les données. Plus la p-valeur est petite, plus l'incompatibilité de l'hypothèse nulle avec les données est grande.\n\nLorsque la p-valeur est suffisamment petite (généralement inférieure à 5 %), on dit que le test basé sur les hypothèses nulles et alternatives est significatif ou que l'hypothèse nulle est rejetée en faveur de l'hypothèse alternative.\n\nLorsque la p-valeur n'est pas suffisamment petite (généralement supérieure à 5 %), avec les données disponibles, nous ne pouvons pas rejeter l'hypothèse nulle et alors rien ne peut être conclu."
+}

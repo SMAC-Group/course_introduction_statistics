@@ -1,3 +1,1 @@
-{
-  "c": "Exemple d'échantillon et estimateur\n\nConsidérons un échantillon de n = 10 électeurs comme montré ici. Dans ce cas, nous avons 5 électeurs pour Biden et 5 pour Trump. Nous disons que x₁ = 1, ..., x₅ = 1, x₆ = 0, ..., x₁₀ = 0 sont des réalisations des variables aléatoires X₁, ..., X₁₀.\n\nNous pouvons calculer notre estimateur sur les données observées et nous obtenons p̂ = 0.5.\n\nEssayons avec un échantillon plus grand... disons n = 40."
-}
+{"c": "Distribution d'échantillonnage\n\nLes données sont des variables aléatoires.\n\nLes statistiques sont des fonctions des données. Elles sont donc aussi des variables aléatoires.\n\nLa distribution des statistiques dépend des paramètres de la distribution des données.\n\nExemple: Moyenne de l'échantillon\n- Statistique = X̄\n- Paramètre = μ"}

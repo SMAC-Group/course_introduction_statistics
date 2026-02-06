@@ -1,3 +1,1 @@
-{
-  "c": "Théorème central limite : exemple\n\nIllustration du TCL avec plusieurs échantillons.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nDeux échantillons sont prélevés et leurs proportions estimées sont affichées sur le graphique. On observe que différents échantillons donnent des estimations différentes (un point rouge et un point bleu sur l'axe).\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Échantillon\n\nJeu de données de l'échantillon: {X₁, ..., Xₙ}\n\nTaille de l'échantillon: n\n\nOrdre de l'échantillon: n ≪ N (c'est-à-dire, n est généralement grand mais beaucoup plus petit que N)\n\nObjectif:\nÀ partir des valeurs de l'échantillon, {X₁, ..., Xₙ}, où n est la taille de l'échantillon, nous essayons de tirer des conclusions sur les paramètres d'intérêt.\n\nL'échantillon idéal doit être représentatif et non biaisé.\nChoisir l'échantillon de manière aléatoire."}

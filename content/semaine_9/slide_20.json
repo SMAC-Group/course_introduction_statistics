@@ -1,3 +1,1 @@
-{
-  "c": "Théorème central limite : exemple\n\nIllustration du TCL avec un grand nombre d'échantillons.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\n\nAprès de nombreux échantillons répétés, la distribution des proportions estimées forme une courbe en forme de cloche (distribution normale) centrée autour de la vraie proportion p = 51.3%.\n\nLe graphique montre clairement que la distribution d'échantillonnage suit une loi normale, conformément au théorème central limite.\n\nEstimated proportion of votes for Biden (%)"
-}
+{"c": "Propriétés de X̄\n\nQuestion: Est-ce que X̄ est un \"bon\" estimateur pour μ?\n\nCela dépend de comment l'échantillon X₁, ..., Xₙ est choisi.\n\nSi X₁, ..., Xₙ sont iid, c'est-à-dire si nous avons un échantillon aléatoire simple (EAS), alors la moyenne de l'échantillon X̄ possède certaines propriétés très intéressantes."}

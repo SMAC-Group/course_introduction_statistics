@@ -1,3 +1,1 @@
-{
-  "c": "Population et échantillon : exemple\n\nComparaison entre la population et un échantillon de 600 électeurs.\n\nPopulation : Biden: 51.3%, Trump: 46.8%, Indep: 1.9%\nSample (600 voters) : Biden: 53.3%, Trump: 45.2%, Indep: 1.5%\n\nAvec un échantillon encore plus grand (600), les proportions se rapprochent davantage de la population réelle."
-}
+{"c": "Exemple: 5 observations normales et indépendantes\n\nJeu de données: 63, 65, 72, 74, 74\n\nMoyenne de l'échantillon (statistique):\nX̄ = (63 + 65 + 72 + 74 + 74)/5 = 69.6\n\nÉcart-type de l'échantillon:\ns = √[(1/4)(Σxᵢ² - 5(69.6)²)] = 5.225\n\nErreur standard:\ne.s.(X̄) = s/√5 = 5.225/√5 = 2.337"}

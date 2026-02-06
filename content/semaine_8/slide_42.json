@@ -1,1 +1,0 @@
-{"c": "Quand pouvons-nous utiliser cette approximation?\n\nRègle:\n\n- Une population avec une proportion fixe\n- Échantillon aléatoire\n- Indépendant\n- Probabilité égale (chance égale)\n- Taille de l'échantillon suffisamment grande:\n  - np > 10\n  - n(1-p) > 10\n\nCes conditions garantissent que l'approximation normale est valide pour la proportion d'échantillon."}
