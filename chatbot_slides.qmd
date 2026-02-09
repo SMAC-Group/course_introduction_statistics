@@ -312,7 +312,7 @@ main.content,
   <div class="slides-chat-messages" id="slides-chat-messages">
     <div class="slides-chat-welcome">
       Pose tes questions sur le contenu des cours.<br>
-      Exemple : "Explique-moi la slide 15" ou "C'est quoi la probabilité conditionnelle ?"
+      Exemple : "Quelle est la différence entre une variable discrète et continue ?" ou "C'est quoi la probabilité conditionnelle ?"
     </div>
   </div>
 
