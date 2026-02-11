@@ -11,6 +11,7 @@ project:
   resources:
     - content/
     - slides/
+    - exercises_pdf/
 website:
   page-navigation: true
   title: "Introduction à la Statistique"
@@ -50,8 +51,10 @@ format:
     - styles.css
     - include/webex.css
     - include/chat.css
+    - include/print-exercises.css
     toc: true
     include-after-body:
     - include/webex.js
     - include/chat.js
     - include/site-features.js
+    - include/print-exercises.js

@@ -1,0 +1,101 @@
+/* ============================================================================
+   PRINT EXERCISES - Download Button
+   ============================================================================ */
+
+.print-download-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.print-download-dropdown {
+  position: relative;
+}
+
+.print-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.print-download-btn:hover {
+  background: var(--color-bg-muted);
+  border-color: var(--color-text-muted);
+}
+
+.print-download-btn svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.print-download-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  z-index: 100;
+  padding: 0.4rem;
+  overflow: hidden;
+}
+
+.print-download-menu.open {
+  display: block;
+}
+
+a.print-download-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+a.print-download-option:hover {
+  background: var(--color-bg-muted);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Dark mode */
+[data-theme="dark"] .print-download-btn {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .print-download-menu {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+}
+
+/* Hide in print */
+@media print {
+  .print-download-bar {
+    display: none !important;
+  }
+}
