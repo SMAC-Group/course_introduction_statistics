@@ -27,37 +27,37 @@ page-layout: full
 <a href="exercices_semaine_1.html" class="week-card available">
 <div class="week-number">Semaine 1</div>
 <div class="week-topic">Probabilités de base</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_2.html" class="week-card available">
 <div class="week-number">Semaine 2</div>
 <div class="week-topic">Probabilités conditionnelles</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_3.html" class="week-card available">
 <div class="week-number">Semaine 3</div>
 <div class="week-topic">Variables aléatoires</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_4.html" class="week-card available">
 <div class="week-number">Semaine 4</div>
 <div class="week-topic">Loi binomiale</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_5.html" class="week-card available">
 <div class="week-number">Semaine 5</div>
 <div class="week-topic">Loi normale</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_6.html" class="week-card available">
 <div class="week-number">Semaine 6</div>
 <div class="week-topic">Statistiques descriptives</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <div class="week-card exam">
@@ -75,25 +75,25 @@ page-layout: full
 <a href="exercices_semaine_9.html" class="week-card available">
 <div class="week-number">Semaine 9</div>
 <div class="week-topic">Inférence statistique: estimateurs</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_10.html" class="week-card available">
 <div class="week-number">Semaine 10</div>
 <div class="week-topic">IC et test d'hypothèse pour une proportion</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_11.html" class="week-card available">
 <div class="week-number">Semaine 11</div>
 <div class="week-topic">IC pour une moyenne, test-z et test-t</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <a href="exercices_semaine_12.html" class="week-card available">
 <div class="week-number">Semaine 12</div>
 <div class="week-topic">Test-t et test-z à deux échantillons</div>
-<div class="week-status available">Disponible</div>
+<div class="week-status available">Cours</div>
 </a>
 
 <div class="week-card exam">
